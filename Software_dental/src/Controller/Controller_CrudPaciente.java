@@ -26,11 +26,7 @@ public class Controller_CrudPaciente {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
-          Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension d = tk.getScreenSize();
-        int ancho = (int)d.getWidth() ;
-        int alto = (int)d.getHeight() ;
-        vista.setSize(ancho, alto);
+          
        // vista.getjDialog1().setLocationRelativeTo(null);
        
    

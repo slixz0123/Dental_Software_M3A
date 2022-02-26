@@ -38,6 +38,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setAlignmentX(1.0F);
         panelNice1.setAlignmentY(1.0F);
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
@@ -56,16 +57,16 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
                         .addGap(37, 37, 37)
                         .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(572, 572, 572)
+                        .addGap(545, 545, 545)
                         .addComponent(jLabel1)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelNice1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                     .addComponent(panelNice2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
