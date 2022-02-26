@@ -26,9 +26,9 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -40,7 +40,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
-        jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
         jTextFieldRound3 = new jtextfieldround.JTextFieldRound();
         jTextFieldRound5 = new jtextfieldround.JTextFieldRound();
         jTextFieldRound6 = new jtextfieldround.JTextFieldRound();
@@ -50,11 +49,19 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jTextFieldRound10 = new jtextfieldround.JTextFieldRound();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        panelTranslucido1 = new org.edisoncor.gui.panel.PanelTranslucido();
         jLabel2 = new javax.swing.JLabel();
-        buttonAeroRound1 = new org.edisoncor.gui.button.ButtonAeroRound();
-        buttonAeroRound2 = new org.edisoncor.gui.button.ButtonAeroRound();
+        jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jTextFieldRound4 = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,114 +72,181 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.setAlignmentY(1.0F);
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NOMBRES :");
-        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 20));
-
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("APELLIDOS:");
-        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 20));
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 180, 20));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CEDULA DE IDENTIDAD:");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("GENERO:");
-        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, 20));
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 170, 30));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("DIRECCION DOMICILIO:");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("TELEFONO:");
-        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 210, 180, 20));
 
         jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText(" CELULAR:");
-        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 190, 20));
 
         jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("CORREO:");
-        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 20));
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 20));
 
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("PROVINCIA:");
-        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 20));
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 190, 20));
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("CIUDAD:");
-        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, 20));
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 190, 20));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("FECHA NACIMIENTO");
-        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 20));
-        panelNice1.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
-        panelNice1.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
-        panelNice1.add(jTextFieldRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
-        panelNice1.add(jTextFieldRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
-        panelNice1.add(jTextFieldRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
-        panelNice1.add(jTextFieldRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
-        panelNice1.add(jTextFieldRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, -1, -1));
-        panelNice1.add(jTextFieldRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
-        panelNice1.add(jTextFieldRound10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
-        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 250, -1));
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 190, 20));
+        panelNice1.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 300, -1));
+        panelNice1.add(jTextFieldRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 300, -1));
+        panelNice1.add(jTextFieldRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 300, -1));
+        panelNice1.add(jTextFieldRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 300, -1));
+        panelNice1.add(jTextFieldRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 300, -1));
+        panelNice1.add(jTextFieldRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 300, -1));
+        panelNice1.add(jTextFieldRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 300, -1));
+        panelNice1.add(jTextFieldRound10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 300, -1));
+        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 300, -1));
 
         comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 250, 30));
+        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 300, 30));
+
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("GUARDAR SIN FOTO");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        panelNice1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, -1, -1));
+
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setText("GURDAR CON FOTO");
+        panelNice1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+
+        jButton1.setText("Guardar");
+        panelNice1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 589, 220, 40));
 
         jLabel2.setText("jLabel2");
-        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 250, 70));
 
-        buttonAeroRound1.setText("buttonAeroRound1");
-        panelNice1.add(buttonAeroRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, -1, -1));
+        javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
+        panelTranslucido1.setLayout(panelTranslucido1Layout);
+        panelTranslucido1Layout.setHorizontalGroup(
+            panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+        panelTranslucido1Layout.setVerticalGroup(
+            panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
 
-        buttonAeroRound2.setText("buttonAeroRound1");
-        panelNice1.add(buttonAeroRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, -1, -1));
+        panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 160, -1));
+
+        jButton2.setText("EXAMINAR");
+        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 190, 50));
+
+        jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("NOMBRES :");
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 20));
+        panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 300, -1));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
-        jLabel1.setText("REGISTRO PACIENTE");
+        jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("BUSCAR:");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 30));
+        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 600, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 720, 570));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(545, 545, 545)
-                        .addComponent(jLabel1)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelNice1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-                    .addComponent(panelNice2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(panelNice2, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+                    .addComponent(panelNice1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,21 +263,26 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonAeroRound buttonAeroRound1;
-    private org.edisoncor.gui.button.ButtonAeroRound buttonAeroRound2;
+    private javax.swing.ButtonGroup buttonGroup1;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -213,10 +292,15 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private jtextfieldround.JTextFieldRound jTextFieldRound1;
     private jtextfieldround.JTextFieldRound jTextFieldRound10;
     private jtextfieldround.JTextFieldRound jTextFieldRound2;
     private jtextfieldround.JTextFieldRound jTextFieldRound3;
+    private jtextfieldround.JTextFieldRound jTextFieldRound4;
     private jtextfieldround.JTextFieldRound jTextFieldRound5;
     private jtextfieldround.JTextFieldRound jTextFieldRound6;
     private jtextfieldround.JTextFieldRound jTextFieldRound7;
@@ -224,5 +308,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound jTextFieldRound9;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private org.edisoncor.gui.panel.PanelTranslucido panelTranslucido1;
     // End of variables declaration//GEN-END:variables
 }
