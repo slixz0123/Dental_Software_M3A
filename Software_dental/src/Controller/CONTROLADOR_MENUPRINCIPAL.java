@@ -50,6 +50,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClicked9(vista.getLbl_CrudFarmacos());
         setEventoMouseClicked10(vista.getLbl_CrudTratamiento());
         setEventoMouseClicked11(vista.getLbl_historialCliniico());
+          setEventoMouseClicked12(vista.getLblNuevoEsp());
         formComponentResized(vista.getMenuDesplegable());
         setEventoMouseClicked2(vista.getLblCrud_Paciente());
         setEventoMouseClickeda(vista.getLblNuevoEsp());
@@ -157,6 +158,16 @@ public class CONTROLADOR_MENUPRINCIPAL {
     }
 
     private void setEventoMouseClicked11(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                eventomouse(e);
+
+            }
+        });
+    }
+    private void setEventoMouseClicked12(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
