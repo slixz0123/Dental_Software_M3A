@@ -52,6 +52,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClicked11(vista.getLbl_historialCliniico());
         formComponentResized(vista.getMenuDesplegable());
         setEventoMouseClicked2(vista.getLblCrud_Paciente());
+        setEventoMouseClickeda(vista.getLblNuevoEsp());
 
     }
 
@@ -173,6 +174,19 @@ public class CONTROLADOR_MENUPRINCIPAL {
             public void mouseClicked(MouseEvent e) {
                
                     CrudProducto(e);
+                
+                
+
+            }
+        });
+    }
+     private void setEventoMouseClickeda(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                    CrudEspecialista(e);
                 
                 
 
