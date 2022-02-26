@@ -119,6 +119,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.lbl_historialCliniico = lbl_historialCliniico;
     }
 
+    public JLabel getLblNuevoEsp() {
+        return lblNuevoEsp;
+    }
+
+    public void setLblNuevoEsp(JLabel lblNuevoEsp) {
+        this.lblNuevoEsp = lblNuevoEsp;
+    }
+    
+
    
 
    
@@ -137,7 +146,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         labelini = new javax.swing.JLabel();
         lbl_Contabilidad = new javax.swing.JLabel();
         lblCrud_Paciente = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblNuevoEsp = new javax.swing.JLabel();
         lbl_CrudTratamiento = new javax.swing.JLabel();
         lbl_CrudFarmacos = new javax.swing.JLabel();
         lbl_Agendarcitas = new javax.swing.JLabel();
@@ -182,14 +191,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuDesplegable.add(lblCrud_Paciente);
         lblCrud_Paciente.setBounds(0, 110, 160, 50);
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/dentista.png"))); // NOI18N
-        jLabel3.setText("Nuevo Especialista ");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        MenuDesplegable.add(jLabel3);
-        jLabel3.setBounds(0, 170, 160, 50);
+        lblNuevoEsp.setBackground(new java.awt.Color(255, 255, 255));
+        lblNuevoEsp.setForeground(new java.awt.Color(255, 255, 255));
+        lblNuevoEsp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNuevoEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/dentista.png"))); // NOI18N
+        lblNuevoEsp.setText("Nuevo Especialista ");
+        lblNuevoEsp.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        MenuDesplegable.add(lblNuevoEsp);
+        lblNuevoEsp.setBounds(0, 170, 160, 50);
 
         lbl_CrudTratamiento.setForeground(new java.awt.Color(255, 255, 255));
         lbl_CrudTratamiento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -340,10 +349,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.panel.Panel MenuDesplegable;
     private javax.swing.JDesktopPane dkpPrincipal;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelini;
     private javax.swing.JLabel lblCrud_Paciente;
+    private javax.swing.JLabel lblNuevoEsp;
     private javax.swing.JLabel lbl_Agendarcitas;
     private javax.swing.JLabel lbl_Certificado;
     private javax.swing.JLabel lbl_Contabilidad;
