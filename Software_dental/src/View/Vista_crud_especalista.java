@@ -391,7 +391,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                     .addGroup(panelNice1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         panelNice1Layout.setVerticalGroup(
             panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -459,7 +459,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 390, 660));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 660));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
@@ -495,7 +495,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
             .addGroup(panelNice2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                     .addGroup(panelNice2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
@@ -517,7 +517,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 43, 630, 660));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 700, 660));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel15.setText("REGISTRO ESPECIALISTA");
@@ -531,7 +531,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1093, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1284, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
