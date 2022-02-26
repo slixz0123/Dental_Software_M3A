@@ -268,11 +268,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         dkpPrincipalLayout.setVerticalGroup(
             dkpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
 
         jPanel1.add(dkpPrincipal);
-        dkpPrincipal.setBounds(50, 50, 1440, 760);
+        dkpPrincipal.setBounds(50, 0, 1440, 810);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
