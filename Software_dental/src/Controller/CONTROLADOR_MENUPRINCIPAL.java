@@ -6,8 +6,10 @@ package Controller;
 
 import Model.Model_Especialista;
 import Model.Model_Paciente;
+import Model.Model_Tratamiento;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
 import desplazable.Desface;
@@ -54,6 +56,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         formComponentResized(vista.getMenuDesplegable());
         setEventoMouseClicked2(vista.getLblCrud_Paciente());
         setEventoMouseClickeda(vista.getLblNuevoEsp());
+        setEventoMouseClickede(vista.getLbl_CrudTratamiento());
 
     }
 
@@ -204,6 +207,20 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+     
+       private void setEventoMouseClickede(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                    CrudTratamiento(e);
+                
+                
+
+            }
+        });
+    }
     
 
     private void formComponentResized(Component paneldes) {
@@ -247,6 +264,14 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getDkpPrincipal().add(vistaesp);
         vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
+    }
+    
+    private void CrudTratamiento(java.awt.event.MouseEvent evt){
+        Model_Tratamiento modeltrat = new Model_Tratamiento();
+        Vista_crud_Tratamiento vistatrat = new Vista_crud_Tratamiento();
+        vista.getDkpPrincipal().add(vistatrat);
+        vistatrat.setBorder(null);
+        Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
     }
 
 }
