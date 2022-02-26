@@ -28,6 +28,31 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound3 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound5 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound6 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound7 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound8 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound9 = new jtextfieldround.JTextFieldRound();
+        jTextFieldRound10 = new jtextfieldround.JTextFieldRound();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        jLabel2 = new javax.swing.JLabel();
+        buttonAeroRound1 = new org.edisoncor.gui.button.ButtonAeroRound();
+        buttonAeroRound2 = new org.edisoncor.gui.button.ButtonAeroRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel1 = new javax.swing.JLabel();
 
@@ -39,6 +64,83 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.setAlignmentX(1.0F);
         panelNice1.setAlignmentY(1.0F);
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("NOMBRES :");
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("APELLIDOS:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 20));
+
+        jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("CEDULA DE IDENTIDAD:");
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+
+        jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("GENERO:");
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, 20));
+
+        jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("DIRECCION DOMICILIO:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
+
+        jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("TELEFONO:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+
+        jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText(" CELULAR:");
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
+
+        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("CORREO:");
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 20));
+
+        jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("PROVINCIA:");
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 20));
+
+        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("CIUDAD:");
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, 20));
+
+        jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("FECHA NACIMIENTO");
+        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 20));
+        panelNice1.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
+        panelNice1.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        panelNice1.add(jTextFieldRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+        panelNice1.add(jTextFieldRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+        panelNice1.add(jTextFieldRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
+        panelNice1.add(jTextFieldRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        panelNice1.add(jTextFieldRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, -1, -1));
+        panelNice1.add(jTextFieldRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
+        panelNice1.add(jTextFieldRound10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
+        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 250, -1));
+
+        comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 250, 30));
+
+        jLabel2.setText("jLabel2");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 250, 70));
+
+        buttonAeroRound1.setText("buttonAeroRound1");
+        panelNice1.add(buttonAeroRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, -1, -1));
+
+        buttonAeroRound2.setText("buttonAeroRound1");
+        panelNice1.add(buttonAeroRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, -1, -1));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
@@ -93,8 +195,33 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonAeroRound buttonAeroRound1;
+    private org.edisoncor.gui.button.ButtonAeroRound buttonAeroRound2;
+    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private jtextfieldround.JTextFieldRound jTextFieldRound1;
+    private jtextfieldround.JTextFieldRound jTextFieldRound10;
+    private jtextfieldround.JTextFieldRound jTextFieldRound2;
+    private jtextfieldround.JTextFieldRound jTextFieldRound3;
+    private jtextfieldround.JTextFieldRound jTextFieldRound5;
+    private jtextfieldround.JTextFieldRound jTextFieldRound6;
+    private jtextfieldround.JTextFieldRound jTextFieldRound7;
+    private jtextfieldround.JTextFieldRound jTextFieldRound8;
+    private jtextfieldround.JTextFieldRound jTextFieldRound9;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     // End of variables declaration//GEN-END:variables
