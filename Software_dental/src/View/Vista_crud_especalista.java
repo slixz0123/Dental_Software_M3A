@@ -259,207 +259,96 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("NOMBRES:");
+        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("APELLIDOS:");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 64, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CEDULA:");
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 97, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GENERO:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 134, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DIRECCION:");
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 169, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("TELEFONO:");
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 200, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CORREO:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 233, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("PROVINCIA:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 266, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("CIUDAD:");
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 299, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("FECHA DE NACIMIENTO:");
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 331, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ESPECIALIDAD:");
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 370, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("CARGO:");
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 402, -1, -1));
 
         btnExaminarftEsp.setText("Examinar");
+        panelNice1.add(btnExaminarftEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 560, -1, -1));
 
         lblFotoEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        panelNice1.add(lblFotoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 201, 94));
 
         rbutonGuardarftEsp.setText("Guardar con foto");
+        panelNice1.add(rbutonGuardarftEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
         rbutonNoGuardarftEsp.setText("Guardar sin foto");
+        panelNice1.add(rbutonNoGuardarftEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, -1, -1));
 
         btnGuardarEsp.setText("GUARDAR");
+        panelNice1.add(btnGuardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, -1, -1));
+        panelNice1.add(txtNombresEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 24, 290, 21));
+        panelNice1.add(txtCedulaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 96, 290, 21));
+        panelNice1.add(txtApellidosEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 63, 290, 21));
+        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 134, 290, -1));
+        panelNice1.add(txtDireccionEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 166, 290, 21));
+        panelNice1.add(txtTelefonoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 199, 290, 21));
+        panelNice1.add(txtCorreoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 232, 290, 21));
+        panelNice1.add(txtProviciaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 265, 280, 21));
+        panelNice1.add(txtCiudadEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 298, 280, 21));
+        panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 331, 270, -1));
+        panelNice1.add(txtEspecialidadEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 280, 21));
+        panelNice1.add(cBoxCargoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 280, -1));
 
-        txtCedulaEsp.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        javax.swing.GroupLayout panelNice1Layout = new javax.swing.GroupLayout(panelNice1);
-        panelNice1.setLayout(panelNice1Layout);
-        panelNice1Layout.setHorizontalGroup(
-            panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNice1Layout.createSequentialGroup()
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelNice1Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(btnExaminarftEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNice1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNice1Layout.createSequentialGroup()
-                                    .addComponent(rbutonGuardarftEsp)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rbutonNoGuardarftEsp))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addGap(18, 18, Short.MAX_VALUE)
-                                    .addComponent(txtNombresEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtApellidosEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNice1Layout.createSequentialGroup()
-                                    .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtCedulaEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                                        .addComponent(cboxGeneroEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtDireccionEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtTelefonoEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(txtCorreoEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtProviciaEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(32, 32, 32)
-                                    .addComponent(txtCiudadEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(dateFechanacEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(panelNice1Layout.createSequentialGroup()
-                                    .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jLabel12))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtEspecialidadEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                                        .addComponent(cBoxCargoEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNice1Layout.createSequentialGroup()
-                            .addGap(57, 57, 57)
-                            .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelNice1Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
-        panelNice1Layout.setVerticalGroup(
-            panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNice1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombresEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtApellidosEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCedulaEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cboxGeneroEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelNice1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel5))
-                    .addComponent(txtDireccionEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtTelefonoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtCorreoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtProviciaEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtCiudadEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(dateFechanacEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtEspecialidadEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(cBoxCargoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExaminarftEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbutonGuardarftEsp)
-                    .addComponent(rbutonNoGuardarftEsp))
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 660));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 670));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
