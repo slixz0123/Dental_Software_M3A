@@ -5,6 +5,7 @@
 package software_dental;
 
 import Controller.CONTROLADOR_MENUPRINCIPAL;
+import Model.ConexionPg;
 import View.MenuPrincipal;
 
 /**
@@ -20,10 +21,12 @@ public class Software_dental {
         // TODO code application logic here
            
         MenuPrincipal menuv = new MenuPrincipal();
+        
         Controller.CONTROLADOR_MENUPRINCIPAL controlador = new CONTROLADOR_MENUPRINCIPAL( menuv); 
         
         controlador.iniciarControlMenu();// EMPEZAMOS LAS ESCUCHA DE LOS EVENTOS DE LA VISTA 
-        
+        //ConexionPg conexionPg = new ConexionPg();
+       // conexionPg.Con();
         
         
         
