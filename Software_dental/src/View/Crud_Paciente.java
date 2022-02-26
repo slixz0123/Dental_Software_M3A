@@ -62,10 +62,12 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setAlignmentX(1.0F);
@@ -202,6 +204,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 20));
         panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 300, -1));
 
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 544, 740));
+
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -210,8 +214,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("BUSCAR:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 30));
-        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 600, -1));
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 120, 30));
+        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 650, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,28 +230,13 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 720, 570));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 750, 470));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelNice2, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
-                    .addComponent(panelNice1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 17, Short.MAX_VALUE))
-        );
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 50, 790, 740));
+
+        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
+        btnAnteriorEsp.setText("cerrar");
+        jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,7 +246,9 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -273,6 +264,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.ButtonGroup buttonGroup1;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private javax.swing.JButton jButton1;

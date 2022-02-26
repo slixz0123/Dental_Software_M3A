@@ -100,9 +100,18 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtADescripTrat = new javax.swing.JTextArea();
         btnGuardarTrat = new org.edisoncor.gui.button.ButtonRound();
+        jLabel8 = new javax.swing.JLabel();
+        panelRoundTranslucido1 = new org.edisoncor.gui.panel.PanelRoundTranslucido();
+        jLabel9 = new javax.swing.JLabel();
+        btnGuardarTrat1 = new org.edisoncor.gui.button.ButtonRound();
+        btnGuardarTrat2 = new org.edisoncor.gui.button.ButtonRound();
+        btnGuardarTrat3 = new org.edisoncor.gui.button.ButtonRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListaTrat = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
+        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -111,49 +120,85 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DESCRIPCION:");
-        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+        jLabel1.setText("Foto");
+        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE DEL TRATAMIENTO:");
-        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PRECIO:");
-        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("TIPO DE MATERIAL:");
-        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("GARANTIA:");
-        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("DURABILIDAD PROMEDIA:");
-        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        panelNice1.add(txtNomTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 410, -1));
-        panelNice1.add(txtPrecioTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 410, -1));
-        panelNice1.add(txtTipMatTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 410, -1));
-        panelNice1.add(txtGarantiaTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 410, -1));
-        panelNice1.add(txtDurabilidadTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 410, -1));
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        panelNice1.add(txtNomTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 410, -1));
+        panelNice1.add(txtPrecioTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 410, -1));
+        panelNice1.add(txtTipMatTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 410, -1));
+        panelNice1.add(txtGarantiaTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 410, -1));
+        panelNice1.add(txtDurabilidadTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 410, -1));
 
         txtADescripTrat.setColumns(20);
         txtADescripTrat.setRows(5);
         jScrollPane1.setViewportView(txtADescripTrat);
 
-        panelNice1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 410, 110));
+        panelNice1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 410, 170));
 
-        btnGuardarTrat.setText("GUARDAR");
-        panelNice1.add(btnGuardarTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 370, -1, -1));
+        btnGuardarTrat.setText("EXAMINAR");
+        panelNice1.add(btnGuardarTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 220, 250, -1));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 1270, 420));
+        jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("DESCRIPCION:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("jLabel9");
+
+        javax.swing.GroupLayout panelRoundTranslucido1Layout = new javax.swing.GroupLayout(panelRoundTranslucido1);
+        panelRoundTranslucido1.setLayout(panelRoundTranslucido1Layout);
+        panelRoundTranslucido1Layout.setHorizontalGroup(
+            panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        panelRoundTranslucido1Layout.setVerticalGroup(
+            panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 50, 240, 160));
+
+        btnGuardarTrat1.setText("ELIMINAR");
+        panelNice1.add(btnGuardarTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 260, 260, -1));
+
+        btnGuardarTrat2.setText("GUARDAR");
+        panelNice1.add(btnGuardarTrat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 400, -1));
+
+        btnGuardarTrat3.setText("EDITAR");
+        panelNice1.add(btnGuardarTrat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 410, -1));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 41, 1370, 310));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,19 +216,31 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tblListaTrat);
 
-        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 27, 1210, 360));
+        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 57, 1310, 330));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 1270, 410));
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Buscar");
+        panelNice2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        panelNice2.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1230, -1));
+
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 1370, 430));
+
+        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
+        btnAnteriorEsp.setText("cerrar");
+        jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1403, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
@@ -191,18 +248,27 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private org.edisoncor.gui.button.ButtonRound btnGuardarTrat;
+    private org.edisoncor.gui.button.ButtonRound btnGuardarTrat1;
+    private org.edisoncor.gui.button.ButtonRound btnGuardarTrat2;
+    private org.edisoncor.gui.button.ButtonRound btnGuardarTrat3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private jtextfieldround.JTextFieldRound jTextFieldRound1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private org.edisoncor.gui.panel.PanelRoundTranslucido panelRoundTranslucido1;
     private javax.swing.JTable tblListaTrat;
     private javax.swing.JTextArea txtADescripTrat;
     private jtextfieldround.JTextFieldRound txtDurabilidadTrat;

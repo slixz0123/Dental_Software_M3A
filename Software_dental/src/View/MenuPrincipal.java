@@ -155,7 +155,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_Cotizacion = new javax.swing.JLabel();
         lbl_Certificado = new javax.swing.JLabel();
         dkpPrincipal = new javax.swing.JDesktopPane();
-        panelRect2 = new org.edisoncor.gui.panel.PanelRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -265,7 +264,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dkpPrincipal.setLayout(dkpPrincipalLayout);
         dkpPrincipalLayout.setHorizontalGroup(
             dkpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1410, Short.MAX_VALUE)
+            .addGap(0, 1440, Short.MAX_VALUE)
         );
         dkpPrincipalLayout.setVerticalGroup(
             dkpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,26 +272,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         jPanel1.add(dkpPrincipal);
-        dkpPrincipal.setBounds(60, 60, 1410, 760);
-
-        panelRect2.setAnchoDeBorde(0.0F);
-        panelRect2.setAnchoDeSegundoBorde(0.0F);
-        panelRect2.setColorPrimario(new java.awt.Color(103, 58, 137));
-        panelRect2.setColorSecundario(new java.awt.Color(89, 168, 165));
-
-        javax.swing.GroupLayout panelRect2Layout = new javax.swing.GroupLayout(panelRect2);
-        panelRect2.setLayout(panelRect2Layout);
-        panelRect2Layout.setHorizontalGroup(
-            panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1420, Short.MAX_VALUE)
-        );
-        panelRect2Layout.setVerticalGroup(
-            panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRect2);
-        panelRect2.setBounds(40, -10, 1420, 80);
+        dkpPrincipal.setBounds(50, 50, 1440, 760);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,7 +280,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,6 +341,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_CrudFarmacos;
     private javax.swing.JLabel lbl_CrudTratamiento;
     private javax.swing.JLabel lbl_historialCliniico;
-    private org.edisoncor.gui.panel.PanelRect panelRect2;
     // End of variables declaration//GEN-END:variables
 }
