@@ -51,17 +51,19 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
         panelTranslucido1 = new org.edisoncor.gui.panel.PanelTranslucido();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldRound4 = new jtextfieldround.JTextFieldRound();
+        jButton3 = new javax.swing.JButton();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -169,9 +171,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jRadioButton2.setText("GURDAR CON FOTO");
         panelNice1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
-        jButton1.setText("Guardar");
-        panelNice1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 589, 220, 40));
-
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
@@ -204,7 +203,10 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 20));
         panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 300, -1));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 544, 740));
+        jButton3.setText("Guardar");
+        panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 589, 220, 40));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 544, 730));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -214,8 +216,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("BUSCAR:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 120, 30));
-        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 650, -1));
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 120, 30));
+        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 590, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -230,9 +232,15 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 750, 470));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 680, 570));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 50, 790, 740));
+        jButton1.setText("Eliminar");
+        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 650, 220, 40));
+
+        jButton4.setText("Editar");
+        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 220, 40));
+
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 720, 730));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
@@ -242,7 +250,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1303, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,6 +277,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
