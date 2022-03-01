@@ -45,7 +45,6 @@ public class CONTROLADOR_MENUPRINCIPAL {
     public void iniciarControlMenu() {
         setEventoMouseClicked(vista.getLabelini());
         setEventoMouseClicked3(vista.getLblCrud_Paciente());
-
         setEventoMouseClicked4(vista.getLbl_Agendarcitas());
         setEventoMouseClicked5(vista.getLbl_Certificado());
         setEventoMouseClicked6(vista.getLbl_Contabilidad());
@@ -53,17 +52,43 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClicked8(vista.getLbl_CrudCie());
         setEventoMouseClicked9(vista.getLbl_CrudFarmacos());
         setEventoMouseClicked10(vista.getLbl_CrudTratamiento());
+        setEventoMouseClicked10(vista.getLbl_CrudCie());
         setEventoMouseClicked11(vista.getLbl_historialCliniico());
-          setEventoMouseClicked12(vista.getLblNuevoEsp());
+        setEventoMouseClicked12(vista.getLblNuevoEsp());
         formComponentResized(vista.getMenuDesplegable());
         setEventoMouseClicked2(vista.getLblCrud_Paciente());
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
-           setEventoMouseClicked10(vista.getLbl_CrudCie());
+        setEventoMouseClickeCie10(vista.getLbl_CrudCie());
+           
 
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    private void formComponentResized(Component paneldes) {
+        paneldes.addComponentListener(new java.awt.event.ComponentAdapter() {
+
+            public void mouseClicked(MouseEvent e) {
+                formComponentResized(e);
+            }
+        });
+    }
+
+    private void eventomouse(java.awt.event.MouseEvent evt) {
+        if (vista.getMenuDesplegable().getX() == 0) {
+            System.out.println("hola jlabel dos mauclicked");
+            desplace.desplazarIzquierda(vista.getMenuDesplegable(), vista.getMenuDesplegable().getX(), -120, 10, 10);
+        } else if (vista.getMenuDesplegable().getX() == -120) {
+            desplace.desplazarDerecha(vista.getMenuDesplegable(), vista.getMenuDesplegable().getX(), 0, 10, 10);
+        }
+
+    }
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {
+
+        vista.getMenuDesplegable().setSize(new Dimension(vista.getMenuDesplegable().getWidth(), 200));
+    }
+  
     private void setEventoMouseClicked(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
@@ -184,6 +209,8 @@ public class CONTROLADOR_MENUPRINCIPAL {
         });
     }
 
+    
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------
     private void setEventoMouseClicked2(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
@@ -224,8 +251,8 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
-       private void setEventoMouseClickeCie10(JLabel lab) {
-        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+       private void setEventoMouseClickeCie10(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -239,29 +266,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
     }
     
 
-    private void formComponentResized(Component paneldes) {
-        paneldes.addComponentListener(new java.awt.event.ComponentAdapter() {
-
-            public void mouseClicked(MouseEvent e) {
-                formComponentResized(e);
-            }
-        });
-    }
-
-    private void eventomouse(java.awt.event.MouseEvent evt) {
-        if (vista.getMenuDesplegable().getX() == 0) {
-            System.out.println("hola jlabel dos mauclicked");
-            desplace.desplazarIzquierda(vista.getMenuDesplegable(), vista.getMenuDesplegable().getX(), -120, 10, 10);
-        } else if (vista.getMenuDesplegable().getX() == -120) {
-            desplace.desplazarDerecha(vista.getMenuDesplegable(), vista.getMenuDesplegable().getX(), 0, 10, 10);
-        }
-
-    }
-
-    private void formComponentResized(java.awt.event.ComponentEvent evt) {
-
-        vista.getMenuDesplegable().setSize(new Dimension(vista.getMenuDesplegable().getWidth(), 200));
-    }
+   
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
