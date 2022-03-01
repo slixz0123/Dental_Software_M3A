@@ -66,6 +66,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

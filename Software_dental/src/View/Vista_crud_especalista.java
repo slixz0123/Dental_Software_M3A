@@ -256,6 +256,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btnGuardarEsp2 = new org.edisoncor.gui.button.ButtonRound();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

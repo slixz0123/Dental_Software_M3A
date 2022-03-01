@@ -4,11 +4,13 @@
  */
 package Controller;
 
+import Model.Model_Cie10;
 import Model.Model_Especialista;
 import Model.Model_Paciente;
 import Model.Model_Tratamiento;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Vista_Crud_Cie10;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
@@ -57,6 +59,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClicked2(vista.getLblCrud_Paciente());
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
+           setEventoMouseClicked10(vista.getLbl_CrudCie());
 
     }
 
@@ -221,6 +224,19 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+       private void setEventoMouseClickeCie10(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                    CrudCie10(e);
+                
+                
+
+            }
+        });
+    }
     
 
     private void formComponentResized(Component paneldes) {
@@ -273,5 +289,11 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistatrat.setBorder(null);
         Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
     }
-
+ private void CrudCie10(java.awt.event.MouseEvent evt){
+        Model_Cie10 modelcie = new Model_Cie10();
+        Vista_Crud_Cie10 vistacie10 = new Vista_Crud_Cie10();
+        vista.getDkpPrincipal().add(vistacie10);
+        vistacie10.setBorder(null);
+        Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
+    }
 }
