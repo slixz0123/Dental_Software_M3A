@@ -144,18 +144,18 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel13.setText("FECHA NACIMIENTO");
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 190, 20));
-        panelNice1.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 280, -1));
-        panelNice1.add(jTextFieldRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 280, -1));
-        panelNice1.add(jTextFieldRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 280, -1));
-        panelNice1.add(jTextFieldRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 280, -1));
-        panelNice1.add(jTextFieldRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 280, -1));
-        panelNice1.add(jTextFieldRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 280, -1));
-        panelNice1.add(jTextFieldRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 280, -1));
-        panelNice1.add(jTextFieldRound10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 280, -1));
-        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 280, -1));
+        panelNice1.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 260, -1));
+        panelNice1.add(jTextFieldRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 260, -1));
+        panelNice1.add(jTextFieldRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 260, -1));
+        panelNice1.add(jTextFieldRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 260, -1));
+        panelNice1.add(jTextFieldRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 260, -1));
+        panelNice1.add(jTextFieldRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 260, -1));
+        panelNice1.add(jTextFieldRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 260, -1));
+        panelNice1.add(jTextFieldRound10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 260, -1));
+        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 260, -1));
 
         comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 280, 30));
+        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 260, 30));
 
         jLabel2.setText("jLabel2");
 
@@ -187,12 +187,12 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel14.setText("NOMBRES :");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 20));
-        panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 280, -1));
+        panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 260, -1));
 
         jButton3.setText("Guardar");
         panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, 220, 40));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 520, 630));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 500, 630));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -226,7 +226,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jButton4.setText("Editar");
         panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 650, 630));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 660, 630));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");

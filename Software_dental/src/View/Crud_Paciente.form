@@ -66,7 +66,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="50" width="520" height="630"/>
+              <AbsoluteConstraints x="20" y="50" width="500" height="630"/>
             </Constraint>
           </Constraints>
 
@@ -257,63 +257,63 @@
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="50" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="50" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound3">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="90" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="90" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound5">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="170" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="170" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound6">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="210" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="210" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound7">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="250" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="250" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound8">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="290" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="290" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound9">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="370" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="370" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound10">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="330" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="330" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="410" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="410" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -327,7 +327,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="130" width="280" height="30"/>
+                  <AbsoluteConstraints x="220" y="130" width="260" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -397,7 +397,7 @@
             <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound4">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="10" width="280" height="-1"/>
+                  <AbsoluteConstraints x="220" y="10" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -421,7 +421,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="50" width="650" height="630"/>
+              <AbsoluteConstraints x="520" y="50" width="660" height="630"/>
             </Constraint>
           </Constraints>
 
