@@ -270,21 +270,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dkpPrincipal.setLayout(dkpPrincipalLayout);
         dkpPrincipalLayout.setHorizontalGroup(
             dkpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpPrincipalLayout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+            .addGroup(dkpPrincipalLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         dkpPrincipalLayout.setVerticalGroup(
             dkpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpPrincipalLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jPanel1.add(dkpPrincipal);
-        dkpPrincipal.setBounds(50, 0, 1440, 810);
+        dkpPrincipal.setBounds(170, 0, 1320, 810);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -203,7 +203,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel3.setText("BUSCAR:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 120, 30));
-        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 590, -1));
+        panelNice2.add(jTextFieldRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 540, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,15 +218,15 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 680, 440));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 620, 440));
 
         jButton1.setText("Eliminar");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 220, 40));
+        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 530, 220, 40));
 
         jButton4.setText("Editar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 220, 40));
+        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 220, 40));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 720, 630));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 670, 630));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");

@@ -82,7 +82,7 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelNice1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 450, 30));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1260, 260));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1220, 260));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,15 +100,15 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         ));
         jScrollPane2.setViewportView(tblListaTrat);
 
-        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 57, 1180, 310));
+        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 57, 1140, 310));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
         panelNice2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-        panelNice2.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1100, -1));
+        panelNice2.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1060, -1));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1260, 390));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1220, 390));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
