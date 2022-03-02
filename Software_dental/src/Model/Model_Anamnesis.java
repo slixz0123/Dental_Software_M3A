@@ -5,6 +5,6 @@ package Model;
  *
  * @author Saul
  */
-public class Model_Cie10 {
+public class Model_Anamnesis {
     
 }
