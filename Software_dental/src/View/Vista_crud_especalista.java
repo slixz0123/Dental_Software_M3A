@@ -208,20 +208,21 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice2Layout.setHorizontalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNice2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(btnGuardarEsp2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
-            .addGroup(panelNice2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelNice2Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(btnGuardarEsp2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141)
+                        .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNice2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelNice2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         panelNice2Layout.setVerticalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,16 +231,16 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(36, 36, 36)
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarEsp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 750, 600));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 670, 600));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
