@@ -274,7 +274,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         Crud_Paciente crudpaciente = new Crud_Paciente();
         // agremgamos nuestra jdialog al deskopt pane 
         vista.getDkpPrincipal().add(crudpaciente);
-        crudpaciente.setBorder(null);
+       crudpaciente.setBorder(null);
         Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
 
     }

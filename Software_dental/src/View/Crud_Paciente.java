@@ -49,8 +49,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jTextFieldRound10 = new jtextfieldround.JTextFieldRound();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         panelTranslucido1 = new org.edisoncor.gui.panel.PanelTranslucido();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -159,19 +157,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 300, 30));
 
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("GUARDAR SIN FOTO");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-        panelNice1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, -1, -1));
-
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("GURDAR CON FOTO");
-        panelNice1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
-
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
@@ -179,22 +164,22 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelTranslucido1Layout.setHorizontalGroup(
             panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         panelTranslucido1Layout.setVerticalGroup(
             panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
-        panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 160, -1));
+        panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 180, 90));
 
         jButton2.setText("EXAMINAR");
-        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 190, 50));
+        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 190, 80));
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,9 +190,9 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(jTextFieldRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 300, -1));
 
         jButton3.setText("Guardar");
-        panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 589, 220, 40));
+        panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, 220, 40));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 544, 730));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 544, 630));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -233,15 +218,15 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 680, 570));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 680, 440));
 
         jButton1.setText("Eliminar");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 650, 220, 40));
+        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 220, 40));
 
         jButton4.setText("Editar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 220, 40));
+        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 220, 40));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 720, 730));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 720, 630));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
@@ -255,17 +240,11 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,8 +274,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private jtextfieldround.JTextFieldRound jTextFieldRound1;
