@@ -5,12 +5,14 @@
 package Controller;
 
 import Model.Model_Cie10;
+import Model.Model_Diagnostico;
 import Model.Model_Especialista;
 import Model.Model_Paciente;
 import Model.Model_Tratamiento;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.Vista_Crud_Cie10;
+import View.Vista_Diagnostico;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
@@ -60,7 +62,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-           
+//        setEventoMouseClickeDiag(vista.getDiagnostico); DIAGNOSTICO
 
     }
 
@@ -88,7 +90,6 @@ public class CONTROLADOR_MENUPRINCIPAL {
 //
 //        vista.getMenuDesplegable().setSize(new Dimension(vista.getMenuDesplegable().getWidth(), 200));
 //    }
-  
 //    private void setEventoMouseClicked(JLabel lab) {
 //        lab.addMouseListener(new java.awt.event.MouseAdapter() {
 //
@@ -208,65 +209,66 @@ public class CONTROLADOR_MENUPRINCIPAL {
 //            }
 //        });
 //    }
-
-    
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
     private void setEventoMouseClicked2(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudProducto(e);
-                
-                
+
+                CrudProducto(e);
 
             }
         });
     }
-     private void setEventoMouseClickeda(JLabel lab) {
+
+    private void setEventoMouseClickeda(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudEspecialista(e);
-                
-                
+
+                CrudEspecialista(e);
 
             }
         });
     }
-     
-       private void setEventoMouseClickede(JLabel lab) {
+
+    private void setEventoMouseClickede(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudTratamiento(e);
-                
-                
+
+                CrudTratamiento(e);
 
             }
         });
     }
-       private void setEventoMouseClickeCie10(JLabel laba) {
+
+    private void setEventoMouseClickeCie10(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudCie10(e);
-                
-                
+
+                CrudCie10(e);
 
             }
         });
     }
-    
 
-   
+    private void setEventoMouseClickeDiag(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudDiag(e);
+
+            }
+        });
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
@@ -274,31 +276,40 @@ public class CONTROLADOR_MENUPRINCIPAL {
         Crud_Paciente crudpaciente = new Crud_Paciente();
         // agremgamos nuestra jdialog al deskopt pane 
         vista.getDkpPrincipal().add(crudpaciente);
-       crudpaciente.setBorder(null);
+        crudpaciente.setBorder(null);
         Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
 
     }
-    
-    private void CrudEspecialista(java.awt.event.MouseEvent evt){
+
+    private void CrudEspecialista(java.awt.event.MouseEvent evt) {
         Model_Especialista modelesp = new Model_Especialista();
         Vista_crud_especalista vistaesp = new Vista_crud_especalista();
         vista.getDkpPrincipal().add(vistaesp);
         vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
     }
-    
-    private void CrudTratamiento(java.awt.event.MouseEvent evt){
+
+    private void CrudTratamiento(java.awt.event.MouseEvent evt) {
         Model_Tratamiento modeltrat = new Model_Tratamiento();
         Vista_crud_Tratamiento vistatrat = new Vista_crud_Tratamiento();
         vista.getDkpPrincipal().add(vistatrat);
         vistatrat.setBorder(null);
         Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
     }
- private void CrudCie10(java.awt.event.MouseEvent evt){
+
+    private void CrudCie10(java.awt.event.MouseEvent evt) {
         Model_Cie10 modelcie = new Model_Cie10();
         Vista_Crud_Cie10 vistacie10 = new Vista_Crud_Cie10();
         vista.getDkpPrincipal().add(vistacie10);
         vistacie10.setBorder(null);
         Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
+    }
+    
+    private void CrudDiag(java.awt.event.MouseEvent evt){
+        Model_Diagnostico modeldiag = new Model_Diagnostico();
+        Vista_Diagnostico vistadiag = new Vista_Diagnostico();
+        vista.getDkpPrincipal().add(vistadiag);
+        vistadiag.setBorder(null);
+        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
     }
 }
