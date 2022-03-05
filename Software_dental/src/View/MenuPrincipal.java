@@ -72,11 +72,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     public JLabel getLbl_Contabilidad() {
-        return lbl_Contabilidad;
+        return lbl_CitasTratamientos;
     }
 
     public void setLbl_Contabilidad(JLabel lbl_Contabilidad) {
-        this.lbl_Contabilidad = lbl_Contabilidad;
+        this.lbl_CitasTratamientos = lbl_Contabilidad;
     }
 
     public JLabel getLbl_Cotizacion() {
@@ -126,6 +126,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setLblNuevoEsp(JLabel lblNuevoEsp) {
         this.lblNuevoEsp = lblNuevoEsp;
     }
+
+    public JLabel getLbl_CitasTratamientos() {
+        return lbl_CitasTratamientos;
+    }
+
+    public void setLbl_CitasTratamientos(JLabel lbl_CitasTratamientos) {
+        this.lbl_CitasTratamientos = lbl_CitasTratamientos;
+    }
+
+    public JLabel getLbl_Diagnostico() {
+        return lbl_Diagnostico;
+    }
+
+    public void setLbl_Diagnostico(JLabel lbl_Diagnostico) {
+        this.lbl_Diagnostico = lbl_Diagnostico;
+    }
+
+    public JLabel getLbl_NuevaEndodoncia() {
+        return lbl_NuevaEndodoncia;
+    }
+
+    public void setLbl_NuevaEndodoncia(JLabel lbl_NuevaEndodoncia) {
+        this.lbl_NuevaEndodoncia = lbl_NuevaEndodoncia;
+    }
     
 
    
@@ -144,7 +168,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         MenuDesplegable = new org.edisoncor.gui.panel.Panel();
         labelini = new javax.swing.JLabel();
-        lbl_Contabilidad = new javax.swing.JLabel();
+        lbl_CitasTratamientos = new javax.swing.JLabel();
         lblCrud_Paciente = new javax.swing.JLabel();
         lblNuevoEsp = new javax.swing.JLabel();
         lbl_CrudTratamiento = new javax.swing.JLabel();
@@ -154,6 +178,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_CrudCie = new javax.swing.JLabel();
         lbl_Cotizacion = new javax.swing.JLabel();
         lbl_Certificado = new javax.swing.JLabel();
+        lbl_Contabilidad1 = new javax.swing.JLabel();
+        lbl_NuevaEndodoncia = new javax.swing.JLabel();
+        lbl_Diagnostico = new javax.swing.JLabel();
         dkpPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
 
@@ -175,13 +202,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuDesplegable.add(labelini);
         labelini.setBounds(-2, 10, 170, 60);
 
-        lbl_Contabilidad.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_Contabilidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_Contabilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/informacion-financiera.png"))); // NOI18N
-        lbl_Contabilidad.setText("Contablidad          ");
-        lbl_Contabilidad.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        MenuDesplegable.add(lbl_Contabilidad);
-        lbl_Contabilidad.setBounds(0, 620, 160, 50);
+        lbl_CitasTratamientos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_CitasTratamientos.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_CitasTratamientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/tratamiento.png"))); // NOI18N
+        lbl_CitasTratamientos.setText("Citas y Tratamiento");
+        lbl_CitasTratamientos.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        MenuDesplegable.add(lbl_CitasTratamientos);
+        lbl_CitasTratamientos.setBounds(0, 600, 160, 50);
 
         lblCrud_Paciente.setForeground(new java.awt.Color(255, 255, 255));
         lblCrud_Paciente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -246,7 +273,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_Cotizacion.setText("Cotizacion             ");
         lbl_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         MenuDesplegable.add(lbl_Cotizacion);
-        lbl_Cotizacion.setBounds(0, 500, 160, 50);
+        lbl_Cotizacion.setBounds(0, 660, 160, 50);
 
         lbl_Certificado.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Certificado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -254,7 +281,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_Certificado.setText("Certificacion          ");
         lbl_Certificado.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         MenuDesplegable.add(lbl_Certificado);
-        lbl_Certificado.setBounds(0, 560, 160, 50);
+        lbl_Certificado.setBounds(0, 710, 160, 50);
+
+        lbl_Contabilidad1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Contabilidad1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_Contabilidad1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/informacion-financiera.png"))); // NOI18N
+        lbl_Contabilidad1.setText("Contablidad          ");
+        lbl_Contabilidad1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        MenuDesplegable.add(lbl_Contabilidad1);
+        lbl_Contabilidad1.setBounds(0, 760, 160, 50);
+
+        lbl_NuevaEndodoncia.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_NuevaEndodoncia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_NuevaEndodoncia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/nuevaendo.png"))); // NOI18N
+        lbl_NuevaEndodoncia.setText("Nueva Endodoncia");
+        lbl_NuevaEndodoncia.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        MenuDesplegable.add(lbl_NuevaEndodoncia);
+        lbl_NuevaEndodoncia.setBounds(0, 490, 160, 50);
+
+        lbl_Diagnostico.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Diagnostico.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_Diagnostico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/diagnostico.png"))); // NOI18N
+        lbl_Diagnostico.setText("Diagnostico            ");
+        lbl_Diagnostico.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        MenuDesplegable.add(lbl_Diagnostico);
+        lbl_Diagnostico.setBounds(0, 550, 160, 50);
 
         jPanel1.add(MenuDesplegable);
         MenuDesplegable.setBounds(0, 0, 170, 850);
@@ -348,11 +399,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblNuevoEsp;
     private javax.swing.JLabel lbl_Agendarcitas;
     private javax.swing.JLabel lbl_Certificado;
-    private javax.swing.JLabel lbl_Contabilidad;
+    private javax.swing.JLabel lbl_CitasTratamientos;
+    private javax.swing.JLabel lbl_Contabilidad1;
     private javax.swing.JLabel lbl_Cotizacion;
     private javax.swing.JLabel lbl_CrudCie;
     private javax.swing.JLabel lbl_CrudFarmacos;
     private javax.swing.JLabel lbl_CrudTratamiento;
+    private javax.swing.JLabel lbl_Diagnostico;
+    private javax.swing.JLabel lbl_NuevaEndodoncia;
     private javax.swing.JLabel lbl_historialCliniico;
     // End of variables declaration//GEN-END:variables
 }

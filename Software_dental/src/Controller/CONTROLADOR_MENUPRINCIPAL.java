@@ -5,14 +5,18 @@
 package Controller;
 
 import Model.Model_Cie10;
+import Model.Model_CitasTratamiento;
 import Model.Model_Diagnostico;
 import Model.Model_Especialista;
+import Model.Model_NuevaEndodoncia;
 import Model.Model_Paciente;
 import Model.Model_Tratamiento;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Vista_Citas_Tratamiento;
 import View.Vista_Crud_Cie10;
 import View.Vista_Diagnostico;
+import View.Vista_NuevaEndodoncia;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
@@ -62,7 +66,9 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-//        setEventoMouseClickeDiag(vista.getDiagnostico); DIAGNOSTICO
+        setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
+        setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
+        setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
 
     }
 
@@ -270,6 +276,30 @@ public class CONTROLADOR_MENUPRINCIPAL {
         });
     }
 
+    private void setEventoMouseClickNuevaE(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudNuevaE(e);
+
+            }
+        });
+    }
+    
+    private void setEventoMouseClickCitasTrat(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CitasTratamiento(e);
+
+            }
+        });
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
         Model_Paciente modelpaciente = new Model_Paciente();
@@ -304,12 +334,27 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistacie10.setBorder(null);
         Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
     }
-    
-    private void CrudDiag(java.awt.event.MouseEvent evt){
+
+    private void CrudDiag(java.awt.event.MouseEvent evt) {
         Model_Diagnostico modeldiag = new Model_Diagnostico();
         Vista_Diagnostico vistadiag = new Vista_Diagnostico();
         vista.getDkpPrincipal().add(vistadiag);
         vistadiag.setBorder(null);
         Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+    }
+
+    private void CrudNuevaE(java.awt.event.MouseEvent evt) {
+        Model_NuevaEndodoncia modelnuevae = new Model_NuevaEndodoncia();
+        Vista_NuevaEndodoncia vistanuevae = new Vista_NuevaEndodoncia();
+        vista.getDkpPrincipal().add(vistanuevae);
+        vistanuevae.setBorder(null);
+        Controller.Controller_NuevaEndodoncia controllernueva = new Controller_NuevaEndodoncia(modelnuevae, vistanuevae);
+    }
+    private void CitasTratamiento(java.awt.event.MouseEvent evt) {
+        Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
+        Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
+        vista.getDkpPrincipal().add(vistacitastrat);
+        vistacitastrat.setBorder(null);
+        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
 }
