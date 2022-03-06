@@ -20,6 +20,15 @@ public class Articulos {
     public Articulos() {
     }
 
+    public Articulos(String id_articulo, String id_usuario, String nombre_art, String marca_art, int cantidad_art, double precio) {
+        this.id_articulo = id_articulo;
+        this.id_usuario = id_usuario;
+        this.nombre_art = nombre_art;
+        this.marca_art = marca_art;
+        this.cantidad_art = cantidad_art;
+        this.precio = precio;
+    }
+
     public String getId_articulo() {
         return id_articulo;
     }

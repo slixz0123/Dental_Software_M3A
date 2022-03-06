@@ -19,6 +19,14 @@ public class Consentimiento {
     public Consentimiento() {
     }
 
+    public Consentimiento(String id_consentimiento, String id_historia, String id_pac, String nombre_pac, String nombre_doc) {
+        this.id_consentimiento = id_consentimiento;
+        this.id_historia = id_historia;
+        this.id_pac = id_pac;
+        this.nombre_pac = nombre_pac;
+        this.nombre_doc = nombre_doc;
+    }
+
     public String getId_consentimiento() {
         return id_consentimiento;
     }
