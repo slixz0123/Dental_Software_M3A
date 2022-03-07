@@ -13,3 +13,5 @@
 Software_dental/src/Model/ConexionPg.java
 Software_dental/src/Model/ConexionPg.java
 Software_dental/nbproject/private/private.properties
+*.properties
+*.java
