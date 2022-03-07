@@ -5,25 +5,31 @@
 package Controller;
 
 import Model.Model_Cie10;
+import Model.Model_CitasTratamiento;
+import Model.Model_Diagnostico;
 import Model.Model_Especialista;
+import Model.Model_HistorialMedico;
+import Model.Model_NuevaEndodoncia;
 import Model.Model_Paciente;
 import Model.Model_Tratamiento;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Vista_Citas_Tratamiento;
 import View.Vista_Crud_Cie10;
+import View.Vista_Crud_HistorialMedico;
+import View.Vista_Diagnostico;
+import View.Vista_NuevaEndodoncia;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
 import desplazable.Desface;
-import java.awt.Component;
-import java.awt.Dimension;
+
 import java.awt.Frame;
-import java.awt.Label;
-import java.awt.Toolkit;
-import java.awt.event.ComponentListener;
+
+
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
-import javax.swing.JTable;
+
 
 /**
  *
@@ -60,7 +66,10 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-           
+        setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
+        setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
+        setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
+          setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
 
     }
 
@@ -88,7 +97,6 @@ public class CONTROLADOR_MENUPRINCIPAL {
 //
 //        vista.getMenuDesplegable().setSize(new Dimension(vista.getMenuDesplegable().getWidth(), 200));
 //    }
-  
 //    private void setEventoMouseClicked(JLabel lab) {
 //        lab.addMouseListener(new java.awt.event.MouseAdapter() {
 //
@@ -208,97 +216,164 @@ public class CONTROLADOR_MENUPRINCIPAL {
 //            }
 //        });
 //    }
-
-    
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
     private void setEventoMouseClicked2(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudProducto(e);
-                
-                
+
+                CrudProducto(e);
 
             }
         });
     }
-     private void setEventoMouseClickeda(JLabel lab) {
+
+    private void setEventoMouseClickeda(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudEspecialista(e);
-                
-                
+
+                CrudEspecialista(e);
 
             }
         });
     }
-     
-       private void setEventoMouseClickede(JLabel lab) {
+
+    private void setEventoMouseClickede(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudTratamiento(e);
-                
-                
+
+                CrudTratamiento(e);
 
             }
         });
     }
-       private void setEventoMouseClickeCie10(JLabel laba) {
+
+    private void setEventoMouseClickeCie10(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    CrudCie10(e);
-                
-                
+
+                CrudCie10(e);
+
+            }
+        });
+    }
+
+    private void setEventoMouseClickeDiag(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudDiag(e);
+
+            }
+        });
+    }
+
+    private void setEventoMouseClickNuevaE(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudNuevaE(e);
 
             }
         });
     }
     
+    private void setEventoMouseClickCitasTrat(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
-   
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CitasTratamiento(e);
+
+            }
+        });
+    }
+     private void setEventoMouseClickHistorial(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                HistorialMedico(e);
+
+            }
+        });
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
         Model_Paciente modelpaciente = new Model_Paciente();
-        Crud_Paciente crudpaciente = new Crud_Paciente();
+       Crud_Paciente crudpaciente = new Crud_Paciente();
         // agremgamos nuestra jdialog al deskopt pane 
-        vista.getDkpPrincipal().add(crudpaciente);
-       crudpaciente.setBorder(null);
-        Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
+       vista.getDkpPrincipal().add(crudpaciente);
+      crudpaciente.setBorder(null);
+     Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
 
     }
-    
-    private void CrudEspecialista(java.awt.event.MouseEvent evt){
+
+    private void CrudEspecialista(java.awt.event.MouseEvent evt) {
         Model_Especialista modelesp = new Model_Especialista();
         Vista_crud_especalista vistaesp = new Vista_crud_especalista();
         vista.getDkpPrincipal().add(vistaesp);
         vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
     }
-    
-    private void CrudTratamiento(java.awt.event.MouseEvent evt){
+
+    private void CrudTratamiento(java.awt.event.MouseEvent evt) {
         Model_Tratamiento modeltrat = new Model_Tratamiento();
         Vista_crud_Tratamiento vistatrat = new Vista_crud_Tratamiento();
         vista.getDkpPrincipal().add(vistatrat);
         vistatrat.setBorder(null);
         Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
     }
- private void CrudCie10(java.awt.event.MouseEvent evt){
+
+    private void CrudCie10(java.awt.event.MouseEvent evt) {
         Model_Cie10 modelcie = new Model_Cie10();
         Vista_Crud_Cie10 vistacie10 = new Vista_Crud_Cie10();
         vista.getDkpPrincipal().add(vistacie10);
         vistacie10.setBorder(null);
         Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
     }
+
+    private void CrudDiag(java.awt.event.MouseEvent evt) {
+        Model_Diagnostico modeldiag = new Model_Diagnostico();
+        Vista_Diagnostico vistadiag = new Vista_Diagnostico();
+        vista.getDkpPrincipal().add(vistadiag);
+        vistadiag.setBorder(null);
+        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+    }
+    private void HistorialMedico(java.awt.event.MouseEvent evt) {
+         Model_HistorialMedico modHisto = new Model_HistorialMedico();
+        Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
+        vista.getDkpPrincipal().add(vistaHistorialMedico);
+        vistaHistorialMedico.setBorder(null);
+          Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico (modHisto, vistaHistorialMedico);
+    }
+    private void CrudNuevaE(java.awt.event.MouseEvent evt) {
+        Model_NuevaEndodoncia modelnuevae = new Model_NuevaEndodoncia();
+        Vista_NuevaEndodoncia vistanuevae = new Vista_NuevaEndodoncia();
+        vista.getDkpPrincipal().add(vistanuevae);
+        vistanuevae.setBorder(null);
+        Controller.Controller_NuevaEndodoncia controllernueva = new Controller_NuevaEndodoncia(modelnuevae, vistanuevae);
+    }
+    private void CitasTratamiento(java.awt.event.MouseEvent evt) {
+        Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
+        Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
+        vista.getDkpPrincipal().add(vistacitastrat);
+        vistacitastrat.setBorder(null);
+        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+    }
+     
 }
