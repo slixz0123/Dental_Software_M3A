@@ -75,7 +75,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/View/icons/brillante.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="INICIO           "/>
+                <Property name="text" type="java.lang.String" value="proceso"/>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
               <Constraints>

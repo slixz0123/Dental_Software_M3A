@@ -223,7 +223,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         labelini.setForeground(new java.awt.Color(255, 255, 255));
         labelini.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/brillante.png"))); // NOI18N
-        labelini.setText("INICIO           ");
+        labelini.setText("proceso");
         labelini.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         MenuDesplegable.add(labelini);
         labelini.setBounds(-2, 10, 170, 60);
