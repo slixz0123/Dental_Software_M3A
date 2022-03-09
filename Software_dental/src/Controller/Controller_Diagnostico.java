@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.Model_Diagnostico;
-import View.Vista_Diagnostico;
+import View.Vista_HistorialClinico;
 
 /**
  *
@@ -14,9 +14,9 @@ import View.Vista_Diagnostico;
  */
 public class Controller_Diagnostico {
     private Model_Diagnostico model;
-    private Vista_Diagnostico vista;
+    private Vista_HistorialClinico vista;
 
-    public Controller_Diagnostico(Model_Diagnostico model, Vista_Diagnostico vista) {
+    public Controller_Diagnostico(Model_Diagnostico model, Vista_HistorialClinico vista) {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);

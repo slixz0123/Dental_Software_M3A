@@ -55,6 +55,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jTextFieldRound4 = new jtextfieldround.JTextFieldRound();
         jButton3 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        comboBoxRound2 = new org.edisoncor.gui.comboBox.ComboBoxRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldRound2 = new jtextfieldround.JTextFieldRound();
@@ -176,10 +178,10 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15))
         );
 
-        panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 180, 90));
+        panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 180, 80));
 
         jButton2.setText("EXAMINAR");
-        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 190, 80));
+        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 190, 80));
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,6 +193,16 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
 
         jButton3.setText("Guardar");
         panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, 220, 40));
+
+        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("TIPO DE SANGRE");
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 170, 30));
+
+        comboBoxRound2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        panelNice1.add(comboBoxRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 260, 30));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 500, 630));
 
@@ -259,6 +271,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.ButtonGroup buttonGroup1;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -269,6 +282,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
