@@ -25,18 +25,12 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombreTrat = new jtextfieldround.JTextFieldRound();
         jLabel4 = new javax.swing.JLabel();
-        txtApellidosTrat = new jtextfieldround.JTextFieldRound();
         txtFichaTrat = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnAgendar = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
-        btnIngresoGen = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtNombreTrat1 = new jtextfieldround.JTextFieldRound();
         jLabel8 = new javax.swing.JLabel();
@@ -48,7 +42,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         txtApellidosTrat1 = new jtextfieldround.JTextFieldRound();
-        txtApellidosTrat2 = new jtextfieldround.JTextFieldRound();
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -60,11 +53,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CITAS Y TRATAMIENTOS");
-        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRES DEL PACIENTE:");
@@ -78,25 +66,10 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDOS DEL PACIENTE:");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
-        panelNice1.add(txtApellidosTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 90, 20));
         panelNice1.add(txtFichaTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 110, -1));
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("VALOR TOTAL:");
-        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("SALDO:");
-        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         btnAgendar.setText("AGENDAR");
         panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
-
-        btnImprimir.setText("IMPRIMIR");
-        panelNice1.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
-
-        btnIngresoGen.setText("INGRESOS GENERAL");
-        panelNice1.add(btnIngresoGen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOMBRE DEL DOCTOR:");
@@ -127,7 +100,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 270, 110));
         panelNice1.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 220, 20));
-        panelNice1.add(txtApellidosTrat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 90, 20));
 
         comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 220, 20));
@@ -175,19 +147,14 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendar;
-    private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnIngresoGen;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -198,9 +165,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jTextArea1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat;
     private jtextfieldround.JTextFieldRound txtApellidosTrat1;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat2;
     private javax.swing.JTextField txtFichaTrat;
     private javax.swing.JTextField txtFichaTrat1;
     private jtextfieldround.JTextFieldRound txtNombreTrat;
