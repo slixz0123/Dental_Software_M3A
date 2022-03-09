@@ -19,3 +19,4 @@ Software_dental/nbproject/private/private.properties
 !/Software_dental/src/View/Vista_InicioProceso.java
 !/Software_dental/src/View/VISTA_PROFORMA.java
 !/Software_dental/src/View/vista_pagoshistorial.java
+!/Software_dental/src/View/Vista_HistorialCitas.java
