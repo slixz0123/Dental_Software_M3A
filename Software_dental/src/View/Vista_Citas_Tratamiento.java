@@ -62,24 +62,30 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CITAS Y TRATAMIENTOS");
         panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRES DEL PACIENTE:");
         panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FICHA:");
         panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, 20));
         panelNice1.add(txtNombreTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 220, 20));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDOS DEL PACIENTE:");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
         panelNice1.add(txtApellidosTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 90, 20));
         panelNice1.add(txtFichaTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 110, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("VALOR TOTAL:");
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("SALDO:");
         panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
@@ -92,21 +98,26 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         btnIngresoGen.setText("INGRESOS GENERAL");
         panelNice1.add(btnIngresoGen, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOMBRE DEL DOCTOR:");
         panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
         panelNice1.add(txtNombreTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 220, 20));
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CEDULA DEL DOCTOR:");
         panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("FECHA:");
         panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
         panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 110, -1));
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("HORA:");
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
         panelNice1.add(txtFichaTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 70, -1));
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DESCRIPCION:");
         panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
@@ -139,9 +150,9 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 500, 590));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 650, 590));
 
-        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 540, 630));
+        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 680, 630));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 380, 140));
@@ -150,7 +161,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1054, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
