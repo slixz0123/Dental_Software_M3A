@@ -24,10 +24,15 @@ public class Vista_NuevaEndodoncia extends javax.swing.JInternalFrame {
      */
     public Vista_NuevaEndodoncia() {
         initComponents();
+        llamarframepaciente();
     }
 
    
-
+public void llamarframepaciente(){
+    Crud_Paciente crud_Paciente = new Crud_Paciente();
+    crud_Paciente.setVisible(true);
+    panelpaciente.add(crud_Paciente);
+}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -160,6 +165,7 @@ public class Vista_NuevaEndodoncia extends javax.swing.JInternalFrame {
         txtAbo8 = new jtextfieldround.JTextFieldRound();
         jLabel30 = new javax.swing.JLabel();
         txtSaldoSegiTrat = new javax.swing.JTextField();
+        panelpaciente = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -843,6 +849,19 @@ public class Vista_NuevaEndodoncia extends javax.swing.JInternalFrame {
 
         jTabbedPane2.addTab("SEGUIMIENTO Y TRATAMIENTO", jPanel4);
 
+        javax.swing.GroupLayout panelpacienteLayout = new javax.swing.GroupLayout(panelpaciente);
+        panelpaciente.setLayout(panelpacienteLayout);
+        panelpacienteLayout.setHorizontalGroup(
+            panelpacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1209, Short.MAX_VALUE)
+        );
+        panelpacienteLayout.setVerticalGroup(
+            panelpacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("tab3", panelpaciente);
+
         jPanel1.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -958,6 +977,7 @@ public class Vista_NuevaEndodoncia extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private org.edisoncor.gui.panel.PanelNice panelNice3;
     private org.edisoncor.gui.panel.PanelNice panelNice5;
+    private javax.swing.JPanel panelpaciente;
     private javax.swing.JTextArea txtAObserciones;
     private javax.swing.JTextArea txtAObserciones1;
     private jtextfieldround.JTextFieldRound txtAbo2;

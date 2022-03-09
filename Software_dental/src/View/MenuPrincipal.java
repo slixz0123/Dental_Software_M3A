@@ -283,7 +283,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         lbl_NuevaEndodoncia.setForeground(new java.awt.Color(255, 255, 255));
         lbl_NuevaEndodoncia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_NuevaEndodoncia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/nuevaendo.png"))); // NOI18N
+        lbl_NuevaEndodoncia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/perforacion.png"))); // NOI18N
         lbl_NuevaEndodoncia.setText("Nueva Endodoncia");
         lbl_NuevaEndodoncia.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         panelCurves1.add(lbl_NuevaEndodoncia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 160, 40));
