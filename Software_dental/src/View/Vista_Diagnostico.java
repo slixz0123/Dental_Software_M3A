@@ -229,6 +229,7 @@ public class Vista_Diagnostico extends javax.swing.JInternalFrame {
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnAnterior = new org.edisoncor.gui.button.ButtonRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel3 = new javax.swing.JLabel();
         cboxDoctor = new org.edisoncor.gui.comboBox.ComboBoxRound();
@@ -272,7 +273,6 @@ public class Vista_Diagnostico extends javax.swing.JInternalFrame {
         lblFoto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btnDiagPresup = new javax.swing.JButton();
-        btnAnterior = new org.edisoncor.gui.button.ButtonRound();
 
         setPreferredSize(new java.awt.Dimension(1208, 735));
 
@@ -291,7 +291,10 @@ public class Vista_Diagnostico extends javax.swing.JInternalFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 500, 270));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 550, 350));
+        btnAnterior.setText("Anterior");
+        panelNice1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 30));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 550, 370));
 
         panelNice2.setBackground(new java.awt.Color(166, 154, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -434,10 +437,7 @@ public class Vista_Diagnostico extends javax.swing.JInternalFrame {
         btnDiagPresup.setText("Diagnostico y presupuesto inicial ");
         panelNice3.add(btnDiagPresup, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, 30));
 
-        jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 590, 640));
-
-        btnAnterior.setText("Anterior");
-        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 30));
+        jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 590, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
