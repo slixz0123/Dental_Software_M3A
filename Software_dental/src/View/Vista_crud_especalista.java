@@ -140,11 +140,11 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         btnExaminarftEsp.setText("Examinar");
-        panelNice1.add(btnExaminarftEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, 40));
-        panelNice1.add(txtNombresEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 290, 21));
-        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 290, -1));
-        panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 270, -1));
-        panelNice1.add(cBoxCargoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 280, -1));
+        panelNice1.add(btnExaminarftEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 90, 40));
+        panelNice1.add(txtNombresEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 240, 21));
+        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, -1));
+        panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 220, -1));
+        panelNice1.add(cBoxCargoEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 230, -1));
 
         lblFotoEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -153,32 +153,32 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelRoundTranslucido1Layout.setHorizontalGroup(
             panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         panelRoundTranslucido1Layout.setVerticalGroup(
             panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRoundTranslucido1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+            .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 270, 120));
+        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 240, 110));
 
         btnGuardarEsp1.setText("GUARDAR");
-        panelNice1.add(btnGuardarEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 560, -1, -1));
-        panelNice1.add(txtNombresEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 290, 21));
-        panelNice1.add(txtNombresEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 290, 21));
-        panelNice1.add(txtNombresEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 290, 21));
-        panelNice1.add(txtNombresEsp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 290, 21));
-        panelNice1.add(txtNombresEsp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 290, 21));
-        panelNice1.add(txtNombresEsp6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 290, 21));
-        panelNice1.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 290, 21));
-        panelNice1.add(txtNombresEsp8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 290, 21));
+        panelNice1.add(btnGuardarEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, -1, -1));
+        panelNice1.add(txtNombresEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 240, 21));
+        panelNice1.add(txtNombresEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, 21));
+        panelNice1.add(txtNombresEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 21));
+        panelNice1.add(txtNombresEsp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 240, 21));
+        panelNice1.add(txtNombresEsp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 240, 21));
+        panelNice1.add(txtNombresEsp6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 240, 21));
+        panelNice1.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 240, 21));
+        panelNice1.add(txtNombresEsp8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 240, 21));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 620));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 440, 600));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
@@ -233,7 +233,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14)
                     .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarEsp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,7 +241,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 670, 620));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 670, 590));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
@@ -251,9 +251,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

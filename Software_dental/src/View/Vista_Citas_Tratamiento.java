@@ -51,7 +51,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         btnImprimir = new javax.swing.JButton();
         btnIngresoGen = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(166, 154, 216));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("CITAS Y TRATAMIENTOS");
@@ -126,7 +126,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
                     .addComponent(btnAgendar)
                     .addComponent(btnImprimir)
                     .addComponent(btnIngresoGen))
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

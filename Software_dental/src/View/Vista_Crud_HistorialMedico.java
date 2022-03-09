@@ -42,7 +42,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         txtNombresEsp = new jtextfieldround.JTextFieldRound();
         dateFechanacEsp = new com.toedter.calendar.JDateChooser();
-        btnGuardarEsp1 = new org.edisoncor.gui.button.ButtonRound();
         txtNombresEsp1 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp2 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp3 = new jtextfieldround.JTextFieldRound();
@@ -53,6 +52,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtNombresEsp9 = new jtextfieldround.JTextFieldRound();
         jButton1 = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
+        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         txtNombresEsp15 = new jtextfieldround.JTextFieldRound();
         jLabel19 = new javax.swing.JLabel();
@@ -118,12 +118,13 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtNombresEsp39 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp40 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp41 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp42 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp7 = new jtextfieldround.JTextFieldRound();
         jButton2 = new javax.swing.JButton();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,9 +187,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
         panelNice1.add(txtNombresEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
         panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
-
-        btnGuardarEsp1.setText("GUARDAR");
-        panelNice1.add(btnGuardarEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 580, 130, 40));
         panelNice1.add(txtNombresEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
         panelNice1.add(txtNombresEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
         panelNice1.add(txtNombresEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 21));
@@ -204,19 +202,23 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 410, 650));
+        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
+        btnAnteriorEsp.setText("cerrar");
+        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelNice2.add(txtNombresEsp15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 240, 21));
+        panelNice2.add(txtNombresEsp15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 200, 21));
 
         jLabel19.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Alegia Medicamentos:");
         panelNice2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
-        panelNice2.add(txtNombresEsp16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 240, 21));
+        panelNice2.add(txtNombresEsp16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 200, 21));
 
         jLabel22.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,7 +229,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Presion:");
         panelNice2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-        panelNice2.add(txtNombresEsp14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 240, 21));
+        panelNice2.add(txtNombresEsp14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 200, 21));
 
         jLabel23.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,7 +250,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Oximetria");
         panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, -1, -1));
-        panelNice2.add(txtNombresEsp17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 240, 21));
+        panelNice2.add(txtNombresEsp17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 200, 21));
 
         jLabel25.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,35 +261,35 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Diabetes:");
         panelNice2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
-        panelNice2.add(txtNombresEsp18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 240, 21));
+        panelNice2.add(txtNombresEsp18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 200, 21));
 
         jLabel27.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Epilepsia:");
         panelNice2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
-        panelNice2.add(txtNombresEsp19, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 240, 21));
+        panelNice2.add(txtNombresEsp19, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 200, 21));
 
         jLabel28.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Alteracion Endocrina:");
         panelNice2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
-        panelNice2.add(txtNombresEsp20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 240, 21));
+        panelNice2.add(txtNombresEsp20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 200, 21));
 
         jLabel29.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Dolores de cabeza:");
         panelNice2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
-        panelNice2.add(txtNombresEsp21, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 240, 21));
+        panelNice2.add(txtNombresEsp21, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 200, 21));
 
         jLabel30.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("VIH:");
         panelNice2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
-        panelNice2.add(txtNombresEsp22, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 240, 21));
+        panelNice2.add(txtNombresEsp22, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 200, 21));
         panelNice2.add(txtNombresEsp23, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 110, 30));
-        panelNice2.add(txtNombresEsp24, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 240, 21));
-        panelNice2.add(txtNombresEsp25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 240, 21));
-        panelNice2.add(txtNombresEsp27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 240, 21));
+        panelNice2.add(txtNombresEsp24, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 200, 21));
+        panelNice2.add(txtNombresEsp25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 200, 21));
+        panelNice2.add(txtNombresEsp27, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, 21));
 
         jLabel33.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
@@ -308,7 +310,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Presion");
         panelNice2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, -1, -1));
-        panelNice2.add(txtNombresEsp28, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 240, 21));
+        panelNice2.add(txtNombresEsp28, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 200, 21));
         panelNice2.add(txtNombresEsp29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 110, 30));
         panelNice2.add(txtNombresEsp31, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 110, 30));
 
@@ -348,7 +350,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Enfermedad Actual:");
         panelNice2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
-        panelNice2.add(txtNombresEsp26, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 240, 21));
+        panelNice2.add(txtNombresEsp26, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 200, 21));
 
         jLabel16.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -365,8 +367,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelNice2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 10, 490));
         panelNice2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 720, 10));
-        panelNice2.add(txtNombresEsp33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 190, 21));
-        panelNice2.add(txtNombresEsp34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 240, 21));
+        panelNice2.add(txtNombresEsp33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 170, 21));
+        panelNice2.add(txtNombresEsp34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 200, 21));
 
         jLabel31.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
@@ -407,28 +409,32 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("CARGO:");
         panelNice2.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
-        panelNice2.add(txtNombresEsp38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 240, 21));
-        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, 21));
-        panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 190, 21));
-        panelNice2.add(txtNombresEsp37, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 190, 21));
-        panelNice2.add(txtNombresEsp39, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 190, 21));
-        panelNice2.add(txtNombresEsp40, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 190, 21));
-        panelNice2.add(txtNombresEsp41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 190, 21));
-        panelNice2.add(txtNombresEsp42, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 190, 21));
+        panelNice2.add(txtNombresEsp38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 200, 21));
+        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
+        panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
+        panelNice2.add(txtNombresEsp37, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
+        panelNice2.add(txtNombresEsp39, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 170, 21));
+        panelNice2.add(txtNombresEsp40, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 170, 21));
+        panelNice2.add(txtNombresEsp41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 170, 21));
         panelNice2.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
 
         jButton2.setText("Buscar");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 80, -1));
+        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
 
-        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 750, 650));
+        jButton3.setText("Imprimir");
+        panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 130, -1));
 
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("cerrar");
-        jPanel2.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jButton4.setText("Guardar");
+        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 120, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 710));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 420, 190));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 690));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -440,10 +446,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
-    private org.edisoncor.gui.button.ButtonRound btnGuardarEsp1;
     private com.toedter.calendar.JDateChooser dateFechanacEsp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -452,6 +459,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -529,7 +537,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtNombresEsp4;
     private jtextfieldround.JTextFieldRound txtNombresEsp40;
     private jtextfieldround.JTextFieldRound txtNombresEsp41;
-    private jtextfieldround.JTextFieldRound txtNombresEsp42;
     private jtextfieldround.JTextFieldRound txtNombresEsp5;
     private jtextfieldround.JTextFieldRound txtNombresEsp6;
     private jtextfieldround.JTextFieldRound txtNombresEsp7;
