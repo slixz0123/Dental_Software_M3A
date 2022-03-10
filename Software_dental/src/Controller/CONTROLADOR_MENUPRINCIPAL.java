@@ -8,6 +8,7 @@ import Model.Model_Cie10;
 import Model.Model_CitasTratamiento;
 import Model.Model_Diagnostico;
 import Model.Model_Especialista;
+import Model.Model_Farmacos;
 import Model.Model_HistorialMedico;
 import Model.Model_ListadoPacientes;
 import Model.Model_NuevaEndodoncia;
@@ -20,6 +21,7 @@ import View.Vista_Anamesis;
 import View.Vista_Citas_Tratamiento;
 import View.Vista_Crud_Cie10;
 import View.Vista_Crud_HistorialMedico;
+import View.Vista_Farmacos;
 import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
 import View.Vista_ListadoPacientes;
@@ -76,7 +78,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
         setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
-
+        setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -328,6 +330,17 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+       private void setEventoMouseClickFarmacos(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudFarmacos(e);
+
+            }
+        });
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
@@ -391,6 +404,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getDkpPrincipal().add(vistacitastrat);
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+    }
+    private void CrudFarmacos(java.awt.event.MouseEvent evt) {
+        Model_Farmacos modelfarm = new Model_Farmacos();
+        Vista_Farmacos vistafarm = new Vista_Farmacos();
+        vista.getDkpPrincipal().add(vistafarm);
+        vistafarm.setBorder(null);
+        Controller.Controller_Farmacos controfarm = new Controller_Farmacos(modelfarm, vistafarm);
     }
       private void Proceso(java.awt.event.MouseEvent evt) {
           Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
