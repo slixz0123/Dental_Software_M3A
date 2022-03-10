@@ -324,7 +324,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel39.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Problemas Cuagulacion:");
+        jLabel39.setText("Problemas Coagulacion:");
         panelNice2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N

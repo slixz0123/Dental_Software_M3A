@@ -102,7 +102,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
         pnreceta = new javax.swing.JPanel();
         pnFacturacion = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -152,7 +152,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
             .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("HIISTORIAL MEDICO", pnHistorial);
+        jTabbedPane1.addTab("HISTORIAL MEDICO", pnHistorial);
 
         pnHistorialClinico.setBackground(new java.awt.Color(255, 255, 255));
         pnHistorialClinico.setPreferredSize(new java.awt.Dimension(1255, 752));
