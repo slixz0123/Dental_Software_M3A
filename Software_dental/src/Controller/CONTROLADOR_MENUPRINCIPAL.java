@@ -454,7 +454,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         Model_Farmacos modelfarm = new Model_Farmacos();
         Vista_Farmacos vistafarm = new Vista_Farmacos();
         vista.getDkpPrincipal().add(vistafarm);
-        vistafarm.setBorder(null);
+       // vistafarm.setBorder(null);
         Controller.Controller_Farmacos controfarm = new Controller_Farmacos(modelfarm, vistafarm);
     }
 
