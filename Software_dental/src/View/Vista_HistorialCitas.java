@@ -66,7 +66,7 @@ public class Vista_HistorialCitas extends javax.swing.JFrame {
         panelNice2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, -1));
         panelNice2.add(txtNombreTrat7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 790, 30));
 
-        jButton1.setText("imprimir");
+        jButton1.setText("Imprimir");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 280, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

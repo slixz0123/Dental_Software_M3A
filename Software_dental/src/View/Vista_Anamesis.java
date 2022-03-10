@@ -79,7 +79,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,7 +179,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("Probelma Actual:");
+        jLabel32.setText("Problema Actual:");
         panelNice2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
