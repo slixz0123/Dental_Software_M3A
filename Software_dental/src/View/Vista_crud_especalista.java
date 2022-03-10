@@ -276,8 +276,12 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(txtcedulaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 240, 21));
 
         cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar el genero", "Masculino", "Femenino" }));
+        cboxGeneroEsp.setToolTipText("Genero");
         panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, -1));
         panelNice1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 220, -1));
+
+        cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
+        cBoxespecialidad.setToolTipText("Especialidad");
         panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 230, -1));
 
         lblFotoEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));

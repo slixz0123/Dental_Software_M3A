@@ -279,6 +279,7 @@
                     <StringItem index="2" value="Femenino"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Genero"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -294,6 +295,21 @@
               </Constraints>
             </Component>
             <Component class="org.edisoncor.gui.comboBox.ComboBoxRound" name="cBoxespecialidad">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="8">
+                    <StringItem index="0" value="Seleccionar"/>
+                    <StringItem index="1" value="Odont&#xf3;logo general"/>
+                    <StringItem index="2" value="Odontopediatra"/>
+                    <StringItem index="3" value="Ortodoncista"/>
+                    <StringItem index="4" value="Periodoncista"/>
+                    <StringItem index="5" value="Endodoncista"/>
+                    <StringItem index="6" value="Pat&#xf3;logo oral o Cirujano oral"/>
+                    <StringItem index="7" value="Prostodoncista"/>
+                  </StringArray>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Especialidad"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="360" width="230" height="-1"/>
