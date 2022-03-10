@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package View;
 
 /**
  *
  * @author slix0
  */
-public class VISTA_PROFORMA extends javax.swing.JFrame {
+public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VISTA_PROFORMA
@@ -32,34 +29,36 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTratamientoPresupuesto = new javax.swing.JTable();
+        cboxFormaPago = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        panelNice1 = new org.edisoncor.gui.panel.PanelNice();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtTotalTrat = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtValorCuotMensual = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        cboxFormaPago = new org.edisoncor.gui.comboBox.ComboBoxRound();
-        jLabel11 = new javax.swing.JLabel();
-        txtTotal = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtDescuento = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtDesTotal = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        txtValorTotFinal = new javax.swing.JTextField();
-        txtCuotalIni = new javax.swing.JTextField();
-        txtSaldoLuegoCuoIni = new javax.swing.JTextField();
-        txtMesesCred = new javax.swing.JTextField();
-        btnImpProforma = new javax.swing.JButton();
-        btnValidProforma = new javax.swing.JButton();
-        lblFoto = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        btnDiagPresup = new javax.swing.JButton();
         cboxFormaPago1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btnValidProforma = new javax.swing.JButton();
+        btnImpProforma = new javax.swing.JButton();
+        btnDiagPresup = new javax.swing.JButton();
+        txtApellidosTrat4 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat5 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat6 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat7 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat8 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat9 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat10 = new jtextfieldround.JTextFieldRound();
+        txtApellidosTrat11 = new jtextfieldround.JTextFieldRound();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,8 +68,13 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+
         jLabel6.setText("PLAN DE TRATAMIENTO Y PRESUPUESTO");
         panelNice3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        jLabel6.setText("PLAN DE TRATAMIENTO Y PRESUPESTO");
+        panelNice3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,96 +91,105 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTratamientoPresupuesto);
 
-        panelNice3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 570, 180));
+        panelNice3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1100, 180));
+        panelNice3.add(cboxFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1100, -1));
 
-        jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Total:");
-        panelNice3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
-        panelNice3.add(txtTotalTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 120, -1));
+        panelNice1.setBackground(new java.awt.Color(166, 104, 216));
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Saldo luego de la cuota inicial:");
-        panelNice3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, -1, -1));
-        panelNice3.add(txtValorCuotMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 70, -1));
-
-        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Total de tratamientos:");
-        panelNice3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
-        panelNice3.add(cboxFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 250, -1));
-
-        jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Forma de pago:");
-        panelNice3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
-        panelNice3.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 300, 70, -1));
-
-        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Descuento:");
-        panelNice3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
-        panelNice3.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 70, -1));
-
-        jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Descuento total:");
-        panelNice3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
-        panelNice3.add(txtDesTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 70, -1));
-
-        jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Valor total final:");
-        panelNice3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Meses de credito:");
-        panelNice3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Cuota inicial:");
-        panelNice3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
-
-        jLabel17.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Valor de cuota mensual:");
-        panelNice3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, -1, -1));
-        panelNice3.add(txtValorTotFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 70, -1));
-        panelNice3.add(txtCuotalIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 70, -1));
-        panelNice3.add(txtSaldoLuegoCuoIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 70, -1));
-        panelNice3.add(txtMesesCred, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 70, -1));
+        panelNice1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Meses de credito:");
+        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 190, -1));
+
+        jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Saldo luego de la cuota inicial:");
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Cuota inicial:");
+        panelNice1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        panelNice1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 30, 270));
+
+        jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Valor total final:");
+        panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Descuento total:");
+        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Descuento:");
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Total:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 60, -1));
+        panelNice1.add(txtTotalTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 130, -1));
+        panelNice1.add(cboxFormaPago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 150, -1));
+
+        jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Forma de pago:");
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Total de tratamientos:");
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        btnValidProforma.setText("Validar Proforma");
+        panelNice1.add(btnValidProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 260, 40));
 
         btnImpProforma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/impresora.png"))); // NOI18N
         btnImpProforma.setText("Proforma");
-        panelNice3.add(btnImpProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-
-        btnValidProforma.setText("Validar Proforma");
-        panelNice3.add(btnValidProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
-
-        lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelNice3.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 80));
-        panelNice3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 250, 10));
+        panelNice1.add(btnImpProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 260, -1));
 
         btnDiagPresup.setText("Diagnostico y presupuesto inicial ");
-        panelNice3.add(btnDiagPresup, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, 30));
-        panelNice3.add(cboxFormaPago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 150, -1));
+        panelNice1.add(btnDiagPresup, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 260, 40));
+        panelNice1.add(txtApellidosTrat4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 80, 30));
+        panelNice1.add(txtApellidosTrat5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 80, 30));
+        panelNice1.add(txtApellidosTrat6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 80, 30));
+        panelNice1.add(txtApellidosTrat7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 80, 30));
+        panelNice1.add(txtApellidosTrat8, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 230, 80, 30));
+        panelNice1.add(txtApellidosTrat9, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, 80, 30));
+        panelNice1.add(txtApellidosTrat10, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 100, 80, 30));
+        panelNice1.add(txtApellidosTrat11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, 80, 30));
 
-        jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 590, 660));
+        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        panelNice1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 30, 270));
+
+        panelNice3.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1100, 290));
+
+        jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -185,37 +198,7 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VISTA_PROFORMA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VISTA_PROFORMA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VISTA_PROFORMA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VISTA_PROFORMA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VISTA_PROFORMA().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDiagPresup;
@@ -238,17 +221,18 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblFoto;
+    private javax.swing.JSeparator jSeparator2;
+    private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice3;
     private javax.swing.JTable tblTratamientoPresupuesto;
-    private javax.swing.JTextField txtCuotalIni;
-    private javax.swing.JTextField txtDesTotal;
-    private javax.swing.JTextField txtDescuento;
-    private javax.swing.JTextField txtMesesCred;
-    private javax.swing.JTextField txtSaldoLuegoCuoIni;
-    private javax.swing.JTextField txtTotal;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat10;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat11;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat4;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat5;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat6;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat7;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat8;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat9;
     private javax.swing.JTextField txtTotalTrat;
-    private javax.swing.JTextField txtValorCuotMensual;
-    private javax.swing.JTextField txtValorTotFinal;
     // End of variables declaration//GEN-END:variables
 }

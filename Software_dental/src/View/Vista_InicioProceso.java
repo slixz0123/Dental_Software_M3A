@@ -4,11 +4,13 @@
  */
 package View;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author slix0
  */
-public class Vista_InicioProceso extends javax.swing.JFrame {
+public class Vista_InicioProceso extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_InicioProceso
@@ -17,6 +19,71 @@ public class Vista_InicioProceso extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JPanel getPnAnamesis() {
+        return pnAnamesis;
+    }
+
+    public void setPnAnamesis(JPanel pnAnamesis) {
+        this.pnAnamesis = pnAnamesis;
+    }
+
+    public JPanel getPnCitas() {
+        return pnCitas;
+    }
+
+    public void setPnCitas(JPanel pnCitas) {
+        this.pnCitas = pnCitas;
+    }
+
+   
+
+    public JPanel getPnFacturacion() {
+        return pnFacturacion;
+    }
+
+    public void setPnFacturacion(JPanel pnFacturacion) {
+        this.pnFacturacion = pnFacturacion;
+    }
+
+    public JPanel getPnHistorial() {
+        return pnHistorial;
+    }
+
+    public void setPnHistorial(JPanel pnHistorial) {
+        this.pnHistorial = pnHistorial;
+    }
+
+    public JPanel getPnHistorialClinico() {
+        return pnHistorialClinico;
+    }
+
+    public void setPnHistorialClinico(JPanel pnHistorialClinico) {
+        this.pnHistorialClinico = pnHistorialClinico;
+    }
+
+    public JPanel getPnListadoPac() {
+        return pnListadoPac;
+    }
+
+    public void setPnListadoPac(JPanel pnListadoPac) {
+        this.pnListadoPac = pnListadoPac;
+    }
+
+    public JPanel getPnreceta() {
+        return pnreceta;
+    }
+
+    public void setPnreceta(JPanel pnreceta) {
+        this.pnreceta = pnreceta;
+    }
+
+    
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,130 +94,137 @@ public class Vista_InicioProceso extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
+        pnListadoPac = new javax.swing.JPanel();
+        pnAnamesis = new javax.swing.JPanel();
+        pnHistorial = new javax.swing.JPanel();
+        pnHistorialClinico = new javax.swing.JPanel();
+        pnCitas = new javax.swing.JPanel();
+        pnreceta = new javax.swing.JPanel();
+        pnFacturacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnListadoPac.setBackground(new java.awt.Color(255, 255, 255));
+        pnListadoPac.setPreferredSize(new java.awt.Dimension(1255, 752));
+
+        javax.swing.GroupLayout pnListadoPacLayout = new javax.swing.GroupLayout(pnListadoPac);
+        pnListadoPac.setLayout(pnListadoPacLayout);
+        pnListadoPacLayout.setHorizontalGroup(
+            pnListadoPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+        pnListadoPacLayout.setVerticalGroup(
+            pnListadoPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("LISTADO DE PACIENTES", jPanel1);
+        jTabbedPane1.addTab("LISTADO DE PACIENTES", pnListadoPac);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
-        );
+        pnAnamesis.setBackground(new java.awt.Color(255, 255, 255));
+        pnAnamesis.setPreferredSize(new java.awt.Dimension(1255, 752));
 
-        jTabbedPane1.addTab("ANAMNESIS", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnAnamesisLayout = new javax.swing.GroupLayout(pnAnamesis);
+        pnAnamesis.setLayout(pnAnamesisLayout);
+        pnAnamesisLayout.setHorizontalGroup(
+            pnAnamesisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+        pnAnamesisLayout.setVerticalGroup(
+            pnAnamesisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("HIISTORIAL MEDICO", jPanel3);
+        jTabbedPane1.addTab("ANAMNESIS", pnAnamesis);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
-        );
+        pnHistorial.setBackground(new java.awt.Color(255, 255, 255));
+        pnHistorial.setPreferredSize(new java.awt.Dimension(1255, 752));
 
-        jTabbedPane1.addTab("DIAGNOSTICO", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnHistorialLayout = new javax.swing.GroupLayout(pnHistorial);
+        pnHistorial.setLayout(pnHistorialLayout);
+        pnHistorialLayout.setHorizontalGroup(
+            pnHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+        pnHistorialLayout.setVerticalGroup(
+            pnHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("HISTORIAL CLINICO", jPanel5);
+        jTabbedPane1.addTab("HIISTORIAL MEDICO", pnHistorial);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
-        );
+        pnHistorialClinico.setBackground(new java.awt.Color(255, 255, 255));
+        pnHistorialClinico.setPreferredSize(new java.awt.Dimension(1255, 752));
 
-        jTabbedPane1.addTab("AGENDA DE CITAS", jPanel6);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnHistorialClinicoLayout = new javax.swing.GroupLayout(pnHistorialClinico);
+        pnHistorialClinico.setLayout(pnHistorialClinicoLayout);
+        pnHistorialClinicoLayout.setHorizontalGroup(
+            pnHistorialClinicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+        pnHistorialClinicoLayout.setVerticalGroup(
+            pnHistorialClinicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("RECETA", jPanel7);
+        jTabbedPane1.addTab("HISTORIAL CLINICO", pnHistorialClinico);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1178, Short.MAX_VALUE)
+        pnCitas.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnCitasLayout = new javax.swing.GroupLayout(pnCitas);
+        pnCitas.setLayout(pnCitasLayout);
+        pnCitasLayout.setHorizontalGroup(
+            pnCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+        pnCitasLayout.setVerticalGroup(
+            pnCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("FACTURACION", jPanel8);
+        jTabbedPane1.addTab("AGENDA DE CITAS", pnCitas);
+
+        pnreceta.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnrecetaLayout = new javax.swing.GroupLayout(pnreceta);
+        pnreceta.setLayout(pnrecetaLayout);
+        pnrecetaLayout.setHorizontalGroup(
+            pnrecetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
+        );
+        pnrecetaLayout.setVerticalGroup(
+            pnrecetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("RECETA", pnreceta);
+
+        pnFacturacion.setBackground(new java.awt.Color(255, 255, 255));
+        pnFacturacion.setPreferredSize(new java.awt.Dimension(1255, 752));
+
+        javax.swing.GroupLayout pnFacturacionLayout = new javax.swing.GroupLayout(pnFacturacion);
+        pnFacturacion.setLayout(pnFacturacionLayout);
+        pnFacturacionLayout.setHorizontalGroup(
+            pnFacturacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1255, Short.MAX_VALUE)
+        );
+        pnFacturacionLayout.setVerticalGroup(
+            pnFacturacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 752, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("FACTURACION", pnFacturacion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1259, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
         );
 
         pack();
@@ -159,47 +233,16 @@ public class Vista_InicioProceso extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_InicioProceso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_InicioProceso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_InicioProceso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_InicioProceso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_InicioProceso().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel pnAnamesis;
+    private javax.swing.JPanel pnCitas;
+    private javax.swing.JPanel pnFacturacion;
+    private javax.swing.JPanel pnHistorial;
+    private javax.swing.JPanel pnHistorialClinico;
+    private javax.swing.JPanel pnListadoPac;
+    private javax.swing.JPanel pnreceta;
     // End of variables declaration//GEN-END:variables
 }

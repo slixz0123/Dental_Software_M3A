@@ -1,3 +1,5 @@
+package View;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,7 +9,7 @@
  *
  * @author slix0
  */
-public class Vista_Anamesis extends javax.swing.JFrame {
+public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_Anamesis
@@ -211,7 +213,7 @@ public class Vista_Anamesis extends javax.swing.JFrame {
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("TELEFONO:");
         panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 240, 21));
+        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 210, 21));
         panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
         panelNice2.add(txtNombresEsp39, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
         panelNice2.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
@@ -220,22 +222,22 @@ public class Vista_Anamesis extends javax.swing.JFrame {
         panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
 
         jButton3.setText("Imprimir");
-        panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, 200, 50));
+        panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 200, 50));
 
         jButton4.setText("Guardar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, 50));
+        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 210, 50));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 350, 130));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 320, 130));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 350, 130));
+        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 320, 130));
         panelNice2.add(txtNombresEsp37, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
 
         jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -243,10 +245,10 @@ public class Vista_Anamesis extends javax.swing.JFrame {
         jLabel34.setText("EMBARAZO");
         panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
-        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
+        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 690, 630));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 420, 190));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 420, 150));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 690));
 
@@ -277,37 +279,8 @@ public class Vista_Anamesis extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Anamesis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Anamesis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Anamesis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Anamesis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_Anamesis().setVisible(true);
-            }
-        });
-    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;

@@ -29,7 +29,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNombreTrat = new jtextfieldround.JTextFieldRound();
         jLabel4 = new javax.swing.JLabel();
-        txtFichaTrat = new javax.swing.JTextField();
         btnAgendar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtNombreTrat1 = new jtextfieldround.JTextFieldRound();
@@ -37,12 +36,15 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
-        txtFichaTrat1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         txtApellidosTrat1 = new jtextfieldround.JTextFieldRound();
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        txtApellidosTrat2 = new jtextfieldround.JTextFieldRound();
+        btnAgendar1 = new javax.swing.JButton();
+        btnAgendar2 = new javax.swing.JButton();
+        txtApellidosTrat3 = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -60,21 +62,20 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FICHA:");
-        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, 20));
-        panelNice1.add(txtNombreTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 220, 20));
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
+        panelNice1.add(txtNombreTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 20));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDOS DEL PACIENTE:");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
-        panelNice1.add(txtFichaTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 110, -1));
 
-        btnAgendar.setText("AGENDAR");
-        panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
+        btnAgendar.setText("ELIMINAR");
+        panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 429, 130, 40));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOMBRE DEL DOCTOR:");
         panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
-        panelNice1.add(txtNombreTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 220, 20));
+        panelNice1.add(txtNombreTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 220, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CEDULA DEL DOCTOR:");
@@ -82,29 +83,36 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("FECHA:");
-        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 110, -1));
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("HORA:");
-        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
-        panelNice1.add(txtFichaTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 70, -1));
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DESCRIPCION:");
-        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 270, 110));
-        panelNice1.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 220, 20));
+        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 270, 160));
+        panelNice1.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 20));
 
         comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 220, 20));
+        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 220, 20));
+        panelNice1.add(txtApellidosTrat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
 
-        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 480, 490));
+        btnAgendar1.setText("AGENDAR");
+        panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 120, 40));
+
+        btnAgendar2.setText("ACTUALIZAR");
+        panelNice1.add(btnAgendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, 40));
+        panelNice1.add(txtApellidosTrat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 20));
+
+        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 480, 480));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,12 +130,12 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 650, 590));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 560));
 
-        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 680, 630));
+        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 630, 600));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 380, 140));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 380, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +145,10 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -147,6 +158,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendar;
+    private javax.swing.JButton btnAgendar1;
+    private javax.swing.JButton btnAgendar2;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
@@ -166,8 +179,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private jtextfieldround.JTextFieldRound txtApellidosTrat1;
-    private javax.swing.JTextField txtFichaTrat;
-    private javax.swing.JTextField txtFichaTrat1;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat2;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat3;
     private jtextfieldround.JTextFieldRound txtNombreTrat;
     private jtextfieldround.JTextFieldRound txtNombreTrat1;
     // End of variables declaration//GEN-END:variables
