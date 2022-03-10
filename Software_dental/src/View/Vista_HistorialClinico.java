@@ -64,6 +64,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel29 = new javax.swing.JLabel();
         txtNombreTrat8 = new jtextfieldround.JTextFieldRound();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1208, 735));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -74,18 +75,18 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Odontograma");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1070, 320));
+        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1070, 240));
 
         btnDiag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/impresora.png"))); // NOI18N
         btnDiag.setText("Guardar");
-        panelNice1.add(btnDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 170, 50));
+        panelNice1.add(btnDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 170, 50));
 
         btnIndicSaludBucal.setText("imprimir");
-        panelNice1.add(btnIndicSaludBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 190, 50));
+        panelNice1.add(btnIndicSaludBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 190, 50));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 1110, 440));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 1110, 360));
 
-        panelNice2.setBackground(new java.awt.Color(166, 154, 216));
+        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtAreaDiag.setColumns(20);
@@ -182,7 +183,9 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
