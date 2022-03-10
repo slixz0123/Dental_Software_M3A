@@ -82,13 +82,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
         setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
-<<<<<<< HEAD
+
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
 
-=======
+
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
->>>>>>> cff11943bbbdd929def22b74d207a7c222a44c72
+
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -353,9 +353,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
-<<<<<<< HEAD
-       
-=======
+
        private void setEventoMouseClickFarmacos(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
@@ -368,7 +366,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         });
     }
 
->>>>>>> cff11943bbbdd929def22b74d207a7c222a44c72
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
         Model_Paciente modelpaciente = new Model_Paciente();
@@ -432,7 +430,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
-<<<<<<< HEAD
+
      private void proforma(java.awt.event.MouseEvent evt) {
         Model_Proforma modelProforma = new Model_Proforma();
         VISTA_PROFORMA vistaProforma = new VISTA_PROFORMA();
@@ -451,7 +449,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
      
      
      
-=======
+
     private void CrudFarmacos(java.awt.event.MouseEvent evt) {
         Model_Farmacos modelfarm = new Model_Farmacos();
         Vista_Farmacos vistafarm = new Vista_Farmacos();
@@ -459,7 +457,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistafarm.setBorder(null);
         Controller.Controller_Farmacos controfarm = new Controller_Farmacos(modelfarm, vistafarm);
     }
->>>>>>> cff11943bbbdd929def22b74d207a7c222a44c72
+
       private void Proceso(java.awt.event.MouseEvent evt) {
           Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
        
