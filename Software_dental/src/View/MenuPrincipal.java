@@ -4,6 +4,7 @@
  */
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -150,6 +151,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setLbl_NuevaEndodoncia(JLabel lbl_NuevaEndodoncia) {
         this.lbl_NuevaEndodoncia = lbl_NuevaEndodoncia;
     }
+
+    public JButton getBtnagendaCitas() {
+        return btnagendaCitas;
+    }
+
+    public void setBtnagendaCitas(JButton btnagendaCitas) {
+        this.btnagendaCitas = btnagendaCitas;
+    }
     
 
    
@@ -205,10 +214,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnagendaCitas = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,7 +230,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         labelini.setForeground(new java.awt.Color(255, 255, 255));
         labelini.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/brillante.png"))); // NOI18N
-        labelini.setText("proceso");
+        labelini.setText("Proceso               ");
         labelini.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         MenuDesplegable.add(labelini);
         labelini.setBounds(-2, 10, 170, 60);
@@ -277,9 +284,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_Agendarcitas.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Agendarcitas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_Agendarcitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/registro-dental.png"))); // NOI18N
-        lbl_Agendarcitas.setText("Agenda de citas     ");
+        lbl_Agendarcitas.setText("Agendar de citas     ");
         lbl_Agendarcitas.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        panelCurves1.add(lbl_Agendarcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 160, 40));
+        panelCurves1.add(lbl_Agendarcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 170, 40));
 
         lbl_NuevaEndodoncia.setForeground(new java.awt.Color(255, 255, 255));
         lbl_NuevaEndodoncia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -393,13 +400,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton1.setText("Listado Pacientes");
 
-        jButton2.setText("Anamesis");
+        btnagendaCitas.setText("Agenda de citas");
 
-        jButton3.setText("Historia Clinica");
-
-        jButton4.setText("Proforma");
-
-        jButton5.setText("Agenda de citas");
+        jButton6.setText("Listado Pacientes");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -414,16 +417,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(255, 255, 255)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnagendaCitas)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
@@ -436,10 +435,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnagendaCitas)
+                    .addComponent(jButton6))
                 .addGap(17, 17, 17))
         );
 
@@ -498,12 +495,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.panel.Panel MenuDesplegable;
+    private javax.swing.JButton btnagendaCitas;
     private javax.swing.JDesktopPane dkpPrincipal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

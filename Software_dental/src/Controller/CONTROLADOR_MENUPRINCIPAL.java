@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.Model_AgendaCitas;
 import Model.Model_Cie10;
 import Model.Model_CitasTratamiento;
 import Model.Model_Diagnostico;
@@ -12,10 +13,13 @@ import Model.Model_HistorialMedico;
 import Model.Model_ListadoPacientes;
 import Model.Model_NuevaEndodoncia;
 import Model.Model_Paciente;
+import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.VISTA_PROFORMA;
+import View.Vista_AgendaCitas;
 import View.Vista_Anamesis;
 import View.Vista_Citas_Tratamiento;
 import View.Vista_Crud_Cie10;
@@ -76,6 +80,8 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
         setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
+        setEventoMouseClickProforma(vista.getLbl_Cotizacion());
+        vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
 
     }
 
@@ -317,6 +323,19 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+      private void setEventoMouseClickProforma(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                proforma(e);
+
+            }
+        });
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------  
        private void setEventoMouseClickProgreso(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
@@ -328,7 +347,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
-
+       
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
         Model_Paciente modelpaciente = new Model_Paciente();
@@ -392,6 +411,24 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
+     private void proforma(java.awt.event.MouseEvent evt) {
+        Model_Proforma modelProforma = new Model_Proforma();
+        VISTA_PROFORMA vistaProforma = new VISTA_PROFORMA();
+        vista.getDkpPrincipal().add(vistaProforma);
+        vistaProforma.setBorder(null);
+        Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
+    }
+     
+      private void agendacitas() {
+        Model_AgendaCitas modelagendacitas = new Model_AgendaCitas();
+        Vista_AgendaCitas vistaAgendarcitas = new Vista_AgendaCitas();
+        vista.getDkpPrincipal().add(vistaAgendarcitas);
+        vistaAgendarcitas.setBorder(null);
+        Controller.Controller_AgendaCitas controlerAgendaCitas = new Controller_AgendaCitas(modelagendacitas, vistaAgendarcitas);
+    }
+     
+     
+     
       private void Proceso(java.awt.event.MouseEvent evt) {
           Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
        
