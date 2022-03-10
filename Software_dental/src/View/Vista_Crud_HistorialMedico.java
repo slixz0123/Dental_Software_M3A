@@ -207,7 +207,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel19.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Alegia Medicamentos:");
+        jLabel19.setText("Alergia Medicamentos:");
         panelNice2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
         panelNice2.add(txtNombresEsp16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 200, 21));
 
@@ -348,7 +348,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel18.setText("Tratamiento medico:");
         panelNice2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelNice2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 10, 490));

@@ -69,7 +69,7 @@ public class VISTA_PROFORMA extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("PLAN DE TRATAMIENTO Y PRESUPESTO");
+        jLabel6.setText("PLAN DE TRATAMIENTO Y PRESUPUESTO");
         panelNice3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
