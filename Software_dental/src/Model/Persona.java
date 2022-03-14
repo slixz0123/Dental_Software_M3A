@@ -5,16 +5,17 @@
  */
 package Model;
 
+import java.io.FileInputStream;
+
 /**
  *
  * @author LENOVO
  */
 public class Persona {
     private String cedula;
-    private String primernombre;
-    private String segundonombre;
-    private String primerapellido;
-    private String segundoapellido;
+    private String nombres;
+    private String apellidos;
+    private String celular;
     private String telefono;
     private String direccion;
     private String correo;
@@ -23,16 +24,14 @@ public class Persona {
     private String genero;
     
     private byte[] foto;
-
     public Persona() {
     }
 
-    public Persona(String cedula, String primernombre, String segundonombre, String primerapellido, String segundoapellido, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
+    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
         this.cedula = cedula;
-        this.primernombre = primernombre;
-        this.segundonombre = segundonombre;
-        this.primerapellido = primerapellido;
-        this.segundoapellido = segundoapellido;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.celular = celular;
         this.telefono = telefono;
         this.direccion = direccion;
         this.correo = correo;
@@ -42,10 +41,6 @@ public class Persona {
         this.foto = foto;
     }
 
-    
-
-    
-    
     public String getCedula() {
         return cedula;
     }
@@ -54,36 +49,28 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public String getPrimernombre() {
-        return primernombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setPrimernombre(String primernombre) {
-        this.primernombre = primernombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getSegundonombre() {
-        return segundonombre;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setSegundonombre(String segundonombre) {
-        this.segundonombre = segundonombre;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public String getPrimerapellido() {
-        return primerapellido;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setPrimerapellido(String primerapellido) {
-        this.primerapellido = primerapellido;
-    }
-
-    public String getSegundoapellido() {
-        return segundoapellido;
-    }
-
-    public void setSegundoapellido(String segundoapellido) {
-        this.segundoapellido = segundoapellido;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public String getTelefono() {
@@ -141,6 +128,7 @@ public class Persona {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
+
     
     
 }

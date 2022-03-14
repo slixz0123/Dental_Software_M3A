@@ -21,6 +21,8 @@ public class Anamnesis {
     private String ced_repre;
     private String ficha_fis;
     private String contrato;
+    private String contraindicaciones;
+    private String enfermedad;
     private String foto_anam;
 
     public Anamnesis() {

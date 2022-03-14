@@ -69,7 +69,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
         setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
-          setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
+        setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
 
     }
 
