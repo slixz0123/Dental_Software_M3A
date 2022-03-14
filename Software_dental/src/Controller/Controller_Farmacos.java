@@ -5,18 +5,18 @@
  */
 package Controller;
 
-import Model.Model_Diagnostico;
-import View.Vista_HistorialClinico;
+import Model.Model_Farmacos;
+import View.Vista_Farmacos;
 
 /**
  *
  * @author Usuario
  */
-public class Controller_Diagnostico {
-    private Model_Diagnostico model;
-    private Vista_HistorialClinico vista;
+public class Controller_Farmacos {
+    private Model_Farmacos model;
+    private Vista_Farmacos vista;
 
-    public Controller_Diagnostico(Model_Diagnostico model, Vista_HistorialClinico vista) {
+    public Controller_Farmacos(Model_Farmacos model, Vista_Farmacos vista) {
         this.model = model;
         this.vista = vista;
         vista.setVisible(true);

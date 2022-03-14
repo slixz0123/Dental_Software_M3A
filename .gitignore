@@ -14,5 +14,3 @@ Software_dental/src/Model/ConexionPg.java
 Software_dental/src/Model/ConexionPg.java
 Software_dental/nbproject/private/private.properties
 *.properties
-*.java
-!/Software_dental/src/Model/Model_Diagnostico.java

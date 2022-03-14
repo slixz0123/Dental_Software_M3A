@@ -94,34 +94,25 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtNombresEsp32 = new jtextfieldround.JTextFieldRound();
         jLabel39 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         txtNombresEsp26 = new jtextfieldround.JTextFieldRound();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        txtNombresEsp33 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp34 = new jtextfieldround.JTextFieldRound();
         jLabel31 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
         txtNombresEsp38 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp35 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp36 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp37 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp39 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp40 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp41 = new jtextfieldround.JTextFieldRound();
         txtNombresEsp7 = new jtextfieldround.JTextFieldRound();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -216,7 +207,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel19.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Alegia Medicamentos:");
+        jLabel19.setText("Alergia Medicamentos:");
         panelNice2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
         panelNice2.add(txtNombresEsp16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 200, 21));
 
@@ -333,18 +324,13 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel39.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Problemas Cuagulacion:");
+        jLabel39.setText("Problemas Coagulacion:");
         panelNice2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("DATOS DEL ANAMESIS");
+        jLabel13.setText("DATOS DEL HISTORIAL MEDICO");
         panelNice2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("ESPECIALIDAD:");
-        panelNice2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
@@ -362,12 +348,10 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel18.setText("Tratamiento medico:");
         panelNice2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelNice2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 10, 490));
         panelNice2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 720, 10));
-        panelNice2.add(txtNombresEsp33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 170, 21));
         panelNice2.add(txtNombresEsp34, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 200, 21));
 
         jLabel31.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -383,49 +367,37 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CEDULA:");
-        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("DIRECCION:");
-        panelNice2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
-
-        jLabel43.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("TELEFONO:");
-        panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
-
-        jLabel44.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setText("CORREO:");
-        panelNice2.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
-
-        jLabel45.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel45.setText("ESPECIALIDAD:");
-        panelNice2.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
-
-        jLabel46.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel46.setText("CARGO:");
-        panelNice2.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
         panelNice2.add(txtNombresEsp38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 200, 21));
-        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
-        panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
-        panelNice2.add(txtNombresEsp37, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
-        panelNice2.add(txtNombresEsp39, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 170, 21));
-        panelNice2.add(txtNombresEsp40, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 170, 21));
-        panelNice2.add(txtNombresEsp41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 170, 21));
-        panelNice2.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
-
-        jButton2.setText("Buscar");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
+        panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 170, 21));
+        panelNice2.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 160, 21));
 
         jButton3.setText("Imprimir");
         panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 130, -1));
 
         jButton4.setText("Guardar");
         panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 120, -1));
+
+        jLabel47.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("BUSCAR");
+        panelNice2.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        panelNice2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 170, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 310, 330));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
 
@@ -448,15 +420,13 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private com.toedter.calendar.JDateChooser dateFechanacEsp;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -488,10 +458,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -499,9 +466,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTable1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private jtextfieldround.JTextFieldRound txtNombresEsp;
@@ -527,16 +496,10 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtNombresEsp30;
     private jtextfieldround.JTextFieldRound txtNombresEsp31;
     private jtextfieldround.JTextFieldRound txtNombresEsp32;
-    private jtextfieldround.JTextFieldRound txtNombresEsp33;
     private jtextfieldround.JTextFieldRound txtNombresEsp34;
-    private jtextfieldround.JTextFieldRound txtNombresEsp35;
     private jtextfieldround.JTextFieldRound txtNombresEsp36;
-    private jtextfieldround.JTextFieldRound txtNombresEsp37;
     private jtextfieldround.JTextFieldRound txtNombresEsp38;
-    private jtextfieldround.JTextFieldRound txtNombresEsp39;
     private jtextfieldround.JTextFieldRound txtNombresEsp4;
-    private jtextfieldround.JTextFieldRound txtNombresEsp40;
-    private jtextfieldround.JTextFieldRound txtNombresEsp41;
     private jtextfieldround.JTextFieldRound txtNombresEsp5;
     private jtextfieldround.JTextFieldRound txtNombresEsp6;
     private jtextfieldround.JTextFieldRound txtNombresEsp7;

@@ -5,15 +5,6 @@
  */
 package View;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import jtextfieldround.JTextFieldRound;
-
-/**
- *
- * @author Usuario
- */
 public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     /**
@@ -32,41 +23,99 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombreTrat = new jtextfieldround.JTextFieldRound();
         jLabel4 = new javax.swing.JLabel();
-        txtApellidosTrat = new jtextfieldround.JTextFieldRound();
-        txtFichaTrat = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtValorTot = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtSaldo = new javax.swing.JTextField();
-        lblCitasTrat = new javax.swing.JLabel();
+        btnAgendar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtNombreTrat1 = new jtextfieldround.JTextFieldRound();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        txtApellidosTrat1 = new jtextfieldround.JTextFieldRound();
+        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        txtApellidosTrat2 = new jtextfieldround.JTextFieldRound();
+        btnAgendar1 = new javax.swing.JButton();
+        btnAgendar2 = new javax.swing.JButton();
+        txtApellidosTrat3 = new jtextfieldround.JTextFieldRound();
+        panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAgendar = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
-        btnIngresoGen = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("CITAS Y TRATAMIENTOS");
+        panelNice1.setBackground(new java.awt.Color(166, 104, 216));
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("NOMBRES:");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("NOMBRES DEL PACIENTE:");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FICHA:");
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
+        panelNice1.add(txtNombreTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 20));
 
-        jLabel4.setText("APELLIDOS:");
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("APELLIDOS DEL PACIENTE:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
 
-        jLabel5.setText("VALOR TOTAL:");
+        btnAgendar.setText("ELIMINAR");
+        panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 429, 130, 40));
 
-        jLabel6.setText("SALDO:");
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("NOMBRE DEL DOCTOR:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
+        panelNice1.add(txtNombreTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 220, 20));
 
-        lblCitasTrat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("CEDULA DEL DOCTOR:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("FECHA:");
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, -1));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("HORA:");
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("DESCRIPCION:");
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 270, 160));
+        panelNice1.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 20));
+
+        comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 220, 20));
+        panelNice1.add(txtApellidosTrat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
+
+        btnAgendar1.setText("AGENDAR");
+        panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 120, 40));
+
+        btnAgendar2.setText("ACTUALIZAR");
+        panelNice1.add(btnAgendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, 40));
+        panelNice1.add(txtApellidosTrat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 20));
+
+        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 480, 480));
+
+        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,192 +130,58 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnAgendar.setText("AGENDAR");
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 560));
 
-        btnImprimir.setText("IMPRIMIR");
+        jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 630, 600));
 
-        btnIngresoGen.setText("INGRESOS GENERAL");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(177, 177, 177)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombreTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFichaTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellidosTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtValorTot)
-                                .addComponent(txtSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
-                        .addComponent(lblCitasTrat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnAgendar)
-                    .addComponent(btnImprimir)
-                    .addComponent(btnIngresoGen))
-                .addContainerGap(326, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(txtFichaTrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNombreTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtApellidosTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblCitasTrat, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAgendar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnImprimir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnIngresoGen)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 380, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getBtnAgendar() {
-        return btnAgendar;
-    }
-
-    public void setBtnAgendar(JButton btnAgendar) {
-        this.btnAgendar = btnAgendar;
-    }
-
-    public JButton getBtnImprimir() {
-        return btnImprimir;
-    }
-
-    public void setBtnImprimir(JButton btnImprimir) {
-        this.btnImprimir = btnImprimir;
-    }
-
-    public JButton getBtnIngresoGen() {
-        return btnIngresoGen;
-    }
-
-    public void setBtnIngresoGen(JButton btnIngresoGen) {
-        this.btnIngresoGen = btnIngresoGen;
-    }
-
-    public JLabel getLblCitasTrat() {
-        return lblCitasTrat;
-    }
-
-    public void setLblCitasTrat(JLabel lblCitasTrat) {
-        this.lblCitasTrat = lblCitasTrat;
-    }
-
-    public JTextFieldRound getTxtApellidosTrat() {
-        return txtApellidosTrat;
-    }
-
-    public void setTxtApellidosTrat(JTextFieldRound txtApellidosTrat) {
-        this.txtApellidosTrat = txtApellidosTrat;
-    }
-
-    public JTextField getTxtFichaTrat() {
-        return txtFichaTrat;
-    }
-
-    public void setTxtFichaTrat(JTextField txtFichaTrat) {
-        this.txtFichaTrat = txtFichaTrat;
-    }
-
-    public JTextFieldRound getTxtNombreTrat() {
-        return txtNombreTrat;
-    }
-
-    public void setTxtNombreTrat(JTextFieldRound txtNombreTrat) {
-        this.txtNombreTrat = txtNombreTrat;
-    }
-
-    public JTextField getTxtSaldo() {
-        return txtSaldo;
-    }
-
-    public void setTxtSaldo(JTextField txtSaldo) {
-        this.txtSaldo = txtSaldo;
-    }
-
-    public JTextField getTxtValorTot() {
-        return txtValorTot;
-    }
-
-    public void setTxtValorTot(JTextField txtValorTot) {
-        this.txtValorTot = txtValorTot;
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendar;
-    private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnIngresoGen;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnAgendar1;
+    private javax.swing.JButton btnAgendar2;
+    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblCitasTrat;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat;
-    private javax.swing.JTextField txtFichaTrat;
+    private javax.swing.JTextArea jTextArea1;
+    private org.edisoncor.gui.panel.PanelNice panelNice1;
+    private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat1;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat2;
+    private jtextfieldround.JTextFieldRound txtApellidosTrat3;
     private jtextfieldround.JTextFieldRound txtNombreTrat;
-    private javax.swing.JTextField txtSaldo;
-    private javax.swing.JTextField txtValorTot;
+    private jtextfieldround.JTextFieldRound txtNombreTrat1;
     // End of variables declaration//GEN-END:variables
 }
