@@ -29,7 +29,7 @@ public class Doctor extends Persona {
         this.cedula_doc = cedula_doc;
     }
 
-    public Doctor(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, Image foto) {
+    public Doctor(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
         super(cedula, nombres, apellidos, celular, telefono, direccion, correo, provincia, ciudad, genero, foto);
         this.id_doctor = id_doctor;
         this.id_usuario = id_usuario;

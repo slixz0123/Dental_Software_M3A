@@ -35,7 +35,7 @@ public class Model_Especialista extends Doctor{
         super(id_doctor, id_usuario, especialidad, cargo, cedula_doc);
     }
 
-    public Model_Especialista(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, Image foto) {
+    public Model_Especialista(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
         super(id_doctor, id_usuario, especialidad, cargo, cedula_doc, cedula, nombres, apellidos, celular, telefono, direccion, correo, provincia, ciudad, genero, foto);
     }
 
@@ -66,18 +66,18 @@ public class Model_Especialista extends Doctor{
                            esp1.setEspecialidad(rs.getString("especialidad"));
                             esp1.setCargo(rs.getString("cargo"));
                              //esp1.setCedula_doc(rs.getString("cedula doctor"));
-                      //proceso de conversion del formato de la base a formato Image 
-                      
-                      //bytea = Bytes Array
-                      bytea=rs.getBytes("foto");
-                      if (bytea!=null){
-                      //decodificando el formato de la base (base64)
-//                      bytea=Base64.decode(bytea,0,bytea.length);
-                try {
-                    esp1.setFoto(obtenerImagen(bytea));
-                } catch (IOException ex) {
-                    Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
-                }}
+//                      //proceso de conversion del formato de la base a formato Image 
+//                      
+//                      //bytea = Bytes Array
+//                      bytea=rs.getBytes("foto");
+//                      if (bytea!=null){
+//                      //decodificando el formato de la base (base64)
+////                      bytea=Base64.decode(bytea,0,bytea.length);
+//                try {
+//                    esp1.setFoto(obtenerImagen(bytea));
+//                } catch (IOException ex) {
+//                    Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+//                }}
                  milista.add(esp1);
            }
            rs.close();
@@ -171,7 +171,7 @@ public class Model_Especialista extends Doctor{
         ps.setString(6,getDireccion());
         ps.setString(7,getCorreo());
         ps.setString(8,getProvincia());
-        ps.setBinaryStream(9,getImage(),getLargo());
+//        ps.setBinaryStream(9,getImage(),getLargo());
         ps.executeUpdate();
         return true;
         } catch (SQLException ex) {
@@ -187,13 +187,13 @@ public class Model_Especialista extends Doctor{
         return cpg.accion(sql2);
     }
     
-    public boolean modificarPersonasByte(){
-//        try{
-        String sql2 = "UPDATE persona SET\n"
-                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"', foto= '"+getFoto()+"'"+"WHERE cedula= '"+getCedula()+"'";
-
-        return cpg.accion(sql2);
-    }
+//    public boolean modificarPersonasByte(){
+////        try{
+//        String sql2 = "UPDATE persona SET\n"
+//                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"', foto= '"+getFoto()+"'"+"WHERE cedula= '"+getCedula()+"'";
+//
+//        return cpg.accion(sql2);
+//    }
     
     
     public boolean removerPersonas(String ced){
