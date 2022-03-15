@@ -188,6 +188,14 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.txtprovinciaesp = txtprovinciaesp;
     }
 
+    public JTextFieldRound getTxtCargoesp() {
+        return txtCargoesp;
+    }
+
+    public void setTxtCargoesp(JTextFieldRound txtCargoesp) {
+        this.txtCargoesp = txtCargoesp;
+    }
+
   
     
 
@@ -228,6 +236,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         txtIdUsuario = new jtextfieldround.JTextFieldRound();
         txtIdDoctor = new jtextfieldround.JTextFieldRound();
+        jLabel12 = new javax.swing.JLabel();
+        txtCargoesp = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel14 = new javax.swing.JLabel();
         txtBuscarEsp = new jtextfieldround.JTextFieldRound();
@@ -297,11 +307,11 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("ESPECIALIDAD:");
-        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        jLabel11.setText("CARGO:");
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
 
         btnfoto.setText("Examinar");
-        panelNice1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, 90, 40));
+        panelNice1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, 40));
         panelNice1.add(txtcedulaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 240, 21));
 
         cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar el genero", "Masculino", "Femenino" }));
@@ -326,7 +336,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
             .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRoundTranslucido1Layout.setVerticalGroup(
             panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,10 +346,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20))
         );
 
-        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 230, 140));
+        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 230, 140));
 
         btnguardarEsp.setText("GUARDAR");
-        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 550, -1, 30));
+        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, 30));
         panelNice1.add(txtnombreesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, 21));
         panelNice1.add(txtCelularesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 20));
         panelNice1.add(txtcorreoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 240, 21));
@@ -366,6 +376,18 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
         panelNice1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 240, 21));
         panelNice1.add(txtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 240, 21));
+
+        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("ESPECIALIDAD:");
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        txtCargoesp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCargoespActionPerformed(evt);
+            }
+        });
+        panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 240, 21));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 440, 600));
 
@@ -458,6 +480,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cboxGeneroEspActionPerformed
 
+    private void txtCargoespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoespActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCargoespActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
@@ -470,6 +496,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -489,6 +516,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.panel.PanelRoundTranslucido panelRoundTranslucido1;
     private javax.swing.JTable tblEspecialista;
     private jtextfieldround.JTextFieldRound txtBuscarEsp;
+    private jtextfieldround.JTextFieldRound txtCargoesp;
     private jtextfieldround.JTextFieldRound txtCelularesp;
     private jtextfieldround.JTextFieldRound txtIdDoctor;
     private jtextfieldround.JTextFieldRound txtIdUsuario;

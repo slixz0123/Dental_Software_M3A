@@ -161,7 +161,7 @@ public class Model_Especialista extends Doctor{
         
         sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)";
 //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
-        sql+="VALUES(?,?,?,?,?,?,?,?,?)";
+        sql+="VALUES(?,?,?,?,?,?,?,?,?,?,NULL)";
         PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
         ps.setString(1, getCedula());
         ps.setString(2, getNombres());
@@ -173,9 +173,25 @@ public class Model_Especialista extends Doctor{
         ps.setString(8,getProvincia());
 //        ps.setBinaryStream(9,getImage(),getLargo());
         ps.executeUpdate();
+        
+            System.out.println("persona creada");
+            
+        sql="INSERT INTO doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
+        sql+="VALUES(1,1,?,?,select cedula from persona where cedula = ?)";
+        ps=cpg.GetCon().prepareStatement(sql);
+//        ps.setString(1, getCedula());
+//        ps.setString(2, getNombres());
+        ps.setString(3,getEspecialidad());
+        ps.setString(4,getCargo());
+        ps.setString(5,getCedula_doc());
+//        ps.setBinaryStream(9,getImage(),getLargo());
+        ps.executeUpdate();
+       System.out.println("GUARDADO CON EXITO");
         return true;
+            
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+            
             return false;
         }
     }

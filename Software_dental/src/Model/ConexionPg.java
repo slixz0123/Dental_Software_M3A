@@ -21,7 +21,7 @@ public class ConexionPg {
      Connection con ;
     String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
     String usuario = "postgres";
-    String contrasena = "123";
+    String contrasena = "1234";
 
     public Connection Con() {
         return con;
