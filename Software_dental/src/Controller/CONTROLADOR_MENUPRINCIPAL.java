@@ -502,11 +502,11 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_Anamesis controllerAnamesis = new Controller_Anamesis (modAne, vistaana);
         
           // diagnostico
-           Model_Diagnostico modeldiag = new Model_Diagnostico();
+           Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
          vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
          // CITAS
          Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
