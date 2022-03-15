@@ -8,6 +8,7 @@ import Model.Model_Cie10;
 import Model.Model_CitasTratamiento;
 import Model.Model_Diagnostico;
 import Model.Model_Especialista;
+import Model.Model_Farmacos;
 import Model.Model_HistorialMedico;
 import Model.Model_NuevaEndodoncia;
 import Model.Model_Paciente;
@@ -17,6 +18,7 @@ import View.MenuPrincipal;
 import View.Vista_Citas_Tratamiento;
 import View.Vista_Crud_Cie10;
 import View.Vista_Crud_HistorialMedico;
+import View.Vista_Farmacos;
 import View.Vista_NuevaEndodoncia;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
@@ -68,6 +70,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
         setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
+        setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
 
     }
 
@@ -299,6 +302,18 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+     
+          private void setEventoMouseClickFarmacos(JLabel laba) {
+        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                CrudFarmacos(e);
+
+            }
+        });
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
     private void CrudProducto(java.awt.event.MouseEvent evt) {
@@ -362,6 +377,14 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getDkpPrincipal().add(vistacitastrat);
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+    }
+    
+        private void CrudFarmacos(java.awt.event.MouseEvent evt) {
+        Model_Farmacos modelfarma = new Model_Farmacos();
+        Vista_Farmacos vistafarma = new Vista_Farmacos();
+        vista.getDkpPrincipal().add(vistafarma);
+        vistafarma.setBorder(null);
+        Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
     }
      
 }

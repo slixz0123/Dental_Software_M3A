@@ -5,8 +5,11 @@
 package software_dental;
 
 import Controller.CONTROLADOR_MENUPRINCIPAL;
+import Controller.Controller_InicioSesion;
 import Model.ConexionPg;
+import Model.Model_InicioSesion;
 import View.MenuPrincipal;
+import View.Vista_InicioSesion;
 
 /**
  *
@@ -20,14 +23,12 @@ public class Software_dental {
     public static void main(String[] args) {
         // TODO code application logic here
            
-        MenuPrincipal menuv = new MenuPrincipal();
         
-        Controller.CONTROLADOR_MENUPRINCIPAL controlador = new CONTROLADOR_MENUPRINCIPAL( menuv); 
         
-        controlador.iniciarControlMenu();// EMPEZAMOS LAS ESCUCHA DE LOS EVENTOS DE LA VISTA 
-       // ConexionPg conexionPg = new ConexionPg();
-      //  conexionPg.Con();
-        
+        Vista_InicioSesion vistaini = new Vista_InicioSesion();
+        Model_InicioSesion model = new Model_InicioSesion();
+        Controller.Controller_InicioSesion controlini = new Controller_InicioSesion(model, vistaini);
+        controlini.iniciocontrol();
         
         
     }
