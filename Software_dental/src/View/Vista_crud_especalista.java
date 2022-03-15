@@ -6,6 +6,8 @@
 package View;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import jtextfieldround.JTextFieldRound;
@@ -44,29 +46,32 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.btneliminar = btneliminar;
     }
 
-    public ButtonRound getBtnguardarEsp() {
+    public JButton getBtnguardarEsp() {
         return btnguardarEsp;
     }
 
-    public void setBtnguardarEsp(ButtonRound btnguardarEsp) {
+    public void setBtnguardarEsp(JButton btnguardarEsp) {
         this.btnguardarEsp = btnguardarEsp;
     }
 
-    public ComboBoxRound getcBoxespecialidad() {
+    public JComboBox<String> getcBoxespecialidad() {
         return cBoxespecialidad;
     }
 
-    public void setcBoxespecialidad(ComboBoxRound cBoxespecialidad) {
+    public void setcBoxespecialidad(JComboBox<String> cBoxespecialidad) {
         this.cBoxespecialidad = cBoxespecialidad;
     }
 
-    public ComboBoxRound getCboxGeneroEsp() {
+    public JComboBox<String> getCboxGeneroEsp() {
         return cboxGeneroEsp;
     }
 
-    public void setCboxGeneroEsp(ComboBoxRound cboxGeneroEsp) {
+    public void setCboxGeneroEsp(JComboBox<String> cboxGeneroEsp) {
         this.cboxGeneroEsp = cboxGeneroEsp;
     }
+
+ 
+   
 
     public JLabel getLblFotoEsp() {
         return lblFotoEsp;
@@ -219,11 +224,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         btnfoto = new org.edisoncor.gui.button.ButtonRound();
         txtcedulaesp = new jtextfieldround.JTextFieldRound();
-        cboxGeneroEsp = new org.edisoncor.gui.comboBox.ComboBoxRound();
-        cBoxespecialidad = new org.edisoncor.gui.comboBox.ComboBoxRound();
         panelRoundTranslucido1 = new org.edisoncor.gui.panel.PanelRoundTranslucido();
         lblFotoEsp = new javax.swing.JLabel();
-        btnguardarEsp = new org.edisoncor.gui.button.ButtonRound();
         txtnombreesp = new jtextfieldround.JTextFieldRound();
         txtCelularesp = new jtextfieldround.JTextFieldRound();
         txtcorreoesp = new jtextfieldround.JTextFieldRound();
@@ -238,6 +240,9 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         txtIdDoctor = new jtextfieldround.JTextFieldRound();
         jLabel12 = new javax.swing.JLabel();
         txtCargoesp = new jtextfieldround.JTextFieldRound();
+        btnguardarEsp = new javax.swing.JButton();
+        cboxGeneroEsp = new javax.swing.JComboBox<>();
+        cBoxespecialidad = new javax.swing.JComboBox<>();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel14 = new javax.swing.JLabel();
         txtBuscarEsp = new jtextfieldround.JTextFieldRound();
@@ -314,19 +319,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, 40));
         panelNice1.add(txtcedulaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 240, 21));
 
-        cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar el genero", "Masculino", "Femenino" }));
-        cboxGeneroEsp.setToolTipText("Genero");
-        cboxGeneroEsp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxGeneroEspActionPerformed(evt);
-            }
-        });
-        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 240, 20));
-
-        cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
-        cBoxespecialidad.setToolTipText("Especialidad");
-        panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 240, -1));
-
         lblFotoEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         javax.swing.GroupLayout panelRoundTranslucido1Layout = new javax.swing.GroupLayout(panelRoundTranslucido1);
@@ -347,9 +339,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         );
 
         panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 230, 140));
-
-        btnguardarEsp.setText("GUARDAR");
-        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, 30));
         panelNice1.add(txtnombreesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, 21));
         panelNice1.add(txtCelularesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 20));
         panelNice1.add(txtcorreoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 240, 21));
@@ -388,6 +377,15 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
             }
         });
         panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 240, 21));
+
+        btnguardarEsp.setText("jButton1");
+        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
+
+        cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "m", "f" }));
+        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 280, 230, -1));
+
+        cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
+        panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 240, -1));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 440, 600));
 
@@ -476,10 +474,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttelfespActionPerformed
 
-    private void cboxGeneroEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxGeneroEspActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboxGeneroEspActionPerformed
-
     private void txtCargoespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoespActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCargoespActionPerformed
@@ -490,9 +484,9 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btneditar;
     private org.edisoncor.gui.button.ButtonRound btneliminar;
     private org.edisoncor.gui.button.ButtonRound btnfoto;
-    private org.edisoncor.gui.button.ButtonRound btnguardarEsp;
-    private org.edisoncor.gui.comboBox.ComboBoxRound cBoxespecialidad;
-    private org.edisoncor.gui.comboBox.ComboBoxRound cboxGeneroEsp;
+    private javax.swing.JButton btnguardarEsp;
+    private javax.swing.JComboBox<String> cBoxespecialidad;
+    private javax.swing.JComboBox<String> cboxGeneroEsp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

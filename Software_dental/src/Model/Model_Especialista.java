@@ -159,9 +159,9 @@ public class Model_Especialista extends Doctor{
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)";
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
 //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
-        sql+="VALUES(?,?,?,?,?,?,?,?,?,?,NULL)";
+        sql+="VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
         ps.setString(1, getCedula());
         ps.setString(2, getNombres());
@@ -171,21 +171,23 @@ public class Model_Especialista extends Doctor{
         ps.setString(6,getDireccion());
         ps.setString(7,getCorreo());
         ps.setString(8,getProvincia());
+        ps.setString(9,getCiudad());
+        ps.setString(10,getGenero());
 //        ps.setBinaryStream(9,getImage(),getLargo());
         ps.executeUpdate();
         
             System.out.println("persona creada");
             
         sql="INSERT INTO doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
-        sql+="VALUES(1,1,?,?,select cedula from persona where cedula = ?)";
-        ps=cpg.GetCon().prepareStatement(sql);
-//        ps.setString(1, getCedula());
-//        ps.setString(2, getNombres());
-        ps.setString(3,getEspecialidad());
-        ps.setString(4,getCargo());
-        ps.setString(5,getCedula_doc());
+        sql+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = '"+getCedula()+"'))";
+       PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql);
+     ps.setString(1, getId_doctor());
+        ps2.setString(2, getId_usuario());
+        ps2.setString(3,getEspecialidad());
+        ps2.setString(4,getCargo());
+       // ps2.setString(5,getCedula_doc());
 //        ps.setBinaryStream(9,getImage(),getLargo());
-        ps.executeUpdate();
+        ps2.executeUpdate();
        System.out.println("GUARDADO CON EXITO");
         return true;
             

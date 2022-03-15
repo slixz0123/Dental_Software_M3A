@@ -16,13 +16,15 @@ public class Controller_CrudEspecialista {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
+        iniciar();
     }
     
     public void iniciar(){
-        vista.getBtnguardarEsp().addActionListener(l->CrearPersona());
+        vista.getBtnguardarEsp().addActionListener(l->per());
     }
     
-    public void CrearPersona(){
+    public void per(){
+        System.out.println("creando persona");
      String cedula;
      String nombres;
      String apellidos;
@@ -48,10 +50,11 @@ public class Controller_CrudEspecialista {
      correo=vista.getTxtcorreoesp().getText();
      provincia=vista.getTxtprovinciaesp().getText();
      ciudad=vista.getTxtciudadesp().getText();
-     genero=vista.getCboxGeneroEsp().toString();
+     genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
+        System.out.println(genero);
 //     id_doctor=vista.getTxtIdDoctor().getText();
 //     id_usuario=vista.getTxtIdUsuario().getText();
-     especialidad=vista.getcBoxespecialidad().toString();
+     especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      cargo=vista.getTxtCargoesp().getText();
      cedula_doc=vista.getTxtcedulaesp().getText();
         System.out.println("antes del metodo");
@@ -67,8 +70,9 @@ public class Controller_CrudEspecialista {
      mEsp.setProvincia(provincia);
      mEsp.setCiudad(ciudad);
      mEsp.setGenero(genero);
-//     mEsp.setId_doctor(id_doctor);
-//     mEsp.setId_usuario(id_usuario);
+     
+     mEsp.setId_doctor("1");
+    mEsp.setId_usuario("1");
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
      mEsp.setCedula_doc(cedula_doc);
