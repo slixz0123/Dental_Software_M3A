@@ -81,5 +81,9 @@ public class ConexionPg {
         
         
     }
+    
+    public Connection GetCon(){
+        return con;
+    }
         
 }

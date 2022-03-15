@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.awt.Image;
+import java.io.FileInputStream;
+
 /**
  *
  * @author LENOVO
@@ -21,12 +24,25 @@ public class Persona {
     private String ciudad;
     private String genero;
     
-    private byte[] foto;
+    //foto
+    private Image foto;
+    
+    public Image getFoto() {
+        return foto;
+    }
 
+    public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+    
+    private FileInputStream image;
+    private int largo;
+
+    
     public Persona() {
     }
 
-    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
+    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, Image foto) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -119,13 +135,21 @@ public class Persona {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
-    public byte[] getFoto() {
-        return foto;
+    
+    public FileInputStream getImage() {
+        return image;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setImage(FileInputStream image) {
+        this.image = image;
     }
 
+    public int getLargo() {
+        return largo;
+    }
+
+    public void setLargo(int largo) {
+        this.largo = largo;
+    }
+    
     }
