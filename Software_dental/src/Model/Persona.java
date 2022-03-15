@@ -25,24 +25,24 @@ public class Persona {
     private String genero;
     
     //foto
-    private Image foto;
+    private byte[] foto;
     
-    public Image getFoto() {
-        return foto;
-    }
+//    public Image getFoto() {
+//        return foto;
+//    }
 
-    public void setFoto(Image foto) {
-        this.foto = foto;
-    }
-    
-    private FileInputStream image;
-    private int largo;
+//    public void setFoto(Image foto) {
+//        this.foto = foto;
+//    }
+//    
+//    private FileInputStream image;
+//    private int largo;
 
     
     public Persona() {
     }
 
-    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, Image foto) {
+    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -136,20 +136,28 @@ public class Persona {
         this.genero = genero;
     }
     
-    public FileInputStream getImage() {
-        return image;
+//    public FileInputStream getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(FileInputStream image) {
+//        this.image = image;
+//    }
+//
+//    public int getLargo() {
+//        return largo;
+//    }
+//
+//    public void setLargo(int largo) {
+//        this.largo = largo;
+//    }
+
+    public byte[] getFoto() {
+        return foto;
     }
 
-    public void setImage(FileInputStream image) {
-        this.image = image;
-    }
-
-    public int getLargo() {
-        return largo;
-    }
-
-    public void setLargo(int largo) {
-        this.largo = largo;
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
     
     }

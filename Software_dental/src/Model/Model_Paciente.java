@@ -185,7 +185,7 @@ ConexionPg con= new ConexionPg();
  public boolean ActualizarPersonas ()  {
         String Sql ;
         Sql="UPDATE persona SET\n" ;
-//        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provinvia= '"   +getProvincia()+"', ciudad= '"   +getProvincia()+"', genero= '"   +getProvincia()+"', foto= '"   +getFoto()+"'";
+        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provinvia= '"   +getProvincia()+"', ciudad= '"   +getProvincia()+"', genero= '"   +getProvincia()+"', foto= '"   +getFoto()+"'";
       
         Sql +=  "WHERE cedula = '" +getCedula()+ "';";
     
