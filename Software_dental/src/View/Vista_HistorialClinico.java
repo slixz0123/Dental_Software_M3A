@@ -81,7 +81,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         btnDiag.setText("Guardar");
         panelNice1.add(btnDiag, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 170, 50));
 
-        btnIndicSaludBucal.setText("imprimir");
+        btnIndicSaludBucal.setText("Imprimir");
         panelNice1.add(btnIndicSaludBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 190, 50));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 1110, 360));

@@ -7,9 +7,7 @@ package View;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import org.edisoncor.gui.panel.Panel;
-import org.edisoncor.gui.panel.PanelRect;
 
 /**
  *
@@ -22,6 +20,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+    }
+
+    public JLabel getLblIdpac() {
+        return lblIdpac;
+    }
+
+    public void setLblIdpac(JLabel lblIdpac) {
+        this.lblIdpac = lblIdpac;
+    }
+
+    public JLabel getLblCedulapac() {
+        return lblCedulapac;
+    }
+
+    public void setLblCedulapac(JLabel lblCedulapac) {
+        this.lblCedulapac = lblCedulapac;
     }
 
     public Panel getMenuDesplegable() {
@@ -212,10 +226,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblCedulapac = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnagendaCitas = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        lblIdpac = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -394,15 +409,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cedula:");
 
-        jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("...");
+        lblCedulapac.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        lblCedulapac.setForeground(new java.awt.Color(255, 255, 255));
+        lblCedulapac.setText("...");
 
         jButton1.setText("Listado Pacientes");
 
         btnagendaCitas.setText("Agenda de citas");
 
         jButton6.setText("Listado Pacientes");
+
+        lblIdpac.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        lblIdpac.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdpac.setText("...");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -416,27 +435,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCedulapac, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(255, 255, 255)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnagendaCitas)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblIdpac, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
+                    .addComponent(lblCedulapac)
                     .addComponent(jButton1)
                     .addComponent(btnagendaCitas)
-                    .addComponent(jButton6))
+                    .addComponent(jButton6)
+                    .addComponent(lblIdpac))
                 .addGap(17, 17, 17))
         );
 
@@ -503,7 +525,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -521,7 +542,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel labelini;
+    private javax.swing.JLabel lblCedulapac;
     private javax.swing.JLabel lblCrud_Paciente;
+    private javax.swing.JLabel lblIdpac;
     private javax.swing.JLabel lblNuevoEsp;
     private javax.swing.JLabel lbl_Agendarcitas;
     private javax.swing.JLabel lbl_Certificado;

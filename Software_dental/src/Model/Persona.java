@@ -22,7 +22,6 @@ public class Persona {
     private String provincia;
     private String ciudad;
     private String genero;
-    
     private byte[] foto;
     public Persona() {
     }
