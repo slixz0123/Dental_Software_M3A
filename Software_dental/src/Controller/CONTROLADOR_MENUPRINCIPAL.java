@@ -16,6 +16,7 @@ import Model.Model_Paciente;
 import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
+import Model.Model_Hist_clinico;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -287,7 +288,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
    
 
-    private void setEventoMouseClickNuevaE(JLabel laba) {
+    
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
@@ -452,7 +453,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
     private void CrudDiag(java.awt.event.MouseEvent evt) {
-        Model_Diagnostico modeldiag = new Model_Diagnostico();
+        Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
         vista.getDkpPrincipal().add(vistadiag);
         vistadiag.setBorder(null);
