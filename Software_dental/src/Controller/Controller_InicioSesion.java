@@ -8,6 +8,8 @@ package Controller;
 import Model.Model_InicioSesion;
 import View.MenuPrincipal;
 import View.Vista_InicioSesion;
+import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +31,7 @@ public class Controller_InicioSesion {
 
     public void iniciocontrol() {
         vista.getBtnAceptar().addActionListener(l -> registrar());
+        setEventoMouseClickedSalir(vista.getLblSalir());
     }
 
     public void registrar() {
@@ -47,6 +50,22 @@ public class Controller_InicioSesion {
           "Acceso denegado", JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+    
+    public void salir(java.awt.event.MouseEvent evt){
+        System.exit(0);
+    }
+    
+      private void setEventoMouseClickedSalir(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                salir(e);
+
+            }
+        });
     }
 
 
