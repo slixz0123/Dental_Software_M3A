@@ -46,7 +46,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.setVisible(true);
         vista.setExtendedState(Frame.MAXIMIZED_BOTH);
         desplace = new Desface();
-
+        iniciarControlMenu();
     }
 
     public void iniciarControlMenu() {
@@ -332,6 +332,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getDkpPrincipal().add(vistaesp);
         vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
+        contEsp.iniciar();
     }
 
     private void CrudTratamiento(java.awt.event.MouseEvent evt) {
