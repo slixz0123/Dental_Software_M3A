@@ -41,7 +41,6 @@ public class Doctor extends Persona {
     
 
     
-    
     public String getId_doctor() {
         return id_doctor;
     }

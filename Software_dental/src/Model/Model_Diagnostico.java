@@ -57,6 +57,7 @@ public class Model_Diagnostico extends Diagnostico{
     //Crear
     public boolean crearDiagnostico(){
     try {
+        
     String sql;
     sql="Insert into diagnostico (id_diagnostico, protesis_sup,protesis_infe,diag_descrip,id_tratamiento_diag,precio_final)";
     sql+="values(?,?,?,?,?,?)";   
@@ -69,6 +70,7 @@ public class Model_Diagnostico extends Diagnostico{
     ps.setDouble(6, getPrecio_trat());
     ps.executeUpdate();
     return true;
+    
         } catch (SQLException ex) {
             Logger.getLogger(Model_Diagnostico.class.getName()).log(Level.SEVERE, null, ex);
         }
