@@ -456,7 +456,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
         vista.getDkpPrincipal().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
     }
         private void CrudFarmacos(java.awt.event.MouseEvent evt) {
         Model_Farmacos modelfarma = new Model_Farmacos();
