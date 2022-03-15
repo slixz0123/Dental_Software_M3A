@@ -17,17 +17,21 @@ public class Citas {
     private Date fecha_cita;
     private String hora_cita;
     private String motivo;
+    private String id_doctor;
 
     public Citas() {
     }
 
-    public Citas(String id_cita, String id_paciente, Date fecha_cita, String hora_cita, String motivo) {
+    public Citas(String id_cita, String id_paciente, Date fecha_cita, String hora_cita, String motivo, String id_doctor) {
         this.id_cita = id_cita;
         this.id_paciente = id_paciente;
         this.fecha_cita = fecha_cita;
         this.hora_cita = hora_cita;
         this.motivo = motivo;
+        this.id_doctor = id_doctor;
     }
+
+   
 
     public String getId_cita() {
         return id_cita;
@@ -68,5 +72,16 @@ public class Citas {
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
+
+    public String getId_doctor() {
+        return id_doctor;
+    }
+
+    public void setId_doctor(String id_doctor) {
+        this.id_doctor = id_doctor;
+    }
+    
+    
+    
     
 }

@@ -30,17 +30,17 @@ ConexionPg con= new ConexionPg();
    
     public Model_Paciente() 
     {
-        
     }
 
-      public  List<Persona> listarPersona (){
+      public  List<Persona> listarPersona ()
+      {
         List<Persona> milista = new ArrayList<Persona>();
         try {
             String sql = "select * from persona" ;
-           ResultSet rs = con.consulta(sql) ;
-          byte[] bytea;
+            ResultSet rs = con.consulta(sql) ;
+            byte[] bytea;
             // barremos el resulset
-           while(rs.next()){
+        while(rs.next()){
                   
                Persona persona = new Persona(); 
                //persona.setIdPersona(rs.getString("idpersona"));
@@ -53,75 +53,24 @@ ConexionPg con= new ConexionPg();
                persona.setProvincia(rs.getString("provincia"));
                persona.setCiudad(rs.getString("ciudad"));
                persona.setGenero(rs.getString("genero"));
-               
-              /* bytea=rs.getBytes("foto");
-               if (bytea !=null){
-                      //decodificando el formato de base .(Base64)
-                      //bytea=Base64.decode(bytea,0,bytea.length);
-                 
-                    try {
-                        persona.setFoto(obtenerimagen(bytea));
-                    } catch (IOException ex) {
-                        Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }*/
-                      milista.add(persona);
+               persona.setFoto(rs.getBytes("foto"));
+               milista.add(persona);
            }
-           rs.close();
-           return milista;
+        rs.close();
+        return milista;
+        
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
       }
-      /*    private Image obtenerimagen  (byte[] bytes) throws IOException{
-           try {
-               ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-               Iterator it =ImageIO.getImageReadersByFormatName("png");
-               ImageReader reader = (ImageReader)it.next();
-               Object source = bis;
-               ImageInputStream iis = ImageIO.createImageInputStream(source);
-               reader.setInput(iis,true);
-               ImageReadParam param = reader.getDefaultReadParam();
-               param.setSourceSubsampling(1, 1, 0, 0);
-               return reader.read(0,param);
-           } catch (IOException ex) {
-               try {
-                   ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-                   Iterator it =ImageIO.getImageReadersByFormatName("jpg");
-                   ImageReader reader = (ImageReader)it.next();
-                   Object source = bis;
-                   ImageInputStream iis = ImageIO.createImageInputStream(source);
-                   reader.setInput(iis,true);
-                   ImageReadParam param = reader.getDefaultReadParam();
-                   param.setSourceSubsampling(1, 1, 0, 0);
-                   return reader.read(0,param);
-               } catch (IOException ex1) {
-                   try {
-                       ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-                       Iterator it =ImageIO.getImageReadersByFormatName("JPEG");
-                       ImageReader reader = (ImageReader)it.next();
-                       Object source = bis;
-                       ImageInputStream iis = ImageIO.createImageInputStream(source);
-                       reader.setInput(iis,true);
-                       ImageReadParam param = reader.getDefaultReadParam();
-                       param.setSourceSubsampling(1, 1, 0, 0);
-                       return reader.read(0,param);
-                   } catch (IOException ex2) {
-                       Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex2);
-                  return null;
-                   
-                   }
-               }
-           }
-    }*/
     
      
-         //busqueda persona
-          public  List<Persona> listarPersonaBusqueda (String busqueda){
+    //busqueda persona
+        public  List<Persona> listarPersonaBusqueda (String busqueda){
         List<Persona> milista = new ArrayList<Persona>();
-         String sql = "" ;
-         String palabra = busqueda ;
+        String sql = "" ;
+        String palabra = busqueda ;
             if (busqueda.equalsIgnoreCase("")){
                 sql = "select * from persona" ;
             }else if (palabra.equalsIgnoreCase(busqueda)) {
@@ -129,9 +78,9 @@ ConexionPg con= new ConexionPg();
             }
         try {
             
-            ResultSet rs = con.consulta(sql) ;
+           ResultSet rs = con.consulta(sql) ;
            while(rs.next()){
-                 
+              
                Persona persona = new Persona();
                
                persona.setCedula(rs.getString("cedula"));
@@ -143,12 +92,13 @@ ConexionPg con= new ConexionPg();
                persona.setProvincia(rs.getString("provincia"));
                persona.setCiudad(rs.getString("ciudad"));
                persona.setGenero(rs.getString("genero"));
+               persona.setFoto(rs.getBytes("foto"));
                
                milista.add(persona);
            
           
             }
-            rs.close();
+           rs.close();
            return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,24 +121,22 @@ ConexionPg con= new ConexionPg();
             ps.setString(8,getProvincia());
             ps.setString(9,getCiudad());
             ps.setString(10,getGenero());
-            //ps.setByte(11,getFoto());
+            ps.setBytes(11, getFoto());
             ps.executeUpdate();
-             return true;
+        return true;
             
 
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
-              return false;
+        return false;
   }
   
- public boolean ActualizarPersonas ()  {
+ public boolean ActualizarPersonas (){
         String Sql ;
         Sql="UPDATE persona SET\n" ;
-        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provinvia= '"   +getProvincia()+"', ciudad= '"   +getProvincia()+"', genero= '"   +getProvincia()+"', foto= '"   +getFoto()+"'";
-      
+        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provinvia= '"   +getProvincia()+"', ciudad= '"   +getProvincia()+"', genero= '"   +getProvincia()+"', foto= '"+getFoto()+"'";
         Sql +=  "WHERE cedula = '" +getCedula()+ "';";
-    
         return con.accion(Sql);
   }
  
@@ -197,14 +145,6 @@ ConexionPg con= new ConexionPg();
         Sql="DELETE FROM persona WHERE cedula ='" +getCedula()+ "'";
         return con.accion(Sql);
   }
- 
-
-         
-    
-        
-        
-        
-        
         
     }
     
