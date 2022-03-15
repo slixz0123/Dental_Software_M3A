@@ -53,18 +53,8 @@ ConexionPg con= new ConexionPg();
                persona.setProvincia(rs.getString("provincia"));
                persona.setCiudad(rs.getString("ciudad"));
                persona.setGenero(rs.getString("genero"));
-               
-              /* bytea=rs.getBytes("foto");
-               if (bytea !=null){
-                      //decodificando el formato de base .(Base64)
-                      //bytea=Base64.decode(bytea,0,bytea.length);
-                 
-                    try {
-                        persona.setFoto(obtenerimagen(bytea));
-                    } catch (IOException ex) {
-                        Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }*/
+               persona.setFoto(rs.getBytes("foto"));
+              
                       milista.add(persona);
            }
            rs.close();
@@ -143,7 +133,7 @@ ConexionPg con= new ConexionPg();
                persona.setProvincia(rs.getString("provincia"));
                persona.setCiudad(rs.getString("ciudad"));
                persona.setGenero(rs.getString("genero"));
-               
+               persona.setFoto(rs.getBytes("foto"));
                milista.add(persona);
            
           
@@ -171,7 +161,7 @@ ConexionPg con= new ConexionPg();
             ps.setString(8,getProvincia());
             ps.setString(9,getCiudad());
             ps.setString(10,getGenero());
-            //ps.setByte(11,getFoto());
+            ps.setBytes(11,getFoto());
             ps.executeUpdate();
              return true;
             
