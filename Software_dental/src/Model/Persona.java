@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.awt.Image;
 import java.io.FileInputStream;
 
 /**
@@ -22,7 +23,24 @@ public class Persona {
     private String provincia;
     private String ciudad;
     private String genero;
+
+    
+    //foto
+
     private byte[] foto;
+    
+//    public Image getFoto() {
+//        return foto;
+//    }
+
+//    public void setFoto(Image foto) {
+//        this.foto = foto;
+//    }
+//    
+//    private FileInputStream image;
+//    private int largo;
+
+    
     public Persona() {
     }
 
@@ -119,6 +137,22 @@ public class Persona {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+    
+//    public FileInputStream getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(FileInputStream image) {
+//        this.image = image;
+//    }
+//
+//    public int getLargo() {
+//        return largo;
+//    }
+//
+//    public void setLargo(int largo) {
+//        this.largo = largo;
+//    }
 
     public byte[] getFoto() {
         return foto;
@@ -127,7 +161,5 @@ public class Persona {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
     
-    
-}
+    }
