@@ -7,7 +7,6 @@ package Controller;
 import Model.Model_AgendaCitas;
 import Model.Model_Cie10;
 import Model.Model_CitasTratamiento;
-import Model.Model_Diagnostico;
 import Model.Model_Especialista;
 import Model.Model_Farmacos;
 import Model.Model_HistorialMedico;
@@ -17,6 +16,7 @@ import Model.Model_Paciente;
 import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
+import Model.Model_Hist_clinico;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -283,9 +283,12 @@ public class CONTROLADOR_MENUPRINCIPAL {
         });
     }
 
-   
 
     private void setEventoMouseClickNuevaE(JLabel laba) {
+
+   
+
+    
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
@@ -298,6 +301,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
     }
     
     private void setEventoMouseClickCitasTrat(JLabel laba) {
+
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
@@ -400,6 +404,16 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
     }
 
+
+    /*private void CrudDiag(java.awt.event.MouseEvent evt) {
+        Model_Diagnostico modeldiag = new Model_Diagnostico();
+        Vista_Diagnostico vistadiag = new Vista_Diagnostico();
+        vista.getDkpPrincipal().add(vistadiag);
+        vistadiag.setBorder(null);
+        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+    }*/
+
+
     
     
      private void agendacitas() {
@@ -416,6 +430,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistaProforma.setBorder(null);
         Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
     }
+
     private void HistorialMedico(java.awt.event.MouseEvent evt) {
          Model_HistorialMedico modHisto = new Model_HistorialMedico();
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
@@ -438,11 +453,11 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
     private void CrudDiag(java.awt.event.MouseEvent evt) {
-        Model_Diagnostico modeldiag = new Model_Diagnostico();
+        Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
         vista.getDkpPrincipal().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
     }
         private void CrudFarmacos(java.awt.event.MouseEvent evt) {
         Model_Farmacos modelfarma = new Model_Farmacos();
@@ -487,11 +502,11 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_Anamesis controllerAnamesis = new Controller_Anamesis (modAne, vistaana);
         
           // diagnostico
-           Model_Diagnostico modeldiag = new Model_Diagnostico();
+           Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
          vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
          // CITAS
          Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();

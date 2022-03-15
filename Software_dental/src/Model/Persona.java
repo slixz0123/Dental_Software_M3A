@@ -23,8 +23,10 @@ public class Persona {
     private String provincia;
     private String ciudad;
     private String genero;
+
     
     //foto
+
     private byte[] foto;
     
 //    public Image getFoto() {
