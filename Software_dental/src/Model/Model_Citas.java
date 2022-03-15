@@ -24,9 +24,13 @@ public class Model_Citas extends Citas{
     public Model_Citas() {
     }
 
-    public Model_Citas(String id_cita, String id_paciente, Date fecha_cita, String hora_cita, String motivo) {
-        super(id_cita, id_paciente, fecha_cita, hora_cita, motivo);
+    public Model_Citas(String id_cita, String id_paciente, Date fecha_cita, String hora_cita, String motivo, String id_doctor) {
+        super(id_cita, id_paciente, fecha_cita, hora_cita, motivo, id_doctor);
     }
+
+   
+    
+    
     //Listar y buscar
     public List<Citas> listarbuscarcita (String busc){
     List<Citas> mostrar = new ArrayList<Citas>();
@@ -58,8 +62,8 @@ public class Model_Citas extends Citas{
     public boolean crearCita(){
     try {
     String sql;
-    sql="Insert into citas (id_cita, id_paciente, fecha_cita, hora_cita, motivo)";
-    sql+="values(?,?,?,?,?)";
+    sql="Insert into citas (id_cita, id_paciente, fecha_cita, hora_cita, motivo,id_octor_c)";
+    sql+="values(?,?,?,?,?,?)";
         
     PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_cita());
