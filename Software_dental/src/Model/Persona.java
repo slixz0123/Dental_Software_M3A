@@ -58,6 +58,19 @@ public class Persona {
         this.foto = foto;
     }
 
+    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.celular = celular;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.provincia = provincia;
+        this.ciudad = ciudad;
+        this.genero = genero;
+    }
+
     public String getCedula() {
         return cedula;
     }
