@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.Model_AgendaCitas;
+import Model.Model_Anamnesis;
 import Model.Model_Cie10;
 import Model.Model_CitasTratamiento;
 import Model.Model_Especialista;
@@ -505,11 +506,11 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         
    
         //anamesis
-        model_Anamesis modAne = new model_Anamesis();
+        Model_Anamnesis modAne = new Model_Anamnesis();
         Vista_Anamesis vistaana = new Vista_Anamesis();
         vista_InicioProceso.getPnAnamesis().add(vistaana);
         vistaana.setBorder(null);
-        Controller.Controller_Anamesis controllerAnamesis = new Controller_Anamesis (modAne, vistaana);
+        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana);
         
           // diagnostico
            Model_Hist_clinico modeldiag = new Model_Hist_clinico();

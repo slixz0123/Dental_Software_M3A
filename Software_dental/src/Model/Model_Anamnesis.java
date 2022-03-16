@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,33 +56,50 @@ public class Model_Anamnesis extends Anamnesis{
     }
  }
     //Listar pacientes
-     public List<Persona> listarPersonas(String busc){
-        List<Persona> lista = new ArrayList<Persona>();
-        try {
-            String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%'";
-            ResultSet rs=con.consulta(sql);
-            while(rs.next()){
-                Persona p=new Persona();
-                p.setCedula(rs.getString("cedula"));
-                p.setNombres(rs.getString("nombres"));
-                p.setApellidos(rs.getString("apellidos"));
-                p.setCelular(rs.getString("celular"));
-                p.setTelefono(rs.getString("telefono"));
-                p.setDireccion(rs.getString("direccion"));
-                p.setCorreo(rs.getString("correo"));
-                p.setProvincia(rs.getString("provincia"));
-                p.setCiudad(rs.getString("ciudad"));
-                p.setGenero(rs.getString("genero"));
-                p.setFoto(rs.getBytes("foto"));
-                lista.add(p);
-            }
-            rs.close();
-            return lista;
-        } catch (SQLException ex) {
-            Logger.getLogger(model_Anamesis.class.getName()).log(Level.SEVERE, null, ex);
-        return null;
-        }
+public List<Persona> listarPersonas(String busc){
+    List<Persona> lista = new ArrayList<Persona>();
+    try {
+       String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%'";
+       ResultSet rs=con.consulta(sql);
+       while(rs.next()){
+        Persona p=new Persona();
+        p.setCedula(rs.getString("cedula"));
+        p.setNombres(rs.getString("nombres"));
+        p.setApellidos(rs.getString("apellidos"));
+        p.setCelular(rs.getString("celular"));
+        p.setTelefono(rs.getString("telefono"));
+        p.setDireccion(rs.getString("direccion"));
+        p.setCorreo(rs.getString("correo"));
+        p.setProvincia(rs.getString("provincia"));
+        p.setCiudad(rs.getString("ciudad"));
+        p.setGenero(rs.getString("genero"));
+        p.setFoto(rs.getBytes("foto"));
+        lista.add(p);
     }
+    rs.close();
+    return lista;
+    } catch (SQLException ex) {
+      Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
+    return null;
+   }
+ }
+//paciente id
+public String idPac(String ced){
+    String id ="";
+        String sql="Select id_paciente from paciente where cedula_pac ='"+ced+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    id = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            id = "";
+        }
+    return id;
+ }
      //extraer fecha nacimiento
      public Date fecha_nac(String id){
      Date fecha =null;
@@ -97,10 +118,10 @@ public class Model_Anamnesis extends Anamnesis{
         return fecha;
      }
      //Listar medico
-     public List<Doctor> listarMedico(){
+     public List<Doctor> listarMedico(String id){
         List<Doctor> lista = new ArrayList<Doctor>();
         try {
-            String sql="select * from doctor";
+            String sql="select * from doctor where id_doctor='"+id+"'";
             ResultSet rs=con.consulta(sql);
             while(rs.next()){
                 Doctor doc=new Doctor();
@@ -114,27 +135,57 @@ public class Model_Anamnesis extends Anamnesis{
             rs.close();
             return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(model_Anamesis.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
     }
      //extraer nombres completos doctor
-     public String Nombredoc(String ced){
-     String nombcomp ="";
-        String sql="Select nombres, apellidos from persona where cedula ='"+ced+"'";
+     public void cargar_doc(JComboBox cb_doc){    
+        String sql = "SELECT d.id_doctor, p.nombres, p.apellidos FROM persona p join doctor d on p.cedula=d.cedula_doc";
+        PreparedStatement ps = null;
+        ResultSet res = null;
+        try {  
+        ps = con.Con().prepareStatement(sql);
+        res = ps.executeQuery();
+        //LLenamos nuestro ComboBox
+        cb_doc.addItem("Seleccione el medico");
+   
+        while(res.next()){
+          cb_doc.addItem(res.getString("id_doctor").concat(" ").concat(res.getString("nombres")).concat(" ").concat(res.getString("apellidos")));
+         }
+      } catch (SQLException e) {
+    JOptionPane.showMessageDialog(null, e);
+    }
+   } 
+//extraer id combobox
+     public List<Integer> extraerNumeros(String dat) {
+      List<Integer> num = new ArrayList<Integer>();
+      Matcher encon = Pattern.compile("\\d+").matcher(dat);
+      while (encon.find()) { 
+        num.add(Integer.parseInt(encon.group()));
+      } 
+      return num;
+ }
+//generar id anamnesis
+     public String id_anam(String sql){
+        String id = "1";
+        int valor;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
                 ps = con.Con().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
-                    nombcomp = rs.getString(2).concat(" ").concat(rs.getString(3));
+                    id = rs.getString(1);
+                    valor=Integer.parseInt(id)+1;
+                    id=String.valueOf(valor);
                 }
         }catch(SQLException ex){
-            nombcomp = "";
+            System.out.println("idmaximo"+ex.getMessage());
+            id = "1";
         }
-        return nombcomp;
-     }
+        return id;
+    }
     //Crear
     public boolean crearAnamnesis(){
     try {

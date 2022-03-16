@@ -21,7 +21,7 @@ public class ConexionPg {
      Connection con ;
     String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
     String usuario = "postgres";
-    String contrasena = "17112002Diana";
+    String contrasena = "159753";
 
     public Connection Con() {
         return con;
@@ -39,7 +39,7 @@ public class ConexionPg {
         }
          try {
              con = DriverManager.getConnection(cadenaConexion , usuario , contrasena);
-             System.out.println("Conexcion exitosa");
+             System.out.println("Conexion exitosa");
          } catch (SQLException ex) {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
                System.out.println(ex + "coneccion");
