@@ -1,5 +1,12 @@
 package View;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import jtextfieldround.JTextFieldRound;
+import org.edisoncor.gui.button.ButtonRound;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -40,19 +47,19 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtNombresEsp = new jtextfieldround.JTextFieldRound();
         dateFechanacEsp = new com.toedter.calendar.JDateChooser();
-        txtNombresEsp1 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp2 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp3 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp4 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp5 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp6 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp8 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp9 = new jtextfieldround.JTextFieldRound();
-        jButton1 = new javax.swing.JButton();
+        txtcedula_pac = new jtextfieldround.JTextFieldRound();
+        txtnombrespac = new jtextfieldround.JTextFieldRound();
+        txtcorreo = new jtextfieldround.JTextFieldRound();
+        txttelefonopac = new jtextfieldround.JTextFieldRound();
+        txtdireccion = new jtextfieldround.JTextFieldRound();
+        txtprovincia = new jtextfieldround.JTextFieldRound();
+        txtciudad = new jtextfieldround.JTextFieldRound();
+        txtgeneropac = new jtextfieldround.JTextFieldRound();
+        btnbuscarpac = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
+        btncerrar = new org.edisoncor.gui.button.ButtonRound();
+        txtapellidopac = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -64,18 +71,18 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        txtNombresEsp35 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp36 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp39 = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp7 = new jtextfieldround.JTextFieldRound();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        txtembarazo = new jtextfieldround.JTextFieldRound();
+        txtcedulamed = new jtextfieldround.JTextFieldRound();
+        txttelefonomed = new jtextfieldround.JTextFieldRound();
+        txtmedico = new jtextfieldround.JTextFieldRound();
+        btnbuscarmed = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txproblema = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        txtNombresEsp37 = new jtextfieldround.JTextFieldRound();
+        txtconsulta = new javax.swing.JTextArea();
+        txtespecialidad = new jtextfieldround.JTextFieldRound();
         jLabel34 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
@@ -139,28 +146,49 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("FECHA DE NACIMIENTO:");
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
-        panelNice1.add(txtNombresEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
         panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
-        panelNice1.add(txtNombresEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
-        panelNice1.add(txtNombresEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
-        panelNice1.add(txtNombresEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 21));
-        panelNice1.add(txtNombresEsp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 220, 21));
-        panelNice1.add(txtNombresEsp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 220, 21));
-        panelNice1.add(txtNombresEsp6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 220, 21));
-        panelNice1.add(txtNombresEsp8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 220, 21));
-        panelNice1.add(txtNombresEsp9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 21));
+        panelNice1.add(txtcedula_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
 
-        jButton1.setText("Buscar");
-        panelNice1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        txtnombrespac.setEditable(false);
+        panelNice1.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
+
+        txtcorreo.setEditable(false);
+        panelNice1.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 21));
+
+        txttelefonopac.setEditable(false);
+        panelNice1.add(txttelefonopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 220, 21));
+
+        txtdireccion.setEditable(false);
+        panelNice1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 220, 21));
+
+        txtprovincia.setEditable(false);
+        panelNice1.add(txtprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 220, 21));
+
+        txtciudad.setEditable(false);
+        panelNice1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 220, 21));
+
+        txtgeneropac.setEditable(false);
+        txtgeneropac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtgeneropacActionPerformed(evt);
+            }
+        });
+        panelNice1.add(txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
+
+        btnbuscarpac.setText("Buscar");
+        panelNice1.add(btnbuscarpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
         panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("cerrar");
-        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        btncerrar.setBackground(new java.awt.Color(166, 104, 216));
+        btncerrar.setText("Cerrar");
+        panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        txtapellidopac.setEditable(false);
+        panelNice1.add(txtapellidopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 21));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
 
@@ -213,32 +241,38 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("TELEFONO:");
         panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-        panelNice2.add(txtNombresEsp35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 210, 21));
-        panelNice2.add(txtNombresEsp36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
-        panelNice2.add(txtNombresEsp39, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
-        panelNice2.add(txtNombresEsp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
+        panelNice2.add(txtembarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 210, 21));
 
-        jButton2.setText("Buscar");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
+        txtcedulamed.setEditable(false);
+        panelNice2.add(txtcedulamed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
 
-        jButton3.setText("Imprimir");
-        panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 200, 50));
+        txttelefonomed.setEditable(false);
+        panelNice2.add(txttelefonomed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
+        panelNice2.add(txtmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
 
-        jButton4.setText("Guardar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 210, 50));
+        btnbuscarmed.setText("Buscar");
+        panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        btnimprimir.setText("Imprimir");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 200, 50));
+
+        btnguardar.setText("Guardar");
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 210, 50));
+
+        txproblema.setColumns(20);
+        txproblema.setRows(5);
+        jScrollPane1.setViewportView(txproblema);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 320, 130));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtconsulta.setColumns(20);
+        txtconsulta.setRows(5);
+        jScrollPane2.setViewportView(txtconsulta);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 320, 130));
-        panelNice2.add(txtNombresEsp37, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
+
+        txtespecialidad.setEditable(false);
+        panelNice2.add(txtespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
 
         jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,19 +310,197 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtgeneropacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgeneropacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtgeneropacActionPerformed
+    public JButton getBtnbuscarmed() {
+        return btnbuscarmed;
+    }
+
+    public void setBtnbuscarmed(JButton btnbuscarmed) {
+        this.btnbuscarmed = btnbuscarmed;
+    }
+
+    public JButton getBtnbuscarpac() {
+        return btnbuscarpac;
+    }
+
+    public void setBtnbuscarpac(JButton btnbuscarpac) {
+        this.btnbuscarpac = btnbuscarpac;
+    }
+
+    public ButtonRound getBtncerrar() {
+        return btncerrar;
+    }
+
+    public void setBtncerrar(ButtonRound btncerrar) {
+        this.btncerrar = btncerrar;
+    }
+
+    public JButton getBtnguardar() {
+        return btnguardar;
+    }
+
+    public void setBtnguardar(JButton btnguardar) {
+        this.btnguardar = btnguardar;
+    }
+
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
+    public JTextFieldRound getTxtgeneropac() {
+        return txtgeneropac;
+    }
+
+    public void setTxtgeneropac(JTextFieldRound txtgeneropac) {
+        this.txtgeneropac = txtgeneropac;
+    }
+
+    public JDateChooser getDateFechanacEsp() {
+        return dateFechanacEsp;
+    }
+
+    public void setDateFechanacEsp(JDateChooser dateFechanacEsp) {
+        this.dateFechanacEsp = dateFechanacEsp;
+    }
+
+    public JTextArea getTxproblema() {
+        return txproblema;
+    }
+
+    public void setTxproblema(JTextArea txproblema) {
+        this.txproblema = txproblema;
+    }
+
+    public JTextFieldRound getTxtapellidopac() {
+        return txtgeneropac;
+    }
+
+    public void setTxtapellidopac(JTextFieldRound txtapellidopac) {
+        this.txtgeneropac = txtapellidopac;
+    }
+
+    public JTextFieldRound getTxtcedula_pac() {
+        return txtcedula_pac;
+    }
+
+    public void setTxtcedula_pac(JTextFieldRound txtcedula_pac) {
+        this.txtcedula_pac = txtcedula_pac;
+    }
+
+    public JTextFieldRound getTxtcedulamed() {
+        return txtcedulamed;
+    }
+
+    public void setTxtcedulamed(JTextFieldRound txtcedulamed) {
+        this.txtcedulamed = txtcedulamed;
+    }
+
+    public JTextFieldRound getTxtciudad() {
+        return txtciudad;
+    }
+
+    public void setTxtciudad(JTextFieldRound txtciudad) {
+        this.txtciudad = txtciudad;
+    }
+
+    public JTextArea getTxtconsulta() {
+        return txtconsulta;
+    }
+
+    public void setTxtconsulta(JTextArea txtconsulta) {
+        this.txtconsulta = txtconsulta;
+    }
+
+    public JTextFieldRound getTxtcorreo() {
+        return txtcorreo;
+    }
+
+    public void setTxtcorreo(JTextFieldRound txtcorreo) {
+        this.txtcorreo = txtcorreo;
+    }
+
+    public JTextFieldRound getTxtdireccion() {
+        return txtdireccion;
+    }
+
+    public void setTxtdireccion(JTextFieldRound txtdireccion) {
+        this.txtdireccion = txtdireccion;
+    }
+
+    public JTextFieldRound getTxtembarazo() {
+        return txtembarazo;
+    }
+
+    public void setTxtembarazo(JTextFieldRound txtembarazo) {
+        this.txtembarazo = txtembarazo;
+    }
+
+    public JTextFieldRound getTxtespecialidad() {
+        return txtespecialidad;
+    }
+
+    public void setTxtespecialidad(JTextFieldRound txtespecialidad) {
+        this.txtespecialidad = txtespecialidad;
+    }
+
+    public JTextFieldRound getTxtmedico() {
+        return txtmedico;
+    }
+
+    public void setTxtmedico(JTextFieldRound txtmedico) {
+        this.txtmedico = txtmedico;
+    }
+
+    public JTextFieldRound getTxtnombrespac() {
+        return txtnombrespac;
+    }
+
+    public void setTxtnombrespac(JTextFieldRound txtnombrespac) {
+        this.txtnombrespac = txtnombrespac;
+    }
+
+    public JTextFieldRound getTxtprovincia() {
+        return txtprovincia;
+    }
+
+    public void setTxtprovincia(JTextFieldRound txtprovincia) {
+        this.txtprovincia = txtprovincia;
+    }
+
+    public JTextFieldRound getTxttelefonomed() {
+        return txttelefonomed;
+    }
+
+    public void setTxttelefonomed(JTextFieldRound txttelefonomed) {
+        this.txttelefonomed = txttelefonomed;
+    }
+
+    public JTextFieldRound getTxttelefonopac() {
+        return txttelefonopac;
+    }
+
     /**
      * @param args the command line arguments
      */
+    public void setTxttelefonopac(JTextFieldRound txttelefonopac) {
+        this.txttelefonopac = txttelefonopac;
+    }
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
+    private javax.swing.JButton btnbuscarmed;
+    private javax.swing.JButton btnbuscarpac;
+    private org.edisoncor.gui.button.ButtonRound btncerrar;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnimprimir;
     private com.toedter.calendar.JDateChooser dateFechanacEsp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -316,23 +528,23 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private jtextfieldround.JTextFieldRound txtNombresEsp;
-    private jtextfieldround.JTextFieldRound txtNombresEsp1;
-    private jtextfieldround.JTextFieldRound txtNombresEsp2;
-    private jtextfieldround.JTextFieldRound txtNombresEsp3;
-    private jtextfieldround.JTextFieldRound txtNombresEsp35;
-    private jtextfieldround.JTextFieldRound txtNombresEsp36;
-    private jtextfieldround.JTextFieldRound txtNombresEsp37;
-    private jtextfieldround.JTextFieldRound txtNombresEsp39;
-    private jtextfieldround.JTextFieldRound txtNombresEsp4;
-    private jtextfieldround.JTextFieldRound txtNombresEsp5;
-    private jtextfieldround.JTextFieldRound txtNombresEsp6;
-    private jtextfieldround.JTextFieldRound txtNombresEsp7;
-    private jtextfieldround.JTextFieldRound txtNombresEsp8;
-    private jtextfieldround.JTextFieldRound txtNombresEsp9;
+    private javax.swing.JTextArea txproblema;
+    private jtextfieldround.JTextFieldRound txtapellidopac;
+    private jtextfieldround.JTextFieldRound txtcedula_pac;
+    private jtextfieldround.JTextFieldRound txtcedulamed;
+    private jtextfieldround.JTextFieldRound txtciudad;
+    private javax.swing.JTextArea txtconsulta;
+    private jtextfieldround.JTextFieldRound txtcorreo;
+    private jtextfieldround.JTextFieldRound txtdireccion;
+    private jtextfieldround.JTextFieldRound txtembarazo;
+    private jtextfieldround.JTextFieldRound txtespecialidad;
+    private jtextfieldround.JTextFieldRound txtgeneropac;
+    private jtextfieldround.JTextFieldRound txtmedico;
+    private jtextfieldround.JTextFieldRound txtnombrespac;
+    private jtextfieldround.JTextFieldRound txtprovincia;
+    private jtextfieldround.JTextFieldRound txttelefonomed;
+    private jtextfieldround.JTextFieldRound txttelefonopac;
     // End of variables declaration//GEN-END:variables
 }
