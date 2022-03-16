@@ -5,11 +5,40 @@
 package Controller;
 
 import Model.Model_Paciente;
+import Model.Paciente;
 import View.Crud_Paciente;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
+import jtextfieldround.JTextFieldRound;
 
 /**
  *
@@ -28,11 +57,353 @@ public class Controller_CrudPaciente {
         vista.setVisible(true);
           
        // vista.getjDialog1().setLocationRelativeTo(null);
-       
+       iniciarcontrol();
+       cargarPersonas();
+        
    
     }
     
+      
+      
+      
+      
     
+      public void iniciarcontrol (){
+          generarSerie();
+          vista.getBtnexaminar().addActionListener(l-> btnexaminar());
+          vista.getBtnguardarpac().addActionListener(l-> crearpaciente());
+          cargarPersonas();
+          
+          
+          KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                cargarPersonasbusqueda(vista.getTxtbusqueda().getText());
+            }
+        };
+         
+          vista.getTxtbusqueda().addKeyListener(kl);
+           setEventoMouseClicked(vista.getJtbPacientes());
+          
+          
+      }
+      
+      
+      
+      
+      private void generarSerie() {
+      String   serie = modelo.NumSerie();
+        if (serie == null) {
+            vista.getLabelserie().setText("00001");
+        } else {
+            int inc = Integer.parseInt(serie);
+            inc++;
+            vista.getLabelserie().setText("0000" + inc);
+
+        }
+    }
+      
+      
+      
+      
+      
+      
+       private void setEventoMouseClicked(JTable tbl)
+    {
+        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                cargardatosTxt(e);
+            } catch (IOException ex) {
+                Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        });
+    }
+      
+    public  void btnexaminar (){
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        j.setFileFilter(fil);
+        
+        int s = j.showOpenDialog(this.jfc);
+        if(s == JFileChooser.APPROVE_OPTION){
+             try {
+                 String ruta = j.getSelectedFile().getAbsolutePath();
+                 vista.getTxtruta().setText(ruta);
+                 Image imagen = ImageIO.read(j.getSelectedFile()).getScaledInstance(vista.getLablefoto().getWidth(), vista.getLablefoto().getHeight(), Image.SCALE_DEFAULT);
+                 Icon ico = new ImageIcon (imagen);
+                 vista.getLablefoto().setIcon(ico);
+             } catch (IOException ex) {
+                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }
+    }
+    
+    public void limpiartxt(){
+    vista.getTxtced().setText("");
+    vista.getYxynom().setText("");
+    vista.getTxtapellidos().setText("");
+    vista.getTxtcelular().setText("");
+    vista.getTxttelefono().setText("");
+    vista.getTxtdireccion().setText("");
+    vista.getTxtcorreo().setText("");
+    vista.getTxtprovincia().setText("");
+    vista.getTxtciudad().setText("");
+    vista.getCmgenero().setSelectedIndex(0);
+   
+    vista.getLablefoto().setText("");
+    vista.getCbSangre().setSelectedIndex(0);
+    vista.getJdcFecha().setDate(null);
+    vista.getTxtruta().setText("");
+    vista.getLablefoto().setIcon(null);
+    }
+    
+      private void cargardatosTxt (java.awt.event.MouseEvent evt) throws IOException{
+
+        List<Paciente> lp = modelo.listarpac();
+        int xx = vista.getJtbPacientes().getSelectedRow();
+        if (xx != -1) {
+            String id = vista.getJtbPacientes().getValueAt(xx, 0).toString();
+            String pro = id ;
+            vista.getTxtced().setText(id);
+            String nom = vista.getJtbPacientes().getValueAt(xx, 1).toString();
+            vista.getYxynom().setText(nom);
+            String apellido = vista.getJtbPacientes().getValueAt(xx, 2).toString();
+            vista.getTxtapellidos().setText(apellido);
+            String telefono = vista.getJtbPacientes().getValueAt(xx, 3).toString();
+            vista.getTxtcelular().setText(telefono);
+            String direccion = vista.getJtbPacientes().getValueAt(xx, 4).toString();
+            vista.getTxtdireccion().setText(direccion);
+            String ciudad = vista.getJtbPacientes().getValueAt(xx, 5).toString();
+            vista.getTxtciudad().setText(ciudad);
+            String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
+            vista.getCmgenero().setSelectedItem(genero);
+            
+            
+              for (int i = 0; i < lp.size(); i++) {
+                if (lp.get(i).getCedula().equals(pro)) {
+   
+                    byte[] ft = lp.get(i).getFoto();
+                    BufferedImage img = null;
+                   
+                     InputStream in = new ByteArrayInputStream(ft);
+                     img = ImageIO.read(in);
+          
+                    Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+                    Icon ic = new ImageIcon(j);
+                    vista.getLablefoto().setIcon(ic);
+                }
+            }
+            }else {
+            JOptionPane.showMessageDialog(vista, "error seleccione una fila");
+            
+            }
+            
+            
+            
+            String fecha_nac = vista.getJtbPacientes().getValueAt(xx, 8).toString();
+           // vista.getJdcFecha().setDate(fecha_nac););
+             String tipo_sang = vista.getJtbPacientes().getValueAt(xx, 9).toString();
+            vista.getCbSangre().setSelectedItem(tipo_sang);
+            
+           
+            
+           
+    
+          
+
+}
+    
+    
+      public void crearpaciente(){
+           File ruta = new File(vista.getTxtruta().getText());
+     
+     String cedula;
+     String nombres;
+     String apellidos;
+     String celular;
+     String telefono;
+     String direccion;
+     String correo;
+     String provincia;
+     String ciudad;
+     String genero;
+     Date fechanac;
+     String tiposang;
+     String id;
+     byte foto ; 
+     
+    
+    cedula = vista.getTxtced().getText();
+    nombres = vista.getYxynom().getText();
+    apellidos = vista.getTxtapellidos().getText();
+    celular = vista.getTxtcelular().getText();
+    telefono = vista.getTxttelefono().getText();
+    direccion = vista.getTxtdireccion().getText();
+    correo = vista.getTxtcorreo().getText();
+    provincia = vista.getTxtprovincia().getText();
+    ciudad = vista.getTxtciudad().getText();
+    genero = vista.getCmgenero().getSelectedItem().toString();
+    id = vista.getLabelserie().getText();
+     SimpleDateFormat dateFormat = new SimpleDateFormat ("yyy-MM-dd");
+     java.util.Date date= vista.getJdcFecha().getDate();
+     long d = date.getTime();
+     String fechael=dateFormat.format(d);
+     java.sql.Date fecha = new java.sql.Date (d);
+          
+    tiposang = vista.getCbSangre().getSelectedItem().toString();
+     
+          Model_Paciente pac = new Model_Paciente();
+           pac.setCedula(cedula);
+           pac.setNombres(nombres);
+           pac.setApellidos(apellidos);
+           pac.setCelular(celular);
+           pac.setTelefono(telefono);
+           pac.setDireccion(direccion);
+           pac.setCorreo(correo);
+           pac.setProvincia(provincia);
+           pac.setCiudad(ciudad);
+           pac.setGenero(genero);
+             try{
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+           pac.setFoto(icono);
+
+            }catch(Exception ex){
+                 System.out.println(ex);
+           pac.setFoto(null);
+        }
+            pac.setId_paciente(id);
+            pac.setCedula_pac(cedula);
+            pac.setFecha_nac(fecha);
+            pac.setTipo_sang(tiposang);
+             
+            pac.crearPersonaByte();
+            generarSerie();
+            cargarPersonas ();
+            limpiartxt();
+          
+      }
+      
+      
+       private void  cargarPersonas (){
+        
+        vista.getJtbPacientes().setDefaultRenderer(Object.class, new  ImagenTabla()); 
+        vista.getJtbPacientes().setRowHeight(100);
+      
+        DefaultTableModel tbmodel ; 
+
+        tbmodel = (DefaultTableModel) vista.getJtbPacientes().getModel() ; 
+  
+        tbmodel.setNumRows(0);
+
+        List<Paciente> milista = modelo.listarpac();
+     
+        Holder<Integer> i = new Holder<>(0);
+        milista.stream().forEach(pe -> {
+
+      tbmodel.addRow( new Object[10]);// creo una fila vacia
+       //dibujar elementos de la tabla 
+       vista.getJtbPacientes().setValueAt(pe.getCedula(), i.value, 0);
+       vista.getJtbPacientes().setValueAt(pe.getNombres(), i.value, 1);
+       vista.getJtbPacientes().setValueAt(pe.getApellidos(), i.value, 2);
+       vista.getJtbPacientes().setValueAt(pe.getCelular(), i.value, 3);
+       vista.getJtbPacientes().setValueAt(pe.getDireccion(), i.value, 4);
+        vista.getJtbPacientes().setValueAt(pe.getCiudad(), i.value, 5);
+       vista.getJtbPacientes().setValueAt(pe.getGenero(), i.value, 6);
+         try{
+                    byte[] bi = pe.getFoto();
+                    BufferedImage image = null;
+                    InputStream in = new ByteArrayInputStream(bi);
+                    image = ImageIO.read(in);
+                    ImageIcon imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
+                   DefaultTableCellRenderer render = new DefaultTableCellRenderer();
+                 render.setIcon(imgi);
+                   vista.getJtbPacientes().setValueAt(new JLabel(imgi), i.value, 7);
+
+                }catch(Exception ex){
+                      vista.getJtbPacientes().setValueAt(new JLabel("No imagen"),i.value, 7);
+  
+                }
+         vista.getJtbPacientes().setValueAt(pe.getFecha_nac(), i.value, 8);
+          vista.getJtbPacientes().setValueAt(pe.getTipo_sang(), i.value, 9);
+//      
+        i.value++;
+
+           
+        });
+                
+    }
+   
+       private void  cargarPersonasbusqueda (String busqueda){
+        
+        vista.getJtbPacientes().setDefaultRenderer(Object.class, new  ImagenTabla()); 
+        vista.getJtbPacientes().setRowHeight(100);
+      
+        DefaultTableModel tbmodel ; 
+
+        tbmodel = (DefaultTableModel) vista.getJtbPacientes().getModel() ; 
+  
+        tbmodel.setNumRows(0);
+
+        List<Paciente> milista = modelo.listarpacbuscar(busqueda);
+     
+        Holder<Integer> i = new Holder<>(0);
+        milista.stream().forEach(pe -> {
+
+      tbmodel.addRow( new Object[10]);// creo una fila vacia
+       //dibujar elementos de la tabla 
+       vista.getJtbPacientes().setValueAt(pe.getCedula(), i.value, 0);
+       vista.getJtbPacientes().setValueAt(pe.getNombres(), i.value, 1);
+       vista.getJtbPacientes().setValueAt(pe.getApellidos(), i.value, 2);
+       vista.getJtbPacientes().setValueAt(pe.getCelular(), i.value, 3);
+       vista.getJtbPacientes().setValueAt(pe.getDireccion(), i.value, 4);
+        vista.getJtbPacientes().setValueAt(pe.getCiudad(), i.value, 5);
+       vista.getJtbPacientes().setValueAt(pe.getGenero(), i.value, 6);
+     
+         try{
+                    byte[] bi = pe.getFoto();
+                    BufferedImage image = null;
+                    InputStream in = new ByteArrayInputStream(bi);
+                    image = ImageIO.read(in);
+                    ImageIcon imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
+                   DefaultTableCellRenderer render = new DefaultTableCellRenderer();
+                 render.setIcon(imgi);
+                   vista.getJtbPacientes().setValueAt(new JLabel(imgi), i.value, 7);
+
+                }catch(Exception ex){
+                      vista.getJtbPacientes().setValueAt(new JLabel("No imagen"),i.value, 7);
+                  
+                }
+         vista.getJtbPacientes().setValueAt(pe.getFecha_nac(), i.value, 8);
+          vista.getJtbPacientes().setValueAt(pe.getTipo_sang(), i.value, 9);
+//      
+        i.value++;
+
+      
+        });
+                
+    }
+      
+       
+      
+      
+      
+  
+
     
     
 }

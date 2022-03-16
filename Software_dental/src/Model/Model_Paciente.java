@@ -20,6 +20,11 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,127 +37,32 @@ ConexionPg con= new ConexionPg();
     {
         
     }
+public String NumSerie() {
+      //  String sql = "SELECT MAX(id_paciente) FROM paciente";
+         String sql = "SELECT MAX (CAST (id_paciente AS INTEGER)) FROM paciente ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR SERIE");
 
-      public  List<Persona> listarPersona (){
-        List<Persona> milista = new ArrayList<Persona>();
-        try {
-            String sql = "select * from persona" ;
-           ResultSet rs = con.consulta(sql) ;
-          byte[] bytea;
-            // barremos el resulset
-           while(rs.next()){
-                  
-               Persona persona = new Persona(); 
-               //persona.setIdPersona(rs.getString("idpersona"));
-               persona.setCedula(rs.getString("cedula"));
-               persona.setNombres(rs.getString("nombres"));
-               persona.setApellidos(rs.getString("apellidos"));
-               persona.setCelular(rs.getString("cedular"));
-               persona.setTelefono(rs.getString("telefono"));
-               persona.setCorreo(rs.getString("correo"));
-               persona.setProvincia(rs.getString("provincia"));
-               persona.setCiudad(rs.getString("ciudad"));
-               persona.setGenero(rs.getString("genero"));
-               persona.setFoto(rs.getBytes("foto"));
-              
-                      milista.add(persona);
-           }
-           rs.close();
-           return milista;
-        } catch (SQLException ex) {
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
-        return null;
         }
-      }
-      /*    private Image obtenerimagen  (byte[] bytes) throws IOException{
-           try {
-               ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-               Iterator it =ImageIO.getImageReadersByFormatName("png");
-               ImageReader reader = (ImageReader)it.next();
-               Object source = bis;
-               ImageInputStream iis = ImageIO.createImageInputStream(source);
-               reader.setInput(iis,true);
-               ImageReadParam param = reader.getDefaultReadParam();
-               param.setSourceSubsampling(1, 1, 0, 0);
-               return reader.read(0,param);
-           } catch (IOException ex) {
-               try {
-                   ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-                   Iterator it =ImageIO.getImageReadersByFormatName("jpg");
-                   ImageReader reader = (ImageReader)it.next();
-                   Object source = bis;
-                   ImageInputStream iis = ImageIO.createImageInputStream(source);
-                   reader.setInput(iis,true);
-                   ImageReadParam param = reader.getDefaultReadParam();
-                   param.setSourceSubsampling(1, 1, 0, 0);
-                   return reader.read(0,param);
-               } catch (IOException ex1) {
-                   try {
-                       ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-                       Iterator it =ImageIO.getImageReadersByFormatName("JPEG");
-                       ImageReader reader = (ImageReader)it.next();
-                       Object source = bis;
-                       ImageInputStream iis = ImageIO.createImageInputStream(source);
-                       reader.setInput(iis,true);
-                       ImageReadParam param = reader.getDefaultReadParam();
-                       param.setSourceSubsampling(1, 1, 0, 0);
-                       return reader.read(0,param);
-                   } catch (IOException ex2) {
-                       Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex2);
-                  return null;
-                   
-                   }
-               }
-           }
-    }*/
-    
-     
-         //busqueda persona
-          public  List<Persona> listarPersonaBusqueda (String busqueda){
-        List<Persona> milista = new ArrayList<Persona>();
-         String sql = "" ;
-         String palabra = busqueda ;
-            if (busqueda.equalsIgnoreCase("")){
-                sql = "select * from persona" ;
-            }else if (palabra.equalsIgnoreCase(busqueda)) {
-          sql = "select * from persona WHERE  id_paciente ='" +busqueda+ "'  OR  nombres = '" +busqueda+ "'" ;
-            }
-        try {
-            
-            ResultSet rs = con.consulta(sql) ;
-           while(rs.next()){
-                 
-               Persona persona = new Persona();
-               
-               persona.setCedula(rs.getString("cedula"));
-               persona.setNombres(rs.getString("nombres"));
-               persona.setApellidos(rs.getString("apellidos"));
-               persona.setCelular(rs.getString("cedular"));
-               persona.setTelefono(rs.getString("telefono"));
-               persona.setCorreo(rs.getString("correo"));
-               persona.setProvincia(rs.getString("provincia"));
-               persona.setCiudad(rs.getString("ciudad"));
-               persona.setGenero(rs.getString("genero"));
-               persona.setFoto(rs.getBytes("foto"));
-               milista.add(persona);
-           
-          
-            }
-            rs.close();
-           return milista;
-        } catch (SQLException ex) {
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
-        return null;
-        }
+        return serie;
     }
+
+       
         public boolean crearPersonaByte(){
-        try {
-            String Sql;
-            Sql= "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)" ;
-            Sql+="VALUES (?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = con.Con().prepareStatement(Sql);
-            ps.setString(1,getCedula());
-            ps.setString(2,getNombres());
+         try {
+            String sql;
+            sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
+            //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
+            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps=con.GetCon().prepareStatement(sql);
+            ps.setString(1, getCedula());
+            ps.setString(2, getNombres());
             ps.setString(3,getApellidos());
             ps.setString(4,getCelular());
             ps.setString(5,getTelefono());
@@ -163,14 +73,152 @@ ConexionPg con= new ConexionPg();
             ps.setString(10,getGenero());
             ps.setBytes(11,getFoto());
             ps.executeUpdate();
-             return true;
             
-
+            String sql2;
+            sql2="INSERT INTO paciente (id_paciente,cedula_pac,fecha_nac,tipo_sang)";
+            sql2+="VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?)";
+            PreparedStatement ps2=con.GetCon().prepareStatement(sql2);
+            ps2.setString(1, getId_paciente());
+            ps2.setString(2, getCedula_pac());
+            ps2.setDate(3, getFecha_nac());
+            ps2.setString(4, getTipo_sang());
+            
+            ps2.executeUpdate();
+             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
+            
+            return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            Logger.getLogger(Model_ListadoPacientes.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
         }
-              return false;
-  }
+        }
+        
+         public List<Paciente> listarbuscarcita (String busc){
+    List<Paciente> milista = new ArrayList<Paciente>();
+    String sql="";
+    if(busc.equals("")){
+    sql="select p.cedula , p.nombres ,p.apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac";
+    } else {
+        try {
+            sql = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac " ;
+            ResultSet rs = con.consulta(sql) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+                pac.setCedula(rs.getString(1));
+                pac.setNombres(rs.getString(2));
+                pac.setApellidos(rs.getString(3));
+                pac.setCelular(rs.getString(4));
+                pac.setDireccion(rs.getString(5));
+                pac.setCiudad(rs.getString(6));
+                pac.setGenero(rs.getString(7));
+                pac.setFoto(rs.getBytes(8));
+               
+                pac.setFecha_nac(rs.getDate(9));
+                pac.setTipo_sang(rs.getString(10));
+                milista.add(pac);
+                rs.close();
+                return milista;
+               
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+    return null;
+         }
+     
+          public List<Paciente> listarpac ( ){
+    List<Paciente> milistapac = new ArrayList<Paciente>();
+    String sql3;
+    
+        try {
+            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+                pac.setCedula(rs.getString(1));
+                pac.setNombres(rs.getString(2));
+                pac.setApellidos(rs.getString(3));
+                pac.setCelular(rs.getString(4));
+                pac.setDireccion(rs.getString(5));
+                pac.setCiudad(rs.getString(6));
+                pac.setGenero(rs.getString(7));
+                pac.setFoto(rs.getBytes(8));
+               
+                pac.setFecha_nac(rs.getDate(9));
+                pac.setTipo_sang(rs.getString(10));
+                
+                milistapac.add(pac);
+                
+                
+            }
+            return milistapac;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+
+   
+    }
+ 
+         
+         public List<Paciente> listarpacbuscar ( String buscar){
+    List<Paciente> milistapac = new ArrayList<Paciente>();
+    String sql3;
+     if(buscar.equals(null)){
+   sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  " ;
+    } else {
+     sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac "
+
+            + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac OR ";
+            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
+            sql3 += " p.cedula = pac.cedula_pac";    
+     try {
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+                pac.setCedula(rs.getString(1));
+                pac.setNombres(rs.getString(2));
+                pac.setApellidos(rs.getString(3));
+                pac.setCelular(rs.getString(4));
+                pac.setDireccion(rs.getString(5));
+                pac.setCiudad(rs.getString(6));
+                pac.setGenero(rs.getString(7));
+                pac.setFoto(rs.getBytes(8));
+               
+                pac.setFecha_nac(rs.getDate(9));
+                pac.setTipo_sang(rs.getString(10));
+                
+                milistapac.add(pac);
+
+            }
+           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+ 
+   
+    }
+     return milistapac;
+         }
+        
+        
+        
+        
+        
+        
   
  public boolean ActualizarPersonas ()  {
         String Sql ;
