@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Saul
+ * @author Diana
  */
 public class Model_Citas extends Citas{
     ConexionPg con= new ConexionPg();
@@ -97,7 +97,7 @@ public class Model_Citas extends Citas{
     return false;
     }
     //Eliminar
-    public boolean eliminarAnamnesis(){
+    public boolean eliminarcita(){
     String sql;
     sql="Delete from citas where id_cita='"+getId_cita()+"'";
     return con.accion(sql);

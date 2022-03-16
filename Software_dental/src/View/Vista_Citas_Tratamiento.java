@@ -5,6 +5,13 @@
  */
 package View;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import jtextfieldround.JTextFieldRound;
+
 public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     /**
@@ -27,27 +34,27 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNombreTrat = new jtextfieldround.JTextFieldRound();
+        txtNombrePac = new jtextfieldround.JTextFieldRound();
         jLabel4 = new javax.swing.JLabel();
         btnAgendar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        txtNombreTrat1 = new jtextfieldround.JTextFieldRound();
+        txtNombredoc = new jtextfieldround.JTextFieldRound();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdateFecha = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        txtApellidosTrat1 = new jtextfieldround.JTextFieldRound();
-        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
-        txtApellidosTrat2 = new jtextfieldround.JTextFieldRound();
+        jareades = new javax.swing.JTextArea();
+        txtficha = new jtextfieldround.JTextFieldRound();
+        txtApellidosPac = new jtextfieldround.JTextFieldRound();
         btnAgendar1 = new javax.swing.JButton();
         btnAgendar2 = new javax.swing.JButton();
-        txtApellidosTrat3 = new jtextfieldround.JTextFieldRound();
+        txthora = new jtextfieldround.JTextFieldRound();
+        cbosnombre = new javax.swing.JComboBox<>();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtblcitas = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -63,7 +70,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FICHA:");
         panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
-        panelNice1.add(txtNombreTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 20));
+        panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 20));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDOS DEL PACIENTE:");
@@ -75,7 +82,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOMBRE DEL DOCTOR:");
         panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
-        panelNice1.add(txtNombreTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 220, 20));
+        panelNice1.add(txtNombredoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 220, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CEDULA DEL DOCTOR:");
@@ -84,7 +91,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("FECHA:");
         panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-        panelNice1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, -1));
+        panelNice1.add(jdateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, 20));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("HORA:");
@@ -94,30 +101,30 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel11.setText("DESCRIPCION:");
         panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jareades.setColumns(20);
+        jareades.setRows(5);
+        jScrollPane2.setViewportView(jareades);
 
         panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 270, 160));
-        panelNice1.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 20));
-
-        comboBoxRound1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        panelNice1.add(comboBoxRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 220, 20));
-        panelNice1.add(txtApellidosTrat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
+        panelNice1.add(txtficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 20));
+        panelNice1.add(txtApellidosPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
 
         btnAgendar1.setText("AGENDAR");
         panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 120, 40));
 
         btnAgendar2.setText("ACTUALIZAR");
         panelNice1.add(btnAgendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, 40));
-        panelNice1.add(txtApellidosTrat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 20));
+        panelNice1.add(txthora, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 20));
+
+        cbosnombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sleccionar", "Item 2", "Item 3", "Item 4" }));
+        panelNice1.add(cbosnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 480, 480));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtblcitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -128,7 +135,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtblcitas);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 560));
 
@@ -160,8 +167,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnAgendar1;
     private javax.swing.JButton btnAgendar2;
-    private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<String> cbosnombre;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
@@ -174,14 +180,100 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jareades;
+    private com.toedter.calendar.JDateChooser jdateFecha;
+    private javax.swing.JTable jtblcitas;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat1;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat2;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat3;
-    private jtextfieldround.JTextFieldRound txtNombreTrat;
-    private jtextfieldround.JTextFieldRound txtNombreTrat1;
+    private jtextfieldround.JTextFieldRound txtApellidosPac;
+    private jtextfieldround.JTextFieldRound txtNombrePac;
+    private jtextfieldround.JTextFieldRound txtNombredoc;
+    private jtextfieldround.JTextFieldRound txtficha;
+    private jtextfieldround.JTextFieldRound txthora;
     // End of variables declaration//GEN-END:variables
+
+    public JComboBox<String> getCbosnombre() {
+        return cbosnombre;
+    }
+
+    public void setCbosnombre(JComboBox<String> cbosnombre) {
+        this.cbosnombre = cbosnombre;
+    }
+
+    public JTextFieldRound getTxtApellidosPac() {
+        return txtApellidosPac;
+    }
+
+    public void setTxtApellidosPac(JTextFieldRound txtApellidosPac) {
+        this.txtApellidosPac = txtApellidosPac;
+    }
+
+    public JTextFieldRound getTxtNombrePac() {
+        return txtNombrePac;
+    }
+
+    public void setTxtNombrePac(JTextFieldRound txtNombrePac) {
+        this.txtNombrePac = txtNombrePac;
+    }
+
+    public JTextFieldRound getTxtNombredoc() {
+        return txtNombredoc;
+    }
+
+    public void setTxtNombredoc(JTextFieldRound txtNombredoc) {
+        this.txtNombredoc = txtNombredoc;
+    }
+
+    public JTextFieldRound getTxtficha() {
+        return txtficha;
+    }
+
+    public void setTxtficha(JTextFieldRound txtficha) {
+        this.txtficha = txtficha;
+    }
+
+    public JTextFieldRound getTxthora() {
+        return txthora;
+    }
+
+    public void setTxthora(JTextFieldRound txthora) {
+        this.txthora = txthora;
+    }
+
+    public JTextArea getJareades() {
+        return jareades;
+    }
+
+    public void setJareades(JTextArea jareades) {
+        this.jareades = jareades;
+    }
+
+    public JDateChooser getJdateFecha() {
+        return jdateFecha;
+    }
+
+    public void setJdateFecha(JDateChooser jdateFecha) {
+        this.jdateFecha = jdateFecha;
+    }
+
+    public JTable getJtblcitas() {
+        return jtblcitas;
+    }
+
+    public void setJtblcitas(JTable jtblcitas) {
+        this.jtblcitas = jtblcitas;
+    }
+
+    public JButton getBtnAgendar1() {
+        return btnAgendar1;
+    }
+
+    public void setBtnAgendar1(JButton btnAgendar1) {
+        this.btnAgendar1 = btnAgendar1;
+    }
+
+
+
+
+
 }

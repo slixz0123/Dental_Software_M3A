@@ -4,6 +4,11 @@
  */
 package View;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import jtextfieldround.JTextFieldRound;
+
 /**
  *
  * @author slix0
@@ -31,16 +36,16 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNomTratamiento = new jtextfieldround.JTextFieldRound();
-        txtPrecioTrat = new jtextfieldround.JTextFieldRound();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtcodigocie = new jtextfieldround.JTextFieldRound();
+        txttitulocie = new jtextfieldround.JTextFieldRound();
+        btneliminar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
+        cboxtipopato = new javax.swing.JComboBox<>();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblListaTrat = new javax.swing.JTable();
+        tblListacie = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
 
@@ -67,31 +72,31 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tipo De Patologia:");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
-        panelNice1.add(txtNomTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 410, 40));
-        panelNice1.add(txtPrecioTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 410, 40));
+        panelNice1.add(txtcodigocie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 410, 40));
+        panelNice1.add(txttitulocie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 410, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelNice1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 410, 30));
+        btneliminar.setText("ELIMINAR");
+        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 160, 40));
 
-        jButton1.setText("ELIMINAR");
-        panelNice1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 160, 40));
+        btnguardar.setText("GUARDAR");
+        panelNice1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 160, 40));
 
-        jButton2.setText("GUARDAR");
-        panelNice1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 160, 40));
-
-        jButton3.setText("EDITAR");
-        panelNice1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, 40));
+        btneditar.setText("EDITAR");
+        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, 40));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
         panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        cboxtipopato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "TUMOR MALIGNO DE LA ENCIA SUPERIO", "TUMOR MALIGNO DEL PALADAR DURO", "TUMOR MALIGNO DE LA CARA DORSAL DE LA LENGUA", "TUMOR MALIGNO DEL BORDE DE LA LENGUA", "TUMOR MALIGNO DE LA CARA VENTRAL DE LA LENGUA", "TUMOR MALIGNO DE LOS DOS TERCIOS ANTERIORES DE LA LENGUA, PARTE NO ESPECIFICADA", "LESION DE SITIOS CONTIGUOS DE LA LENGUA", "TUMOR MALIGNO DE LA LENGUA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DE LA ENCIA SUPERIOR", "TUMOR MALIGNO DE LA ENCIA INFERIOR", "TUMOR MALIGNO DE LA ENCIA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DE LA PARTE ANTERIOR DEL PISO DE LA BOCA", "TUMOR MALIGNO DE LA PARTE LATERAL DEL PISO DE LA BOCA", "LESION DE SITIOS CONTIGUOS DEL PISO DE LA BOCA", "TUMOR MALIGNO DEL PISO DE LA BOCA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DEL PALADAR DURO", "TUMOR MALIGNO DEL PALADAR BLANDO" }));
+        panelNice1.add(cboxtipopato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 390, 40));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1070, 260));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblListaTrat.setModel(new javax.swing.table.DefaultTableModel(
+        tblListacie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,7 +107,7 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(tblListaTrat);
+        jScrollPane2.setViewportView(tblListacie);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 990, 320));
 
@@ -139,10 +144,10 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JComboBox<String> cboxtipopato;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -152,8 +157,66 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
     private jtextfieldround.JTextFieldRound jTextFieldRound1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private javax.swing.JTable tblListaTrat;
-    private jtextfieldround.JTextFieldRound txtNomTratamiento;
-    private jtextfieldround.JTextFieldRound txtPrecioTrat;
+    private javax.swing.JTable tblListacie;
+    private jtextfieldround.JTextFieldRound txtcodigocie;
+    private jtextfieldround.JTextFieldRound txttitulocie;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtneditar() {
+        return btneditar;
+    }
+
+    public void setBtneditar(JButton btneditar) {
+        this.btneditar = btneditar;
+    }
+
+    public JButton getBtneliminar() {
+        return btneliminar;
+    }
+
+    public void setBtneliminar(JButton btneliminar) {
+        this.btneliminar = btneliminar;
+    }
+
+    public JButton getBtnguardar() {
+        return btnguardar;
+    }
+
+    public void setBtnguardar(JButton btnguardar) {
+        this.btnguardar = btnguardar;
+    }
+
+    public JComboBox<String> getCboxtipopato() {
+        return cboxtipopato;
+    }
+
+    public void setCboxtipopato(JComboBox<String> cboxtipopato) {
+        this.cboxtipopato = cboxtipopato;
+    }
+
+    public JTextFieldRound getTxtcodigocie() {
+        return txtcodigocie;
+    }
+
+    public void setTxtcodigocie(JTextFieldRound txtcodigocie) {
+        this.txtcodigocie = txtcodigocie;
+    }
+
+    public JTextFieldRound getTxttitulocie() {
+        return txttitulocie;
+    }
+
+    public void setTxttitulocie(JTextFieldRound txttitulocie) {
+        this.txttitulocie = txttitulocie;
+    }
+
+    public JTable getTblListacie() {
+        return tblListacie;
+    }
+
+    public void setTblListacie(JTable tblListacie) {
+        this.tblListacie = tblListacie;
+    }
+
+
 }

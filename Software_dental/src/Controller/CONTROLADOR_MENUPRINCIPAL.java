@@ -85,8 +85,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
-
-
+        
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
 
     }
@@ -409,6 +408,11 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistaAgendarcitas.setBorder(null);
         Controller.Controller_AgendaCitas controlerAgendaCitas = new Controller_AgendaCitas(modelagendacitas, vistaAgendarcitas);
     }
+     
+     
+     
+     
+     
       private void proforma(java.awt.event.MouseEvent evt) {
         Model_Proforma modelProforma = new Model_Proforma();
         VISTA_PROFORMA vistaProforma = new VISTA_PROFORMA();
@@ -451,6 +455,12 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistafarma.setBorder(null);
         Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
     }
+        
+        
+        
+        
+        
+        
         private void Proceso(java.awt.event.MouseEvent evt) {
           Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
        
@@ -503,5 +513,17 @@ private void setEventoMouseClickProgreso(JLabel laba) {
           
         //Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
     }
+        
+        
+        /*private void crudcie10(){
+         Model_Cie10 modelocrud = new Model_Cie10();
+        Vista_Crud_Cie10 vistacrud = new Vista_Crud_Cie10();
+        //agregar Vista Persona al Desktop Pane.
+        vista.getDkpPrincipal().add(vistacrud);
+                
+        Controller_CrudCie10 controladorcrudPersonas = new Controller_CrudCie10(modelocrud, vistacrud); 
+        controladorcrudPersonas.iniciar();  
+          
+    }*/
      
 }
