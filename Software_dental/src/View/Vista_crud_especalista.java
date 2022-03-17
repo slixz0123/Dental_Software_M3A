@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import jtextfieldround.JTextFieldRound;
 import org.edisoncor.gui.button.ButtonRound;
 import org.edisoncor.gui.comboBox.ComboBoxRound;
@@ -145,14 +146,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.txttelfesp = txttelfesp;
     }
 
-    public ButtonRound getBtnfoto() {
-        return btnfoto;
-    }
-
-    public void setBtnfoto(ButtonRound btnfoto) {
-        this.btnfoto = btnfoto;
-    }
-
     public JTextFieldRound getTxtCelularesp() {
         return txtCelularesp;
     }
@@ -201,6 +194,22 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.txtCargoesp = txtCargoesp;
     }
 
+    public JTextField getTxtruta() {
+        return txtruta;
+    }
+
+    public void setTxtruta(JTextField txtruta) {
+        this.txtruta = txtruta;
+    }
+
+    public JButton getBtnExaminar() {
+        return btnExaminar;
+    }
+
+    public void setBtnExaminar(JButton btnExaminar) {
+        this.btnExaminar = btnExaminar;
+    }
+
   
     
 
@@ -221,7 +230,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnfoto = new org.edisoncor.gui.button.ButtonRound();
         txtcedulaesp = new jtextfieldround.JTextFieldRound();
         panelRoundTranslucido1 = new org.edisoncor.gui.panel.PanelRoundTranslucido();
         lblFotoEsp = new javax.swing.JLabel();
@@ -239,6 +247,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btnguardarEsp = new javax.swing.JButton();
         cboxGeneroEsp = new javax.swing.JComboBox<>();
         cBoxespecialidad = new javax.swing.JComboBox<>();
+        txtruta = new javax.swing.JTextField();
+        btnExaminar = new javax.swing.JButton();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel14 = new javax.swing.JLabel();
         txtBuscarEsp = new jtextfieldround.JTextFieldRound();
@@ -308,11 +318,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CARGO:");
-        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-
-        btnfoto.setText("Examinar");
-        panelNice1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 90, 40));
-        panelNice1.add(txtcedulaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 240, 21));
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        panelNice1.add(txtcedulaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 190, 21));
 
         lblFotoEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -320,10 +327,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelRoundTranslucido1.setLayout(panelRoundTranslucido1Layout);
         panelRoundTranslucido1Layout.setHorizontalGroup(
             panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRoundTranslucido1Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRoundTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(lblFotoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
         panelRoundTranslucido1Layout.setVerticalGroup(
             panelRoundTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,21 +340,15 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20))
         );
 
-        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 230, 140));
-        panelNice1.add(txtnombreesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, 21));
-        panelNice1.add(txtCelularesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 20));
-        panelNice1.add(txtcorreoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 240, 21));
-
-        txttelfesp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttelfespActionPerformed(evt);
-            }
-        });
-        panelNice1.add(txttelfesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 240, 21));
-        panelNice1.add(txtdirecesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 240, 20));
-        panelNice1.add(txtprovinciaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 21));
-        panelNice1.add(txtciudadesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 240, 21));
-        panelNice1.add(txtapellidoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 240, 20));
+        panelNice1.add(panelRoundTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 200, 140));
+        panelNice1.add(txtnombreesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 190, 21));
+        panelNice1.add(txtCelularesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 190, 20));
+        panelNice1.add(txtcorreoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 190, 21));
+        panelNice1.add(txttelfesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, 21));
+        panelNice1.add(txtdirecesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, 20));
+        panelNice1.add(txtprovinciaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, 21));
+        panelNice1.add(txtciudadesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 190, 21));
+        panelNice1.add(txtapellidoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, 20));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -357,25 +358,23 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("ESPECIALIDAD:");
-        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, 21));
 
-        txtCargoesp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCargoespActionPerformed(evt);
-            }
-        });
-        panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 240, 21));
-
-        btnguardarEsp.setText("jButton1");
-        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
+        btnguardarEsp.setText("Guardar");
+        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, -1, -1));
 
         cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "m", "f" }));
-        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 280, 250, -1));
+        panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 190, -1));
 
         cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
-        panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 250, -1));
+        panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 190, -1));
+        panelNice1.add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 220, -1));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 440, 600));
+        btnExaminar.setText("Examinar");
+        panelNice1.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 330, 600));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
 
@@ -385,13 +384,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         tblEspecialista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15"
+                "CEDULA", "NOMBRES", "APELLIDOS", "CELULAR", "TELEFONO", "DIRECCION", "CORREO", "PROVINCIA", "CIUDAD", "GENERO", "FOTO", "ID DOCTOR", "ID USUARIO", "ESPECIALIDAD", "CARGO", "CEDULA DOCTOR"
             }
         ));
         jScrollPane1.setViewportView(tblEspecialista);
@@ -405,22 +401,21 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice2Layout.setHorizontalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNice2Layout.createSequentialGroup()
-                .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelNice2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelNice2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscarEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(panelNice2Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
+            .addGroup(panelNice2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         panelNice2Layout.setVerticalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +425,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14)
                     .addComponent(txtBuscarEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +433,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 670, 590));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 800, 590));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("Cerrar");
@@ -470,20 +465,12 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txttelfespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelfespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttelfespActionPerformed
-
-    private void txtCargoespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCargoespActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
+    private javax.swing.JButton btnExaminar;
     private org.edisoncor.gui.button.ButtonRound btneditar;
     private org.edisoncor.gui.button.ButtonRound btneliminar;
-    private org.edisoncor.gui.button.ButtonRound btnfoto;
     private javax.swing.JButton btnguardarEsp;
     private javax.swing.JComboBox<String> cBoxespecialidad;
     private javax.swing.JComboBox<String> cboxGeneroEsp;
@@ -521,6 +508,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtdirecesp;
     private jtextfieldround.JTextFieldRound txtnombreesp;
     private jtextfieldround.JTextFieldRound txtprovinciaesp;
+    private javax.swing.JTextField txtruta;
     private jtextfieldround.JTextFieldRound txttelfesp;
     // End of variables declaration//GEN-END:variables
 }
