@@ -42,7 +42,7 @@ public class Model_Especialista extends Doctor{
     public  List<Doctor> listarDoctores (){
         List<Doctor> milista = new ArrayList<Doctor>();
         try {
-            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.fotos,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
+            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.foto,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
             ResultSet rs = cpg.consulta(sql) ;
             // barremos el resulset
             byte[]bytea;
@@ -86,18 +86,6 @@ public class Model_Especialista extends Doctor{
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-    }
-    
-    private Image obtenerImagen(byte[] bytes) throws IOException{
-        ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
-        Iterator it= ImageIO.getImageReadersByFormatName("jpeg");
-        ImageReader reader=(ImageReader)it.next();
-        Object source=bis;
-        ImageInputStream iis=ImageIO.createImageInputStream(source);
-        reader.setInput(iis,true);
-        ImageReadParam param= reader.getDefaultReadParam();
-        param.setSourceSubsampling(1, 1, 0, 0);
-        return reader.read(0,param);
     }
     
     public  List<Doctor> buscarPersonas (String buscar){
@@ -160,9 +148,9 @@ public class Model_Especialista extends Doctor{
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)";
             //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
-            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,NULL)";
+            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
@@ -174,7 +162,7 @@ public class Model_Especialista extends Doctor{
             ps.setString(8,getProvincia());
             ps.setString(9,getCiudad());
             ps.setString(10,getGenero());
-          //  ps.setBytes(11,getFoto());
+            ps.setBytes(11,getFoto());
             ps.executeUpdate();
             
          

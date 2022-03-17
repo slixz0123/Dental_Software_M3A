@@ -4,11 +4,21 @@ import Model.Doctor;
 import Model.Model_Especialista;
 import View.Vista_crud_especalista;
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -33,6 +43,7 @@ public class Controller_CrudEspecialista {
     
     public void iniciar(){
         generarSerie();
+        vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->per());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
 //        setKeyReleased(vista.getTxtBuscarEsp());
@@ -53,6 +64,7 @@ public class Controller_CrudEspecialista {
     }
     
     public void per(){
+        File ruta = new File(vista.getTxtruta().getText());
         System.out.println("creando persona 1");
      String cedula;
      String nombres;
@@ -68,6 +80,7 @@ public class Controller_CrudEspecialista {
      String id_usuario;
      String especialidad;
      String cargo;
+     byte foto ;
      
      cedula=vista.getTxtcedulaesp().getText();
      nombres=vista.getTxtnombreesp().getText();
@@ -98,7 +111,16 @@ public class Controller_CrudEspecialista {
      mEsp.setProvincia(provincia);
      mEsp.setCiudad(ciudad);
      mEsp.setGenero(genero);
-     
+     try{
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+           mEsp.setFoto(icono);
+
+            }catch(Exception ex){
+                 System.out.println(ex);
+           mEsp.setFoto(null);
+        }
      mEsp.setId_doctor(id_doctor);
      mEsp.setId_usuario("2");
      mEsp.setEspecialidad(especialidad);
@@ -239,6 +261,25 @@ public class Controller_CrudEspecialista {
                 }
                 
             }
+        }
+    }
+    
+    public  void btnexaminar (){
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        j.setFileFilter(fil);
+        
+        int s = j.showOpenDialog(this.jfc);
+        if(s == JFileChooser.APPROVE_OPTION){
+             try {
+                 String ruta = j.getSelectedFile().getAbsolutePath();
+                 vista.getTxtruta().setText(ruta);
+                 Image imagen = ImageIO.read(j.getSelectedFile()).getScaledInstance(vista.getLblFotoEsp().getWidth(), vista.getLblFotoEsp().getHeight(), Image.SCALE_DEFAULT);
+                 Icon ico = new ImageIcon (imagen);
+                 vista.getLblFotoEsp().setIcon(ico);
+             } catch (IOException ex) {
+                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
+             }
         }
     }
     
