@@ -114,6 +114,7 @@ public class Controller_Farmacos {
         far.setMiligramos(mg);
         if (far.modificar()) {
             JOptionPane.showMessageDialog(vista, "Farmaco modificada satisfactoriamente");
+            limpiarCampos();
         } else {
             JOptionPane.showMessageDialog(vista, "No se pudo modificar el farmaco");
         }
