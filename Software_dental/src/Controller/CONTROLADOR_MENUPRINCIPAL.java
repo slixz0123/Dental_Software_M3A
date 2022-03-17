@@ -470,6 +470,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vista.getDkpPrincipal().add(vistafarma);
         vistafarma.setBorder(null);
         Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
+        controlfarma.iniciaControl();
     }
         
         

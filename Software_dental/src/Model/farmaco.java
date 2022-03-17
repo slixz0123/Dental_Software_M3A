@@ -12,14 +12,18 @@ public class farmaco {
     private String id_farmaco;
     private String nombre_farmaco;
     private String descripcion_far;
+    private String material;
+    private String miligramos;
 
     public farmaco() {
     }
 
-    public farmaco(String id_farmaco, String nombre_farmaco, String descripcion_far) {
+    public farmaco(String id_farmaco, String nombre_farmaco, String descripcion_far,String material,String miligramos) {
         this.id_farmaco = id_farmaco;
         this.nombre_farmaco = nombre_farmaco;
         this.descripcion_far = descripcion_far;
+        this.material = material;
+        this.miligramos = miligramos;
     }
 
     public String getId_farmaco() {
@@ -45,4 +49,22 @@ public class farmaco {
     public void setDescripcion_far(String descripcion_far) {
         this.descripcion_far = descripcion_far;
     }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getMiligramos() {
+        return miligramos;
+    }
+
+    public void setMiligramos(String miligramos) {
+        this.miligramos = miligramos;
+    }
+    
+    
 }
