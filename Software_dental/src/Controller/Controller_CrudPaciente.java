@@ -7,6 +7,7 @@ package Controller;
 import Model.Model_Paciente;
 import Model.Paciente;
 import View.Crud_Paciente;
+import View.MenuPrincipal;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -94,6 +95,8 @@ public class Controller_CrudPaciente {
           vista.getTxtbusqueda().addKeyListener(kl);
            setEventoMouseClicked(vista.getJtbPacientes());
           
+        
+          
           
       }
       
@@ -125,6 +128,11 @@ public class Controller_CrudPaciente {
         public void mouseClicked(MouseEvent e) {
             try {
                 cargardatosTxt(e);
+                System.out.println("antes de llenar");
+                  
+                  
+                
+                      System.out.println("despues de llenar");
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -173,15 +181,19 @@ public class Controller_CrudPaciente {
       private void cargardatosTxt (java.awt.event.MouseEvent evt) throws IOException{
 
         List<Paciente> lp = modelo.listarpac();
+         MenuPrincipal vistamenu = new MenuPrincipal();
         int xx = vista.getJtbPacientes().getSelectedRow();
         if (xx != -1) {
             String id = vista.getJtbPacientes().getValueAt(xx, 0).toString();
             String pro = id ;
             vista.getTxtced().setText(id);
+            vistamenu.getLblCedulapac().setText(id);
             String nom = vista.getJtbPacientes().getValueAt(xx, 1).toString();
             vista.getYxynom().setText(nom);
+             vistamenu.getLblnombrescomp().setText(nom);
             String apellido = vista.getJtbPacientes().getValueAt(xx, 2).toString();
             vista.getTxtapellidos().setText(apellido);
+             vistamenu.getLabelapellido().setText(apellido);
             String telefono = vista.getJtbPacientes().getValueAt(xx, 3).toString();
             vista.getTxtcelular().setText(telefono);
             String direccion = vista.getJtbPacientes().getValueAt(xx, 4).toString();
@@ -191,6 +203,14 @@ public class Controller_CrudPaciente {
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
             vista.getCmgenero().setSelectedItem(genero);
             
+            Model_Paciente pac = new Model_Paciente();
+             String id2 = vista.getJtbPacientes().getValueAt(xx, 0).toString();
+            String pro2 = id2 ;   
+            pac.cargartxtsobrantes(id2);
+       vista.getTxttelefono().setText(pac.getTelefono()) ;
+       vista.getTxtcorreo().setText(pac.getCorreo()) ;
+       vista.getTxtprovincia().setText(pac.getProvincia()) ;
+       
             
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
@@ -206,7 +226,12 @@ public class Controller_CrudPaciente {
                     vista.getLablefoto().setIcon(ic);
                 }
             }
-            }else {
+            
+           
+            }
+        
+        
+        else {
             JOptionPane.showMessageDialog(vista, "error seleccione una fila");
             
             }
@@ -218,11 +243,9 @@ public class Controller_CrudPaciente {
              String tipo_sang = vista.getJtbPacientes().getValueAt(xx, 9).toString();
             vista.getCbSangre().setSelectedItem(tipo_sang);
             
+             
            
-            
-           
-    
-          
+       
 
 }
     
@@ -399,7 +422,12 @@ public class Controller_CrudPaciente {
     }
       
        
-      
+      public void llenartxtsobrantes (){
+         Model_Paciente pac = new Model_Paciente();
+       
+       
+                
+    } 
       public void eliminar(){
           String ced = vista.getTxtced().getText();
       }

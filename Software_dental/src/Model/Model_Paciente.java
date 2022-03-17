@@ -239,7 +239,34 @@ public String NumSerie() {
 
          
     
-        
+           public List<Paciente> cargartxtsobrantes ( String cedula){
+    List<Paciente> milistapaci = new ArrayList<Paciente>();
+    String sql3;
+    
+        try {
+            sql3 = "select p.telefono , p.correo ,p. provincia  from  persona p  WHERE p.cedula = "+getCedula()+"  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+                pac.setTelefono(rs.getString(1));
+                pac.setCorreo(rs.getString(2));
+                pac.setProvincia(rs.getString(3));
+                
+                milistapaci.add(pac);
+                
+                
+            }
+            return milistapaci;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+
+   
+    }
         
         
         
