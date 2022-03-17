@@ -182,7 +182,7 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         btnModifFarma.setText("MODIFICAR");
         panelNice1.add(btnModifFarma, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
-        CbxMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CbxMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tabletas", "Jarabe / Bebible ", "Ampolla", "Capsula" }));
         panelNice1.add(CbxMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 260, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
