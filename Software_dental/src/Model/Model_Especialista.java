@@ -130,10 +130,11 @@ public class Model_Especialista extends Doctor{
                        esp1.setCiudad(rs.getString("ciudad"));
                         esp1.setGenero(rs.getString("genero"));
                          esp1.setId_doctor(rs.getString("id_doctor"));
-                          esp1.setId_usuario(rs.getString("id_usuario"));
-                           esp1.setEspecialidad(rs.getString("especialidad"));
-                            esp1.setCargo(rs.getString("cargo"));
-                             esp1.setCedula_doc(rs.getString("cedula"));
+                          esp1.setCedula_doc(rs.getString("cedula"));
+                           esp1.setId_usuario(rs.getString("id_usuario"));
+                            esp1.setEspecialidad(rs.getString("especialidad"));
+                             esp1.setCargo(rs.getString("cargo"));
+                              esp1.setCedula_doc(rs.getString("cedula"));
                  milista.add(esp1);
            }
            rs.close();
@@ -157,7 +158,7 @@ public class Model_Especialista extends Doctor{
     
     public boolean crearPersonasByte(){
         try{
-        String sql,sql2;
+        String sql;
         
         sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
 //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
@@ -177,15 +178,16 @@ public class Model_Especialista extends Doctor{
         ps.executeUpdate();
         
             System.out.println("persona creada");
-            
-        sql2="INSERT INTO doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
-        sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?))";
+        String sql2;    
+        sql2="INSERT INTO doctor (id_doctor,cedula_doc,id_usuario,especialidad,cargo)";
+        sql2+="VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?,?)";
         PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql2);
         ps2.setString(1, getId_doctor());
-        ps2.setString(2, getId_usuario());
-        ps2.setString(3,getEspecialidad());
-        ps2.setString(4,getCargo());
-        ps2.setString(5,getCedula_doc());
+        ps2.setString(2,getCedula_doc());
+        ps2.setString(3, getId_usuario());
+        ps2.setString(4,getEspecialidad());
+        ps2.setString(5,getCargo());
+        
 //        ps.setBinaryStream(9,getImage(),getLargo());
         
         ps2.executeUpdate();
@@ -193,6 +195,7 @@ public class Model_Especialista extends Doctor{
         return true;
             
         } catch (SQLException ex) {
+            System.out.println(ex);
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
             
             return false;

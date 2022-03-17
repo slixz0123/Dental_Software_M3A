@@ -21,25 +21,38 @@ public class Controller_CrudEspecialista {
     private Model_Especialista modelo;
     private Vista_crud_especalista vista;
     private JFileChooser jfc;
-    private FileNameExtensionFilter filtro= new FileNameExtensionFilter("Imagen .jpg .png .jpeg","jpg","png","jpeg");
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen","jpg","png");
 
     public Controller_CrudEspecialista(Model_Especialista modelo, Vista_crud_especalista vista) {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
         iniciar();
+        cargarPersonas();
     }
     
     public void iniciar(){
         vista.getBtnguardarEsp().addActionListener(l->per());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
 //        setKeyReleased(vista.getTxtBuscarEsp());
-        vista.getTxtBuscarEsp().addKeyListener(kl);
+//        vista.getTxtBuscarEsp().addKeyListener(kl);
         cargarPersonas();
     }
     
+    private void generarSerie() {
+      String   serie = modelo.NumId();
+        if (serie == null) {
+            vista.getTxtIdDoctor().setText("00001");
+        } else {
+            int inc = Integer.parseInt(serie);
+            inc++;
+            vista.getTxtIdDoctor().setText("0000" + inc);
+
+        }
+    }
+    
     public void per(){
-        System.out.println("creando persona");
+        System.out.println("creando persona 1");
      String cedula;
      String nombres;
      String apellidos;
@@ -54,7 +67,6 @@ public class Controller_CrudEspecialista {
      String id_usuario;
      String especialidad;
      String cargo;
-     String cedula_doc;
      
      cedula=vista.getTxtcedulaesp().getText();
      nombres=vista.getTxtnombreesp().getText();
@@ -87,14 +99,16 @@ public class Controller_CrudEspecialista {
      mEsp.setGenero(genero);
      
      mEsp.setId_doctor(id_doctor);
+     mEsp.setCedula_doc(cedula);
      mEsp.setId_usuario(id_usuario);
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
-     mEsp.setCedula_doc(cedula);
+     
      
      mEsp.crearPersonasByte();
         System.out.println("despues del metodo");
                 cargarPersonas();
+                generarSerie();
 
     }
     

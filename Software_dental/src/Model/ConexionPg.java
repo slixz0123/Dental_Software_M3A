@@ -21,11 +21,19 @@ public class ConexionPg {
      Connection con ;
     String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
     String usuario = "postgres";
+<<<<<<< Updated upstream
 
    // String contrasena = "159753";
 
     String contrasena = "1234";
 
+=======
+//<<<<<<< Updated upstream
+//    String contrasena = "159753";
+//=======
+    String contrasena = "1234";
+//>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     public Connection Con() {
         return con;
