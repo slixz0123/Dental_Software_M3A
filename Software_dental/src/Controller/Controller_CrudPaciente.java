@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,6 +75,7 @@ public class Controller_CrudPaciente {
           vista.getBtnexaminar().addActionListener(l-> btnexaminar());
           vista.getBtnguardarpac().addActionListener(l-> crearpaciente());
           cargarPersonas();
+          vista.getBtneditar().addActionListener(l-> llenartxtsobrantes());
           
           
           KeyListener kl = new KeyListener() {
@@ -128,11 +130,7 @@ public class Controller_CrudPaciente {
         public void mouseClicked(MouseEvent e) {
             try {
                 cargardatosTxt(e);
-                System.out.println("antes de llenar");
-                  
-                  
-                
-                      System.out.println("despues de llenar");
+            
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -203,13 +201,9 @@ public class Controller_CrudPaciente {
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
             vista.getCmgenero().setSelectedItem(genero);
             
-            Model_Paciente pac = new Model_Paciente();
-             String id2 = vista.getJtbPacientes().getValueAt(xx, 0).toString();
-            String pro2 = id2 ;   
-            pac.cargartxtsobrantes(id2);
-       vista.getTxttelefono().setText(pac.getTelefono()) ;
-       vista.getTxtcorreo().setText(pac.getCorreo()) ;
-       vista.getTxtprovincia().setText(pac.getProvincia()) ;
+            
+            
+          
        
             
               for (int i = 0; i < lp.size(); i++) {
@@ -224,12 +218,14 @@ public class Controller_CrudPaciente {
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                     Icon ic = new ImageIcon(j);
                     vista.getLablefoto().setIcon(ic);
+                  
+          
+                    
                 }
             }
-            
-           
+            llenartxtsobrantes ();
             }
-        
+         
         
         else {
             JOptionPane.showMessageDialog(vista, "error seleccione una fila");
@@ -422,8 +418,21 @@ public class Controller_CrudPaciente {
     }
       
        
-      public void llenartxtsobrantes (){
-         Model_Paciente pac = new Model_Paciente();
+      public void llenartxtsobrantes () {
+           Model_Paciente pac = new Model_Paciente();
+       
+            String id2 = vista.getTxtced().getText();
+           // pac.cargartxtsobrantes(id2);
+            List<Paciente> milistapaci =  pac.cargartxtsobrantes(id2);
+            for(int i = 0 ; i < milistapaci.size() ; i++){
+            vista.getTxttelefono().setText(milistapaci.get(i).getTelefono()) ;
+            vista.getTxtcorreo().setText(milistapaci.get(i).getCorreo()) ;
+            vista.getTxtprovincia().setText(milistapaci.get(i).getProvincia()) ;
+            System.out.println(pac.getTelefono());
+            System.out.println(pac.getCorreo());
+            System.out.println(pac.getProvincia());
+            }
+     
        
        
                 
