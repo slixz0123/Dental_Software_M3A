@@ -400,7 +400,9 @@ public class Controller_CrudPaciente {
       
        
       
-      
+      public void eliminar(){
+          String ced = vista.getTxtced().getText();
+      }
       
   
 
