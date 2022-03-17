@@ -3,6 +3,7 @@ package View;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import jtextfieldround.JTextFieldRound;
 import org.edisoncor.gui.button.ButtonRound;
@@ -61,7 +62,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         btncerrar = new org.edisoncor.gui.button.ButtonRound();
         txtapellidopac = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
-        jLabel13 = new javax.swing.JLabel();
+        lblidanam = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -74,8 +75,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         txtembarazo = new jtextfieldround.JTextFieldRound();
         txtcedulamed = new jtextfieldround.JTextFieldRound();
         txttelefonomed = new jtextfieldround.JTextFieldRound();
-        txtmedico = new jtextfieldround.JTextFieldRound();
-        btnbuscarmed = new javax.swing.JButton();
         btnimprimir = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -84,6 +83,9 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         txtconsulta = new javax.swing.JTextArea();
         txtespecialidad = new jtextfieldround.JTextFieldRound();
         jLabel34 = new javax.swing.JLabel();
+        cbmedico = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        btnnuevo = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -195,10 +197,9 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("DATOS DEL ANAMESIS");
-        panelNice2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        lblidanam.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblidanam.setForeground(new java.awt.Color(255, 255, 255));
+        panelNice2.add(lblidanam, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, 80, 30));
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,16 +249,12 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         txttelefonomed.setEditable(false);
         panelNice2.add(txttelefonomed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
-        panelNice2.add(txtmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 120, 21));
-
-        btnbuscarmed.setText("Buscar");
-        panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 70, -1));
 
         btnimprimir.setText("Imprimir");
-        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 200, 50));
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 200, 50));
 
         btnguardar.setText("Guardar");
-        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 210, 50));
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 210, 50));
 
         txproblema.setColumns(20);
         txproblema.setRows(5);
@@ -278,6 +275,16 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("EMBARAZO");
         panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
+
+        panelNice2.add(cbmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 170, -1));
+
+        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("DATOS DEL ANAMESIS");
+        panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+
+        btnnuevo.setText("Nuevo");
+        panelNice2.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 210, 50));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 690, 630));
 
@@ -313,13 +320,31 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private void txtgeneropacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgeneropacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtgeneropacActionPerformed
-    public JButton getBtnbuscarmed() {
-        return btnbuscarmed;
+
+    public JButton getBtnnuevo() {
+        return btnnuevo;
     }
 
-    public void setBtnbuscarmed(JButton btnbuscarmed) {
-        this.btnbuscarmed = btnbuscarmed;
+    public void setBtnnuevo(JButton btnnuevo) {
+        this.btnnuevo = btnnuevo;
     }
+
+    public JLabel getLblidanam() {
+        return lblidanam;
+    }
+
+    public void setLblidanam(JLabel lblidanam) {
+        this.lblidanam = lblidanam;
+    }
+
+    public JComboBox<String> getCbmedico() {
+        return cbmedico;
+    }
+
+    public void setCbmedico(JComboBox<String> cbmedico) {
+        this.cbmedico = cbmedico;
+    }
+ 
 
     public JButton getBtnbuscarpac() {
         return btnbuscarpac;
@@ -449,14 +474,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         this.txtespecialidad = txtespecialidad;
     }
 
-    public JTextFieldRound getTxtmedico() {
-        return txtmedico;
-    }
-
-    public void setTxtmedico(JTextFieldRound txtmedico) {
-        this.txtmedico = txtmedico;
-    }
-
     public JTextFieldRound getTxtnombrespac() {
         return txtnombrespac;
     }
@@ -495,17 +512,18 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbuscarmed;
     private javax.swing.JButton btnbuscarpac;
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimprimir;
+    private javax.swing.JButton btnnuevo;
+    private javax.swing.JComboBox<String> cbmedico;
     private com.toedter.calendar.JDateChooser dateFechanacEsp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -528,6 +546,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTextArea txproblema;
@@ -541,7 +560,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtembarazo;
     private jtextfieldround.JTextFieldRound txtespecialidad;
     private jtextfieldround.JTextFieldRound txtgeneropac;
-    private jtextfieldround.JTextFieldRound txtmedico;
     private jtextfieldround.JTextFieldRound txtnombrespac;
     private jtextfieldround.JTextFieldRound txtprovincia;
     private jtextfieldround.JTextFieldRound txttelefonomed;

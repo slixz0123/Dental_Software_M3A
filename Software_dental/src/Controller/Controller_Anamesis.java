@@ -12,7 +12,7 @@ import View.Vista_Anamesis;
  * @author slix0
  */
 public class Controller_Anamesis {
-        private model_Anamesis modelo;
+    private model_Anamesis modelo;
     private Vista_Anamesis vista;
 
     public Controller_Anamesis(model_Anamesis modelo, Vista_Anamesis vista) {

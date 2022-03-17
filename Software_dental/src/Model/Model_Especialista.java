@@ -35,12 +35,12 @@ public class Model_Especialista extends Doctor{
         super(id_doctor, id_usuario, especialidad, cargo, cedula_doc);
     }
 
-    public Model_Especialista(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
-        super(id_doctor, id_usuario, especialidad, cargo, cedula_doc, cedula, nombres, apellidos, celular, telefono, direccion, correo, provincia, ciudad, genero, foto);
+    public Model_Especialista(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc, String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero) {
+        super(id_doctor, id_usuario, especialidad, cargo, cedula_doc, cedula, nombres, apellidos, celular, telefono, direccion, correo, provincia, ciudad, genero);
     }
 
-    public  List<Persona> listarPersonas (){
-        List<Persona> milista = new ArrayList<Persona>();
+    public  List<Doctor> listarDoctores (){
+        List<Doctor> milista = new ArrayList<Doctor>();
         try {
             String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.foto,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
             ResultSet rs = cpg.consulta(sql) ;
@@ -61,11 +61,11 @@ public class Model_Especialista extends Doctor{
                       esp1.setProvincia(rs.getString("provincia"));
                        esp1.setCiudad(rs.getString("ciudad"));
                         esp1.setGenero(rs.getString("genero"));
-                         esp1.setId_doctor(rs.getString("id doctor"));
-                          esp1.setId_usuario(rs.getString("id usuario"));
+                         esp1.setId_doctor(rs.getString("id_doctor"));
+                          esp1.setId_usuario(rs.getString("id_usuario"));
                            esp1.setEspecialidad(rs.getString("especialidad"));
                             esp1.setCargo(rs.getString("cargo"));
-                             //esp1.setCedula_doc(rs.getString("cedula doctor"));
+                             esp1.setCedula_doc(rs.getString("cedula"));
 //                      //proceso de conversion del formato de la base a formato Image 
 //                      
 //                      //bytea = Bytes Array
@@ -88,27 +88,15 @@ public class Model_Especialista extends Doctor{
         }
     }
     
-    private Image obtenerImagen(byte[] bytes) throws IOException{
-        ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
-        Iterator it= ImageIO.getImageReadersByFormatName("jpeg");
-        ImageReader reader=(ImageReader)it.next();
-        Object source=bis;
-        ImageInputStream iis=ImageIO.createImageInputStream(source);
-        reader.setInput(iis,true);
-        ImageReadParam param= reader.getDefaultReadParam();
-        param.setSourceSubsampling(1, 1, 0, 0);
-        return reader.read(0,param);
-    }
-    
-    public  List<Persona> buscarPersonas (String buscar){
-        List<Persona> milista = new ArrayList<Persona>();
+    public  List<Doctor> buscarPersonas (String buscar){
+        List<Doctor> milista = new ArrayList<Doctor>();
         String sql="";
         String datos = buscar;
         if(buscar.equalsIgnoreCase("")){
              sql = "select * from doctor" ;
         }else{
             if(datos.equalsIgnoreCase(buscar)){
-                 sql = "SELECT * FROM persona WHERE cedula='"+buscar+"' OR nombres='"+buscar+"' OR apellidos='"+buscar+"'";
+                 sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d WHERE p.cedula=d.cedula_doc AND p.cedula='"+buscar+"' OR p.nombres='"+buscar+"' OR p.apellidos='"+buscar+"'";
             }
         }
         try {
@@ -129,11 +117,12 @@ public class Model_Especialista extends Doctor{
                       esp1.setProvincia(rs.getString("provincia"));
                        esp1.setCiudad(rs.getString("ciudad"));
                         esp1.setGenero(rs.getString("genero"));
-                         esp1.setId_doctor(rs.getString("id doctor"));
-                          esp1.setId_usuario(rs.getString("id usuario"));
-                           esp1.setEspecialidad(rs.getString("especialidad"));
-                            esp1.setCargo(rs.getString("cargo"));
-                             esp1.setCedula_doc(rs.getString("cedula doctor"));
+                         esp1.setId_doctor(rs.getString("id_doctor"));
+                          esp1.setCedula_doc(rs.getString("cedula"));
+                           esp1.setId_usuario(rs.getString("id_usuario"));
+                            esp1.setEspecialidad(rs.getString("especialidad"));
+                             esp1.setCargo(rs.getString("cargo"));
+                              esp1.setCedula_doc(rs.getString("cedula"));
                  milista.add(esp1);
            }
            rs.close();
@@ -145,57 +134,94 @@ public class Model_Especialista extends Doctor{
         }
     
     
-    public boolean crearPersona(){
-        String sql;
-        
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
-        sql+="VALUES('" + getCedula() + "','"+ getNombres() +"','"+ getApellidos()+"','"+ getCelular() +"','"+ getTelefono() +"','"+ getDireccion() +"','"+ getCorreo() +"','"+ getProvincia() +"','"+ getCiudad() +"','"+ getGenero() +"')";
-        
-        return cpg.accion(sql);
-        
-    }
+//    public boolean crearPersona(){
+//        String sql;
+//        
+//        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
+//        sql+="VALUES('" + getCedula() + "','"+ getNombres() +"','"+ getApellidos()+"','"+ getCelular() +"','"+ getTelefono() +"','"+ getDireccion() +"','"+ getCorreo() +"','"+ getProvincia() +"','"+ getCiudad() +"','"+ getGenero() +"')";
+//        
+//        return cpg.accion(sql);
+//        
+//    }
     
     public boolean crearPersonasByte(){
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
-//        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
-        sql+="VALUES(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
-        ps.setString(1, getCedula());
-        ps.setString(2, getNombres());
-        ps.setString(3,getApellidos());
-        ps.setString(4,getCelular());
-        ps.setString(5,getTelefono());
-        ps.setString(6,getDireccion());
-        ps.setString(7,getCorreo());
-        ps.setString(8,getProvincia());
-        ps.setString(9,getCiudad());
-        ps.setString(10,getGenero());
-//        ps.setBinaryStream(9,getImage(),getLargo());
-        ps.executeUpdate();
-        
-            System.out.println("persona creada");
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)";
+            //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
+            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
+            ps.setString(1, getCedula());
+            ps.setString(2, getNombres());
+            ps.setString(3,getApellidos());
+            ps.setString(4,getCelular());
+            ps.setString(5,getTelefono());
+            ps.setString(6,getDireccion());
+            ps.setString(7,getCorreo());
+            ps.setString(8,getProvincia());
+            ps.setString(9,getCiudad());
+            ps.setString(10,getGenero());
+            ps.setBytes(11,getFoto());
+            ps.executeUpdate();
             
-        sql="INSERT INTO doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
-        sql+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = '"+getCedula()+"'))";
-       PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql);
-     ps.setString(1, getId_doctor());
-        ps2.setString(2, getId_usuario());
-        ps2.setString(3,getEspecialidad());
-        ps2.setString(4,getCargo());
-       // ps2.setString(5,getCedula_doc());
-//        ps.setBinaryStream(9,getImage(),getLargo());
-        ps2.executeUpdate();
-       System.out.println("GUARDADO CON EXITO");
+         
         return true;
             
         } catch (SQLException ex) {
+            System.out.println(ex);
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
             
             return false;
         }
+       
+    }
+     public boolean crearPersonas2(){
+        try{
+    
+        
+          System.out.println("persona creada");
+        String sql2;    
+        sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
+        sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
+        PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql2);
+        ps2.setString(1, getId_doctor());
+         ps2.setString(2, getId_usuario());
+         ps2.setString(3,getEspecialidad());
+        ps2.setString(4,getCargo());
+        ps2.setString(5,getCedula_doc());
+       
+        
+        
+//        ps.setBinaryStream(9,getImage(),getLargo());
+        
+        ps2.executeUpdate();
+       System.out.println("GUARDADO CON EXITO");
+        
+        
+        return true;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return false;
+        }
+    }
+    
+    public String NumId() {
+        String sql = "SELECT MAX (CAST (id_doctor AS INTEGER)) FROM doctor ";
+        String serie = "";
+        try {
+            ResultSet rs = cpg.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR ID");
+
+        }
+        return serie;
     }
     
     public boolean modificarPersonas(){
@@ -215,8 +241,10 @@ public class Model_Especialista extends Doctor{
     
     
     public boolean removerPersonas(String ced){
-        String sql3 = "DELETE FROM persona WHERE cedula= '"+ced+"'";
+        String sql3 = "DELETE FROM doctor WHERE cedula_doc= '"+ced+"'";
         
         return cpg.accion(sql3);
     }
+    
+    
 }

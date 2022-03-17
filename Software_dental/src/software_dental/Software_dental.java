@@ -6,10 +6,9 @@ package software_dental;
 
 import Controller.CONTROLADOR_MENUPRINCIPAL;
 import Controller.Controller_InicioSesion;
-import Model.ConexionPg;
 import Model.Model_InicioSesion;
-import View.MenuPrincipal;
 import View.Vista_InicioSesion;
+
 
 /**
  *

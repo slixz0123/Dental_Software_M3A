@@ -1,5 +1,8 @@
 package View;
 
+import javax.swing.JTable;
+import jtextfieldround.JTextFieldRound;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -18,6 +21,22 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JTable getJtbllistadopac() {
+        return jtbllistadopac;
+    }
+
+    public void setJtbllistadopac(JTable jtbllistadopac) {
+        this.jtbllistadopac = jtbllistadopac;
+    }
+
+    public JTextFieldRound getTxtbuscar() {
+        return txtbuscar;
+    }
+
+    public void setTxtbuscar(JTextFieldRound txtbuscar) {
+        this.txtbuscar = txtbuscar;
+    }
+
     
     
     
@@ -34,34 +53,19 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtApellidosTrat1 = new jtextfieldround.JTextFieldRound();
+        txtbuscar = new jtextfieldround.JTextFieldRound();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtbllistadopac = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 1060, 470));
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,10 +76,22 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LISTADO DE PACIENTES");
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
-        panelNice2.add(txtApellidosTrat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
+        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
 
         jButton1.setText("Imprimir");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
+
+        jtbllistadopac.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombres", "Apellidos", "Celular", "Direccion", "Ciudad", "Genero", "Foto", "Fecha Nac", "Tipo sangre"
+            }
+        ));
+        jScrollPane2.setViewportView(jtbllistadopac);
+
+        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, 480));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,9 +131,9 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jtbllistadopac;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private jtextfieldround.JTextFieldRound txtApellidosTrat1;
+    private jtextfieldround.JTextFieldRound txtbuscar;
     // End of variables declaration//GEN-END:variables
 }
