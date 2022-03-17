@@ -28,10 +28,11 @@ public class Controller_CrudEspecialista {
         this.vista = vista;
         vista.setVisible(true);
         iniciar();
-        cargarPersonas();
+        
     }
     
     public void iniciar(){
+        generarSerie();
         vista.getBtnguardarEsp().addActionListener(l->per());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
 //        setKeyReleased(vista.getTxtBuscarEsp());
@@ -99,13 +100,16 @@ public class Controller_CrudEspecialista {
      mEsp.setGenero(genero);
      
      mEsp.setId_doctor(id_doctor);
-     mEsp.setCedula_doc(cedula);
-     mEsp.setId_usuario(id_usuario);
+     mEsp.setId_usuario("2");
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
+     mEsp.setCedula_doc(cedula);
+    
+    
      
      
      mEsp.crearPersonasByte();
+     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 cargarPersonas();
                 generarSerie();

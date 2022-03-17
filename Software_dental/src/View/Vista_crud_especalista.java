@@ -220,7 +220,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btnfoto = new org.edisoncor.gui.button.ButtonRound();
         txtcedulaesp = new jtextfieldround.JTextFieldRound();
@@ -235,9 +234,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         txtciudadesp = new jtextfieldround.JTextFieldRound();
         txtapellidoesp = new jtextfieldround.JTextFieldRound();
         jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        txtIdUsuario = new jtextfieldround.JTextFieldRound();
-        txtIdDoctor = new jtextfieldround.JTextFieldRound();
         jLabel12 = new javax.swing.JLabel();
         txtCargoesp = new jtextfieldround.JTextFieldRound();
         btnguardarEsp = new javax.swing.JButton();
@@ -251,6 +247,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btneliminar = new org.edisoncor.gui.button.ButtonRound();
         btneditar = new org.edisoncor.gui.button.ButtonRound();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
+        txtIdDoctor = new jtextfieldround.JTextFieldRound();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtIdUsuario = new jtextfieldround.JTextFieldRound();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -305,11 +305,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel9.setText("CIUDAD:");
         panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("ID USUARIO:");
-        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
-
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CARGO:");
@@ -359,13 +354,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         jLabel13.setText("GENERO:");
         panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("ID DOCTOR:");
-        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-        panelNice1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 240, 21));
-        panelNice1.add(txtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 240, 21));
-
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("ESPECIALIDAD:");
@@ -379,7 +367,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 240, 21));
 
         btnguardarEsp.setText("jButton1");
-        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
+        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
 
         cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "m", "f" }));
         panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 280, 250, -1));
@@ -455,6 +443,18 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("Cerrar");
         jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel1.add(txtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 11, 80, 20));
+
+        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel15.setText("ID DOCTOR:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel10.setText("ID USUARIO:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+
+        txtIdUsuario.setText("2");
+        jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 11, 70, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -385,7 +385,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vista.getDkpPrincipal().add(vistaesp);
         vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
-        contEsp.iniciar();
+       
     }
 
     private void CrudTratamiento(java.awt.event.MouseEvent evt) {

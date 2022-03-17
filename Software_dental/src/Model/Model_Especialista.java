@@ -42,7 +42,7 @@ public class Model_Especialista extends Doctor{
     public  List<Doctor> listarDoctores (){
         List<Doctor> milista = new ArrayList<Doctor>();
         try {
-            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.foto,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
+            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.fotos,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
             ResultSet rs = cpg.consulta(sql) ;
             // barremos el resulset
             byte[]bytea;
@@ -160,38 +160,57 @@ public class Model_Especialista extends Doctor{
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero)";
-//        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
-        sql+="VALUES(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
-        ps.setString(1, getCedula());
-        ps.setString(2, getNombres());
-        ps.setString(3,getApellidos());
-        ps.setString(4,getCelular());
-        ps.setString(5,getTelefono());
-        ps.setString(6,getDireccion());
-        ps.setString(7,getCorreo());
-        ps.setString(8,getProvincia());
-        ps.setString(9,getCiudad());
-        ps.setString(10,getGenero());
-//        ps.setBinaryStream(9,getImage(),getLargo());
-        ps.executeUpdate();
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
+            //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
+            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,NULL)";
+            PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
+            ps.setString(1, getCedula());
+            ps.setString(2, getNombres());
+            ps.setString(3,getApellidos());
+            ps.setString(4,getCelular());
+            ps.setString(5,getTelefono());
+            ps.setString(6,getDireccion());
+            ps.setString(7,getCorreo());
+            ps.setString(8,getProvincia());
+            ps.setString(9,getCiudad());
+            ps.setString(10,getGenero());
+          //  ps.setBytes(11,getFoto());
+            ps.executeUpdate();
+            
+         
+        return true;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return false;
+        }
+       
+    }
+     public boolean crearPersonas2(){
+        try{
+    
         
-            System.out.println("persona creada");
+          System.out.println("persona creada");
         String sql2;    
-        sql2="INSERT INTO doctor (id_doctor,cedula_doc,id_usuario,especialidad,cargo)";
-        sql2+="VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?,?)";
+        sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
+        sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
         PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql2);
         ps2.setString(1, getId_doctor());
-        ps2.setString(2,getCedula_doc());
-        ps2.setString(3, getId_usuario());
-        ps2.setString(4,getEspecialidad());
-        ps2.setString(5,getCargo());
+         ps2.setString(2, getId_usuario());
+         ps2.setString(3,getEspecialidad());
+        ps2.setString(4,getCargo());
+        ps2.setString(5,getCedula_doc());
+       
+        
         
 //        ps.setBinaryStream(9,getImage(),getLargo());
         
         ps2.executeUpdate();
        System.out.println("GUARDADO CON EXITO");
+        
+        
         return true;
             
         } catch (SQLException ex) {
