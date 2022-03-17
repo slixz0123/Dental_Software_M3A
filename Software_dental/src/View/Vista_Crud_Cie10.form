@@ -123,10 +123,10 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="jtextfieldround.JTextFieldRound" name="txttitulocie">
+            <Component class="jtextfieldround.JTextFieldRound" name="cboxtipopato">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="430" y="80" width="410" height="40"/>
+                  <AbsoluteConstraints x="430" y="140" width="410" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -173,37 +173,10 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboxtipopato">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="18">
-                    <StringItem index="0" value="Seleccionar"/>
-                    <StringItem index="1" value="TUMOR MALIGNO DE LA ENCIA SUPERIO"/>
-                    <StringItem index="2" value="TUMOR MALIGNO DEL PALADAR DURO"/>
-                    <StringItem index="3" value="TUMOR MALIGNO DE LA CARA DORSAL DE LA LENGUA"/>
-                    <StringItem index="4" value="TUMOR MALIGNO DEL BORDE DE LA LENGUA"/>
-                    <StringItem index="5" value="TUMOR MALIGNO DE LA CARA VENTRAL DE LA LENGUA"/>
-                    <StringItem index="6" value="TUMOR MALIGNO DE LOS DOS TERCIOS ANTERIORES DE LA LENGUA, PARTE NO ESPECIFICADA"/>
-                    <StringItem index="7" value="LESION DE SITIOS CONTIGUOS DE LA LENGUA"/>
-                    <StringItem index="8" value="TUMOR MALIGNO DE LA LENGUA, PARTE NO ESPECIFICADA"/>
-                    <StringItem index="9" value="TUMOR MALIGNO DE LA ENCIA SUPERIOR"/>
-                    <StringItem index="10" value="TUMOR MALIGNO DE LA ENCIA INFERIOR"/>
-                    <StringItem index="11" value="TUMOR MALIGNO DE LA ENCIA, PARTE NO ESPECIFICADA"/>
-                    <StringItem index="12" value="TUMOR MALIGNO DE LA PARTE ANTERIOR DEL PISO DE LA BOCA"/>
-                    <StringItem index="13" value="TUMOR MALIGNO DE LA PARTE LATERAL DEL PISO DE LA BOCA"/>
-                    <StringItem index="14" value="LESION DE SITIOS CONTIGUOS DEL PISO DE LA BOCA"/>
-                    <StringItem index="15" value="TUMOR MALIGNO DEL PISO DE LA BOCA, PARTE NO ESPECIFICADA"/>
-                    <StringItem index="16" value="TUMOR MALIGNO DEL PALADAR DURO"/>
-                    <StringItem index="17" value="TUMOR MALIGNO DEL PALADAR BLANDO"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
+            <Component class="jtextfieldround.JTextFieldRound" name="txttitulocie1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="440" y="140" width="390" height="40"/>
+                  <AbsoluteConstraints x="430" y="80" width="410" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -248,6 +221,9 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -267,7 +243,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="jtextfieldround.JTextFieldRound" name="jTextFieldRound1">
+            <Component class="jtextfieldround.JTextFieldRound" name="txtbusquedacie">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="110" y="10" width="910" height="-1"/>

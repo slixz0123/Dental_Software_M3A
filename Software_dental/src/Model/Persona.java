@@ -58,6 +58,12 @@ public class Persona {
         this.foto = foto;
     }
 
+    public Persona(String cedula) {
+        this.cedula = cedula;
+    }
+
+    
+
     public String getCedula() {
         return cedula;
     }
@@ -161,5 +167,13 @@ public class Persona {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + '}';
+    }
+    
+    
+    
     
     }

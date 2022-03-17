@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Model_AgendaCitas;
 import Model.Model_Cie10;
+import Model.Model_Citas;
 import Model.Model_CitasTratamiento;
 import Model.Model_Especialista;
 import Model.Model_Farmacos;
@@ -450,7 +451,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Controller.Controller_NuevaEndodoncia controllernueva = new Controller_NuevaEndodoncia(modelnuevae, vistanuevae);
     }
     private void CitasTratamiento(java.awt.event.MouseEvent evt) {
-        Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
+        Model_Citas modelcitastrat = new Model_Citas();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
         vista.getDkpPrincipal().add(vistacitastrat);
         vistacitastrat.setBorder(null);
@@ -518,7 +519,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistadiag.setBorder(null);
         Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
          // CITAS
-         Model_CitasTratamiento modelcitastrat = new Model_CitasTratamiento();
+         Model_Citas modelcitastrat = new Model_Citas();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
           vista_InicioProceso.getPnCitas().add(vistacitastrat);
         vistacitastrat.setBorder(null);
