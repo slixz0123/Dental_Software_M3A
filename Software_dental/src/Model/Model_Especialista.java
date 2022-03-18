@@ -53,21 +53,22 @@ public class Model_Especialista extends Doctor{
             //agregamos lo que nos llegue del resulset al array de persona   
                Doctor esp1 = new Doctor();
                // getstring = colocar el nombre de la columnas de la tabla 
-               esp1.setCedula(rs.getString("cedula"));
-                esp1.setNombres(rs.getString("nombres"));
-                 esp1.setApellidos(rs.getString("apellidos"));
-                  esp1.setCelular(rs.getString("celular"));
-                   esp1.setTelefono(rs.getString("telefono"));
-                    esp1.setDireccion(rs.getString("direccion"));
-                     esp1.setCorreo(rs.getString("correo"));
-                      esp1.setProvincia(rs.getString("provincia"));
-                       esp1.setCiudad(rs.getString("ciudad"));
-                        esp1.setGenero(rs.getString("genero"));
-                         esp1.setId_doctor(rs.getString("id_doctor"));
-                          esp1.setId_usuario(rs.getString("id_usuario"));
-                           esp1.setEspecialidad(rs.getString("especialidad"));
-                            esp1.setCargo(rs.getString("cargo"));
-                             esp1.setCedula_doc(rs.getString("cedula"));
+               esp1.setCedula(rs.getString(1));
+                esp1.setNombres(rs.getString(2));
+                 esp1.setApellidos(rs.getString(3));
+                  esp1.setCelular(rs.getString(4));
+                   esp1.setTelefono(rs.getString(5));
+                    esp1.setDireccion(rs.getString(6));
+                     esp1.setCorreo(rs.getString(7));
+                      esp1.setProvincia(rs.getString(8));
+                       esp1.setCiudad(rs.getString(9));
+                        esp1.setGenero(rs.getString(10));
+                         esp1.setFoto(rs.getBytes(11));
+                          esp1.setId_doctor(rs.getString(12));
+                           esp1.setId_usuario(rs.getString(13));
+                            esp1.setEspecialidad(rs.getString(14));
+                             esp1.setCargo(rs.getString(15));
+                              esp1.setCedula_doc(rs.getString(16));
 //                      //proceso de conversion del formato de la base a formato Image 
 //                      
 //                      //bytea = Bytes Array
@@ -167,22 +168,7 @@ public class Model_Especialista extends Doctor{
             ps.setBytes(11,getFoto());
             ps.executeUpdate();
             
-         
-        return true;
-            
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
-            
-            return false;
-        }
-       
-    }
-     public boolean crearPersonas2(){
-        try{
-    
-        
-          System.out.println("persona creada");
+            System.out.println("persona creada");
         String sql2;    
         sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
         sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
@@ -199,8 +185,7 @@ public class Model_Especialista extends Doctor{
         
         ps2.executeUpdate();
        System.out.println("GUARDADO CON EXITO");
-        
-        
+         
         return true;
             
         } catch (SQLException ex) {
@@ -209,7 +194,40 @@ public class Model_Especialista extends Doctor{
             
             return false;
         }
+       
     }
+//     public boolean crearPersonas2(){
+//        try{
+//    
+//        
+//          System.out.println("persona creada");
+//        String sql2;    
+//        sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
+//        sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
+//        PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql2);
+//        ps2.setString(1, getId_doctor());
+//         ps2.setString(2, getId_usuario());
+//         ps2.setString(3,getEspecialidad());
+//        ps2.setString(4,getCargo());
+//        ps2.setString(5,getCedula_doc());
+//       
+//        
+//        
+////        ps.setBinaryStream(9,getImage(),getLargo());
+//        
+//        ps2.executeUpdate();
+//       System.out.println("GUARDADO CON EXITO");
+//        
+//        
+//        return true;
+//            
+//        } catch (SQLException ex) {
+//            System.out.println(ex);
+//            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+//            
+//            return false;
+//        }
+//    }
     
     public String NumId() {
         String sql = "SELECT MAX (CAST (id_doctor AS INTEGER)) FROM doctor ";

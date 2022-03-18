@@ -131,7 +131,7 @@ public class Controller_CrudEspecialista {
      
      
      mEsp.crearPersonasByte();
-     mEsp.crearPersonas2();
+//     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 cargarPersonas();
                 generarSerie();
@@ -140,8 +140,8 @@ public class Controller_CrudEspecialista {
     
     public void cargarPersonas(){
         
-//        vista.getTblEspecialista().setDefaultRenderer(Object.class, new ImagenTabla());
-        vista.getTblEspecialista().setRowHeight(20);
+        vista.getTblEspecialista().setDefaultRenderer(Object.class, new ImagenTabla());
+        vista.getTblEspecialista().setRowHeight(100);
         //enlazar el modelo de tabla con mi controlador
         DefaultTableModel tblModel;
         tblModel=(DefaultTableModel)vista.getTblEspecialista().getModel();
@@ -152,7 +152,7 @@ public class Controller_CrudEspecialista {
         listadoc.stream().forEach(pe->{
 //           LocalDateTime fechaactual = LocalDateTime.now();
 //           Period periodo = Period.between(pe.getFecha().toLocalDate(), fechaactual.toLocalDate());
-           tblModel.addRow(new Object[15]);//Creo una fila vacia
+           tblModel.addRow(new Object[16]);//Creo una fila vacia
                 vista.getTblEspecialista().setValueAt(pe.getCedula(), i.value, 0);
                 vista.getTblEspecialista().setValueAt(pe.getNombres(), i.value, 1);
                 vista.getTblEspecialista().setValueAt(pe.getApellidos(), i.value, 2);
@@ -163,22 +163,27 @@ public class Controller_CrudEspecialista {
                 vista.getTblEspecialista().setValueAt(pe.getProvincia(), i.value, 7);
                 vista.getTblEspecialista().setValueAt(pe.getCiudad(), i.value, 8);
                 vista.getTblEspecialista().setValueAt(pe.getGenero(), i.value, 9);
-                vista.getTblEspecialista().setValueAt(pe.getId_doctor(), i.value, 10);
-                vista.getTblEspecialista().setValueAt(pe.getId_usuario(), i.value, 11);
-                vista.getTblEspecialista().setValueAt(pe.getEspecialidad(), i.value, 12);
-                vista.getTblEspecialista().setValueAt(pe.getCargo(), i.value, 13);
-                vista.getTblEspecialista().setValueAt(pe.getCedula_doc(), i.value, 14);
-//                vista.getTblEspecialista().setValueAt(pe.getFoto(), i.value, 15);
-//                Image foto=pe.getFoto();
-//                if(foto!=null){
-//                    Image nimg=foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-//                    ImageIcon icono=new ImageIcon(nimg);
-//                    DefaultTableCellRenderer renderer=new DefaultTableCellRenderer();
-//                    renderer.setIcon(icono);
-//                    vista.getTblPersonas().setValueAt(new JLabel(icono), i.value, 8);
-//                }else{
-//                    vista.getTblPersonas().setValueAt(null, i.value, 8);
-//                }
+
+                try{
+                    byte[] bi = pe.getFoto();
+                    BufferedImage image = null;
+                    InputStream in = new ByteArrayInputStream(bi);
+                    image = ImageIO.read(in);
+                    ImageIcon imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
+                   DefaultTableCellRenderer render = new DefaultTableCellRenderer();
+                 render.setIcon(imgi);
+                   vista.getTblEspecialista().setValueAt(new JLabel(imgi), i.value, 10);
+
+                }catch(Exception ex){
+                      vista.getTblEspecialista().setValueAt(new JLabel("No imagen"),i.value, 10);
+  
+                }
+                vista.getTblEspecialista().setValueAt(pe.getId_doctor(), i.value, 11);
+                vista.getTblEspecialista().setValueAt(pe.getId_usuario(), i.value, 12);
+                vista.getTblEspecialista().setValueAt(pe.getEspecialidad(), i.value, 13);
+                vista.getTblEspecialista().setValueAt(pe.getCargo(), i.value, 14);
+                vista.getTblEspecialista().setValueAt(pe.getCedula_doc(), i.value, 15);
+
                 i.value++;
 //           String[] filap = {pe.getIdPersona(),pe.getNombre(),pe.getApellido(),String.valueOf(periodo.getYears()),pe.getTelefono(),pe.getSexo(),String.valueOf(pe.getSueldo()),String.valueOf(pe.getCupo())};
 //           tblModel.addRow(filap);
