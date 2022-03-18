@@ -6,12 +6,10 @@
 package Controller;
 
 import Model.ConexionPg;
-import Model.Doctor;
 import Model.Model_Anamnesis;
 import Model.Persona;
 import View.Vista_Anamesis;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
