@@ -20,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -213,14 +214,14 @@ public class Model_Especialista extends Doctor{
         ps2.setString(5,getCedula_doc());
                
         ps2.executeUpdate();
-       System.out.println("GUARDADO CON EXITO");
-         
+        System.out.println("GUARDADO CON EXITO");
+        JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
         return true;
             
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
-            
+            JOptionPane.showMessageDialog(null, "No se ha podido crear el especialista");
             return false;
         }
        
@@ -241,10 +242,10 @@ public class Model_Especialista extends Doctor{
         return serie;
     }
     
-    public boolean modificarPersonas(){
+    public boolean modificarPersonasbyte(){
         String sql2 = "UPDATE persona SET\n"
                 +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"'"+"WHERE cedula= '"+getCedula()+"'";
-        
+        JOptionPane.showMessageDialog(null, "Especialista modificado correctamente");        
         return cpg.accion(sql2);
     }
     
