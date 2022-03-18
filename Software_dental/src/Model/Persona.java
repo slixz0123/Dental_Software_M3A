@@ -22,11 +22,8 @@ public class Persona {
     private String correo;
     private String provincia;
     private String ciudad;
-    private String genero;
-
-    
+    private String genero; 
     //foto
-
     private byte[] foto;
     
 //    public Image getFoto() {
@@ -161,5 +158,5 @@ public class Persona {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-    
+
     }
