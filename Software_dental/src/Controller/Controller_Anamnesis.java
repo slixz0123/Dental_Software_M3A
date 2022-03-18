@@ -10,6 +10,7 @@ import Model.Model_Anamnesis;
 import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -45,6 +46,7 @@ public class Controller_Anamnesis {
         setEventMouseClicked(vista.getTbldoctor());
         setEventMouseClicked2(vista.getTblpac());
         cargpaci(vista.getTxtcedula_pac());
+        vista.getPaneldialog().setBackground(new Color(90,166,166));
         
     }
     

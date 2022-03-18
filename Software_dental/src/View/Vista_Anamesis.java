@@ -1,11 +1,10 @@
 package View;
 
-import Model.Persona;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -40,7 +39,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         dialogbuscar = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
+        paneldialog = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbldoctor = new javax.swing.JTable();
         txtbuscardoc = new javax.swing.JTextField();
@@ -108,7 +107,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         btnbuscardoc = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
-        jPanel3.setBackground(new java.awt.Color(90, 166, 166));
+        paneldialog.setBackground(new java.awt.Color(90, 166, 166));
 
         tbldoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,26 +132,26 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Buscar:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout paneldialogLayout = new javax.swing.GroupLayout(paneldialog);
+        paneldialog.setLayout(paneldialogLayout);
+        paneldialogLayout.setHorizontalGroup(
+            paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneldialogLayout.createSequentialGroup()
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(paneldialogLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        paneldialogLayout.setVerticalGroup(
+            paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
@@ -164,11 +163,11 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         dialogbuscar.getContentPane().setLayout(dialogbuscarLayout);
         dialogbuscarLayout.setHorizontalGroup(
             dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dialogbuscarLayout.setVerticalGroup(
             dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(166, 104, 216));
@@ -469,6 +468,14 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JPanel getPaneldialog() {
+        return paneldialog;
+    }
+
+    public void setPaneldialog(JPanel paneldialog) {
+        this.paneldialog = paneldialog;
+    }
+
     public JDialog getDialogpac() {
         return dialogpac;
     }
@@ -758,7 +765,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -768,6 +774,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JPanel paneldialog;
     private javax.swing.JTable tbldoctor;
     private javax.swing.JTable tblpac;
     private javax.swing.JTextArea txproblema;
