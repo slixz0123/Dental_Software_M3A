@@ -108,11 +108,11 @@ public class Controller_CrudPaciente {
       private void generarSerie() {
       String   serie = modelo.NumSerie();
         if (serie == null) {
-            vista.getLabelserie().setText("00001");
+            vista.getLabelserie().setText("1");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
-            vista.getLabelserie().setText("0000" + inc);
+            vista.getLabelserie().setText("" + inc);
 
         }
     }
