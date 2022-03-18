@@ -40,7 +40,7 @@ public class Model_Farmacos extends farmaco {
         }
         return serie;
     }
-
+    
     public farmaco listarId(String id) {
         farmaco far = new farmaco();
         String sql = "SELECT * FROM farmaco WHERE id_farmaco ='" + id + "'";
@@ -65,7 +65,7 @@ public class Model_Farmacos extends farmaco {
         try {
             String sql = "select * from farmaco";
             sql += " WHERE UPPER(nombre_farmaco) LIKE UPPER('%" + aguja + "%') OR ";
-            sql += " UPPER(id_farmaco) LIKE UPPER('%" + aguja + "%')";
+            sql += " UPPER(id_farmaco) LIKE UPPER('%" + aguja + "%') ORDER BY (CAST (id_farmaco AS INTEGER))";
             //Guarda elementos de la tabla persona
             ResultSet rs = con.consulta(sql);
 
@@ -91,6 +91,7 @@ public class Model_Farmacos extends farmaco {
 
     }
 
+    
     public boolean grabar() {
         try {
             String sql;
@@ -113,6 +114,7 @@ public class Model_Farmacos extends farmaco {
 
     }
 
+    
     public boolean eliminar(String idfarmaco) {
         String sqle = "DELETE FROM farmaco WHERE id_farmaco='" + idfarmaco + "'";
         return con.accion(sqle);

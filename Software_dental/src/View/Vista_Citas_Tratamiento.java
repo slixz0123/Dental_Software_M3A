@@ -126,7 +126,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
         panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
 
-        panelNice1.add(cbosceduladoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
+        panelNice1.add(cbosceduladoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 220, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 480, 490));
 

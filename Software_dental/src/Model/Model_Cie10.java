@@ -26,15 +26,16 @@ public class Model_Cie10 extends Cie_10{
      public  List<Cie_10> listarCie10 (){
         List<Cie_10> milista = new ArrayList<Cie_10>();
         try {
-            String sql = "select * from cie_10 " ;
+            String sql = "select * from cie_10" ;
            ResultSet rs = con.consulta(sql) ;
           
             // barremos el resulset
            while(rs.next()){
-              Cie_10 micie=new Cie_10();
+               
+              Cie_10 micie = new Cie_10();
                 micie.setId_cie(rs.getString("id_cie"));
+                micie.setCategoria(rs.getString("categoria"));
                 micie.setTitulo(rs.getString("titulo"));
-                micie.setPatologia(rs.getString("tipo_patolog"));
                 milista.add(micie);
                    
            }
@@ -53,15 +54,15 @@ public class Model_Cie10 extends Cie_10{
     if(busc.equals("")){
     sql="select * from cie_10";
     } else {
-        sql="select * from cie_10 where id_cie like'%"+busc+"%' or titulo like '%"+busc+"%'";}
+        sql="select * from cie_10 where id_cie like'%"+busc+"%' or categoria like '%"+busc+"%'";}
         try {
             
             ResultSet rs=con.consulta(sql);
             while(rs.next()){
                 Cie_10 micie=new Cie_10();
                 micie.setId_cie(rs.getString("id_cie"));
+                micie.setCategoria(rs.getString("categoria"));
                 micie.setTitulo(rs.getString("titulo"));
-                micie.setPatologia(rs.getString("tipo_patolog"));
                 mostrar.add(micie);
             }
             rs.close();
@@ -75,13 +76,13 @@ public class Model_Cie10 extends Cie_10{
     public boolean crearCie(){
     try {
     String sql;
-    sql="Insert into cie_10 (id_cie, titulo,tipo_patolog)";
+    sql="Insert into cie_10 (id_cie, categoria,titulo)";
     sql+="values(?,?,?)";
         
     PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_cie());
-    ps.setString(2, getTitulo());
-    ps.setString(3, getPatologia());
+    ps.setString(2, getCategoria());
+    ps.setString(3, getTitulo());
     ps.executeUpdate();
         System.out.println("CIE 10 GUARDADO");
     return true;
@@ -92,43 +93,37 @@ public class Model_Cie10 extends Cie_10{
     return false;
     }
     //Actualizar
-    public boolean actualizarCie(){
+    public boolean actualizarCie10(){
+    
+    
     try {
-    String sql2;
-    sql2="Update cie_10 SET titulo=?,tipo_patolog=? WHERE id_cie=?";
-    PreparedStatement act_an= con.Con().prepareStatement(sql2);
+    String sql3;
+    sql3="UPDATE cie_10 SET " ;
+        sql3 +=  "categoria=?, titulo= ? WHERE id_cie=?";
+        
+    PreparedStatement ps= con.Con().prepareStatement(sql3);
     
-    act_an.setString(1, getId_cie());
-    act_an.setString(2, getTitulo());
-    act_an.setString(3, getPatologia());
-    
-    act_an.executeUpdate();
+    ps.setString(1, getCategoria());
+    ps.setString(2, getTitulo());
+    ps.setString(3, getId_cie());
+    ps.executeUpdate();
+        System.out.println("CIE 10 GUARDADO");
     return true;
         } catch (SQLException ex) {
+            System.out.println(ex);
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
         }
-    return false;
+    
     }
+    
+    
     //Eliminar
     public boolean eliminarCie(){
     String sql;
     sql="Delete from cie_10 where id_cie='"+getId_cie()+"'";
     return con.accion(sql);
     }
-    
-   public String NumSerie() {
-        String sql = "SELECT MAX (CAST (id_cie AS INTEGER)) FROM cie_10 ";
-        String serie = "";
-        try {
-            ResultSet rs = con.consulta(sql);
-            while (rs.next()) {
-                serie = rs.getString(1);
-            }
-        } catch (SQLException e) {
-            System.out.println("ERROR GENERAR SERIE");
-
-        }
-        return serie;
-    }
+  
     
 }

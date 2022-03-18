@@ -201,11 +201,6 @@ public class Controller_CrudPaciente {
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
             vista.getCmgenero().setSelectedItem(genero);
             
-            
-            
-          
-       
-            
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
    

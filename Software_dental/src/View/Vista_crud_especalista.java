@@ -384,10 +384,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         tblEspecialista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CEDULA", "NOMBRES", "APELLIDOS", "CELULAR", "TELEFONO", "DIRECCION", "CORREO", "PROVINCIA", "CIUDAD", "GENERO", "FOTO", "ID DOCTOR", "ID USUARIO", "ESPECIALIDAD", "CARGO", "CEDULA DOCTOR"
+                "CEDULA", "NOMBRES", "APELLIDOS", "CELULAR", "DIRECCION", "CIUDAD", "GENERO", "FOTO", "ID DOCTOR", "ESPECIALIDAD"
             }
         ));
         jScrollPane1.setViewportView(tblEspecialista);
