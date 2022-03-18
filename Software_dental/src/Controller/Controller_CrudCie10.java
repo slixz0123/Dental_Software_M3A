@@ -34,38 +34,39 @@ public class Controller_CrudCie10 {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
-        
-        generarSerie();
+        cargarcie();
         iniciar();
     }
     public void iniciar(){
         vista.getBtnguardar().addActionListener(l->crearcrudcie10());
-         vista.getBtneditar().addActionListener(l->editarcrudcie10());
-          vista.getBtneliminar().addActionListener(l->eliminarcrudcie10());
-          setEventoMouseClicked(vista.getTblListacie());
-          setEventoKeytyped(vista.getTxtbusquedacie());
+        vista.getBtneditar().addActionListener(l->editarcrudcie10());
+        vista.getBtneliminar().addActionListener(l->eliminarcrudcie10());
+        setEventoMouseClicked(vista.getTblListacie());
+        setEventoKeytyped(vista.getTxtbusquedacie());
     }
     
     public void crearcrudcie10(){
     System.out.println("creando crud");
      String id_cie;
+     String categoria;
      String titulo;
-     String patologia;
+     
      
      id_cie=vista.getTxtcodigocie().getText();
-     titulo=vista.getTxttitulocie().getText();
-     patologia=vista.getCboxtipopato().getText();
+     categoria=vista.getCbcate().getModel().getSelectedItem().toString();
+     titulo=vista.getTxtitulo().getText();
      
      Model_Cie10 mcie= new Model_Cie10();
      
      mcie.setId_cie(id_cie);
-     mcie.setTitulo(titulo);
-     mcie.setPatologia(patologia);
-    
      
-     if (mcie.crearCie() == true)    {
+     mcie.setTitulo(titulo);
+     mcie.setCategoria(categoria);
+     if (mcie.crearCie())    {
          cargarcie();
-         JOptionPane.showMessageDialog(vista, "CIE10 crado correctamente ");
+         
+         JOptionPane.showMessageDialog(vista, "CIE10 creado correctamente ");
+         
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
           
@@ -73,45 +74,55 @@ public class Controller_CrudCie10 {
     }
     
     public void editarcrudcie10(){
-      String id_cie;
+     String id_cie;
+     String categoria;
      String titulo;
-     String patologia;
+     
      
      id_cie=vista.getTxtcodigocie().getText();
-     titulo=vista.getTxttitulocie().getText();
+     vista.getTxtcodigocie().setEnabled(true);
      
-     patologia=vista.getCboxtipopato().getText();
+     categoria=vista.getCbcate().getSelectedItem().toString();
+     titulo=vista.getTxtitulo().getText();
      
      Model_Cie10 mcie= new Model_Cie10();
-     mcie.setId_cie(id_cie);
-     mcie.setTitulo(titulo);
-     mcie.setPatologia(patologia);
      
-     if (mcie.actualizarCie() ==true)    {
+     mcie.setId_cie(id_cie);
+     mcie.setCategoria(categoria);
+     mcie.setTitulo(titulo);
+     
+   
+     
+     if (mcie.actualizarCie10())    {
          cargarcie();
-         JOptionPane.showMessageDialog(vista, "CIE10 editadO correctamente ");
+         
+         JOptionPane.showMessageDialog(vista, "CIE10 editado correctamente ");
      }else {
-         JOptionPane.showMessageDialog(vista, "No se pudo Editar  ");
+         JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
           
      }
+        
     }
     
     public void eliminarcrudcie10(){
-      String id_cie;
+    String id_cie;
+     String categoria;
      String titulo;
-     String patologia;
+     
      
      id_cie=vista.getTxtcodigocie().getText();
-     titulo=vista.getTxttitulocie().getText();
-     patologia=vista.getCboxtipopato().getText();
+     categoria=vista.getCbcate().getModel().getSelectedItem().toString();
+     titulo=vista.getTxtitulo().getText();
      
      Model_Cie10 mcie= new Model_Cie10();
-     mcie.setId_cie(id_cie);
-     mcie.setTitulo(titulo);
-     mcie.setPatologia(patologia);
      
-     if (mcie.eliminarCie() == true)    {
+     mcie.setId_cie(id_cie);
+     
+     mcie.setTitulo(titulo);
+     mcie.setCategoria(categoria);
+     if (mcie.eliminarCie())    {
          cargarcie();
+         
          JOptionPane.showMessageDialog(vista, "CIE10 eliminado correctamente ");
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Eliminar  ");
@@ -137,28 +148,16 @@ public class Controller_CrudCie10 {
        
            tbmodel.addRow(new Object[3]);
            vista.getTblListacie().setValueAt(ci.getId_cie(), i.value, 0);
-           vista.getTblListacie().setValueAt(ci.getTitulo(), i.value, 1);
-           vista.getTblListacie().setValueAt(ci.getPatologia(), i.value, 2);
+           vista.getTblListacie().setValueAt(ci.getCategoria(), i.value, 1);
+           vista.getTblListacie().setValueAt(ci.getTitulo(), i.value, 2);
+           
            
            i.value++;
         });
                 
     }
     
-    private void generarSerie(){
-        
-        String serie = modelo.NumSerie();
-        if (serie == null) {
-            vista.getTxtcodigocie().setText("00001");
-        } else {
-            int inc = Integer.parseInt(serie);
-            inc++;
-            vista.getTxtcodigocie().setText("0000" + inc);
-
-        }
-    
-}
-    
+       
      private void busqueda(java.awt.event.KeyEvent evt){ 
        DefaultTableModel tbmodel ; 
       
@@ -169,7 +168,7 @@ public class Controller_CrudCie10 {
 
         List<Cie_10> milista = modelo.listarbuscarcie(vista.getTxtbusquedacie().getText());
         milista.stream().forEach(pe -> {
-        String [] filacie = {pe.getId_cie(), pe.getTitulo() ,  pe.getPatologia()} ;
+        String [] filacie = {pe.getId_cie() ,  pe.getCategoria(), pe.getTitulo()} ;
          tbmodel.addRow(filacie);
 
         });
@@ -187,17 +186,22 @@ private void cargardatosTxtcie (java.awt.event.MouseEvent evt) throws IOExceptio
         if (xx != -1) {
             String id = vista.getTblListacie().getValueAt(xx, 0).toString();
             vista.getTxtcodigocie().setText(id);
-            String ti = vista.getTblListacie().getValueAt(xx, 1).toString();
-            vista.getTxttitulocie().setText(ti);
+            vista.getTxtcodigocie().setEnabled(false);
             
-            String patol = vista.getTblListacie().getValueAt(xx, 2).toString();
-            vista.getCboxtipopato().setText(patol);
+            
+            
+            String cat = vista.getTblListacie().getValueAt(xx, 1).toString();
+            vista.getCbcate().setSelectedItem(cat);
+            
+            String ti = vista.getTblListacie().getValueAt(xx, 2).toString();
+            vista.getTxtitulo().setText(ti);
             
         }
         else{
             
             JOptionPane.showMessageDialog(vista, "error seleccione una fila");
         }
+        
 } 
 
 private void setEventoMouseClicked(JTable tbl)

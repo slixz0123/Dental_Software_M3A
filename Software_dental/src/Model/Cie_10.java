@@ -11,17 +11,16 @@ package Model;
  */
 public class Cie_10 {
     private String id_cie;
+    private String categoria;
     private String titulo;
-    private String patologia;
-    
 
     public Cie_10() {
     }
 
-    public Cie_10(String id_cie, String titulo, String patologia) {
+    public Cie_10(String id_cie, String categoria, String titulo) {
         this.id_cie = id_cie;
+        this.categoria = categoria;
         this.titulo = titulo;
-        this.patologia = patologia;
     }
 
     public String getId_cie() {
@@ -32,6 +31,14 @@ public class Cie_10 {
         this.id_cie = id_cie;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -39,14 +46,9 @@ public class Cie_10 {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+    
+    
 
-    public String getPatologia() {
-        return patologia;
-    }
-
-    public void setPatologia(String patologia) {
-        this.patologia = patologia;
-    }
 
    
     
