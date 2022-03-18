@@ -94,9 +94,9 @@ public class Model_Cie10 extends Cie_10{
     //Actualizar
     public boolean actualizarCie(){
     try {
-    String sql;
-    sql="Update cie_10 SET titulo=?,tipo_patolog=? WHERE id_cie=?";
-    PreparedStatement act_an= con.Con().prepareStatement(sql);
+    String sql2;
+    sql2="Update cie_10 SET titulo=?,tipo_patolog=? WHERE id_cie=?";
+    PreparedStatement act_an= con.Con().prepareStatement(sql2);
     
     act_an.setString(1, getId_cie());
     act_an.setString(2, getTitulo());
@@ -114,6 +114,21 @@ public class Model_Cie10 extends Cie_10{
     String sql;
     sql="Delete from cie_10 where id_cie='"+getId_cie()+"'";
     return con.accion(sql);
+    }
+    
+   public String NumSerie() {
+        String sql = "SELECT MAX (CAST (id_cie AS INTEGER)) FROM cie_10 ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR SERIE");
+
+        }
+        return serie;
     }
     
 }

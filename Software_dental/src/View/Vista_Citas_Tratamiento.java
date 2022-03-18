@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Persona;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -34,7 +35,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNombrePac = new jtextfieldround.JTextFieldRound();
         jLabel4 = new javax.swing.JLabel();
         btnAgendar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -51,7 +51,10 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         btnAgendar1 = new javax.swing.JButton();
         btnAgendar2 = new javax.swing.JButton();
         txthora = new jtextfieldround.JTextFieldRound();
-        cbosnombre = new javax.swing.JComboBox<>();
+        cboscedulapac = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombrePac = new jtextfieldround.JTextFieldRound();
+        cbosceduladoc = new javax.swing.JComboBox<>();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblcitas = new javax.swing.JTable();
@@ -64,62 +67,68 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("NOMBRES DEL PACIENTE:");
-        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
+        jLabel2.setText("CEDULA DEL PACIENTE:");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FICHA:");
-        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
-        panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 20));
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, 20));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDOS DEL PACIENTE:");
-        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         btnAgendar.setText("ELIMINAR");
-        panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 429, 130, 40));
+        panelNice1.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 130, 40));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("NOMBRE DEL DOCTOR:");
-        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
-        panelNice1.add(txtNombredoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 220, 20));
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+        panelNice1.add(txtNombredoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 220, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CEDULA DEL DOCTOR:");
-        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("FECHA:");
-        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-        panelNice1.add(jdateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, 20));
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        panelNice1.add(jdateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 220, 20));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("HORA:");
-        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DESCRIPCION:");
-        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        panelNice1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jareades.setColumns(20);
         jareades.setRows(5);
         jScrollPane2.setViewportView(jareades);
 
-        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 270, 160));
+        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 270, 160));
         panelNice1.add(txtficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 20));
-        panelNice1.add(txtApellidosPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
+        panelNice1.add(txtApellidosPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 220, 20));
 
         btnAgendar1.setText("AGENDAR");
-        panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 120, 40));
+        panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 120, 40));
 
         btnAgendar2.setText("ACTUALIZAR");
-        panelNice1.add(btnAgendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, 40));
-        panelNice1.add(txthora, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 20));
+        panelNice1.add(btnAgendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, 40));
+        panelNice1.add(txthora, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 220, 20));
 
-        cbosnombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sleccionar", "Item 2", "Item 3", "Item 4" }));
-        panelNice1.add(cbosnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
+        cboscedulapac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sleccionar", "Item 2", "Item 3", "Item 4" }));
+        panelNice1.add(cboscedulapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 200, -1));
 
-        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 480, 480));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("NOMBRES DEL PACIENTE:");
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 220, 20));
+
+        panelNice1.add(cbosceduladoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
+
+        jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 480, 490));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,7 +151,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 630, 600));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/LOGO DENTAL daniela san martin -1_opt (2).png"))); // NOI18N
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 380, 150));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 380, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,13 +176,15 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnAgendar1;
     private javax.swing.JButton btnAgendar2;
-    private javax.swing.JComboBox<String> cbosnombre;
+    private javax.swing.JComboBox<Persona> cbosceduladoc;
+    private javax.swing.JComboBox<String> cboscedulapac;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -193,11 +204,11 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getCbosnombre() {
-        return cbosnombre;
+        return cboscedulapac;
     }
 
     public void setCbosnombre(JComboBox<String> cbosnombre) {
-        this.cbosnombre = cbosnombre;
+        this.cboscedulapac = cbosnombre;
     }
 
     public JTextFieldRound getTxtApellidosPac() {
@@ -208,13 +219,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         this.txtApellidosPac = txtApellidosPac;
     }
 
-    public JTextFieldRound getTxtNombrePac() {
-        return txtNombrePac;
-    }
-
-    public void setTxtNombrePac(JTextFieldRound txtNombrePac) {
-        this.txtNombrePac = txtNombrePac;
-    }
 
     public JTextFieldRound getTxtNombredoc() {
         return txtNombredoc;
@@ -270,6 +274,24 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     public void setBtnAgendar1(JButton btnAgendar1) {
         this.btnAgendar1 = btnAgendar1;
+    }
+
+    public JComboBox<Persona> getCbosceduladoc() {
+        return cbosceduladoc;
+    }
+
+    public void setCbosceduladoc(JComboBox<Persona> cbosceduladoc) {
+        this.cbosceduladoc = cbosceduladoc;
+    }
+
+    
+
+    public JComboBox<String> getCboscedulapac() {
+        return cboscedulapac;
+    }
+
+    public void setCboscedulapac(JComboBox<String> cboscedulapac) {
+        this.cboscedulapac = cboscedulapac;
     }
 
 
