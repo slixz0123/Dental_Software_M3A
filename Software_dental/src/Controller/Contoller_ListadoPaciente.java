@@ -46,9 +46,11 @@ public class Contoller_ListadoPaciente {
       
         vista.setVisible(true);
         iniciarcontrol ();
-           List<Paciente> lp = modelo.listarpac();
+        
+        
+         List<Paciente> lp = modelo.listarpac();
          vista.getJtbllistadopac().addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
+          @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (e.getClickCount() == 1) {
                     int xx = vista.getJtbllistadopac().getSelectedRow();

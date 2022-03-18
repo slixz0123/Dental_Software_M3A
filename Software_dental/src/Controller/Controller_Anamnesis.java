@@ -8,6 +8,7 @@ package Controller;
 import Model.ConexionPg;
 import Model.Model_Anamnesis;
 import Model.Persona;
+import View.MenuPrincipal;
 import View.Vista_Anamesis;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -24,7 +25,8 @@ public class Controller_Anamnesis {
     private Model_Anamnesis modelo;
     private Vista_Anamesis vista;
     private String accion = "guardar";
-    public Controller_Anamnesis(Model_Anamnesis modelo, Vista_Anamesis vista) {
+    private MenuPrincipal vistame;
+    public Controller_Anamnesis(Model_Anamnesis modelo, Vista_Anamesis vista ,MenuPrincipal vistame) {
       this.modelo = modelo;
       this.vista = vista;
       vista.setVisible(true); 

@@ -355,7 +355,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_Anamesis vistaana = new Vista_Anamesis();
         vista_InicioProceso.getPnAnamesis().add(vistaana);
         vistaana.setBorder(null);
-        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana);
+        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana , vista);
         
           // diagnostico
            Model_Hist_clinico modeldiag = new Model_Hist_clinico();
