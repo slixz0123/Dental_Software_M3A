@@ -133,6 +133,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 pac.setFecha_nac(rs.getDate("fecha_nac"));
                 
                 milistapaci.add(pac);
+                System.out.println("fecha"+rs.getDate("fecha_nac"));
                 
                 
             }

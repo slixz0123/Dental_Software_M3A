@@ -177,6 +177,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btncargardatos = new javax.swing.JButton();
         Txtgeneropac = new jtextfieldround.JTextFieldRound();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1208, 735));
@@ -302,6 +303,9 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         panelNice2.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
         panelNice2.add(Txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 310, -1));
 
+        jButton1.setText("Guardar");
+        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
+
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1140, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -324,6 +328,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jtextfieldround.JTextFieldRound Txtgeneropac;
     private javax.swing.JButton btncargardatos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
