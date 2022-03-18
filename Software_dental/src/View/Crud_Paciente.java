@@ -186,6 +186,14 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         this.lablefoto = lablefoto;
     }
 
+    public JButton getBtneditar() {
+        return btneditar;
+    }
+
+    public void setBtneditar(JButton btneditar) {
+        this.btneditar = btneditar;
+    }
+
     
     
     
@@ -241,7 +249,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbPacientes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         jLabel1 = new javax.swing.JLabel();
         labelserie = new javax.swing.JLabel();
@@ -413,8 +421,8 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jButton1.setText("Eliminar");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 220, 40));
 
-        jButton4.setText("Editar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
+        btneditar.setText("Editar");
+        panelNice2.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 660, 630));
 
@@ -451,13 +459,13 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
+    private javax.swing.JButton btneditar;
     private javax.swing.JButton btnexaminar;
     private javax.swing.JButton btnguardarpac;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbSangre;
     private javax.swing.JComboBox<String> cmgenero;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

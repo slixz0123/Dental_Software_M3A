@@ -1,18 +1,23 @@
 
 package Model;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -100,28 +105,47 @@ public String idPac(String ced){
         }
     return id;
  }
-     //extraer fecha nacimiento
-     public Date fecha_nac(String id){
-     Date fecha =null;
-        String sql="Select fecha_nac from paciente where id_paciente ='"+id+"'";
+//
+//paciente id
+public String idMed(String ced){
+    String id ="";
+        String sql="Select id_doctor from doctor where cedula_doc ='"+ced+"'";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
                 ps = con.Con().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
-                    fecha = rs.getDate(3);
+                    id = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            id = "";
+        }
+    return id;
+ }
+     //extraer fecha nacimiento
+     public Date fecha_nac(String ced){
+     Date fecha =null;
+        String sql="Select fecha_nac from paciente where cedula_pac ='"+ced+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    fecha = rs.getDate(1);
                 }
         }catch(SQLException ex){
             fecha = null;
+            System.out.println(ex);
         }
         return fecha;
      }
      //Listar medico
-     public List<Doctor> listarMedico(String id){
+     public List<Doctor> listarMedico(){
         List<Doctor> lista = new ArrayList<Doctor>();
         try {
-            String sql="select * from doctor where id_doctor='"+id+"'";
+            String sql="select * from doctor d join persona p where d.cedula_doc=p.cedula'";
             ResultSet rs=con.consulta(sql);
             while(rs.next()){
                 Doctor doc=new Doctor();
@@ -139,52 +163,123 @@ public String idPac(String ced){
         return null;
         }
     }
-     //extraer nombres completos doctor
-     public void cargar_doc(JComboBox cb_doc){    
-        String sql = "SELECT d.id_doctor, p.nombres, p.apellidos FROM persona p join doctor d on p.cedula=d.cedula_doc";
-        PreparedStatement ps = null;
-        ResultSet res = null;
-        try {  
-        ps = con.Con().prepareStatement(sql);
-        res = ps.executeQuery();
-        //LLenamos nuestro ComboBox
-        cb_doc.addItem("Seleccione el medico");
+     
+     //Cargar doctores tabla
+     public void cargar_doctorestabla(JTable tbl1, String valor){
    
-        while(res.next()){
-          cb_doc.addItem(res.getString("id_doctor").concat(" ").concat(res.getString("nombres")).concat(" ").concat(res.getString("apellidos")));
-         }
-      } catch (SQLException e) {
-    JOptionPane.showMessageDialog(null, e);
-    }
-   } 
-//extraer id combobox
-     public List<Integer> extraerNumeros(String dat) {
-      List<Integer> num = new ArrayList<Integer>();
-      Matcher encon = Pattern.compile("\\d+").matcher(dat);
-      while (encon.find()) { 
-        num.add(Integer.parseInt(encon.group()));
-      } 
-      return num;
- }
-//generar id anamnesis
-     public String id_anam(String sql){
-        String id = "1";
-        int valor;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try{    
-                ps = con.Con().prepareStatement(sql);
-                rs = ps.executeQuery();
-                while(rs.next()){
-                    id = rs.getString(1);
-                    valor=Integer.parseInt(id)+1;
-                    id=String.valueOf(valor);
-                }
-        }catch(SQLException ex){
-            System.out.println("idmaximo"+ex.getMessage());
-            id = "1";
+        String[] columnas ={"Cedula","Nombre","Apellido","Especialidad","Telefono"};
+        
+       DefaultTableModel tabla = new DefaultTableModel(null,columnas){
+        @Override
+        public boolean isCellEditable(int filas, int columnas){
+        if(columnas==5){
+        return true;
+        } else{
+            return false;
         }
-        return id;
+        };
+        };
+        String sql;
+        tbl1.setModel(tabla);
+        String [] datos = new String [5];
+        if(valor.equals("")){
+       
+    sql="SELECT p.cedula, p.nombres, p.apellidos, d.especialidad, p.telefono from persona p join doctor d on p.cedula=cedula_doc";
+        } else {
+        sql="SELECT p.cedula, p.nombres, p.apellidos, d.especialidad, p.telefono from persona p join doctor d on p.cedula=cedula_doc"
+                + "WHERE p.cedula  LIKE '%"+valor+"%' or p.nombre LIKE '%"+valor+"%' or p.apellido like '%"+valor+"%'";
+
+        }
+        try {
+           ResultSet rs=con.consulta(sql);
+           while(rs.next()){
+           datos[0]=rs.getString(1);
+           datos[1]=rs.getString(2);
+           datos[2]=rs.getString(3);
+           datos[3]=rs.getString(4);
+           datos[4]=rs.getString(5);
+           tabla.addRow(datos);
+           }
+           tbl1.setModel(tabla);
+        } catch (SQLException e) {
+               JOptionPane.showMessageDialog(null, "Error: SQLException ","Error", JOptionPane.PLAIN_MESSAGE);
+            System.out.println(e);
+            
+        }
+    }
+//Cargar doctores tabla
+     public void cargar_pacientestabla(JTable tbl1, String busc){
+   
+        String[] columnas ={"Cedula","Nombres","Apellidos","Direccion","Telefono","Correo"};
+        
+       DefaultTableModel tabla = new DefaultTableModel(null,columnas){
+        @Override
+        public boolean isCellEditable(int filas, int columnas){
+        if(columnas==6){
+        return true;
+        } else{
+            return false;
+        }
+        };
+        };
+        String sql;
+        tbl1.setModel(tabla);
+        String [] datos = new String [6];
+        if(busc.equals("")){
+       
+    sql="SELECT p.cedula, p.nombres, p.apellidos, p.direccion, p.telefono, p.correo from persona p join paciente pac on p.cedula=cedula_pac";
+        } else {
+        sql="SELECT p.cedula, p.nombres, p.apellidos, p.direccion, p.telefono, p.correo from persona p join paciente pac on p.cedula=cedula_pac"
+                + "WHERE p.cedula  LIKE '%"+busc+"%' or p.nombre LIKE '%"+busc+"%' or p.apellido like '%"+busc+"%'";
+
+        }
+        try {
+           ResultSet rs=con.consulta(sql);
+           while(rs.next()){
+           datos[0]=rs.getString(1);
+           datos[1]=rs.getString(2);
+           datos[2]=rs.getString(3);
+           datos[3]=rs.getString(4);
+           datos[4]=rs.getString(5);
+           datos[5]=rs.getString(6);
+           tabla.addRow(datos);
+           }
+           tbl1.setModel(tabla);
+        } catch (SQLException e) {
+               JOptionPane.showMessageDialog(null, "Error: SQLException ","Error", JOptionPane.PLAIN_MESSAGE);
+            System.out.println(e);
+            
+        }
+    }
+//generar id anamnesis
+     public String id_anam(){
+        String sql = "SELECT MAX (CAST (id_anamnesis AS INTEGER)) FROM anamnesis ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+        return serie;
+    }
+     //
+     public String id_act_anam(){
+        String sql = "SELECT MAX (CAST (id_anamnesis AS INTEGER)) FROM anamnesis ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+        return serie;
     }
     //Crear
     public boolean crearAnamnesis(){

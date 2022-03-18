@@ -37,17 +37,17 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtcodigocie = new jtextfieldround.JTextFieldRound();
-        txttitulocie = new jtextfieldround.JTextFieldRound();
+        txtitulo = new jtextfieldround.JTextFieldRound();
         btneliminar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
-        cboxtipopato = new javax.swing.JComboBox<>();
+        cbcate = new javax.swing.JComboBox<>();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListacie = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldRound1 = new jtextfieldround.JTextFieldRound();
+        txtbusquedacie = new jtextfieldround.JTextFieldRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -60,20 +60,20 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Codigo CIE10:");
+        jLabel2.setText("Código CIE10:");
         panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Titulo Del Codigo:");
+        jLabel3.setText("Categoria:");
         panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Tipo De Patologia:");
+        jLabel4.setText("Titulo Código: ");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
         panelNice1.add(txtcodigocie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 410, 40));
-        panelNice1.add(txttitulocie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 410, 40));
+        panelNice1.add(txtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 410, 40));
 
         btneliminar.setText("ELIMINAR");
         panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 160, 40));
@@ -88,8 +88,9 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         btnAnteriorEsp.setText("cerrar");
         panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        cboxtipopato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "TUMOR MALIGNO DE LA ENCIA SUPERIO", "TUMOR MALIGNO DEL PALADAR DURO", "TUMOR MALIGNO DE LA CARA DORSAL DE LA LENGUA", "TUMOR MALIGNO DEL BORDE DE LA LENGUA", "TUMOR MALIGNO DE LA CARA VENTRAL DE LA LENGUA", "TUMOR MALIGNO DE LOS DOS TERCIOS ANTERIORES DE LA LENGUA, PARTE NO ESPECIFICADA", "LESION DE SITIOS CONTIGUOS DE LA LENGUA", "TUMOR MALIGNO DE LA LENGUA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DE LA ENCIA SUPERIOR", "TUMOR MALIGNO DE LA ENCIA INFERIOR", "TUMOR MALIGNO DE LA ENCIA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DE LA PARTE ANTERIOR DEL PISO DE LA BOCA", "TUMOR MALIGNO DE LA PARTE LATERAL DEL PISO DE LA BOCA", "LESION DE SITIOS CONTIGUOS DEL PISO DE LA BOCA", "TUMOR MALIGNO DEL PISO DE LA BOCA, PARTE NO ESPECIFICADA", "TUMOR MALIGNO DEL PALADAR DURO", "TUMOR MALIGNO DEL PALADAR BLANDO" }));
-        panelNice1.add(cboxtipopato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 390, 40));
+        cbcate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbcate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Prevención", "Operativo", "Endodoncia", "Periodoncia", "Cirugía" }));
+        panelNice1.add(cbcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 410, 40));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1070, 260));
 
@@ -98,13 +99,10 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
 
         tblListacie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo CIE", "Categoria", "Titulo"
             }
         ));
         jScrollPane2.setViewportView(tblListacie);
@@ -115,7 +113,7 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Buscar");
         panelNice2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-        panelNice2.add(jTextFieldRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 910, -1));
+        panelNice2.add(txtbusquedacie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 910, -1));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 1070, 390));
 
@@ -147,19 +145,19 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JComboBox<String> cboxtipopato;
+    private javax.swing.JComboBox<String> cbcate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private jtextfieldround.JTextFieldRound jTextFieldRound1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private javax.swing.JTable tblListacie;
+    public static javax.swing.JTable tblListacie;
+    private jtextfieldround.JTextFieldRound txtbusquedacie;
     private jtextfieldround.JTextFieldRound txtcodigocie;
-    private jtextfieldround.JTextFieldRound txttitulocie;
+    private jtextfieldround.JTextFieldRound txtitulo;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtneditar() {
@@ -186,13 +184,14 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         this.btnguardar = btnguardar;
     }
 
-    public JComboBox<String> getCboxtipopato() {
-        return cboxtipopato;
+    public JTextFieldRound getCboxtipopato() {
+        return txtitulo;
     }
 
-    public void setCboxtipopato(JComboBox<String> cboxtipopato) {
-        this.cboxtipopato = cboxtipopato;
+    public void setCboxtipopato(JTextFieldRound cboxtipopato) {
+        this.txtitulo = cboxtipopato;
     }
+
 
     public JTextFieldRound getTxtcodigocie() {
         return txtcodigocie;
@@ -203,11 +202,11 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
     }
 
     public JTextFieldRound getTxttitulocie() {
-        return txttitulocie;
+        return txtitulo;
     }
 
     public void setTxttitulocie(JTextFieldRound txttitulocie) {
-        this.txttitulocie = txttitulocie;
+        this.txtitulo = txttitulocie;
     }
 
     public JTable getTblListacie() {
@@ -216,6 +215,30 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
 
     public void setTblListacie(JTable tblListacie) {
         this.tblListacie = tblListacie;
+    }
+
+    public JTextFieldRound getTxtbusquedacie() {
+        return txtbusquedacie;
+    }
+
+    public void setTxtbusquedacie(JTextFieldRound txtbusquedacie) {
+        this.txtbusquedacie = txtbusquedacie;
+    }
+
+    public JComboBox<String> getCbcate() {
+        return cbcate;
+    }
+
+    public void setCbcate(JComboBox<String> cbcate) {
+        this.cbcate = cbcate;
+    }
+
+    public JTextFieldRound getTxtitulo() {
+        return txtitulo;
+    }
+
+    public void setTxtitulo(JTextFieldRound txtitulo) {
+        this.txtitulo = txtitulo;
     }
 
 

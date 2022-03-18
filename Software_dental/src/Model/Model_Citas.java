@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -102,4 +105,28 @@ public class Model_Citas extends Citas{
     sql="Delete from citas where id_cita='"+getId_cita()+"'";
     return con.accion(sql);
     }
+    
+     public void cargar_doc(JComboBox box){    
+        ConexionPg conec = new ConexionPg();
+        DefaultComboBoxModel value;
+        PreparedStatement ps = null;
+        Connection con = null;
+        ResultSet rs = null;
+        try{
+            con = conec.GetCon();
+            ps = con.prepareStatement("SELECT * FROM persona p join doctor d on p.cedula=d.cedula_doc");
+            value = new DefaultComboBoxModel();
+            rs = ps.executeQuery();
+            box.setModel(value);
+            while(rs.next()){
+               value.addElement(new Persona(rs.getString(1)));
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+   }
+    
+    
+    
+    
 }

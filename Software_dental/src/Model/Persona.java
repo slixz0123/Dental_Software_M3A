@@ -22,11 +22,8 @@ public class Persona {
     private String correo;
     private String provincia;
     private String ciudad;
-    private String genero;
-
-    
+    private String genero; 
     //foto
-
     private byte[] foto;
     
 //    public Image getFoto() {
@@ -58,18 +55,11 @@ public class Persona {
         this.foto = foto;
     }
 
-    public Persona(String cedula, String nombres, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero) {
+    public Persona(String cedula) {
         this.cedula = cedula;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.celular = celular;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.provincia = provincia;
-        this.ciudad = ciudad;
-        this.genero = genero;
     }
+
+    
 
     public String getCedula() {
         return cedula;
@@ -174,5 +164,12 @@ public class Persona {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
+
+
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + '}';
+    }
     
+
     }

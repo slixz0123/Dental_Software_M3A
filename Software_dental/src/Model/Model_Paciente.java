@@ -244,18 +244,21 @@ public String NumSerie() {
     String sql3;
     
         try {
-            sql3 = "select p.telefono , p.correo ,p. provincia  from  persona p  WHERE p.cedula = "+getCedula()+"  " ;
+            sql3 = "select * from  persona   WHERE cedula = '"+cedula+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
             while(rs.next()){
                 Paciente pac = new Paciente();
-                pac.setTelefono(rs.getString(1));
-                pac.setCorreo(rs.getString(2));
-                pac.setProvincia(rs.getString(3));
+                pac.setCedula(cedula);
+                pac.setTelefono(rs.getString("telefono"));
+                pac.setCorreo(rs.getString("correo"));
+                pac.setProvincia(rs.getString("provincia"));
                 
                 milistapaci.add(pac);
-                
+                System.out.println(rs.getString("telefono"));
+                System.out.println(rs.getString("correo"));
+                System.out.println(rs.getString("provincia"));
                 
             }
             return milistapaci;

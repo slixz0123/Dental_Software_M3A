@@ -1,10 +1,14 @@
 package View;
 
+import Model.Persona;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import jtextfieldround.JTextFieldRound;
 import org.edisoncor.gui.button.ButtonRound;
 
@@ -35,6 +39,18 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogbuscar = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbldoctor = new javax.swing.JTable();
+        txtbuscardoc = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        dialogpac = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        txtbuscarpac = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblpac = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -50,7 +66,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         dateFechanacEsp = new com.toedter.calendar.JDateChooser();
         txtcedula_pac = new jtextfieldround.JTextFieldRound();
-        txtnombrespac = new jtextfieldround.JTextFieldRound();
+        txtapellidopac = new jtextfieldround.JTextFieldRound();
         txtcorreo = new jtextfieldround.JTextFieldRound();
         txttelefonopac = new jtextfieldround.JTextFieldRound();
         txtdireccion = new jtextfieldround.JTextFieldRound();
@@ -60,7 +76,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         btnbuscarpac = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
         btncerrar = new org.edisoncor.gui.button.ButtonRound();
-        txtapellidopac = new jtextfieldround.JTextFieldRound();
+        txtnombrespac = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         lblidanam = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -83,10 +99,134 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         txtconsulta = new javax.swing.JTextArea();
         txtespecialidad = new jtextfieldround.JTextFieldRound();
         jLabel34 = new javax.swing.JLabel();
-        cbmedico = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         btnnuevo = new javax.swing.JButton();
+        txtnombredoc = new jtextfieldround.JTextFieldRound();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        txtapellidodoc = new jtextfieldround.JTextFieldRound();
+        btnbuscardoc = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
+
+        jPanel3.setBackground(new java.awt.Color(90, 166, 166));
+
+        tbldoctor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombre", "Apellido", "Especialidad", "Telefono"
+            }
+        ));
+        jScrollPane3.setViewportView(tbldoctor);
+        if (tbldoctor.getColumnModel().getColumnCount() > 0) {
+            tbldoctor.getColumnModel().getColumn(0).setHeaderValue("Cedula");
+            tbldoctor.getColumnModel().getColumn(1).setHeaderValue("Nombre");
+            tbldoctor.getColumnModel().getColumn(2).setHeaderValue("Apellido");
+            tbldoctor.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
+            tbldoctor.getColumnModel().getColumn(4).setHeaderValue("Telefono");
+        }
+
+        txtbuscardoc.setToolTipText("Ingrese la cedula o el nombre para buscar");
+
+        jLabel12.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dialogbuscarLayout = new javax.swing.GroupLayout(dialogbuscar.getContentPane());
+        dialogbuscar.getContentPane().setLayout(dialogbuscarLayout);
+        dialogbuscarLayout.setHorizontalGroup(
+            dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogbuscarLayout.setVerticalGroup(
+            dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(166, 104, 216));
+
+        txtbuscarpac.setToolTipText("Ingrese la cedula o el nombre para buscar");
+
+        jLabel13.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Buscar:");
+
+        tblpac.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tblpac);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogpacLayout = new javax.swing.GroupLayout(dialogpac.getContentPane());
+        dialogpac.getContentPane().setLayout(dialogpacLayout);
+        dialogpacLayout.setHorizontalGroup(
+            dialogpacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogpacLayout.setVerticalGroup(
+            dialogpacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -151,8 +291,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
         panelNice1.add(txtcedula_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
 
-        txtnombrespac.setEditable(false);
-        panelNice1.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
+        txtapellidopac.setEditable(false);
+        panelNice1.add(txtapellidopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 21));
 
         txtcorreo.setEditable(false);
         panelNice1.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 21));
@@ -170,11 +310,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 220, 21));
 
         txtgeneropac.setEditable(false);
-        txtgeneropac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtgeneropacActionPerformed(evt);
-            }
-        });
         panelNice1.add(txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
 
         btnbuscarpac.setText("Buscar");
@@ -189,8 +324,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         btncerrar.setText("Cerrar");
         panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        txtapellidopac.setEditable(false);
-        panelNice1.add(txtapellidopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 21));
+        txtnombrespac.setEditable(false);
+        panelNice1.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
 
@@ -204,7 +339,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("ESPECIALIDAD:");
-        panelNice2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        panelNice2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,19 +371,19 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CEDULA:");
-        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabel43.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("TELEFONO:");
-        panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
         panelNice2.add(txtembarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 210, 21));
 
         txtcedulamed.setEditable(false);
-        panelNice2.add(txtcedulamed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
+        panelNice2.add(txtcedulamed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 170, 21));
 
         txttelefonomed.setEditable(false);
-        panelNice2.add(txttelefonomed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, 21));
+        panelNice2.add(txttelefonomed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 170, 21));
 
         btnimprimir.setText("Imprimir");
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 200, 50));
@@ -269,14 +404,12 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 320, 130));
 
         txtespecialidad.setEditable(false);
-        panelNice2.add(txtespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, 21));
+        panelNice2.add(txtespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 170, 21));
 
         jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("EMBARAZO");
         panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
-
-        panelNice2.add(cbmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 170, -1));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,6 +418,25 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         btnnuevo.setText("Nuevo");
         panelNice2.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 210, 50));
+
+        txtnombredoc.setEditable(false);
+        panelNice2.add(txtnombredoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 170, 21));
+
+        jLabel44.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("NOMBRES:");
+        panelNice2.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setText("APELLIDOS:");
+        panelNice2.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        txtapellidodoc.setEditable(false);
+        panelNice2.add(txtapellidodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 170, 21));
+
+        btnbuscardoc.setText("Buscar");
+        panelNice2.add(btnbuscardoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 90, -1));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 690, 630));
 
@@ -317,34 +469,37 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtgeneropacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgeneropacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtgeneropacActionPerformed
-
-    public JButton getBtnnuevo() {
-        return btnnuevo;
+    public JDialog getDialogpac() {
+        return dialogpac;
     }
 
-    public void setBtnnuevo(JButton btnnuevo) {
-        this.btnnuevo = btnnuevo;
+    public void setDialogpac(JDialog dialogpac) {
+        this.dialogpac = dialogpac;
     }
 
-    public JLabel getLblidanam() {
-        return lblidanam;
+    public JTable getTblpac() {
+        return tblpac;
     }
 
-    public void setLblidanam(JLabel lblidanam) {
-        this.lblidanam = lblidanam;
+    public void setTblpac(JTable tblpac) {
+        this.tblpac = tblpac;
     }
 
-    public JComboBox<String> getCbmedico() {
-        return cbmedico;
+    public JTextField getTxtbuscarpac() {
+        return txtbuscarpac;
     }
 
-    public void setCbmedico(JComboBox<String> cbmedico) {
-        this.cbmedico = cbmedico;
+    public void setTxtbuscarpac(JTextField txtbuscarpac) {
+        this.txtbuscarpac = txtbuscarpac;
     }
- 
+
+    public JButton getBtnbuscardoc() {
+        return btnbuscardoc;
+    }
+
+    public void setBtnbuscardoc(JButton btnbuscardoc) {
+        this.btnbuscardoc = btnbuscardoc;
+    }
 
     public JButton getBtnbuscarpac() {
         return btnbuscarpac;
@@ -378,12 +533,12 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         this.btnimprimir = btnimprimir;
     }
 
-    public JTextFieldRound getTxtgeneropac() {
-        return txtgeneropac;
+    public JButton getBtnnuevo() {
+        return btnnuevo;
     }
 
-    public void setTxtgeneropac(JTextFieldRound txtgeneropac) {
-        this.txtgeneropac = txtgeneropac;
+    public void setBtnnuevo(JButton btnnuevo) {
+        this.btnnuevo = btnnuevo;
     }
 
     public JDateChooser getDateFechanacEsp() {
@@ -394,6 +549,30 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         this.dateFechanacEsp = dateFechanacEsp;
     }
 
+    public JDialog getDialogbuscar() {
+        return dialogbuscar;
+    }
+
+    public void setDialogbuscar(JDialog dialogbuscar) {
+        this.dialogbuscar = dialogbuscar;
+    }
+
+    public JLabel getLblidanam() {
+        return lblidanam;
+    }
+
+    public void setLblidanam(JLabel lblidanam) {
+        this.lblidanam = lblidanam;
+    }
+
+    public JTable getTbldoctor() {
+        return tbldoctor;
+    }
+
+    public void setTbldoctor(JTable tbldoctor) {
+        this.tbldoctor = tbldoctor;
+    }
+
     public JTextArea getTxproblema() {
         return txproblema;
     }
@@ -402,12 +581,28 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         this.txproblema = txproblema;
     }
 
+    public JTextFieldRound getTxtapellidodoc() {
+        return txtapellidodoc;
+    }
+
+    public void setTxtapellidodoc(JTextFieldRound txtapellidodoc) {
+        this.txtapellidodoc = txtapellidodoc;
+    }
+
     public JTextFieldRound getTxtapellidopac() {
-        return txtgeneropac;
+        return txtapellidopac;
     }
 
     public void setTxtapellidopac(JTextFieldRound txtapellidopac) {
-        this.txtgeneropac = txtapellidopac;
+        this.txtapellidopac = txtapellidopac;
+    }
+
+    public JTextField getTxtbuscardoc() {
+        return txtbuscardoc;
+    }
+
+    public void setTxtbuscardoc(JTextField txtbuscardoc) {
+        this.txtbuscardoc = txtbuscardoc;
     }
 
     public JTextFieldRound getTxtcedula_pac() {
@@ -474,6 +669,22 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         this.txtespecialidad = txtespecialidad;
     }
 
+    public JTextFieldRound getTxtgeneropac() {
+        return txtgeneropac;
+    }
+
+    public void setTxtgeneropac(JTextFieldRound txtgeneropac) {
+        this.txtgeneropac = txtgeneropac;
+    }
+
+    public JTextFieldRound getTxtnombredoc() {
+        return txtnombredoc;
+    }
+
+    public void setTxtnombredoc(JTextFieldRound txtnombredoc) {
+        this.txtnombredoc = txtnombredoc;
+    }
+
     public JTextFieldRound getTxtnombrespac() {
         return txtnombrespac;
     }
@@ -502,26 +713,28 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         return txttelefonopac;
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public void setTxttelefonopac(JTextFieldRound txttelefonopac) {
         this.txttelefonopac = txttelefonopac;
     }
     
     
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbuscardoc;
     private javax.swing.JButton btnbuscarpac;
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JButton btnnuevo;
-    private javax.swing.JComboBox<String> cbmedico;
     private com.toedter.calendar.JDateChooser dateFechanacEsp;
+    private javax.swing.JDialog dialogbuscar;
+    private javax.swing.JDialog dialogpac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -536,6 +749,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -543,14 +758,23 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JTable tbldoctor;
+    private javax.swing.JTable tblpac;
     private javax.swing.JTextArea txproblema;
+    private jtextfieldround.JTextFieldRound txtapellidodoc;
     private jtextfieldround.JTextFieldRound txtapellidopac;
+    private javax.swing.JTextField txtbuscardoc;
+    private javax.swing.JTextField txtbuscarpac;
     private jtextfieldround.JTextFieldRound txtcedula_pac;
     private jtextfieldround.JTextFieldRound txtcedulamed;
     private jtextfieldround.JTextFieldRound txtciudad;
@@ -560,6 +784,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtembarazo;
     private jtextfieldround.JTextFieldRound txtespecialidad;
     private jtextfieldround.JTextFieldRound txtgeneropac;
+    private jtextfieldround.JTextFieldRound txtnombredoc;
     private jtextfieldround.JTextFieldRound txtnombrespac;
     private jtextfieldround.JTextFieldRound txtprovincia;
     private jtextfieldround.JTextFieldRound txttelefonomed;
