@@ -44,7 +44,7 @@ public class Model_Especialista extends Doctor{
     public  List<Doctor> listarDoctores (){
         List<Doctor> milista = new ArrayList<Doctor>();
         try {
-            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.foto,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
+            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.fotos,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
             ResultSet rs = cpg.consulta(sql) ;
             // barremos el resulset
             byte[]bytea;
@@ -68,7 +68,7 @@ public class Model_Especialista extends Doctor{
                            esp1.setId_usuario(rs.getString(13));
                             esp1.setEspecialidad(rs.getString(14));
                              esp1.setCargo(rs.getString(15));
-                              esp1.setCedula_doc(rs.getString(16));
+                             
 //                      //proceso de conversion del formato de la base a formato Image 
 //                      
 //                      //bytea = Bytes Array
@@ -151,7 +151,7 @@ public class Model_Especialista extends Doctor{
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,foto)";
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
             //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
             sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
