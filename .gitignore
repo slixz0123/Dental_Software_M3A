@@ -20,3 +20,7 @@ Software_dental/nbproject/private/private.properties
 Software_dental/src/Model/ConexionPg.java
 Software_dental/src/Model/ConexionPg.java
 *.class
+Software_dental/src/.DS_Store
+Software_dental/nbproject/private/private.properties
+Software_dental/build/classes/View/MenuPrincipal.class
+Software_dental/build/classes/Controller/CONTROLADOR_MENUPRINCIPAL.class

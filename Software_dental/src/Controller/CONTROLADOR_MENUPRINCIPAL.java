@@ -346,7 +346,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vista_InicioProceso.getPnListadoPac().add(vistaLista);
         vistaLista.setBorder(null);
         
-        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente (modlistado, vistaLista);
+        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente (modlistado, vistaLista,vista);
          
         
    
