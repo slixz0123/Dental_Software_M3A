@@ -46,7 +46,17 @@ public class Controller_His_Cli {
 
     }
     
-    
+    public void registrarHistorialMedico(){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
     
     public void cargardatosexternosconcedula(){
        
@@ -64,6 +74,7 @@ public class Controller_His_Cli {
             vista.getTxtdomicilio().setText(milistapaci.get(i).getDireccion());
             vista.getTxttelefono().setText(milistapaci.get(i).getTelefono()) ;
             vista.getJdtfechanac().setDate(milistapaci.get(i).getFecha_nac()) ;
+            vista.getLblid().setText(milistapaci.get(i).getId_paciente()) ;
               calcu_edad();
               
             }

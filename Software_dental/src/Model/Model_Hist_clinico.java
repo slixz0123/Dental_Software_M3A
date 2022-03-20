@@ -117,7 +117,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     String sql3;
     
         try {
-            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  from  persona p , paciente pac  WHERE pac.cedula_pac = '"+cedula+"'  " ;
+            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  , pac.id_paciente from  persona p , paciente pac  WHERE pac.cedula_pac = '"+cedula+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
@@ -126,14 +126,14 @@ public class Model_Hist_clinico extends Hist_clinico{
                
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
-               
                 pac.setGenero(rs.getString("ciudad"));
                 pac.setDireccion(rs.getString("direccion"));
                 pac.setTelefono(rs.getString("celular"));
                 pac.setFecha_nac(rs.getDate("fecha_nac"));
+                pac.setId_paciente(rs.getString("id_paciente"));
                 
                 milistapaci.add(pac);
-                System.out.println("fecha"+rs.getDate("fecha_nac"));
+       
                 
                 
             }

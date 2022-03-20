@@ -20,6 +20,7 @@ import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
+import Model.Model_Receta;
 import Model.Persona;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
@@ -34,6 +35,7 @@ import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
 import View.Vista_ListadoPacientes;
 import View.Vista_NuevaEndodoncia;
+import View.Vista_Receta;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 
@@ -57,6 +59,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
     MenuPrincipal vista;
     Desface desplace;
+    
 
     public CONTROLADOR_MENUPRINCIPAL(MenuPrincipal vista) {
         this.vista = vista;
@@ -328,15 +331,12 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         
         
         private void Proceso(java.awt.event.MouseEvent evt) {
-          Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
        
+          Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
         vista.getDkpPrincipal().add(vista_InicioProceso);
         vista_InicioProceso.setVisible(true);
         vista_InicioProceso.setBorder(null);
-      
-         
-       
-        
+
         
         //historial medico
         Model_HistorialMedico modHisto = new Model_HistorialMedico();
@@ -345,7 +345,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistaHistorialMedico.setBorder(null);
         Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
         
-        // listado
+       
          //listado de pacientes
         Model_ListadoPacientes modlistado = new Model_ListadoPacientes();
         Vista_ListadoPacientes vistaLista = new Vista_ListadoPacientes();
@@ -353,8 +353,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistaLista.setBorder(null);
         
         Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente (modlistado, vistaLista,vista);
-         
-        
+ 
    
         //anamesis
         Model_Anamnesis modAne = new Model_Anamnesis();
@@ -362,7 +361,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vista_InicioProceso.getPnAnamesis().add(vistaana);
         vistaana.setBorder(null);
         Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana , vista);
-        
+ 
           // diagnostico
            Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
@@ -384,9 +383,20 @@ private void setEventoMouseClickProgreso(JLabel laba) {
 //        vistadiag.setBorder(null);
 //        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
 //     
+  //Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+  
+//RECETAS
+
+        Model_Receta modelrec = new Model_Receta();
+        Vista_Receta vistarec = new Vista_Receta();
+        vista_InicioProceso.getPnreceta().add(vistarec);
+        vistarec.setBorder(null);
+        Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec); 
           
-        //Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
-    }
+        
+        
+        }
+        
         
         
         /*private void crudcie10(){
@@ -400,6 +410,8 @@ private void setEventoMouseClickProgreso(JLabel laba) {
           
     }*/
      
+        
+       
         
         private void cargarcboxMedico(){
            

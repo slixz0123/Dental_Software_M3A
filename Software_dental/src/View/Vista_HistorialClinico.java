@@ -26,6 +26,14 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLblid() {
+        return lblid;
+    }
+
+    public void setLblid(JLabel lblid) {
+        this.lblid = lblid;
+    }
+
    
 
     public JTextFieldRound getTxtgeneropac() {
@@ -170,7 +178,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         txtApatologiass = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAobservaciones = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        lblid = new javax.swing.JLabel();
         txtnombrespac = new jtextfieldround.JTextFieldRound();
         jLabel3 = new javax.swing.JLabel();
         txtapellidospac = new jtextfieldround.JTextFieldRound();
@@ -178,6 +186,8 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         btncargardatos = new javax.swing.JButton();
         Txtgeneropac = new jtextfieldround.JTextFieldRound();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1208, 735));
@@ -282,10 +292,10 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, 480, 90));
 
-        jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("NOMBRES:");
-        panelNice2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        lblid.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid.setForeground(new java.awt.Color(255, 255, 255));
+        lblid.setText("....");
+        panelNice2.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, -1));
         panelNice2.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 310, 30));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -305,6 +315,16 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
         jButton1.setText("Guardar");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
+
+        jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("NOMBRES:");
+        panelNice2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Id ");
+        panelNice2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, -1, -1));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1140, 640));
 
@@ -329,7 +349,6 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound Txtgeneropac;
     private javax.swing.JButton btncargardatos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -343,6 +362,8 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -351,6 +372,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private com.toedter.calendar.JDateChooser jdtfechanac;
+    private javax.swing.JLabel lblid;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTextArea txtAalergias;
     private javax.swing.JTextArea txtAmedicacion;

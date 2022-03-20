@@ -29,54 +29,54 @@ public class Controller_Receta {
     }
     
     public void iniciarcontrol (){
-        generarSerie();
+        //generarSerie();
     }
     
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
-            vista.getTxtIDreceta().setText("1");
+      //      vista.getTxtIDreceta().setText("1");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
-            vista.getTxtIDreceta().setText("0" + inc);
+          //  vista.getTxtIDreceta().setText("0" + inc);
 
         }
     }
     
-    public void crearReceta(){
-        
-        
-    String id_receta = vista.getTxtIDreceta().getText();
-    Date fecha = (Date) vista.getJdcFechareceta().getDate();
-    String id_farmaco = vista.getTxtIdfamaco().getText();
-    String indicaciones = vista.getTxtIndicaciones().getText();
-     
-          Model_Receta rec = new Model_Receta();
-           rec.setId_receta(id_receta);
-           rec.setFecha_receta(fecha);
-           rec.setId_farmaco_rec(id_farmaco);
-           rec.setIndicaciones(indicaciones);
-           
-            rec.crearReceta();
-            generarSerie();
-            fecha();
-//            cargarPersonas ();
-//            limpiartxt();
-          
-      }
-    
-    Calendar fechaactual=new GregorianCalendar();
-    public void fecha(){
-        Vista_Receta rec=new Vista_Receta();
-        rec.jdcFechareceta.setCalendar(fechaactual);
-        rec.jdcFechareceta2.setCalendar(fechaactual);
-    }
-    
-    public void limpiartxt(){
-    vista.getTxtCie().setText("");
-    vista.getTxtIDreceta().setText("");
-    }
+//    public void crearReceta(){
+//        
+//        
+//    String id_receta = vista.getTxtIDreceta().getText();
+//    Date fecha = (Date) vista.getJdcFechareceta().getDate();
+//    String id_farmaco = vista.getTxtIdfamaco().getText();
+//    String indicaciones = vista.getTxtIndicaciones().getText();
+//     
+//          Model_Receta rec = new Model_Receta();
+//           rec.setId_receta(id_receta);
+//           rec.setFecha_receta(fecha);
+//           rec.setId_farmaco_rec(id_farmaco);
+//           rec.setIndicaciones(indicaciones);
+//           
+//            rec.crearReceta();
+//            generarSerie();
+//            fecha();
+////            cargarPersonas ();
+////            limpiartxt();
+//          
+//      }
+//    
+//    Calendar fechaactual=new GregorianCalendar();
+//    public void fecha(){
+//        Vista_Receta rec=new Vista_Receta();
+//        rec.jdcFechareceta.setCalendar(fechaactual);
+//        rec.jdcFechareceta2.setCalendar(fechaactual);
+//    }
+//    
+//    public void limpiartxt(){
+//    vista.getTxtCie().setText("");
+//    vista.getTxtIDreceta().setText("");
+//    }
     
     
 }
