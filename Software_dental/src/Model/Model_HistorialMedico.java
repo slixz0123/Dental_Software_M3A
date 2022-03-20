@@ -78,13 +78,13 @@ public class Model_HistorialMedico extends Hist_Medico {
     }
     
      //Listar pacientes
-    public List<Persona> listarPacientes(String busc){
-    List<Persona> lista = new ArrayList<Persona>();
+    public List<Paciente> listarPacientes(String busc){
+    List<Paciente> lista = new ArrayList<Paciente>();
     try {
        String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%' or upper(p.nombres) like upper('%"+busc+"%') or upper(p.apellidos) like upper('%"+busc+"%')";
        ResultSet rs=con.consulta(sql);
        while(rs.next()){
-        Persona p=new Persona();
+        Paciente p=new Paciente();
         p.setCedula(rs.getString("cedula"));
         p.setNombres(rs.getString("nombres"));
         p.setApellidos(rs.getString("apellidos"));
@@ -107,14 +107,14 @@ public class Model_HistorialMedico extends Hist_Medico {
  }
 //
      //Listar pacientes para cargar datos
-    public List<Persona> cargarPacientes(String busc){
-    List<Persona> lista = new ArrayList<Persona>();
+    public List<Paciente> cargarPacientes(String busc){
+    List<Paciente> lista = new ArrayList<Paciente>();
     try {
        String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac join historial_medico h on"
                + "h.id_paciente_his=pa.id_paciente where h.id_his_med ='"+busc+"'";
        ResultSet rs=con.consulta(sql);
        while(rs.next()){
-        Persona p=new Persona();
+        Paciente p=new Paciente();
         p.setCedula(rs.getString("cedula"));
         p.setNombres(rs.getString("nombres"));
         p.setApellidos(rs.getString("apellidos"));
@@ -136,13 +136,13 @@ public class Model_HistorialMedico extends Hist_Medico {
    }
  }
     ////Listar medico
-     public List<Persona> listarMedico(String ced){
-        List<Persona> lista = new ArrayList<Persona>();
+     public List<Doctor> listarMedico(String ced){
+        List<Doctor> lista = new ArrayList<Doctor>();
         try {
             String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' or upper(p.nombres) like upper('%"+ced+"%') or upper (p.apellidos) like upper('%"+ced+"%')";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
-            Persona p=new Persona();
+            Doctor p=new Doctor();
             p.setCedula(rs.getString("cedula"));
             p.setNombres(rs.getString("nombres"));
             p.setApellidos(rs.getString("apellidos"));
@@ -164,14 +164,14 @@ public class Model_HistorialMedico extends Hist_Medico {
         }
     }
      ////Listar medico
-     public List<Persona> cargarMedico(String ced){
-        List<Persona> lista = new ArrayList<Persona>();
+     public List<Doctor> cargarMedico(String id){
+        List<Doctor> lista = new ArrayList<Doctor>();
         try {
             String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula join historial_medico h on "
-                    + "h.id_medico_his=d.id_doctor where h.id_his_med='"+ced+"'";
+                    + "h.id_medico_his=d.id_doctor where h.id_his_med='"+id+"'";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
-            Persona p=new Persona();
+            Doctor p=new Doctor();
             p.setCedula(rs.getString("cedula"));
             p.setNombres(rs.getString("nombres"));
             p.setApellidos(rs.getString("apellidos"));

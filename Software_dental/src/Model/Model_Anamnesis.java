@@ -52,13 +52,13 @@ public class Model_Anamnesis extends Anamnesis{
     }
  }
     //Listar pacientes
-public List<Persona> listarPersonas(String busc){
-    List<Persona> lista = new ArrayList<Persona>();
+public List<Paciente> listarPersonas(String busc){
+    List<Paciente> lista = new ArrayList<Paciente>();
     try {
        String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%' or upper(p.nombres) like upper('%"+busc+"%') or upper(p.apellidos) like upper('%"+busc+"%')";
        ResultSet rs=con.consulta(sql);
        while(rs.next()){
-        Persona p=new Persona();
+        Paciente p=new Paciente();
         p.setCedula(rs.getString("cedula"));
         p.setNombres(rs.getString("nombres"));
         p.setApellidos(rs.getString("apellidos"));
@@ -114,51 +114,15 @@ public String idMed(String ced){
         }
     return id;
  }
-     //extraer fecha nacimiento
-     public Date fecha_nac(String ced){
-     Date fecha =null;
-        String sql="Select fecha_nac from paciente where cedula_pac ='"+ced+"'";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try{    
-                ps = con.Con().prepareStatement(sql);
-                rs = ps.executeQuery();
-                while(rs.next()){
-                    fecha = rs.getDate(1);
-                }
-        }catch(SQLException ex){
-            fecha = null;
-            System.out.println(ex);
-        }
-        return fecha;
-     }
-     //
-      //extraer especialidad
-     public String espec_doc(String ced){
-     String espec ="";
-        String sql="Select especialidad from doctor where cedula_doc ='"+ced+"'";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try{    
-                ps = con.Con().prepareStatement(sql);
-                rs = ps.executeQuery();
-                while(rs.next()){
-                    espec = rs.getString(1);
-                }
-        }catch(SQLException ex){
-            espec = "";
-            System.out.println(ex);
-        }
-        return espec;
-     }
+     
      //Listar medico
-     public List<Persona> listarMedico(String ced){
-        List<Persona> lista = new ArrayList<Persona>();
+     public List<Doctor> listarMedico(String ced){
+        List<Doctor> lista = new ArrayList<Doctor>();
         try {
             String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' or upper(p.nombres) like upper('%"+ced+"%') or upper (p.apellidos) like upper('%"+ced+"%')";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
-            Persona p=new Persona();
+            Doctor p=new Doctor();
             p.setCedula(rs.getString("cedula"));
             p.setNombres(rs.getString("nombres"));
             p.setApellidos(rs.getString("apellidos"));

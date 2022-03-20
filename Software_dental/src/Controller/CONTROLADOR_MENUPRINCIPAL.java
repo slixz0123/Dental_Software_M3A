@@ -334,7 +334,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vista_InicioProceso.setVisible(true);
         vista_InicioProceso.setBorder(null);
       
-        
+         
        
         
         
