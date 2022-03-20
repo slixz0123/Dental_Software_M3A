@@ -12,9 +12,7 @@ import javax.swing.JPanel;
  */
 public class Vista_InicioProceso extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Vista_InicioProceso
-     */
+   
     public Vista_InicioProceso() {
         initComponents();
     }

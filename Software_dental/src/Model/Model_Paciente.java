@@ -230,9 +230,9 @@ public String NumSerie() {
         return con.accion(Sql);
   }
  
- public boolean borrarPersona()  {
+ public boolean borrarPersona( String Cedulaborrar)  {
         String Sql ;
-        Sql="DELETE FROM persona WHERE cedula ='" +getCedula()+ "'";
+        Sql="DELETE FROM paciente WHERE cedula_pac ='" +Cedulaborrar+ "'";
         return con.accion(Sql);
   }
  

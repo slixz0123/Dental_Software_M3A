@@ -9,6 +9,7 @@ import Model.Paciente;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -96,7 +97,7 @@ public class Controller_CrudPaciente {
          
           vista.getTxtbusqueda().addKeyListener(kl);
            setEventoMouseClicked(vista.getJtbPacientes());
-          
+          vista.getBtneliminar().addActionListener(l->eliminar());
         
           
           
@@ -433,7 +434,24 @@ public class Controller_CrudPaciente {
                 
     } 
       public void eliminar(){
-          String ced = vista.getTxtced().getText();
+           int seleccion = vista.getJtbPacientes().getSelectedRow();
+        int resp=0;
+        Component rootPane = null;
+        
+        if(seleccion != -1){
+            String ced = vista.getJtbPacientes().getValueAt(seleccion, 0).toString();
+            JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
+            if(resp==0){
+                if(modelo.borrarPersona(ced)){
+                    JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
+                    cargarPersonas();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
+                }
+                
+            }
+        }
+          
       }
       
   

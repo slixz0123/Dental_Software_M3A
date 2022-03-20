@@ -42,6 +42,7 @@ public class Controller_His_Cli {
         // cargardatosexternosconcedula();
         
        vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
+       
 
     }
     
@@ -55,6 +56,7 @@ public class Controller_His_Cli {
  
             List<Paciente> milistapaci =  model.cargartxtsobrantes(id2);
          for(int i = 0 ; i < milistapaci.size() ; i++){
+              
             vista.getTxtnombrespac().setText(milistapaci.get(i).getNombres());
             vista.getTxtapellidospac().setText(milistapaci.get(i).getApellidos());
             vista.getTxtgeneropac().setText(milistapaci.get(i).getGenero());
@@ -62,7 +64,8 @@ public class Controller_His_Cli {
             vista.getTxtdomicilio().setText(milistapaci.get(i).getDireccion());
             vista.getTxttelefono().setText(milistapaci.get(i).getTelefono()) ;
             vista.getJdtfechanac().setDate(milistapaci.get(i).getFecha_nac()) ;
-            calcu_edad();
+              calcu_edad();
+              
             }
         
         

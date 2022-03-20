@@ -40,6 +40,8 @@ public class Model_Especialista extends Doctor{
         super(id_doctor, id_usuario, especialidad, cargo, cedula_doc, cedula, nombres, apellidos, celular, telefono, direccion, correo, provincia, ciudad, genero, foto);
     }
 
+    
+
   
 
     public  List<Doctor> listarDoctores (){
@@ -298,5 +300,37 @@ public class Model_Especialista extends Doctor{
         }
 
    
+    }
+    
+    public ArrayList<Doctor> cargardocscombo(){
+         ArrayList<Doctor> milistaespc = new ArrayList<>();
+    String sql3;
+    
+        try {
+            sql3 = "select p.cedula , p.nombres, p.apellidos  from  persona p , doctor d  WHERE cedula= cedula_doc   " ;
+            ResultSet rs = cpg.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Doctor esp = new Doctor();
+                esp.setCedula_doc(rs.getString("cedula"));
+                esp.setNombres(rs.getString("nombres"));
+                esp.setApellidos(rs.getString("apellidos"));
+                
+               
+                
+                milistaespc.add(esp);
+                System.out.println(rs.getString("cedula"));
+                System.out.println(rs.getString("nombres"));
+                System.out.println(rs.getString("apellidos"));
+               
+                
+            }
+            return  milistaespc;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
     }
 }

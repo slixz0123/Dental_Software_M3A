@@ -59,6 +59,19 @@ public class Persona {
         this.cedula = cedula;
     }
 
+//    public Persona(String cedula, String nombres, String apellidos) {
+//        this.cedula = cedula;
+//        this.nombres = nombres;
+//        this.apellidos = apellidos;
+//    }
+
+    public Persona(String cedula, String nombres, String apellidos) {
+       this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+    }
+
+    
     
 
     public String getCedula() {
@@ -168,7 +181,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + '}';
+        return  cedula + " "+"-" + nombres +" "+ apellidos ;
     }
     
 

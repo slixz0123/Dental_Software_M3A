@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.Doctor;
 import Model.Model_AgendaCitas;
 import Model.Model_Anamnesis;
 import Model.Model_Cie10;
@@ -19,6 +20,7 @@ import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
+import Model.Persona;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -41,7 +43,10 @@ import java.awt.Frame;
 
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -74,6 +79,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
+        cargarcboxMedico();
 
     }
 
@@ -387,4 +393,22 @@ private void setEventoMouseClickProgreso(JLabel laba) {
           
     }*/
      
+        
+        private void cargarcboxMedico(){
+           
+           Model_Especialista modelesp = new Model_Especialista();
+            ArrayList<Doctor> listadocs  = modelesp.cargardocscombo();
+            vista.getJcbDocs().removeAllItems();
+            for (int i = 0; i < listadocs.size(); i++) {
+
+                vista.getJcbDocs().addItem(new Persona(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres() , listadocs.get(i).getApellidos()).toString() );
+          
+            }
+         } 
+    
+        
+        
+        
+       
+        
 }

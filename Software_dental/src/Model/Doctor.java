@@ -21,6 +21,8 @@ public class Doctor extends Persona {
     public Doctor() {
     }
 
+    
+
     public Doctor(String id_doctor, String id_usuario, String especialidad, String cargo, String cedula_doc) {
         this.id_doctor = id_doctor;
         this.id_usuario = id_usuario;
@@ -37,6 +39,14 @@ public class Doctor extends Persona {
         this.cargo = cargo;
         this.cedula_doc = cedula_doc;
     }
+
+    public Doctor(String cedula, String nombres, String apellidos) {
+        super(cedula, nombres, apellidos);
+    }
+
+    
+
+   
 
     
 
@@ -81,7 +91,11 @@ public class Doctor extends Persona {
         this.cedula_doc = cedula_doc;
     }
     
-    
+     
+    @Override
+    public String toString() {
+        return getCedula()+"-"+getNombres()+"= "+ getApellidos()+" ";
+    }
     
     
 }
