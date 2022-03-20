@@ -6,7 +6,9 @@
 package Controller;
 
 import Model.ConexionPg;
+import Model.Doctor;
 import Model.Model_Anamnesis;
+import Model.Paciente;
 import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
@@ -138,7 +140,7 @@ public class Controller_Anamnesis {
     DefaultTableModel tblModel;
     tblModel=(DefaultTableModel)vista.getTblpac().getModel();
     tblModel.setNumRows(0);
-    List<Persona> listap= modelo.listarPersonas(vista.getTxtbuscarpac().getText());
+    List<Paciente> listap= modelo.listarPersonas(vista.getTxtbuscarpac().getText());
     Holder<Integer> i = new Holder<>(0);
 
     listap.stream().forEach(pe->{
@@ -157,7 +159,7 @@ public class Controller_Anamnesis {
     DefaultTableModel tblModel;
     tblModel=(DefaultTableModel)vista.getTbldoctor().getModel();
     tblModel.setNumRows(0);
-    List<Persona> listamed= modelo.listarMedico(vista.getTxtbuscardoc().getText());
+    List<Doctor> listamed= modelo.listarMedico(vista.getTxtbuscardoc().getText());
     Holder<Integer> i = new Holder<>(0);
 
     listamed.stream().forEach(pe->{
@@ -166,7 +168,7 @@ public class Controller_Anamnesis {
     vista.getTbldoctor().setValueAt(pe.getNombres(), i.value, 1);
     vista.getTbldoctor().setValueAt(pe.getApellidos(), i.value, 2);
     vista.getTbldoctor().setValueAt(pe.getDireccion(), i.value, 3);
-    vista.getTbldoctor().setValueAt(pe.getCorreo(), i.value, 4);
+    vista.getTbldoctor().setValueAt(pe.getEspecialidad(), i.value, 4);
     vista.getTbldoctor().setValueAt(pe.getTelefono(), i.value, 5);
     i.value++;
     });
@@ -175,14 +177,14 @@ public class Controller_Anamnesis {
     private void seleccionardatosmed(java.awt.event.MouseEvent e){
         int filasel = vista.getTbldoctor().getSelectedRow();
         String cedmed=(String) vista.getTbldoctor().getValueAt(filasel, 0);
-        List<Persona> listaper=modelo.listarMedico(cedmed);
+        List<Doctor> listaper=modelo.listarMedico(cedmed);
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(cedmed)) {
            vista.getTxtcedulamed().setText(listaper.get(a).getCedula());
            vista.getTxtnombredoc().setText(listaper.get(a).getNombres());
            vista.getTxtapellidodoc().setText(listaper.get(a).getApellidos());
            vista.getTxttelefonomed().setText(listaper.get(a).getTelefono());
-           vista.getTxtespecialidad().setText(modelo.espec_doc(listaper.get(a).getCedula()));
+           vista.getTxtespecialidad().setText(listaper.get(a).getEspecialidad());
         }
       }
     }
@@ -195,7 +197,7 @@ public class Controller_Anamnesis {
     }
         //Cargar datos paciente buscar
     private void buscarpac(java.awt.event.KeyEvent e){
-    List<Persona> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
+    List<Paciente> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula_pac().getText())) {
            vista.getTxtcedula_pac().setText(listaper.get(a).getCedula());
@@ -211,13 +213,13 @@ public class Controller_Anamnesis {
            vista.getTxtcorreo().setText(listaper.get(a).getCorreo());
            vista.getTxtprovincia().setText(listaper.get(a).getProvincia());
            vista.getTxtciudad().setText(listaper.get(a).getCiudad());
-           vista.getDateFechanacEsp().setDate(modelo.fecha_nac(listaper.get(a).getCedula()));
+           vista.getDateFechanacEsp().setDate(listaper.get(a).getFecha_nac());
         }
       }
     }
 //cargarpaciente
     private void llenarpac(){
-    List<Persona> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
+    List<Paciente> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula_pac().getText())) {
            vista.getTxtcedula_pac().setText(listaper.get(a).getCedula());
@@ -233,7 +235,7 @@ public class Controller_Anamnesis {
            vista.getTxtcorreo().setText(listaper.get(a).getCorreo());
            vista.getTxtprovincia().setText(listaper.get(a).getProvincia());
            vista.getTxtciudad().setText(listaper.get(a).getCiudad());
-           vista.getDateFechanacEsp().setDate(modelo.fecha_nac(listaper.get(a).getCedula()));
+           vista.getDateFechanacEsp().setDate(listaper.get(a).getFecha_nac());
         }
       }}
     
