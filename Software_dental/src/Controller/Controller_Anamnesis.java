@@ -10,13 +10,15 @@ import Model.Model_Anamnesis;
 import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
 
 /**
  *
@@ -34,20 +36,19 @@ public class Controller_Anamnesis {
       iniciarControl();
     }
     public void iniciarControl(){
-       // vista.getBtnbuscarpac().addActionListener(l->buscarpac());
+
         vista.getBtnguardar().addActionListener(l->crearEditarAnamnesis());
         vista.getBtnimprimir().addActionListener(l->imprimir());
         vista.getBtnnuevo().addActionListener(l->limpiar());
         vista.getBtnbuscardoc().addActionListener(l->abrir_dialog(1));
         vista.getBtnbuscarpac().addActionListener(l->abrir_dialog(2));
         vista.getDialogbuscar().setLocationRelativeTo(null);
-        modelo.cargar_doctorestabla(vista.getTbldoctor(), vista.getTxtbuscardoc().getText());
-        modelo.cargar_pacientestabla(vista.getTblpac(), vista.getTxtbuscarpac().getText());
         setEventMouseClicked(vista.getTbldoctor());
+        cargarPaciente();
+        cargarMedico();
+        eventos();
         setEventMouseClicked2(vista.getTblpac());
         cargpaci(vista.getTxtcedula_pac());
-        vista.getPaneldialog().setBackground(new Color(90,166,166));
-        
     }
     
     
@@ -56,7 +57,7 @@ public class Controller_Anamnesis {
     tbl.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e){
-     seleccionardatos(e);
+     seleccionardatosmed(e);
     }
     });
     }  
@@ -70,7 +71,39 @@ public class Controller_Anamnesis {
     });
     }
 
-//
+//Eventos busqueda
+    private void eventos(){
+    
+    KeyListener buscarpac=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {}
+
+        @Override
+        public void keyPressed(KeyEvent e) {}
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            cargarPaciente();
+        }
+    };
+   
+    
+   
+    KeyListener buscarmed=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {}
+
+        @Override
+        public void keyPressed(KeyEvent e) {}
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+         cargarMedico();
+        }
+    };
+    vista.getTxtbuscarpac().addKeyListener(buscarpac);
+    vista.getTxtbuscardoc().addKeyListener(buscarmed);
+    }
     private void cargpaci(JTextField ced){
          ced.addKeyListener(new java.awt.event.KeyListener() {
              @Override
@@ -100,23 +133,65 @@ public class Controller_Anamnesis {
         vista.getDialogpac().setSize(550, 350);
         }
      }
-    
-    
+    //
+    private void cargarPaciente(){
+    DefaultTableModel tblModel;
+    tblModel=(DefaultTableModel)vista.getTblpac().getModel();
+    tblModel.setNumRows(0);
+    List<Persona> listap= modelo.listarPersonas(vista.getTxtbuscarpac().getText());
+    Holder<Integer> i = new Holder<>(0);
+
+    listap.stream().forEach(pe->{
+    tblModel.addRow(new Object[6]);   
+    vista.getTblpac().setValueAt(pe.getCedula(), i.value, 0);//Fila 1 para que inicie despues de los titulos
+    vista.getTblpac().setValueAt(pe.getNombres(), i.value, 1);
+    vista.getTblpac().setValueAt(pe.getApellidos(), i.value, 2);
+    vista.getTblpac().setValueAt(pe.getDireccion(), i.value, 3);
+    vista.getTblpac().setValueAt(pe.getCorreo(), i.value, 4);
+    vista.getTblpac().setValueAt(pe.getTelefono(), i.value, 5);
+    i.value++;
+    });
+    }
+    //
+    private void cargarMedico(){
+    DefaultTableModel tblModel;
+    tblModel=(DefaultTableModel)vista.getTbldoctor().getModel();
+    tblModel.setNumRows(0);
+    List<Persona> listamed= modelo.listarMedico(vista.getTxtbuscardoc().getText());
+    Holder<Integer> i = new Holder<>(0);
+
+    listamed.stream().forEach(pe->{
+    tblModel.addRow(new Object[6]);   
+    vista.getTbldoctor().setValueAt(pe.getCedula(), i.value, 0);//Fila 1 para que inicie despues de los titulos
+    vista.getTbldoctor().setValueAt(pe.getNombres(), i.value, 1);
+    vista.getTbldoctor().setValueAt(pe.getApellidos(), i.value, 2);
+    vista.getTbldoctor().setValueAt(pe.getDireccion(), i.value, 3);
+    vista.getTbldoctor().setValueAt(pe.getCorreo(), i.value, 4);
+    vista.getTbldoctor().setValueAt(pe.getTelefono(), i.value, 5);
+    i.value++;
+    });
+    }
      //evento tabla
-    private void seleccionardatos(java.awt.event.MouseEvent e){
+    private void seleccionardatosmed(java.awt.event.MouseEvent e){
         int filasel = vista.getTbldoctor().getSelectedRow();
-        vista.getTxtcedulamed().setText((String) vista.getTbldoctor().getValueAt(filasel, 0));
-        vista.getTxtnombredoc().setText((String) vista.getTbldoctor().getValueAt(filasel, 1));
-        vista.getTxtapellidodoc().setText((String) vista.getTbldoctor().getValueAt(filasel, 2));
-        vista.getTxtespecialidad().setText((String) vista.getTbldoctor().getValueAt(filasel, 3));
-        vista.getTxttelefonomed().setText((String) vista.getTbldoctor().getValueAt(filasel, 4));
+        String cedmed=(String) vista.getTbldoctor().getValueAt(filasel, 0);
+        List<Persona> listaper=modelo.listarMedico(cedmed);
+     for (int a = 0; a < listaper.size(); a++) {
+        if (listaper.get(a).getCedula().equals(cedmed)) {
+           vista.getTxtcedulamed().setText(listaper.get(a).getCedula());
+           vista.getTxtnombredoc().setText(listaper.get(a).getNombres());
+           vista.getTxtapellidodoc().setText(listaper.get(a).getApellidos());
+           vista.getTxttelefonomed().setText(listaper.get(a).getTelefono());
+           vista.getTxtespecialidad().setText(modelo.espec_doc(listaper.get(a).getCedula()));
+        }
+      }
     }
     
    //
     private void selec_pac_datos(java.awt.event.MouseEvent e){
         int filasel = vista.getTblpac().getSelectedRow();
         vista.getTxtcedula_pac().setText((String) vista.getTblpac().getValueAt(filasel, 0));
-        cargarpac();
+        llenarpac();
     }
         //Cargar datos paciente buscar
     private void buscarpac(java.awt.event.KeyEvent e){
@@ -141,7 +216,7 @@ public class Controller_Anamnesis {
       }
     }
 //cargarpaciente
-    private void cargarpac(){
+    private void llenarpac(){
     List<Persona> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula_pac().getText())) {
@@ -243,7 +318,8 @@ public class Controller_Anamnesis {
         }
         return id;
     }
-
+//
+   
     private String id_an_act() {
         String id=modelo.id_act_anam();
         return id;

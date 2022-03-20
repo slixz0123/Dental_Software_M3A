@@ -290,7 +290,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista.getDkpPrincipal().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-          Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico (modHisto, vistaHistorialMedico);
+          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
     }
     private void CrudNuevaE(java.awt.event.MouseEvent evt) {
         Model_NuevaEndodoncia modelnuevae = new Model_NuevaEndodoncia();
@@ -343,7 +343,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista_InicioProceso.getPnHistorial().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-        Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico (modHisto, vistaHistorialMedico);
+        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
         
         // listado
          //listado de pacientes
