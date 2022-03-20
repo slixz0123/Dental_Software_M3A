@@ -114,17 +114,10 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Especialidad", "Telefono"
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
         ));
         jScrollPane3.setViewportView(tbldoctor);
-        if (tbldoctor.getColumnModel().getColumnCount() > 0) {
-            tbldoctor.getColumnModel().getColumn(0).setHeaderValue("Cedula");
-            tbldoctor.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-            tbldoctor.getColumnModel().getColumn(2).setHeaderValue("Apellido");
-            tbldoctor.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
-            tbldoctor.getColumnModel().getColumn(4).setHeaderValue("Telefono");
-        }
 
         txtbuscardoc.setToolTipText("Ingrese la cedula o el nombre para buscar");
 
@@ -183,7 +176,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
         ));
         jScrollPane4.setViewportView(tblpac);

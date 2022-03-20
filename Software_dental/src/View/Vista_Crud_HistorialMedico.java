@@ -4,6 +4,13 @@
  */
 package View;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JTable;
+import jtextfieldround.JTextFieldRound;
+import org.edisoncor.gui.button.ButtonRound;
+
 /**
  *
  * @author slix0
@@ -27,12 +34,18 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jSeparator1 = new javax.swing.JSeparator();
-        jDialog1 = new javax.swing.JDialog();
+        dialog_pac = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        txtbuscar = new jtextfieldround.JTextFieldRound();
+        txtbuscarpac = new jtextfieldround.JTextFieldRound();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblpacientes = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblpaciente = new javax.swing.JTable();
+        dialog_doc = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        txtbuscardoc = new jtextfieldround.JTextFieldRound();
+        jLabel44 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbldoctor = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -56,7 +69,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtprovinciapac = new jtextfieldround.JTextFieldRound();
         txtciudadpac = new jtextfieldround.JTextFieldRound();
         txtapellidospac = new jtextfieldround.JTextFieldRound();
-        btnbuscar = new javax.swing.JButton();
+        btnbuscarpac = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
@@ -84,7 +97,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtvih = new jtextfieldround.JTextFieldRound();
         txtoxi = new jtextfieldround.JTextFieldRound();
         txtmedicamento = new jtextfieldround.JTextFieldRound();
-        txtNombresEsp25 = new jtextfieldround.JTextFieldRound();
+        txtfumbebe = new jtextfieldround.JTextFieldRound();
         txtproblemascar = new jtextfieldround.JTextFieldRound();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -111,73 +124,139 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtenfermedad = new jtextfieldround.JTextFieldRound();
-        txtcedulamed = new jtextfieldround.JTextFieldRound();
-        txtNombresmed = new jtextfieldround.JTextFieldRound();
+        txtapellidosmed = new jtextfieldround.JTextFieldRound();
         btnimprimir = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         calendariobuscar = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablahistorial = new javax.swing.JTable();
+        btnlimpiar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        txtcedulamed = new jtextfieldround.JTextFieldRound();
+        txtnombresmed = new jtextfieldround.JTextFieldRound();
+        btnbuscarmed = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(166, 104, 216));
 
-        txtbuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtbuscarpac.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Buscar:");
 
-        tblpacientes.setModel(new javax.swing.table.DefaultTableModel(
+        tblpaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
         ));
-        jScrollPane2.setViewportView(tblpacientes);
+        jScrollPane4.setViewportView(tblpaciente);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(118, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(26, 26, 26)
-                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(45, 45, 45)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(24, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dialog_pacLayout = new javax.swing.GroupLayout(dialog_pac.getContentPane());
+        dialog_pac.getContentPane().setLayout(dialog_pacLayout);
+        dialog_pacLayout.setHorizontalGroup(
+            dialog_pacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        dialog_pacLayout.setVerticalGroup(
+            dialog_pacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(90, 166, 166));
+
+        txtbuscardoc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        jLabel44.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("Buscar:");
+
+        tbldoctor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
+            }
+        ));
+        jScrollPane5.setViewportView(tbldoctor);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(118, Short.MAX_VALUE)
+                .addComponent(jLabel44)
+                .addGap(26, 26, 26)
+                .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel44))
+                .addContainerGap(270, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(45, 45, 45)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(24, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout dialog_docLayout = new javax.swing.GroupLayout(dialog_doc.getContentPane());
+        dialog_doc.getContentPane().setLayout(dialog_docLayout);
+        dialog_docLayout.setHorizontalGroup(
+            dialog_docLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialog_docLayout.setVerticalGroup(
+            dialog_docLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -241,19 +320,37 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("FECHA DE NACIMIENTO:");
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        txtgeneropac.setEditable(false);
         panelNice1.add(txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
+
+        calendario.setEnabled(false);
         panelNice1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
         panelNice1.add(txtcedulapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
+
+        txtnombrespac.setEditable(false);
         panelNice1.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
+
+        txtcorreopac.setEditable(false);
         panelNice1.add(txtcorreopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 21));
+
+        txttelefonopac.setEditable(false);
         panelNice1.add(txttelefonopac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 220, 21));
+
+        txtdireccionpac.setEditable(false);
         panelNice1.add(txtdireccionpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 220, 21));
+
+        txtprovinciapac.setEditable(false);
         panelNice1.add(txtprovinciapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 220, 21));
+
+        txtciudadpac.setEditable(false);
         panelNice1.add(txtciudadpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 220, 21));
+
+        txtapellidospac.setEditable(false);
         panelNice1.add(txtapellidospac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 21));
 
-        btnbuscar.setText("Buscar");
-        panelNice1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        btnbuscarpac.setText("Buscar");
+        panelNice1.add(btnbuscarpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
@@ -261,7 +358,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("cerrar");
+        btnAnteriorEsp.setText("Cerrar");
         panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
@@ -344,7 +441,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(txtvih, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 200, 21));
         panelNice2.add(txtoxi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 110, 30));
         panelNice2.add(txtmedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 200, 21));
-        panelNice2.add(txtNombresEsp25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 200, 21));
+        panelNice2.add(txtfumbebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 200, 21));
         panelNice2.add(txtproblemascar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, 21));
 
         jLabel33.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -373,11 +470,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel36.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("Frecuencia ");
-        panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, -1, -1));
+        panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Respiratoria X MIN");
+        jLabel38.setText("Respiratoria x min");
         panelNice2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, -1, -1));
 
         jLabel40.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -422,7 +519,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("MEDICO TRATANTE:");
-        panelNice2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        panelNice2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
@@ -432,39 +529,72 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CEDULA:");
-        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
         panelNice2.add(txtenfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 200, 21));
-        panelNice2.add(txtcedulamed, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 170, 21));
-        panelNice2.add(txtNombresmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 160, 21));
+
+        txtapellidosmed.setEditable(false);
+        panelNice2.add(txtapellidosmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 170, 21));
 
         btnimprimir.setText("Imprimir");
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 130, -1));
 
         btnguardar.setText("Guardar");
-        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 120, -1));
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 120, -1));
 
         jLabel47.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel47.setText("BUSCAR");
-        panelNice2.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jLabel47.setText("BUSCAR:");
+        panelNice2.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         calendariobuscar.setToolTipText("Seleccione una fecha para buscar\nlos registros guardados");
-        panelNice2.add(calendariobuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 170, -1));
+        panelNice2.add(calendariobuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, -1));
 
         tablahistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "#", "Fecha Atencion", "Hora"
             }
-        ));
-        jScrollPane1.setViewportView(tablahistorial);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 310, 330));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablahistorial.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane1.setViewportView(tablahistorial);
+        if (tablahistorial.getColumnModel().getColumnCount() > 0) {
+            tablahistorial.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tablahistorial.getColumnModel().getColumn(1).setPreferredWidth(150);
+        }
+
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 270, 300));
+
+        btnlimpiar.setText("Nuevo");
+        panelNice2.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, 120, -1));
+
+        jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("NOMBRES:");
+        panelNice2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        jLabel43.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("APELLIDOS:");
+        panelNice2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+
+        txtcedulamed.setEditable(false);
+        panelNice2.add(txtcedulamed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 170, 21));
+
+        txtnombresmed.setEditable(false);
+        panelNice2.add(txtnombresmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 21));
+
+        btnbuscarmed.setText("Buscar");
+        panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
 
@@ -478,22 +608,413 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JTextFieldRound getTxtfumbebe() {
+        return txtfumbebe;
+    }
+
+    public void setTxtfumbebe(JTextFieldRound txtfumbebe) {
+        this.txtfumbebe = txtfumbebe;
+    }
+
+
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
+    public JTextFieldRound getTxtoxi() {
+        return txtoxi;
+    }
+
     /**
      * @param args the command line arguments
      */
+    public void setTxtoxi(JTextFieldRound txtoxi) {
+        this.txtoxi = txtoxi;
+    }
+
+    public ButtonRound getBtnAnteriorEsp() {
+        return btnAnteriorEsp;
+    }
+
+    public void setBtnAnteriorEsp(ButtonRound btnAnteriorEsp) {
+        this.btnAnteriorEsp = btnAnteriorEsp;
+    }
+
+    public JButton getBtnbuscarmed() {
+        return btnbuscarmed;
+    }
+
+    public void setBtnbuscarmed(JButton btnbuscarmed) {
+        this.btnbuscarmed = btnbuscarmed;
+    }
+
+    public JButton getBtnbuscarpac() {
+        return btnbuscarpac;
+    }
+
+    public void setBtnbuscarpac(JButton btnbuscarpac) {
+        this.btnbuscarpac = btnbuscarpac;
+    }
+
+    public JButton getBtnguardar() {
+        return btnguardar;
+    }
+
+    public void setBtnguardar(JButton btnguardar) {
+        this.btnguardar = btnguardar;
+    }
+
+    public JButton getBtnlimpiar() {
+        return btnlimpiar;
+    }
+
+    public void setBtnlimpiar(JButton btnlimpiar) {
+        this.btnlimpiar = btnlimpiar;
+    }
+
+    public JDateChooser getCalendario() {
+        return calendario;
+    }
+
+    public void setCalendario(JDateChooser calendario) {
+        this.calendario = calendario;
+    }
+
+    public JDateChooser getCalendariobuscar() {
+        return calendariobuscar;
+    }
+
+    public void setCalendariobuscar(JDateChooser calendariobuscar) {
+        this.calendariobuscar = calendariobuscar;
+    }
+
+    public JDialog getDialog_doc() {
+        return dialog_doc;
+    }
+
+    public void setDialog_doc(JDialog dialog_doc) {
+        this.dialog_doc = dialog_doc;
+    }
+
+    public JDialog getDialog_pac() {
+        return dialog_pac;
+    }
+
+    public void setDialog_pac(JDialog dialog_pac) {
+        this.dialog_pac = dialog_pac;
+    }
+
+    public JTable getTablahistorial() {
+        return tablahistorial;
+    }
+
+    public void setTablahistorial(JTable tablahistorial) {
+        this.tablahistorial = tablahistorial;
+    }
+
+    public JTable getTbldoctor() {
+        return tbldoctor;
+    }
+
+    public void setTbldoctor(JTable tbldoctor) {
+        this.tbldoctor = tbldoctor;
+    }
+
+    public JTable getTblpaciente() {
+        return tblpaciente;
+    }
+
+    public void setTblpaciente(JTable tblpaciente) {
+        this.tblpaciente = tblpaciente;
+    }
+
+    public JTextFieldRound getTxtalergia() {
+        return txtalergia;
+    }
+
+    public void setTxtalergia(JTextFieldRound txtalergia) {
+        this.txtalergia = txtalergia;
+    }
+
+    public JTextFieldRound getTxtaltend() {
+        return txtaltend;
+    }
+
+    public void setTxtaltend(JTextFieldRound txtaltend) {
+        this.txtaltend = txtaltend;
+    }
+
+    public JTextFieldRound getTxtantecedentes() {
+        return txtantecedentes;
+    }
+
+    public void setTxtantecedentes(JTextFieldRound txtantecedentes) {
+        this.txtantecedentes = txtantecedentes;
+    }
+
+    public JTextFieldRound getTxtapellidosmed() {
+        return txtapellidosmed;
+    }
+
+    public void setTxtapellidosmed(JTextFieldRound txtapellidosmed) {
+        this.txtapellidosmed = txtapellidosmed;
+    }
+
+    public JTextFieldRound getTxtapellidospac() {
+        return txtapellidospac;
+    }
+
+    public void setTxtapellidospac(JTextFieldRound txtapellidospac) {
+        this.txtapellidospac = txtapellidospac;
+    }
+
+    public JTextFieldRound getTxtbuscardoc() {
+        return txtbuscardoc;
+    }
+
+    public void setTxtbuscardoc(JTextFieldRound txtbuscardoc) {
+        this.txtbuscardoc = txtbuscardoc;
+    }
+
+    public JTextFieldRound getTxtbuscarpac() {
+        return txtbuscarpac;
+    }
+
+    public void setTxtbuscarpac(JTextFieldRound txtbuscarpac) {
+        this.txtbuscarpac = txtbuscarpac;
+    }
+
+    public JTextFieldRound getTxtcedulamed() {
+        return txtcedulamed;
+    }
+
+    public void setTxtcedulamed(JTextFieldRound txtcedulamed) {
+        this.txtcedulamed = txtcedulamed;
+    }
+
+    public JTextFieldRound getTxtcedulapac() {
+        return txtcedulapac;
+    }
+
+    public void setTxtcedulapac(JTextFieldRound txtcedulapac) {
+        this.txtcedulapac = txtcedulapac;
+    }
+
+    public JTextFieldRound getTxtciudadpac() {
+        return txtciudadpac;
+    }
+
+    public void setTxtciudadpac(JTextFieldRound txtciudadpac) {
+        this.txtciudadpac = txtciudadpac;
+    }
+
+    public JTextFieldRound getTxtcorreopac() {
+        return txtcorreopac;
+    }
+
+    public void setTxtcorreopac(JTextFieldRound txtcorreopac) {
+        this.txtcorreopac = txtcorreopac;
+    }
+
+    public JTextFieldRound getTxtdiabetes() {
+        return txtdiabetes;
+    }
+
+    public void setTxtdiabetes(JTextFieldRound txtdiabetes) {
+        this.txtdiabetes = txtdiabetes;
+    }
+
+    public JTextFieldRound getTxtdireccionpac() {
+        return txtdireccionpac;
+    }
+
+    public void setTxtdireccionpac(JTextFieldRound txtdireccionpac) {
+        this.txtdireccionpac = txtdireccionpac;
+    }
+
+    public JTextFieldRound getTxtdolorescab() {
+        return txtdolorescab;
+    }
+
+    public void setTxtdolorescab(JTextFieldRound txtdolorescab) {
+        this.txtdolorescab = txtdolorescab;
+    }
+
+    public JTextFieldRound getTxtenfermedad() {
+        return txtenfermedad;
+    }
+
+    public void setTxtenfermedad(JTextFieldRound txtenfermedad) {
+        this.txtenfermedad = txtenfermedad;
+    }
+
+    public JTextFieldRound getTxtepilepsia() {
+        return txtepilepsia;
+    }
+
+    public void setTxtepilepsia(JTextFieldRound txtepilepsia) {
+        this.txtepilepsia = txtepilepsia;
+    }
+
+    public JTextFieldRound getTxtfreccar() {
+        return txtfreccar;
+    }
+
+    public void setTxtfreccar(JTextFieldRound txtfreccar) {
+        this.txtfreccar = txtfreccar;
+    }
+
+    public JTextFieldRound getTxtfrecres() {
+        return txtfrecres;
+    }
+
+    public void setTxtfrecres(JTextFieldRound txtfrecres) {
+        this.txtfrecres = txtfrecres;
+    }
+
+    public JTextFieldRound getTxtgeneropac() {
+        return txtgeneropac;
+    }
+
+    public void setTxtgeneropac(JTextFieldRound txtgeneropac) {
+        this.txtgeneropac = txtgeneropac;
+    }
+
+    public JTextFieldRound getTxthepatitis() {
+        return txthepatitis;
+    }
+
+    public void setTxthepatitis(JTextFieldRound txthepatitis) {
+        this.txthepatitis = txthepatitis;
+    }
+
+    public JTextFieldRound getTxtmedicamento() {
+        return txtmedicamento;
+    }
+
+    public void setTxtmedicamento(JTextFieldRound txtmedicamento) {
+        this.txtmedicamento = txtmedicamento;
+    }
+
+    public JTextFieldRound getTxtnombresmed() {
+        return txtnombresmed;
+    }
+
+    public void setTxtnombresmed(JTextFieldRound txtnombresmed) {
+        this.txtnombresmed = txtnombresmed;
+    }
+
+    public JTextFieldRound getTxtnombrespac() {
+        return txtnombrespac;
+    }
+
+    public void setTxtnombrespac(JTextFieldRound txtnombrespac) {
+        this.txtnombrespac = txtnombrespac;
+    }
+
+    public JTextFieldRound getTxtpresart() {
+        return txtpresart;
+    }
+
+    public void setTxtpresart(JTextFieldRound txtpresart) {
+        this.txtpresart = txtpresart;
+    }
+
+    public JTextFieldRound getTxtpresion() {
+        return txtpresion;
+    }
+
+    public void setTxtpresion(JTextFieldRound txtpresion) {
+        this.txtpresion = txtpresion;
+    }
+
+    public JTextFieldRound getTxtprobcoag() {
+        return txtprobcoag;
+    }
+
+    public void setTxtprobcoag(JTextFieldRound txtprobcoag) {
+        this.txtprobcoag = txtprobcoag;
+    }
+
+    public JTextFieldRound getTxtproblemascar() {
+        return txtproblemascar;
+    }
+
+    public void setTxtproblemascar(JTextFieldRound txtproblemascar) {
+        this.txtproblemascar = txtproblemascar;
+    }
+
+    public JTextFieldRound getTxtprovinciapac() {
+        return txtprovinciapac;
+    }
+
+    public void setTxtprovinciapac(JTextFieldRound txtprovinciapac) {
+        this.txtprovinciapac = txtprovinciapac;
+    }
+
+    public JTextFieldRound getTxttelefonopac() {
+        return txttelefonopac;
+    }
+
+    public void setTxttelefonopac(JTextFieldRound txttelefonopac) {
+        this.txttelefonopac = txttelefonopac;
+    }
+
+    public JTextFieldRound getTxttemp() {
+        return txttemp;
+    }
+
+    public void setTxttemp(JTextFieldRound txttemp) {
+        this.txttemp = txttemp;
+    }
+
+    public JTextFieldRound getTxttratamiento() {
+        return txttratamiento;
+    }
+
+    public void setTxttratamiento(JTextFieldRound txttratamiento) {
+        this.txttratamiento = txttratamiento;
+    }
+
+    public JTextFieldRound getTxtulcera() {
+        return txtulcera;
+    }
+
+    public void setTxtulcera(JTextFieldRound txtulcera) {
+        this.txtulcera = txtulcera;
+    }
+
+    public JTextFieldRound getTxtvih() {
+        return txtvih;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setTxtvih(JTextFieldRound txtvih) {
+        this.txtvih = txtvih;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
-    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnbuscarmed;
+    private javax.swing.JButton btnbuscarpac;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimprimir;
+    private javax.swing.JButton btnlimpiar;
     private com.toedter.calendar.JDateChooser calendario;
     private com.toedter.calendar.JDateChooser calendariobuscar;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog dialog_doc;
+    private javax.swing.JDialog dialog_pac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -527,6 +1048,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -536,22 +1059,25 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTable tablahistorial;
-    private javax.swing.JTable tblpacientes;
-    private jtextfieldround.JTextFieldRound txtNombresEsp25;
-    private jtextfieldround.JTextFieldRound txtNombresmed;
+    private javax.swing.JTable tbldoctor;
+    private javax.swing.JTable tblpaciente;
     private jtextfieldround.JTextFieldRound txtalergia;
     private jtextfieldround.JTextFieldRound txtaltend;
     private jtextfieldround.JTextFieldRound txtantecedentes;
+    private jtextfieldround.JTextFieldRound txtapellidosmed;
     private jtextfieldround.JTextFieldRound txtapellidospac;
-    private jtextfieldround.JTextFieldRound txtbuscar;
+    private jtextfieldround.JTextFieldRound txtbuscardoc;
+    private jtextfieldround.JTextFieldRound txtbuscarpac;
     private jtextfieldround.JTextFieldRound txtcedulamed;
     private jtextfieldround.JTextFieldRound txtcedulapac;
     private jtextfieldround.JTextFieldRound txtciudadpac;
@@ -563,9 +1089,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtepilepsia;
     private jtextfieldround.JTextFieldRound txtfreccar;
     private jtextfieldround.JTextFieldRound txtfrecres;
+    private jtextfieldround.JTextFieldRound txtfumbebe;
     private jtextfieldround.JTextFieldRound txtgeneropac;
     private jtextfieldround.JTextFieldRound txthepatitis;
     private jtextfieldround.JTextFieldRound txtmedicamento;
+    private jtextfieldround.JTextFieldRound txtnombresmed;
     private jtextfieldround.JTextFieldRound txtnombrespac;
     private jtextfieldround.JTextFieldRound txtoxi;
     private jtextfieldround.JTextFieldRound txtpresart;
