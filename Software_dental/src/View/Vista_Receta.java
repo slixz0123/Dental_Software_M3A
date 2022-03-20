@@ -41,18 +41,18 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialogbuscar = new javax.swing.JDialog();
+        dialogFarmaco = new javax.swing.JDialog();
         paneldialog = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbldoctor = new javax.swing.JTable();
-        txtbuscardoc = new javax.swing.JTextField();
+        tblcie10 = new javax.swing.JTable();
+        txtbuscarfar = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        dialogpac = new javax.swing.JDialog();
+        dialogCIE = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
-        txtbuscarpac = new javax.swing.JTextField();
+        txtbuscarcie10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblpac = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tbldoctor1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -107,24 +107,24 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         paneldialog.setBackground(new java.awt.Color(90, 166, 166));
 
-        tbldoctor.setModel(new javax.swing.table.DefaultTableModel(
+        tblcie10.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Especialidad", "Telefono"
+                "ID", "NOMBRE", "MILIGRAMOS"
             }
         ));
-        jScrollPane3.setViewportView(tbldoctor);
-        if (tbldoctor.getColumnModel().getColumnCount() > 0) {
-            tbldoctor.getColumnModel().getColumn(0).setHeaderValue("Cedula");
-            tbldoctor.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-            tbldoctor.getColumnModel().getColumn(2).setHeaderValue("Apellido");
-            tbldoctor.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
-            tbldoctor.getColumnModel().getColumn(4).setHeaderValue("Telefono");
+        jScrollPane3.setViewportView(tblcie10);
+        if (tblcie10.getColumnModel().getColumnCount() > 0) {
+            tblcie10.getColumnModel().getColumn(0).setHeaderValue("Cedula");
+            tblcie10.getColumnModel().getColumn(1).setHeaderValue("Nombre");
+            tblcie10.getColumnModel().getColumn(2).setHeaderValue("Apellido");
+            tblcie10.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
+            tblcie10.getColumnModel().getColumn(4).setHeaderValue("Telefono");
         }
 
-        txtbuscardoc.setToolTipText("Ingrese la cedula o el nombre para buscar");
+        txtbuscarfar.setToolTipText("Ingrese la cedula o el nombre para buscar");
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,93 +135,104 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         paneldialogLayout.setHorizontalGroup(
             paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneldialogLayout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
-            .addGroup(paneldialogLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneldialogLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneldialogLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         paneldialogLayout.setVerticalGroup(
             paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout dialogbuscarLayout = new javax.swing.GroupLayout(dialogbuscar.getContentPane());
-        dialogbuscar.getContentPane().setLayout(dialogbuscarLayout);
-        dialogbuscarLayout.setHorizontalGroup(
-            dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dialogFarmacoLayout = new javax.swing.GroupLayout(dialogFarmaco.getContentPane());
+        dialogFarmaco.getContentPane().setLayout(dialogFarmacoLayout);
+        dialogFarmacoLayout.setHorizontalGroup(
+            dialogFarmacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        dialogbuscarLayout.setVerticalGroup(
-            dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        dialogFarmacoLayout.setVerticalGroup(
+            dialogFarmacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(166, 104, 216));
 
-        txtbuscarpac.setToolTipText("Ingrese la cedula o el nombre para buscar");
+        txtbuscarcie10.setToolTipText("Ingrese la cedula o el nombre para buscar");
 
         jLabel13.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Buscar:");
 
-        tblpac.setModel(new javax.swing.table.DefaultTableModel(
+        tbldoctor1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null}
             },
             new String [] {
-
+                "ID", "NOMBRE", "PATOLOGIA"
             }
         ));
-        jScrollPane4.setViewportView(tblpac);
+        jScrollPane7.setViewportView(tbldoctor1);
+        if (tbldoctor1.getColumnModel().getColumnCount() > 0) {
+            tbldoctor1.getColumnModel().getColumn(0).setHeaderValue("Cedula");
+            tbldoctor1.getColumnModel().getColumn(1).setHeaderValue("Nombre");
+            tbldoctor1.getColumnModel().getColumn(2).setHeaderValue("Apellido");
+            tbldoctor1.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
+            tbldoctor1.getColumnModel().getColumn(4).setHeaderValue("Telefono");
+        }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(32, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(45, 45, 45)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(45, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout dialogpacLayout = new javax.swing.GroupLayout(dialogpac.getContentPane());
-        dialogpac.getContentPane().setLayout(dialogpacLayout);
-        dialogpacLayout.setHorizontalGroup(
-            dialogpacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dialogCIELayout = new javax.swing.GroupLayout(dialogCIE.getContentPane());
+        dialogCIE.getContentPane().setLayout(dialogCIELayout);
+        dialogCIELayout.setHorizontalGroup(
+            dialogCIELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        dialogpacLayout.setVerticalGroup(
-            dialogpacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        dialogCIELayout.setVerticalGroup(
+            dialogCIELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -239,6 +250,11 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         btncerrar.setBackground(new java.awt.Color(166, 104, 216));
         btncerrar.setText("Cerrar");
+        btncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncerrarActionPerformed(evt);
+            }
+        });
         panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         txtIndicaciones.setColumns(20);
@@ -308,7 +324,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("ICE-10:");
+        jLabel6.setText("CIE-10:");
         panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 70, 20));
 
         btnBuscarcie.setText("Buscar");
@@ -451,6 +467,10 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncerrarActionPerformed
+
     public JButton getBtnBuscarcie() {
         return btnBuscarcie;
     }
@@ -492,19 +512,19 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     }
 
     public JDialog getDialogbuscar() {
-        return dialogbuscar;
+        return dialogFarmaco;
     }
 
     public void setDialogbuscar(JDialog dialogbuscar) {
-        this.dialogbuscar = dialogbuscar;
+        this.dialogFarmaco = dialogbuscar;
     }
 
     public JDialog getDialogpac() {
-        return dialogpac;
+        return dialogCIE;
     }
 
     public void setDialogpac(JDialog dialogpac) {
-        this.dialogpac = dialogpac;
+        this.dialogCIE = dialogpac;
     }
 
     public JDateChooser getJdcFechareceta() {
@@ -564,19 +584,11 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     }
 
     public JTable getTbldoctor() {
-        return tbldoctor;
+        return tblcie10;
     }
 
     public void setTbldoctor(JTable tbldoctor) {
-        this.tbldoctor = tbldoctor;
-    }
-
-    public JTable getTblpac() {
-        return tblpac;
-    }
-
-    public void setTblpac(JTable tblpac) {
-        this.tblpac = tblpac;
+        this.tblcie10 = tbldoctor;
     }
 
     public JButton getTxtBuscarFarmaco() {
@@ -652,19 +664,19 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxtbuscardoc() {
-        return txtbuscardoc;
+        return txtbuscarfar;
     }
 
     public void setTxtbuscardoc(JTextField txtbuscardoc) {
-        this.txtbuscardoc = txtbuscardoc;
+        this.txtbuscarfar = txtbuscardoc;
     }
 
     public JTextField getTxtbuscarpac() {
-        return txtbuscarpac;
+        return txtbuscarcie10;
     }
 
     public void setTxtbuscarpac(JTextField txtbuscarpac) {
-        this.txtbuscarpac = txtbuscarpac;
+        this.txtbuscarcie10 = txtbuscarpac;
     }
     
     
@@ -676,8 +688,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditarrec;
     private javax.swing.JButton btnEliminarrec;
     private org.edisoncor.gui.button.ButtonRound btncerrar;
-    private javax.swing.JDialog dialogbuscar;
-    private javax.swing.JDialog dialogpac;
+    private javax.swing.JDialog dialogCIE;
+    private javax.swing.JDialog dialogFarmaco;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -708,9 +720,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public static com.toedter.calendar.JDateChooser jdcFechareceta;
@@ -721,8 +733,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JPanel paneldialog;
     private javax.swing.JTable tblReceta;
     private javax.swing.JTable tblReceta2;
-    private javax.swing.JTable tbldoctor;
-    private javax.swing.JTable tblpac;
+    private javax.swing.JTable tblcie10;
+    private javax.swing.JTable tbldoctor1;
     private javax.swing.JButton txtBuscarFarmaco;
     private jtextfieldround.JTextFieldRound txtCie;
     private jtextfieldround.JTextFieldRound txtCie2;
@@ -732,7 +744,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtIdfamaco2;
     private javax.swing.JTextArea txtIndicaciones;
     private javax.swing.JTextArea txtIndicaciones2;
-    private javax.swing.JTextField txtbuscardoc;
-    private javax.swing.JTextField txtbuscarpac;
+    private javax.swing.JTextField txtbuscarcie10;
+    private javax.swing.JTextField txtbuscarfar;
     // End of variables declaration//GEN-END:variables
 }
