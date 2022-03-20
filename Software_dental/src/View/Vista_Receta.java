@@ -57,12 +57,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         btncerrar = new org.edisoncor.gui.button.ButtonRound();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txtIndicaciones = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jdcFechareceta = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
@@ -76,31 +73,21 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         txtCie = new jtextfieldround.JTextFieldRound();
         jLabel6 = new javax.swing.JLabel();
         btnBuscarcie = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        panelNice2 = new org.edisoncor.gui.panel.PanelNice();
-        lblidanam = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        txtIDreceta2 = new jtextfieldround.JTextFieldRound();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        txtCie2 = new jtextfieldround.JTextFieldRound();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txtIndicaciones2 = new javax.swing.JTextArea();
-        jLabel14 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        txtdosis = new jtextfieldround.JTextFieldRound();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txtdosis1 = new jtextfieldround.JTextFieldRound();
+        jButton1 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblReceta2 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        txtIdfamaco2 = new jtextfieldround.JTextFieldRound();
-        jLabel15 = new javax.swing.JLabel();
-        jdcFechareceta2 = new com.toedter.calendar.JDateChooser();
-        jLabel16 = new javax.swing.JLabel();
+        jTable1 = new javax.swing.JTable();
         btnCrearRec = new javax.swing.JButton();
         btnEditarrec = new javax.swing.JButton();
         btnEliminarrec = new javax.swing.JButton();
@@ -257,12 +244,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         });
         panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        txtIndicaciones.setColumns(20);
-        txtIndicaciones.setRows(5);
-        jScrollPane5.setViewportView(txtIndicaciones);
-
-        panelNice1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 430, 140));
-
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/imgReceta.jpg"))); // NOI18N
         panelNice1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 250, 110));
 
@@ -277,11 +258,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel21.setText("ODONTOLOGA");
         panelNice1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("-----------------------------");
-        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 180, 30));
-
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelNice1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 530, 10));
         panelNice1.add(jdcFechareceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 160, 20));
@@ -293,146 +269,96 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Farmaco:");
-        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 70, 20));
-        panelNice1.add(txtIDreceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 100, 21));
+        jLabel4.setText("Observaciones:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 110, 20));
+        panelNice1.add(txtIDreceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, 100, 21));
 
         txtBuscarFarmaco.setText("Buscar");
-        panelNice1.add(txtBuscarFarmaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        panelNice1.add(txtBuscarFarmaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
 
         tblReceta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID ", "FARMACO"
+                "DETALLE", "CANTIDAD", "DOSIS", "FRECUENCIA"
             }
         ));
         jScrollPane1.setViewportView(tblReceta);
 
-        panelNice1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 530, 100));
+        panelNice1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 770, 140));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fecha:");
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, 20));
-        panelNice1.add(txtIdfamaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 150, 21));
-        panelNice1.add(txtCie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 360, 21));
+        panelNice1.add(txtIdfamaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 150, 21));
+        panelNice1.add(txtCie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 360, 21));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("CIE-10:");
-        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 70, 20));
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 70, 20));
 
         btnBuscarcie.setText("Buscar");
-        panelNice1.add(btnBuscarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, -1, -1));
+        panelNice1.add(btnBuscarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, -1));
+        panelNice1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 70, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Indicaciones:");
-        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Farmaco:");
+        panelNice1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 70, 20));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Firma");
-        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 40, 30));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea1);
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 600));
+        panelNice1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 390, 130));
 
-        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
-        panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Cantidad:");
+        panelNice1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 70, 20));
+        panelNice1.add(txtdosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, 150, 21));
 
-        lblidanam.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        lblidanam.setForeground(new java.awt.Color(255, 255, 255));
-        panelNice2.add(lblidanam, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, 80, 30));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Frecuencia:");
+        panelNice1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 240, 80, 20));
 
-        jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelNice2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 530, 10));
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Dosis:");
+        panelNice1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 70, 20));
+        panelNice1.add(txtdosis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 150, 21));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Luis Moscoso 7 y Ricardo Marquez       Celular: 0989726783         Cuenca-Ecuador");
-        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jButton1.setText("Agregar");
+        panelNice1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 240, -1, -1));
 
-        jLabel22.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 0, 255));
-        jLabel22.setText("ODONTOLOGA");
-        panelNice2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Alergias:");
+        panelNice1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 80, 20));
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Daniela San Martín");
-        panelNice2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane5.setViewportView(jTextArea2);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/imgReceta.jpg"))); // NOI18N
-        panelNice2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 250, 110));
-        panelNice2.add(txtIDreceta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 100, 21));
+        panelNice1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 420, 130));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Firma");
-        panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 40, 30));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("-----------------------------");
-        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, 180, 30));
-
-        jButton3.setText("Buscar");
-        panelNice2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, -1, -1));
-        panelNice2.add(txtCie2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 360, 21));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("ICE-10:");
-        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 70, 20));
-
-        txtIndicaciones2.setColumns(20);
-        txtIndicaciones2.setRows(5);
-        jScrollPane6.setViewportView(txtIndicaciones2);
-
-        panelNice2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 430, 140));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Indicaciones:");
-        panelNice2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
-
-        tblReceta2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "ID ", "FARMACO"
+                "CODIGO CIE-10", "TITULO CIE-10", "CATEGORIA"
             }
         ));
-        jScrollPane2.setViewportView(tblReceta2);
+        jScrollPane2.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 530, 100));
+        panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(802, 280, 330, 140));
 
-        jButton4.setText("Buscar");
-        panelNice2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
-        panelNice2.add(txtIdfamaco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 150, 21));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Farmaco:");
-        panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 70, 20));
-        panelNice2.add(jdcFechareceta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 160, 20));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Fecha:");
-        panelNice2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, 20));
-
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 570, 600));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 600));
 
         btnCrearRec.setText("Crear");
         jPanel1.add(btnCrearRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, 160, 40));
@@ -690,61 +616,48 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JDialog dialogCIE;
     private javax.swing.JDialog dialogFarmaco;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     public static com.toedter.calendar.JDateChooser jdcFechareceta;
-    public static com.toedter.calendar.JDateChooser jdcFechareceta2;
-    private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
-    private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JPanel paneldialog;
     private javax.swing.JTable tblReceta;
-    private javax.swing.JTable tblReceta2;
     private javax.swing.JTable tblcie10;
     private javax.swing.JTable tbldoctor1;
     private javax.swing.JButton txtBuscarFarmaco;
     private jtextfieldround.JTextFieldRound txtCie;
-    private jtextfieldround.JTextFieldRound txtCie2;
     private jtextfieldround.JTextFieldRound txtIDreceta;
-    private jtextfieldround.JTextFieldRound txtIDreceta2;
     private jtextfieldround.JTextFieldRound txtIdfamaco;
-    private jtextfieldround.JTextFieldRound txtIdfamaco2;
-    private javax.swing.JTextArea txtIndicaciones;
-    private javax.swing.JTextArea txtIndicaciones2;
     private javax.swing.JTextField txtbuscarcie10;
     private javax.swing.JTextField txtbuscarfar;
+    private jtextfieldround.JTextFieldRound txtdosis;
+    private jtextfieldround.JTextFieldRound txtdosis1;
     // End of variables declaration//GEN-END:variables
 }
