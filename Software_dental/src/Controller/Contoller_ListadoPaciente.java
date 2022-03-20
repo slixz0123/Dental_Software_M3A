@@ -9,10 +9,8 @@ import Model.Model_ListadoPacientes;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_ListadoPacientes;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -21,11 +19,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;

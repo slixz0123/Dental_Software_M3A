@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.Doctor;
 import Model.Model_AgendaCitas;
 import Model.Model_Anamnesis;
 import Model.Model_Cie10;
@@ -19,6 +20,7 @@ import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
+import Model.Persona;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -41,7 +43,10 @@ import java.awt.Frame;
 
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -74,6 +79,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
+        cargarcboxMedico();
 
     }
 
@@ -305,7 +311,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
         vista.getDkpPrincipal().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
     }
         private void CrudFarmacos(java.awt.event.MouseEvent evt) {
         Model_Farmacos modelfarma = new Model_Farmacos();
@@ -362,7 +368,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
          vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
         vistadiag.setBorder(null);
-        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
+        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
          // CITAS
          Model_Citas modelcitastrat = new Model_Citas();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
@@ -387,4 +393,22 @@ private void setEventoMouseClickProgreso(JLabel laba) {
           
     }*/
      
+        
+        private void cargarcboxMedico(){
+           
+           Model_Especialista modelesp = new Model_Especialista();
+            ArrayList<Doctor> listadocs  = modelesp.cargardocscombo();
+            vista.getJcbDocs().removeAllItems();
+            for (int i = 0; i < listadocs.size(); i++) {
+
+                vista.getJcbDocs().addItem(new Persona(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres() , listadocs.get(i).getApellidos()).toString() );
+          
+            }
+         } 
+    
+        
+        
+        
+       
+        
 }

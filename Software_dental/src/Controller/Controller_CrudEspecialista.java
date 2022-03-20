@@ -55,7 +55,7 @@ public class Controller_CrudEspecialista {
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->crearDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
-        vista.getBtneditar().addActionListener(l-> llenartxtsobrantes());
+        vista.getBtneditar().addActionListener(l-> editarDoctor());
 //        setKeyReleased(vista.getTxtBuscarEsp());
 //        vista.getTxtBuscarEsp().addKeyListener(kl);
         cargarPersonas();
@@ -93,44 +93,29 @@ public class Controller_CrudEspecialista {
     public void crearDoctor(){
         File ruta = new File(vista.getTxtruta().getText());
         System.out.println("creando persona 1");
-     String cedula;
-     String nombres;
-     String apellidos;
-     String celular;
-     String telefono;
-     String direccion;
-     String correo;
-     String provincia;
-     String ciudad;
-     String genero;
-     String id_doctor;
-     String id_usuario;
-     String especialidad;
-     String cargo;
-     byte foto ;
      
-     cedula=vista.getTxtcedulaesp().getText();
-     nombres=vista.getTxtnombreesp().getText();
-     apellidos=vista.getTxtapellidoesp().getText();
-     celular=vista.getTxtCelularesp().getText();
-     telefono=vista.getTxttelfesp().getText();
-     direccion=vista.getTxtdirecesp().getText();
-     correo=vista.getTxtcorreoesp().getText();
-     provincia=vista.getTxtprovinciaesp().getText();
-     ciudad=vista.getTxtciudadesp().getText();
-     genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
+     String cedula=vista.getTxtcedulaesp().getText();
+     String nombres=vista.getTxtnombreesp().getText();
+     String apellido=vista.getTxtapellidoesp().getText();
+     String celular=vista.getTxtCelularesp().getText();
+     String telefono=vista.getTxttelfesp().getText();
+     String direccion=vista.getTxtdirecesp().getText();
+     String correo=vista.getTxtcorreoesp().getText();
+     String provincia=vista.getTxtprovinciaesp().getText();
+     String ciudad=vista.getTxtciudadesp().getText();
+     String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
         System.out.println(genero);
-     id_doctor=vista.getTxtIdDoctor().getText();
-     id_usuario=vista.getTxtIdUsuario().getText();
-     especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
-     cargo=vista.getTxtCargoesp().getText();
+     String id_doctor=vista.getTxtIdDoctor().getText();
+     String id_usuario=vista.getTxtIdUsuario().getText();
+     String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
+     String cargo=vista.getTxtCargoesp().getText();
 //     cedula_doc=vista.getTxtcedulaesp().getText();
         System.out.println("antes del metodo");
      Model_Especialista mEsp= new Model_Especialista();
      
      mEsp.setCedula(cedula);
      mEsp.setNombres(nombres);
-     mEsp.setApellidos(apellidos);
+     mEsp.setApellidos(apellido);
      mEsp.setCelular(celular);
      mEsp.setTelefono(telefono);
      mEsp.setDireccion(direccion);
@@ -158,6 +143,67 @@ public class Controller_CrudEspecialista {
      
      
      mEsp.crearPersonasByte();
+//     mEsp.crearPersonas2();
+        System.out.println("despues del metodo");
+                cargarPersonas();
+                generarSerie();
+                limpiartxt();
+
+    }
+    
+    public void editarDoctor(){
+        File ruta = new File(vista.getTxtruta().getText());
+        System.out.println("persona mdificada");
+     
+//     String cedula=vista.getTxtcedulaesp().getText();
+     String nombres=vista.getTxtnombreesp().getText();
+     String apellido=vista.getTxtapellidoesp().getText();
+     String celular=vista.getTxtCelularesp().getText();
+     String telefono=vista.getTxttelfesp().getText();
+     String direccion=vista.getTxtdirecesp().getText();
+     String correo=vista.getTxtcorreoesp().getText();
+     String provincia=vista.getTxtprovinciaesp().getText();
+     String ciudad=vista.getTxtciudadesp().getText();
+     String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
+        System.out.println(genero);
+     String id_doctor=vista.getTxtIdDoctor().getText();
+     String id_usuario=vista.getTxtIdUsuario().getText();
+     String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
+     String cargo=vista.getTxtCargoesp().getText();
+//     cedula_doc=vista.getTxtcedulaesp().getText();
+        System.out.println("antes del metodo");
+     Model_Especialista mEsp= new Model_Especialista();
+     
+//     mEsp.setCedula(cedula);
+     mEsp.setNombres(nombres);
+     mEsp.setApellidos(apellido);
+     mEsp.setCelular(celular);
+     mEsp.setTelefono(telefono);
+     mEsp.setDireccion(direccion);
+     mEsp.setCorreo(correo);
+     mEsp.setProvincia(provincia);
+     mEsp.setCiudad(ciudad);
+     mEsp.setGenero(genero);
+     try{
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+           mEsp.setFoto(icono);
+
+            }catch(Exception ex){
+                 System.out.println(ex);
+           mEsp.setFoto(null);
+        }
+     mEsp.setId_doctor(id_doctor);
+     mEsp.setId_usuario("2");
+     mEsp.setEspecialidad(especialidad);
+     mEsp.setCargo(cargo);
+//     mEsp.setCedula_doc(cedula);
+    
+    
+     
+     
+     mEsp.modificarPersonasbyte();
 //     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 cargarPersonas();
@@ -295,10 +341,11 @@ public class Controller_CrudEspecialista {
          MenuPrincipal vistamenu = new MenuPrincipal();
         int xx = vista.getTblEspecialista().getSelectedRow();
         if (xx != -1) {
-            String id = vista.getTblEspecialista().getValueAt(xx, 0).toString();
-            String esp = id ;
-            vista.getTxtcedulaesp().setText(id);
-            vistamenu.getLblCedulapac().setText(id);
+            String cedula = vista.getTblEspecialista().getValueAt(xx, 0).toString();
+            String esp = cedula ;
+            vista.getTxtcedulaesp().setText(cedula);
+            vista.getTxtcedulaesp().setEnabled(false);
+            vistamenu.getLblCedulapac().setText(cedula);
             String nom = vista.getTblEspecialista().getValueAt(xx, 1).toString();
             vista.getTxtnombreesp().setText(nom);
              vistamenu.getLblnombrescomp().setText(nom);

@@ -88,7 +88,15 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
             new String [] {
                 "Cedula", "Nombres", "Apellidos", "Celular", "Direccion", "Ciudad", "Genero", "Foto", "Fecha Nac", "Tipo sangre"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jtbllistadopac);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, 480));

@@ -98,14 +98,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.txtBuscarEsp = txtBuscarEsp;
     }
 
-    public JTextFieldRound getTxtapellidoesp() {
-        return txtCelularesp;
-    }
-
-    public void setTxtapellidoesp(JTextFieldRound txtapellidoesp) {
-        this.txtCelularesp = txtapellidoesp;
-    }
-
     public JTextFieldRound getTxtcedulaesp() {
         return txtcedulaesp;
     }
@@ -210,6 +202,14 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.btnExaminar = btnExaminar;
     }
 
+    public JTextFieldRound getTxtapellidoesp() {
+        return txtapellidoesp;
+    }
+
+    public void setTxtapellidoesp(JTextFieldRound txtapellidoesp) {
+        this.txtapellidoesp = txtapellidoesp;
+    }
+
   
     
 
@@ -240,7 +240,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         txtdirecesp = new jtextfieldround.JTextFieldRound();
         txtprovinciaesp = new jtextfieldround.JTextFieldRound();
         txtciudadesp = new jtextfieldround.JTextFieldRound();
-        txtapellidoesp = new jtextfieldround.JTextFieldRound();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtCargoesp = new jtextfieldround.JTextFieldRound();
@@ -249,6 +248,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         cBoxespecialidad = new javax.swing.JComboBox<>();
         txtruta = new javax.swing.JTextField();
         btnExaminar = new javax.swing.JButton();
+        txtapellidoesp = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel14 = new javax.swing.JLabel();
         txtBuscarEsp = new jtextfieldround.JTextFieldRound();
@@ -348,7 +348,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(txtdirecesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, 20));
         panelNice1.add(txtprovinciaesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, 21));
         panelNice1.add(txtciudadesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 190, 21));
-        panelNice1.add(txtapellidoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, 20));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -373,6 +372,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         btnExaminar.setText("Examinar");
         panelNice1.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
+        panelNice1.add(txtapellidoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, 21));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 330, 600));
 

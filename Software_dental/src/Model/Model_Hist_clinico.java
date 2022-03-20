@@ -111,4 +111,43 @@ public class Model_Hist_clinico extends Hist_clinico{
     sql="Delete from historia_clinica where id_historia_cli='"+getId_historia()+"'";
     return con.accion(sql);
     }
+    
+       public List<Paciente> cargartxtsobrantes ( String cedula){
+    List<Paciente> milistapaci = new ArrayList<Paciente>();
+    String sql3;
+    
+        try {
+            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  from  persona p , paciente pac  WHERE pac.cedula_pac = '"+cedula+"'  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+               
+                pac.setNombres(rs.getString("nombres"));
+                pac.setApellidos(rs.getString("apellidos"));
+               
+                pac.setGenero(rs.getString("ciudad"));
+                pac.setDireccion(rs.getString("direccion"));
+                pac.setTelefono(rs.getString("celular"));
+                pac.setFecha_nac(rs.getDate("fecha_nac"));
+                
+                milistapaci.add(pac);
+                System.out.println("fecha"+rs.getDate("fecha_nac"));
+                
+                
+            }
+            return milistapaci;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    
+    
+    
+    
+    
+}
+       
 }
