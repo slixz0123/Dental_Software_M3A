@@ -114,7 +114,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Especialidad", "Telefono"
             }
         ));
         jScrollPane3.setViewportView(tbldoctor);
