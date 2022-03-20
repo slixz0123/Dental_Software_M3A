@@ -105,7 +105,7 @@ public class Controller_HistorialMedico {
     crear_his.setPre_art(vista.getTxtpresart().getText());
     crear_his.setTem(vista.getTxttemp().getText());
     crear_his.setOxim(vista.getTxtoxi().getText());
-    crear_his.setFecha_his(fecha_His_Med());
+    crear_his.setFecha_his(fecha_his_Med());
     crear_his.setHora_his(hora_His_Med());
     if(accion.equals("guardar")){  
     if(crear_his.crearHistorial_med()){
@@ -146,7 +146,7 @@ public class Controller_HistorialMedico {
     act_his.setPre_art(vista.getTxtpresart().getText());
     act_his.setTem(vista.getTxttemp().getText());
     act_his.setOxim(vista.getTxtoxi().getText());
-    act_his.setFecha_his(fecha_His_Med());
+    act_his.setFecha_his(fecha_his_Med());
     act_his.setHora_his(hora_His_Med());
     if(act_his.actualizarHistorial_med()){
         JOptionPane.showMessageDialog(null, "Datos actualizados con exito");
@@ -338,7 +338,7 @@ public class Controller_HistorialMedico {
         return hora;
     }
     //Extraer fecha
-    private Date fecha_His_Med() {
+    private Date fecha_his_Med() {
         LocalDate fecha = LocalDate.now();
         Date d = Date.valueOf(fecha);
         return d;
