@@ -47,6 +47,9 @@ import java.awt.Frame;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -83,6 +86,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         cargarcboxMedico();
+ 
 
     }
 
@@ -420,12 +424,23 @@ private void setEventoMouseClickProgreso(JLabel laba) {
             vista.getJcbDocs().removeAllItems();
             for (int i = 0; i < listadocs.size(); i++) {
 
-                vista.getJcbDocs().addItem(new Persona(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres() , listadocs.get(i).getApellidos()).toString() );
-          
+                vista.getJcbDocs().addItem( new Doctor(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres() , listadocs.get(i).getApellidos()));
+          //   String ced=    vista.getJcbDocs().getItemAt(vista.getJcbDocs().getSelectedIndex()).getCedula();
+         
             }
+           
+            
+            
+           // lblMsj.setText(comboBox.getSelectedItem().toString());
+
          } 
     
         
+       
+         
+        
+            
+            
         
         
        

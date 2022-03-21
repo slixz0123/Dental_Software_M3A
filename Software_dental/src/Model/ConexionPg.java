@@ -97,5 +97,14 @@ public class ConexionPg {
     public Connection GetCon(){
         return con;
     }
-        
+         public void cerrar(){
+         try {
+             con.close();
+             System.out.println("conexion cerrada");
+         } catch (SQLException ex) {
+             Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
+         
+         }
+       
+    }
 }
