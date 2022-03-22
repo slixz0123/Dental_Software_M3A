@@ -29,17 +29,17 @@ public class Controller_Receta {
     }
     
     public void iniciarcontrol (){
-        //generarSerie();
+        generarSerie();
     }
     
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
-      //      vista.getTxtIDreceta().setText("1");
+            vista.getTxtIDreceta().setText("1");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
-          //  vista.getTxtIDreceta().setText("0" + inc);
+            vista.getTxtIDreceta().setText("0" + inc);
 
         }
     }
@@ -66,12 +66,7 @@ public class Controller_Receta {
 //          
 //      }
 //    
-//    Calendar fechaactual=new GregorianCalendar();
-//    public void fecha(){
-//        Vista_Receta rec=new Vista_Receta();
-//        rec.jdcFechareceta.setCalendar(fechaactual);
-//        rec.jdcFechareceta2.setCalendar(fechaactual);
-//    }
+    
 //    
 //    public void limpiartxt(){
 //    vista.getTxtCie().setText("");

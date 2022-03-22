@@ -76,7 +76,53 @@ public class Model_HistorialMedico extends Hist_Medico {
        return null;
      }
     }
-    
+    //
+     public List<Hist_Medico> listarbuscarhisttabla (String busc, String id){
+    List<Hist_Medico> mostrar = new ArrayList<Hist_Medico>();
+    String sql="";
+    if(busc.equals("")){
+    sql="select * from historial_medico";
+    } else {
+     sql="select * from historial_medico where fecha_his ='"+busc+"' and id_his_med='"+id+"'";}
+     try {       
+        ResultSet rs=con.consulta(sql);
+        while(rs.next()){
+          Hist_Medico his_m=new Hist_Medico();
+          his_m.setId_his_med(rs.getString("id_his_med"));
+          his_m.setId_medico_his(rs.getString("id_medico_his"));
+          his_m.setId_paciente_his(rs.getString("id_paciente_his"));
+          his_m.setEnfermedad_act(rs.getString("enfermedad_act"));
+          his_m.setAnt_fam(rs.getString("ant_fam"));
+          his_m.setTrat_med(rs.getString("trat_med"));
+          his_m.setAler_med(rs.getString("aler_med"));
+          his_m.setMed_hab(rs.getString("med_hab"));
+          his_m.setFum_b(rs.getString("fum_b"));
+          his_m.setPro_card(rs.getString("pro_card"));
+          his_m.setUlc_gas(rs.getString("ulc_gas"));
+          his_m.setPresion(rs.getString("presion"));
+          his_m.setHepat(rs.getString("epat"));
+          his_m.setDiabetes(rs.getString("diabetes"));
+          his_m.setEpilepsia(rs.getString("epilepsia"));
+          his_m.setDo_cab(rs.getString("do_cab"));
+          his_m.setAl_endo(rs.getString("al_endo"));
+          his_m.setVih(rs.getString("vih"));
+          his_m.setPro_coagu(rs.getString("pro_coagu"));
+          his_m.setFre_res(rs.getString("fre_res"));
+          his_m.setFre_car(rs.getString("fre_car"));
+          his_m.setPre_art(rs.getString("pre_art"));
+          his_m.setTem(rs.getString("tem"));
+          his_m.setOxim(rs.getString("oxim"));
+          his_m.setFecha_his(rs.getDate("fecha_his"));
+          his_m.setHora_his(rs.getString("hora_his"));
+          mostrar.add(his_m);
+         }
+        rs.close();
+        return mostrar;
+        } catch (SQLException ex) {
+        Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
+       return null;
+     }
+    }
      //Listar pacientes
     public List<Paciente> listarPacientes(String busc){
     List<Paciente> lista = new ArrayList<Paciente>();
@@ -96,6 +142,7 @@ public class Model_HistorialMedico extends Hist_Medico {
         p.setCiudad(rs.getString("ciudad"));
         p.setGenero(rs.getString("genero"));
         p.setFoto(rs.getBytes("fotos"));
+        p.setFecha_nac(rs.getDate("fecha_nac"));
         lista.add(p);
     }
     rs.close();
@@ -225,7 +272,40 @@ public String idPac(String ced){
         }
     return id;
  }
-//
+// //Extraer paciente id
+public String cedulaPac(String id){
+    String ced ="";
+        String sql="Select p.cedula_pac from paciente p join historial_medico h on h.id_paciente_his = p.id_paciente where h.id_his_med ='"+id+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    ced = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            ced = "";
+        }
+    return ced;
+ }
+//Extraer paciente id
+public String cedulaMed(String id){
+    String ced ="";
+        String sql="Select d.cedula_doc from doctor d join historial_medico h on h.id_medico_his = d.id_doctor where h.id_his_med ='"+id+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    ced = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            ced = "";
+        }
+    return ced;
+ }
 //Extraer medico id
 public String idMed(String ced){
     String id ="";
@@ -288,9 +368,9 @@ public String idMed(String ced){
     //Actualizar historial medico
     public boolean actualizarHistorial_med(){
     try {
-    String sql="Update historial_medico set id_medico_his=?, id_paciente_his=?, enfermedad_act=?, ant_fam=?, trat_med=?, aler_med=?, med_hab=?,"
-            + "fum_b=?, pro_card=?, ulc_gas=?, presion=?, epat=?, diabetes=?, epilepsia=?, do_cab=?, al_endo=?, vih=?, pro_coagu=?, fre_res=?, fre_car=?, pre_art=?,"
-            + "tem=?, oxim=?, fecha_his=?, hora_his=? where id_his_med"; 
+    String sql="Update historial_medico set id_medico_his=?, id_paciente_his=?, enfermedad_act=?, ant_fam=?, trat_med=?, aler_med=?,"
+            + "med_hab=?, fum_b=?, pro_card=?, ulc_gas=?, presion=?, epat=?, diabetes=?, epilepsia=?, do_cab=?, al_endo=?, vih=?, "
+            + "pro_coagu=?, fre_res=?, fre_car=?, pre_art=?, tem=?, oxim=?, fecha_his=?, hora_his=? where id_his_med"; 
     PreparedStatement act_his= con.Con().prepareStatement(sql);
         
         act_his.setString(1, getId_medico_his());

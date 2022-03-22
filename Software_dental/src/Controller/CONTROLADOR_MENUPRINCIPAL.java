@@ -379,16 +379,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat); 
         
-//        //RECETAS
-//        // diagnostico
-//           Model_Receta modeldiag = new Model_Receta();
-//        Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
-//         vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
-//        vistadiag.setBorder(null);
-//        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
-//     
-  //Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
-  
+        
 //RECETAS
 
         Model_Receta modelrec = new Model_Receta();

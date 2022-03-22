@@ -70,6 +70,7 @@ public List<Paciente> listarPersonas(String busc){
         p.setCiudad(rs.getString("ciudad"));
         p.setGenero(rs.getString("genero"));
         p.setFoto(rs.getBytes("fotos"));
+        p.setFecha_nac(rs.getDate("fecha_nac"));
         lista.add(p);
     }
     rs.close();
