@@ -169,7 +169,9 @@ public class Controller_HistorialMedico {
      //Actualizar historial medico
     private void actualizar_hist(){
     Model_HistorialMedico act_his= new Model_HistorialMedico();
-    act_his.setId_his_med(id_his_med());
+    int filasel = vista.getTablahistorial().getSelectedRow();
+    String id=(String) vista.getTablahistorial().getValueAt(filasel, 0);
+    act_his.setId_his_med(id);
     act_his.setId_medico_his(modelo.idMed(vista.getTxtcedulamed().getText()));
     act_his.setId_paciente_his(modelo.idPac(vista.getTxtcedulapac().getText()));
     act_his.setEnfermedad_act(vista.getTxtenfermedad().getText());

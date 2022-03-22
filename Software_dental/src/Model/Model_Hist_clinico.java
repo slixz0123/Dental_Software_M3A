@@ -59,7 +59,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     
     public String NumSerie() {
       //  String sql = "SELECT MAX(id_paciente) FROM paciente";
-         String sql = "SELECT MAX (CAST (id_doc AS INTEGER)) FROM historia_clinica ";
+         String sql = "SELECT MAX (CAST (id_historia_cli AS INTEGER)) FROM historia_clinica ";
         String serie = "";
         try {
             ResultSet rs = con.consulta(sql);
