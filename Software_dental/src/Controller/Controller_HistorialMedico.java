@@ -9,7 +9,10 @@ import Model.Hist_Medico;
 import Model.Model_HistorialMedico;
 import Model.Paciente;
 import Model.Persona;
+import View.MenuPrincipal;
 import View.Vista_Crud_HistorialMedico;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -31,7 +34,9 @@ import javax.xml.ws.Holder;
 public class Controller_HistorialMedico {
     private Model_HistorialMedico modelo;
     private Vista_Crud_HistorialMedico vista;
+    private MenuPrincipal vistaMenu ;
     private String accion = "guardar";
+    private String cambio = "nuevo";
 
     public Controller_HistorialMedico(Model_HistorialMedico modelo, Vista_Crud_HistorialMedico vista) {
         this.modelo = modelo;
@@ -40,15 +45,54 @@ public class Controller_HistorialMedico {
         iniciar();
     }
     public void iniciar(){
-        
+        vista.getBtnguardar().addActionListener(l->guardarEditar_Hist());
+        vista.getBtnlimpiar().addActionListener(l->limpiar());
+        vista.getBtnbuscarpac().addActionListener(l->abrir_dialog(1));
+        vista.getBtnbuscarmed().addActionListener(l->abrir_dialog(2));
+        evtcalendario(vista.getCalendariobuscar());
+        buscarMedico();
+        buscarPaciente();
         cargartablahistorial();
         eventos();
         eventotblmed(vista.getTbldoctor());
         eventotblpac(vista.getTblpaciente());
+        eventocargar(vista.getTablahistorial());
     }
-    
+  
+    //
+    private void evtcalendario(Container container){
+
+   for (Component component:container.getComponents()){
+     if (component instanceof Container)
+        evtcalendario((Container) component); 
+   }
+
+   container.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            cargartablahistorial();
+        }
+    });
+
+}
+    //Abrir dialog
+    private void abrir_dialog(int op){
+        if(op==1){
+      vista.getDialog_pac().setVisible(true);
+      vista.getDialog_pac().setTitle("Buscar paciente");
+      vista.getDialog_pac().setLocationRelativeTo(null);
+      vista.getDialog_pac().setSize(550, 350);
+        } else if(op==2){
+        vista.getDialog_doc().setVisible(true);
+        vista.getDialog_doc().setLocationRelativeTo(null);
+        vista.getDialog_doc().setTitle("Buscar medico");
+        vista.getDialog_doc().setSize(550, 350);
+        }
+     }
     //
     private void cargartablahistorial(){
+    vista.getBtnlimpiar().setText("Nuevo");
+    cambio="nuevo";
     DefaultTableModel tblModel;
     tblModel=(DefaultTableModel)vista.getTablahistorial().getModel();
     tblModel.setNumRows(0);
@@ -111,11 +155,14 @@ public class Controller_HistorialMedico {
     if(crear_his.crearHistorial_med()){
         JOptionPane.showMessageDialog(null, "Datos guardados con exito");
         accion="editar";
+        cambio="limpio";
+        vista.getBtnlimpiar().setText("Limpiar");
         vista.getBtnguardar().setText("Editar");
+        limpiar();
         } else {JOptionPane.showMessageDialog(null, "No se pudo guardar");
       }
      } else if(accion.equals("editar")){
-     actualizar_hist();
+         actualizar_hist();
      }
     }
     //
@@ -152,6 +199,9 @@ public class Controller_HistorialMedico {
         JOptionPane.showMessageDialog(null, "Datos actualizados con exito");
         accion="guardar";
         vista.getBtnguardar().setText("Guardar");
+        vista.getBtnlimpiar().setText("Nuevo");
+        cambio="nuevo";
+        limpiar();
         } else {
         JOptionPane.showMessageDialog(null, "No se pudo actualizar");
       }
@@ -200,8 +250,21 @@ public class Controller_HistorialMedico {
     });
     }  
 //
-    private void eventotblpac(JTable tbl){
+    private void eventocargar(JTable tbl){
     tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e){
+        vista.getBtnlimpiar().setText("Nuevo");
+        cambio="nuevo";
+        vista.getBtnguardar().setText("Editar");
+        accion="editar";
+        llenardatoshistorial(e);
+    }
+    });
+    } 
+    //
+    private void eventotblpac(JTable tbl2){
+    tbl2.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
     public void mouseClicked(MouseEvent e){
         cargardatospaciente(e);
@@ -250,7 +313,7 @@ public class Controller_HistorialMedico {
     //Llenar datos paciente
     private void cargardatospaciente(java.awt.event.MouseEvent e){
         int filasel = vista.getTblpaciente().getSelectedRow();
-        String ced_pac=(String) vista.getTbldoctor().getValueAt(filasel, 0);
+        String ced_pac=(String) vista.getTblpaciente().getValueAt(filasel, 0);
         List<Paciente> listaper=modelo.listarPacientes(ced_pac);
         for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(ced_pac)) {
@@ -272,6 +335,47 @@ public class Controller_HistorialMedico {
       }
     }
     //
+    //Llenar datos paciente
+    private void llenardatoshistorial(java.awt.event.MouseEvent e){
+        int filasel = vista.getTablahistorial().getSelectedRow();
+        String id=(String) vista.getTablahistorial().getValueAt(filasel, 0);
+        Date fecha=(Date) vista.getTablahistorial().getValueAt(filasel, 1);
+        SimpleDateFormat fechacon = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha1 = fechacon.format(fecha);
+        List<Hist_Medico> list_h=modelo.listarbuscarhisttabla(fecha1, id);
+        for (int a = 0; a < list_h.size(); a++) {
+        if (list_h.get(a).getId_his_med().equals(id)) {
+           vista.getTxtcedulamed().setText(modelo.cedulaMed(id));
+            System.out.println(modelo.cedulaMed(id));
+           vista.getTxtcedulapac().setText(modelo.cedulaPac(id));
+           System.out.println(modelo.cedulaPac(id));
+           vista.getTxtenfermedad().setText(list_h.get(a).getEnfermedad_act());
+           vista.getTxtantecedentes().setText(list_h.get(a).getAnt_fam());
+           vista.getTxttratamiento().setText(list_h.get(a).getTrat_med());
+           vista.getTxtalergia().setText(list_h.get(a).getAler_med());
+           vista.getTxtmedicamento().setText(list_h.get(a).getMed_hab());
+           vista.getTxtfumbebe().setText(list_h.get(a).getFum_b());
+           vista.getTxtproblemascar().setText(list_h.get(a).getPro_card());
+           vista.getTxtulcera().setText(list_h.get(a).getUlc_gas());
+           vista.getTxtpresion().setText(list_h.get(a).getPre_art());
+           vista.getTxthepatitis().setText(list_h.get(a).getHepat());
+           vista.getTxtdiabetes().setText(list_h.get(a).getDiabetes());
+           vista.getTxtepilepsia().setText(list_h.get(a).getEpilepsia());
+           vista.getTxtdolorescab().setText(list_h.get(a).getDo_cab());
+           vista.getTxtaltend().setText(list_h.get(a).getAl_endo());
+           vista.getTxtvih().setText(list_h.get(a).getVih());
+           vista.getTxtprobcoag().setText(list_h.get(a).getPro_coagu());
+           vista.getTxtfrecres().setText(list_h.get(a).getFre_res());
+           vista.getTxtfreccar().setText(list_h.get(a).getFre_car());
+           vista.getTxtpresart().setText(list_h.get(a).getPre_art());
+           vista.getTxttemp().setText(list_h.get(a).getTem());
+           vista.getTxtoxi().setText(list_h.get(a).getOxim());
+           vista.getCalendariobuscar().setDate(list_h.get(a).getFecha_his());
+           cargarmed();
+           cargarpaciente();
+        }
+      }
+    }
      //evento tabla
     private void cargardatosmed(java.awt.event.MouseEvent e){
         int filasel = vista.getTbldoctor().getSelectedRow();
@@ -285,17 +389,45 @@ public class Controller_HistorialMedico {
         }
       }
     }
-    //Cargar datos en ttxt
-    private void llenarDatos(java.awt.event.MouseEvent e){
-    int filasel = vista.getTablahistorial().getSelectedRow();
-    //vista.getTxtcedula_pac().setText((String) vista.getTblpac().getValueAt(filasel, 0));
+   //cargar metodos
+     private void cargarmed(){
+        String cedmed=vista.getTxtcedulamed().getText();
+        List<Doctor> listaper=modelo.listarMedico(cedmed);
+        for (int a = 0; a < listaper.size(); a++) {
+        if (listaper.get(a).getCedula().equals(cedmed)) {
+           vista.getTxtnombresmed().setText(listaper.get(a).getNombres());
+           vista.getTxtapellidosmed().setText(listaper.get(a).getApellidos());
+        }
+      }
+    }
+     //
+      private void cargarpaciente(){
+        String ced_pac=vista.getTxtcedulapac().getText();
+        List<Paciente> listaper=modelo.listarPacientes(ced_pac);
+        for (int a = 0; a < listaper.size(); a++) {
+        if (listaper.get(a).getCedula().equals(ced_pac)) {
+           vista.getTxtnombrespac().setText(listaper.get(a).getNombres());
+           vista.getTxtapellidospac().setText(listaper.get(a).getApellidos());
+           if(listaper.get(a).getGenero().equalsIgnoreCase("M")){
+           vista.getTxtgeneropac().setText("Masculino");
+           } else {
+               vista.getTxtgeneropac().setText("Femenino");
+           }
+           vista.getTxtdireccionpac().setText(listaper.get(a).getDireccion());
+           vista.getTxttelefonopac().setText(listaper.get(a).getTelefono());
+           vista.getTxtcorreopac().setText(listaper.get(a).getCorreo());
+           vista.getTxtprovinciapac().setText(listaper.get(a).getProvincia());
+           vista.getTxtciudadpac().setText(listaper.get(a).getCiudad());
+           vista.getCalendario().setDate(listaper.get(a).getFecha_nac());
+        }
+      }
     }
      //limpiar
     private void limpiar(){
+    
     accion="guardar";
     vista.getBtnguardar().setText("Guardar");
-    vista.getTxtcedulamed().setText("");
-    vista.getTxtcedulapac().setText("");
+    if(cambio.equals("limpio")){
     vista.getTxtenfermedad().setText("");
     vista.getTxtantecedentes().setText("");
     vista.getTxttratamiento().setText("");
@@ -318,6 +450,47 @@ public class Controller_HistorialMedico {
     vista.getTxttemp().setText("");
     vista.getTxtoxi().setText("");
     vista.getCalendariobuscar().setDate(null);
+    cargartablahistorial();
+    cambio="nuevo";
+    vista.getBtnlimpiar().setText("Nuevo");
+    } else if (cambio.equals("nuevo")){
+    vista.getTxtcedulamed().setText("");
+    vista.getTxtnombresmed().setText("");
+    vista.getTxtapellidosmed().setText("");
+    vista.getCalendariobuscar().setDate(null);
+//    vista.getTxtcedulapac().setText("");
+//    vista.getTxtnombrespac().setText("");
+//    vista.getTxtapellidospac().setText("");
+//    vista.getTxtgeneropac().setText("");
+//    vista.getTxtdireccionpac().setText("");
+//    vista.getTxtdireccionpac().setText("");
+//    vista.getTxttelefonopac().setText("");
+//    vista.getTxtcorreopac().setText("");
+//    vista.getTxtprovinciapac().setText("");
+//    vista.getTxtciudadpac().setText("");
+//    vista.getCalendario().setDate(null);
+    vista.getTxtenfermedad().setText("");
+    vista.getTxtantecedentes().setText("");
+    vista.getTxttratamiento().setText("");
+    vista.getTxtalergia().setText("");
+    vista.getTxtmedicamento().setText("");
+    vista.getTxtfumbebe().setText("");
+    vista.getTxtproblemascar().setText("");
+    vista.getTxtulcera().setText("");
+    vista.getTxtpresion().setText("");
+    vista.getTxthepatitis().setText("");
+    vista.getTxtdiabetes().setText("");
+    vista.getTxtepilepsia().setText("");
+    vista.getTxtdolorescab().setText("");
+    vista.getTxtaltend().setText("");
+    vista.getTxtvih().setText("");
+    vista.getTxtprobcoag().setText("");
+    vista.getTxtfrecres().setText("");
+    vista.getTxtfreccar().setText("");
+    vista.getTxtpresart().setText("");
+    vista.getTxttemp().setText("");
+    vista.getTxtoxi().setText("");
+    vista.getCalendariobuscar().setDate(null);}
     }
     //
     private String id_his_med() {

@@ -280,6 +280,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("FECHA DE NACIMIENTO:");
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        dateFechanacEsp.setEnabled(false);
         panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
         panelNice1.add(txtcedula_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
 

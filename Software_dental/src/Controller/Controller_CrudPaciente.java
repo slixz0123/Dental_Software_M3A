@@ -200,11 +200,12 @@ public class Controller_CrudPaciente {
             String ciudad = vista.getJtbPacientes().getValueAt(xx, 5).toString();
             vista.getTxtciudad().setText(ciudad);
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
+            System.out.println(genero);
             vista.getCmgenero().setSelectedItem(genero);
             
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
-   
+                    if(lp.get(i).getFoto()!=null){
                     byte[] ft = lp.get(i).getFoto();
                     BufferedImage img = null;
                    
@@ -214,6 +215,15 @@ public class Controller_CrudPaciente {
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                     Icon ic = new ImageIcon(j);
                     vista.getLablefoto().setIcon(ic);
+                    } else {
+                    if(lp.get(i).getGenero().equalsIgnoreCase("F")){
+                    ImageIcon icmuj = new ImageIcon("/view/icons/icono mujer.png");
+                    vista.getLablefoto().setIcon(icmuj);
+                    } else if (lp.get(i).getGenero().equalsIgnoreCase("M")){
+                    ImageIcon icho = new ImageIcon("/view/icons/icono hombre.png");
+                    vista.getLablefoto().setIcon(icho);
+                    }
+                    }
                   
           
                     

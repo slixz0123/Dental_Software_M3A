@@ -38,7 +38,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         txtbuscarpac = new jtextfieldround.JTextFieldRound();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tblpaciente = new javax.swing.JTable();
         dialog_doc = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
@@ -131,12 +131,12 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         calendariobuscar = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablahistorial = new javax.swing.JTable();
-        btnlimpiar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         txtcedulamed = new jtextfieldround.JTextFieldRound();
         txtnombresmed = new jtextfieldround.JTextFieldRound();
         btnbuscarmed = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(166, 104, 216));
@@ -154,8 +154,16 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
             new String [] {
                 "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
-        ));
-        jScrollPane4.setViewportView(tblpaciente);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblpaciente);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -167,11 +175,10 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,12 +187,9 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addContainerGap(270, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(45, 45, 45)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(24, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dialog_pacLayout = new javax.swing.GroupLayout(dialog_pac.getContentPane());
@@ -323,9 +327,9 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         txtgeneropac.setEditable(false);
         panelNice1.add(txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
-
-        calendario.setEnabled(false);
         panelNice1.add(calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
+
+        txtcedulapac.setEditable(false);
         panelNice1.add(txtcedulapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
 
         txtnombrespac.setEditable(false);
@@ -358,8 +362,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("Cerrar");
-        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        btnAnteriorEsp.setText("Cargar datos");
+        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
 
@@ -402,7 +406,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Oximetria");
-        panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, -1, -1));
+        panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, -1, -1));
         panelNice2.add(txthepatitis, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 200, 21));
 
         jLabel25.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -439,7 +443,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel30.setText("VIH:");
         panelNice2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
         panelNice2.add(txtvih, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 200, 21));
-        panelNice2.add(txtoxi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 110, 30));
+        panelNice2.add(txtoxi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 110, 21));
         panelNice2.add(txtmedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 200, 21));
         panelNice2.add(txtfumbebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 200, 21));
         panelNice2.add(txtproblemascar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, 21));
@@ -447,42 +451,42 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel33.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Arterial");
-        panelNice2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, -1, -1));
+        panelNice2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 575, -1, -1));
 
         jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("Frecuencia ");
-        panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, -1, -1));
+        panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Temperatura");
-        panelNice2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, -1, -1));
+        panelNice2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Presion");
-        panelNice2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, -1, -1));
+        panelNice2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
         panelNice2.add(txtprobcoag, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 200, 21));
-        panelNice2.add(txtfrecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 110, 30));
-        panelNice2.add(txtfreccar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 110, 30));
+        panelNice2.add(txtfrecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 110, 21));
+        panelNice2.add(txtfreccar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 110, 21));
 
         jLabel36.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("Frecuencia ");
-        panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
+        panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("Respiratoria x min");
-        panelNice2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, -1, -1));
+        panelNice2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 575, -1, -1));
 
         jLabel40.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Cardiaca x min");
-        panelNice2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
-        panelNice2.add(txtpresart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 110, 30));
-        panelNice2.add(txttemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 110, 30));
+        panelNice2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 575, -1, -1));
+        panelNice2.add(txtpresart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 110, 21));
+        panelNice2.add(txttemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 110, 21));
 
         jLabel39.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
@@ -519,7 +523,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("MEDICO TRATANTE:");
-        panelNice2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        panelNice2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
@@ -536,17 +540,17 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(txtapellidosmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 170, 21));
 
         btnimprimir.setText("Imprimir");
-        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 130, -1));
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 130, -1));
 
         btnguardar.setText("Guardar");
-        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 120, -1));
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 120, -1));
 
         jLabel47.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("BUSCAR:");
         panelNice2.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        calendariobuscar.setToolTipText("Seleccione una fecha para buscar\nlos registros guardados");
+        calendariobuscar.setToolTipText("Seleccione una fecha y de clic sobre el campo");
         panelNice2.add(calendariobuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, -1));
 
         tablahistorial.setModel(new javax.swing.table.DefaultTableModel(
@@ -572,10 +576,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
             tablahistorial.getColumnModel().getColumn(1).setPreferredWidth(150);
         }
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 270, 300));
-
-        btnlimpiar.setText("Nuevo");
-        panelNice2.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, 120, -1));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 270, 260));
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -594,7 +595,10 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(txtnombresmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 21));
 
         btnbuscarmed.setText("Buscar");
-        panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+        panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+
+        btnlimpiar.setText("Nuevo");
+        panelNice2.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, 120, -1));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
 
@@ -675,6 +679,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     public void setBtnlimpiar(JButton btnlimpiar) {
         this.btnlimpiar = btnlimpiar;
     }
+
 
     public JDateChooser getCalendario() {
         return calendario;
@@ -1061,7 +1066,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
