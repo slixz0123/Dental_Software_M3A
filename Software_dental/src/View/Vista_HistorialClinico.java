@@ -7,6 +7,7 @@ package View;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -24,6 +25,16 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
     public Vista_HistorialClinico() {
         initComponents();
+    }
+
+  
+
+    public JButton getBtnOdonto() {
+        return btnOdonto;
+    }
+
+    public void setBtnOdonto(JButton btnOdonto) {
+        this.btnOdonto = btnOdonto;
     }
 
     public JButton getBtnguardar() {
@@ -216,6 +227,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         lblCodHist = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnOdonto = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1208, 735));
@@ -300,7 +312,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         txtAmedicacion.setRows(5);
         jScrollPane4.setViewportView(txtAmedicacion);
 
-        panelNice2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 330, 140));
+        panelNice2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 330, 80));
 
         jLabel29.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -342,7 +354,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         panelNice2.add(Txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 310, -1));
 
         btnguardar.setText("Guardar");
-        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 590, 410, 40));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -374,6 +386,9 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel10.setText("Historia clinica");
         panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 90, -1));
 
+        btnOdonto.setText("Abrir Odontograma");
+        panelNice2.add(btnOdonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 340, -1));
+
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1140, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -395,6 +410,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jtextfieldround.JTextFieldRound Txtgeneropac;
+    private javax.swing.JButton btnOdonto;
     private javax.swing.JButton btncargardatos;
     private javax.swing.JButton btnguardar;
     private javax.swing.JLabel jLabel10;
