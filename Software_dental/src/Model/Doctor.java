@@ -94,7 +94,7 @@ public class Doctor extends Persona {
      
     @Override
     public String toString() {
-        return getCedula()+"-"+getNombres()+"= "+ getApellidos()+" ";
+        return getCedula()+"-"+getNombres()+" "+ getApellidos();
     }
     
     

@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Doctor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
@@ -23,14 +24,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JComboBox<String> getJcbDocs() {
+    public JComboBox<Doctor> getJcbDocs() {
         return jcbDocs;
     }
 
-    public void setJcbDocs(JComboBox<String> jcbDocs) {
+    public void setJcbDocs(JComboBox<Doctor> jcbDocs) {
         this.jcbDocs = jcbDocs;
     }
 
+   
     public JLabel getLabelapellido() {
         return labelapellido;
     }
@@ -449,14 +451,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         labelapellido.setForeground(new java.awt.Color(255, 255, 255));
 
-        jcbDocs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblnombrescomp, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -464,17 +464,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(labelapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCedulapac, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbDocs, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcbDocs, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnagendaCitas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblIdpac, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblIdpac, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,7 +494,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         jPanel1.add(panelRound1);
-        panelRound1.setBounds(200, -60, 1150, 110);
+        panelRound1.setBounds(200, -60, 1140, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -570,7 +570,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JComboBox<String> jcbDocs;
+    private javax.swing.JComboBox<Doctor> jcbDocs;
     private javax.swing.JLabel labelapellido;
     private javax.swing.JLabel labelini;
     private javax.swing.JLabel lblCedulapac;

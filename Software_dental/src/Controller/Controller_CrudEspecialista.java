@@ -81,11 +81,11 @@ public class Controller_CrudEspecialista {
     private void generarSerie() {
       String   serie = modelo.NumId();
         if (serie == null) {
-            vista.getTxtIdDoctor().setText("00001");
+            vista.getTxtIdDoctor().setText("1");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
-            vista.getTxtIdDoctor().setText("0000" + inc);
+            vista.getTxtIdDoctor().setText("" + inc);
 
         }
     }
