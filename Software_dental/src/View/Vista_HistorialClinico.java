@@ -26,6 +26,14 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnguardar() {
+        return btnguardar;
+    }
+
+    public void setBtnguardar(JButton btnguardar) {
+        this.btnguardar = btnguardar;
+    }
+
     public JLabel getLblid() {
         return lblid;
     }
@@ -201,7 +209,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btncargardatos = new javax.swing.JButton();
         Txtgeneropac = new jtextfieldround.JTextFieldRound();
-        jButton1 = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         labelIddoc = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -333,8 +341,8 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         panelNice2.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         panelNice2.add(Txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 310, -1));
 
-        jButton1.setText("Guardar");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
+        btnguardar.setText("Guardar");
+        panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -388,7 +396,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jtextfieldround.JTextFieldRound Txtgeneropac;
     private javax.swing.JButton btncargardatos;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnguardar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
