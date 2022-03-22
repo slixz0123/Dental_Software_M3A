@@ -56,6 +56,29 @@ public class Model_Hist_clinico extends Hist_clinico{
         return null;
         }
     }
+    
+    public String NumSerie() {
+      //  String sql = "SELECT MAX(id_paciente) FROM paciente";
+         String sql = "SELECT MAX (CAST (id_doc AS INTEGER)) FROM historia_clinica ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR SERIE");
+
+        }
+        return serie;
+    }
+    
+    
+    
+    
+    
+    
+    
     //Crear
     public boolean crearHistoriaCli(){
     try {
@@ -117,7 +140,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     String sql3;
     
         try {
-            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  from  persona p , paciente pac  WHERE pac.cedula_pac = '"+cedula+"'  " ;
+            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '"+cedula+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
@@ -126,14 +149,14 @@ public class Model_Hist_clinico extends Hist_clinico{
                
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
-               
                 pac.setGenero(rs.getString("ciudad"));
                 pac.setDireccion(rs.getString("direccion"));
                 pac.setTelefono(rs.getString("celular"));
                 pac.setFecha_nac(rs.getDate("fecha_nac"));
+                pac.setId_paciente(rs.getString("id_paciente"));
                 
                 milistapaci.add(pac);
-                System.out.println("fecha"+rs.getDate("fecha_nac"));
+       
                 
                 
             }
@@ -149,5 +172,35 @@ public class Model_Hist_clinico extends Hist_clinico{
     
     
 }
+        public List<Doctor> cargaridDoc ( String cedula){
+    List<Doctor> milistado = new ArrayList<Doctor>();
+    String sql3;
+    
+        try {
+            sql3 = "select doc.id_doctor  from  persona p , doctor doc  WHERE doc.cedula_doc = '"+cedula+"'  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Doctor doc = new Doctor();
+               
+                doc.setId_doctor(rs.getString("id_doctor"));
+                
+                
+                milistado.add(doc);
        
+                
+                
+            }
+            return milistado;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+        
+        
+        
+        
 }

@@ -26,6 +26,22 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLblid() {
+        return lblid;
+    }
+
+    public void setLblid(JLabel lblid) {
+        this.lblid = lblid;
+    }
+
+    public JLabel getLabelIddoc() {
+        return labelIddoc;
+    }
+
+    public void setLabelIddoc(JLabel labelIddoc) {
+        this.labelIddoc = labelIddoc;
+    }
+
    
 
     public JTextFieldRound getTxtgeneropac() {
@@ -132,6 +148,14 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         this.txttelefono = txttelefono;
     }
 
+    public JLabel getLblCodHist() {
+        return lblCodHist;
+    }
+
+    public void setLblCodHist(JLabel lblCodHist) {
+        this.lblCodHist = lblCodHist;
+    }
+
    
 
    
@@ -170,7 +194,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         txtApatologiass = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAobservaciones = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        lblid = new javax.swing.JLabel();
         txtnombrespac = new jtextfieldround.JTextFieldRound();
         jLabel3 = new javax.swing.JLabel();
         txtapellidospac = new jtextfieldround.JTextFieldRound();
@@ -178,6 +202,12 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         btncargardatos = new javax.swing.JButton();
         Txtgeneropac = new jtextfieldround.JTextFieldRound();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        labelIddoc = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lblCodHist = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1208, 735));
@@ -197,7 +227,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HISTORIAL CLINICO");
-        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,10 +312,10 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, 480, 90));
 
-        jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("NOMBRES:");
-        panelNice2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        lblid.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid.setForeground(new java.awt.Color(255, 255, 255));
+        lblid.setText("....");
+        panelNice2.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 60, -1));
         panelNice2.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 310, 30));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -300,11 +330,41 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         btncargardatos.setText("Cargar Datos");
-        panelNice2.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        panelNice2.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         panelNice2.add(Txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 310, -1));
 
         jButton1.setText("Guardar");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 410, 40));
+
+        jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("NOMBRES:");
+        panelNice2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        labelIddoc.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        labelIddoc.setForeground(new java.awt.Color(255, 255, 255));
+        labelIddoc.setText("...");
+        panelNice2.add(labelIddoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 70, 20));
+
+        jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Id Paciente");
+        panelNice2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 70, -1));
+
+        lblCodHist.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblCodHist.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodHist.setText(".....");
+        panelNice2.add(lblCodHist, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 20, 90, -1));
+
+        jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Id Doctor");
+        panelNice2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 70, -1));
+
+        jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Historia clinica");
+        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 90, -1));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1140, 640));
 
@@ -329,7 +389,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound Txtgeneropac;
     private javax.swing.JButton btncargardatos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -343,6 +403,9 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -351,6 +414,9 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private com.toedter.calendar.JDateChooser jdtfechanac;
+    private javax.swing.JLabel labelIddoc;
+    private javax.swing.JLabel lblCodHist;
+    private javax.swing.JLabel lblid;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTextArea txtAalergias;
     private javax.swing.JTextArea txtAmedicacion;

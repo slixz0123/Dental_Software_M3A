@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Doctor;
 import Model.Model_Hist_clinico;
 import Model.Model_HistorialMedico;
 import Model.Paciente;
@@ -42,9 +43,37 @@ public class Controller_His_Cli {
         // cargardatosexternosconcedula();
         
        vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
-       
+      //vista.getBtncargardatos().addActionListener(l-> cargardatosexternosIdmed());
+       generarSerie();
 
     }
+    
+    public void registrarHistorialMedico(){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+       private void generarSerie() {
+      String   serie = model.NumSerie();
+        if (serie == null) {
+            vista.getLblCodHist().setText("1");
+        } else {
+            int inc = Integer.parseInt(serie);
+            inc++;
+            vista.getLblCodHist().setText("" + inc);
+
+        }
+    }
+      
+    
     
     
     
@@ -53,18 +82,39 @@ public class Controller_His_Cli {
         
          String id2 = vistamenu.getLblCedulapac().getText();
            // pac.cargartxtsobrantes(id2);
+           System.out.println(id2+"-----");
  
-            List<Paciente> milistapaci =  model.cargartxtsobrantes(id2);
+            List<Paciente> milistapa =  model.cargartxtsobrantes(id2);
+         for(int i = 0 ; i < milistapa.size() ; i++){
+              
+            vista.getTxtnombrespac().setText(milistapa.get(i).getNombres());
+            vista.getTxtapellidospac().setText(milistapa.get(i).getApellidos());
+            vista.getTxtgeneropac().setText(milistapa.get(i).getGenero());
+            
+            vista.getTxtdomicilio().setText(milistapa.get(i).getDireccion());
+            vista.getTxttelefono().setText(milistapa.get(i).getTelefono()) ;
+            vista.getJdtfechanac().setDate(milistapa.get(i).getFecha_nac()) ;
+            vista.getLblid().setText(milistapa.get(i).getId_paciente()) ;
+              calcu_edad();
+              
+            }
+        cargardatosexternosIdmed();
+        
+        
+    }
+     public void cargardatosexternosIdmed(){
+       
+        String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+       // vistamenu.getLblIdpac().setText(id); 
+           // pac.cargartxtsobrantes(id2);
+           System.out.println("holas"+iddoc);
+ 
+            List<Doctor> milistapaci =  model.cargaridDoc(iddoc);
          for(int i = 0 ; i < milistapaci.size() ; i++){
               
-            vista.getTxtnombrespac().setText(milistapaci.get(i).getNombres());
-            vista.getTxtapellidospac().setText(milistapaci.get(i).getApellidos());
-            vista.getTxtgeneropac().setText(milistapaci.get(i).getGenero());
+            vista.getLabelIddoc().setText(milistapaci.get(i).getId_doctor());
             
-            vista.getTxtdomicilio().setText(milistapaci.get(i).getDireccion());
-            vista.getTxttelefono().setText(milistapaci.get(i).getTelefono()) ;
-            vista.getJdtfechanac().setDate(milistapaci.get(i).getFecha_nac()) ;
-              calcu_edad();
+             
               
             }
         
