@@ -14,19 +14,29 @@ public class Tratamiento {
      private String id_receta;
      private String nombre_trat;
      private String descripcion_trat;
+     private String material;
      private Double precio_trat;
      private Double precio_des;
 
     public Tratamiento() {
     }
 
-    public Tratamiento(String id_tratamiento, String id_receta, String nombre_trat, String descripcion_trat, Double precio_trat, Double precio_des) {
+    public Tratamiento(String id_tratamiento, String id_receta, String nombre_trat, String descripcion_trat,String material, Double precio_trat, Double precio_des) {
         this.id_tratamiento = id_tratamiento;
         this.id_receta = id_receta;
         this.nombre_trat = nombre_trat;
         this.descripcion_trat = descripcion_trat;
         this.precio_trat = precio_trat;
         this.precio_des = precio_des;
+        this.material = material;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
     }
 
     public String getId_tratamiento() {

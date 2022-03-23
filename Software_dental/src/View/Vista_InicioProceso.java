@@ -33,14 +33,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
         this.pnCitas = pnCitas;
     }
 
-    public JPanel getPnOdontograma() {
-        return pnOdontograma;
-    }
-
-    public void setPnOdontograma(JPanel pnOdontograma) {
-        this.pnOdontograma = pnOdontograma;
-    }
-
+   
    
 
     public JPanel getPnFacturacion() {
@@ -104,7 +97,6 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
         pnAnamesis = new javax.swing.JPanel();
         pnHistorial = new javax.swing.JPanel();
         pnHistorialClinico = new javax.swing.JPanel();
-        pnOdontograma = new javax.swing.JPanel();
         pnCitas = new javax.swing.JPanel();
         pnreceta = new javax.swing.JPanel();
         pnFacturacion = new javax.swing.JPanel();
@@ -176,21 +168,6 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("HISTORIA CLINICA", pnHistorialClinico);
-
-        pnOdontograma.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout pnOdontogramaLayout = new javax.swing.GroupLayout(pnOdontograma);
-        pnOdontograma.setLayout(pnOdontogramaLayout);
-        pnOdontogramaLayout.setHorizontalGroup(
-            pnOdontogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1238, Short.MAX_VALUE)
-        );
-        pnOdontogramaLayout.setVerticalGroup(
-            pnOdontogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("ODONTOGRAMA", pnOdontograma);
 
         pnCitas.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,7 +242,6 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnHistorial;
     private javax.swing.JPanel pnHistorialClinico;
     private javax.swing.JPanel pnListadoPac;
-    private javax.swing.JPanel pnOdontograma;
     private javax.swing.JPanel pnreceta;
     // End of variables declaration//GEN-END:variables
 }

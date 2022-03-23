@@ -368,9 +368,9 @@ public String idMed(String ced){
     //Actualizar historial medico
     public boolean actualizarHistorial_med(){
     try {
-    String sql="Update historial_medico set id_medico_his=?, id_paciente_his=?, enfermedad_act=?, ant_fam=?, trat_med=?, aler_med=?,"
+    String sql="Update historial_medico SET id_medico_his=?, id_paciente_his=?, enfermedad_act=?, ant_fam=?, trat_med=?, aler_med=?,"
             + "med_hab=?, fum_b=?, pro_card=?, ulc_gas=?, presion=?, epat=?, diabetes=?, epilepsia=?, do_cab=?, al_endo=?, vih=?, "
-            + "pro_coagu=?, fre_res=?, fre_car=?, pre_art=?, tem=?, oxim=?, fecha_his=?, hora_his=? where id_his_med"; 
+            + "pro_coagu=?, fre_res=?, fre_car=?, pre_art=?, tem=?, oxim=?, fecha_his=?, hora_his=? where id_his_med=?"; 
     PreparedStatement act_his= con.Con().prepareStatement(sql);
         
         act_his.setString(1, getId_medico_his());
@@ -403,6 +403,7 @@ public String idMed(String ced){
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println(ex);
         }
     return false;
    }

@@ -5,11 +5,11 @@
  */
 package Controller;
 
+import Model.Anamnesis;
 import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Anamnesis;
 import Model.Paciente;
-import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
 import java.awt.event.KeyEvent;
@@ -49,8 +49,10 @@ public class Controller_Anamnesis {
         cargarPaciente();
         cargarMedico();
         eventos();
+        cargarAnamnesis();
         setEventMouseClicked2(vista.getTblpac());
         cargpaci(vista.getTxtcedula_pac());
+        cargaranam(vista.getTabla_anam());
     }
     
     
@@ -69,10 +71,21 @@ public class Controller_Anamnesis {
     @Override
     public void mouseClicked(MouseEvent e){
      selec_pac_datos(e);
+     cargarAnamnesis();
     }
     });
     }
-
+//
+    private void cargaranam(JTable tbl){
+    tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e){
+        selec_anam(e);
+        accion="editar";
+        vista.getBtnguardar().setText("Editar");
+    }
+    });
+    }
 //Eventos busqueda
     private void eventos(){
     
@@ -162,14 +175,33 @@ public class Controller_Anamnesis {
     List<Doctor> listamed= modelo.listarMedico(vista.getTxtbuscardoc().getText());
     Holder<Integer> i = new Holder<>(0);
 
-    listamed.stream().forEach(pe->{
+    listamed.stream().forEach(med->{
     tblModel.addRow(new Object[6]);   
-    vista.getTbldoctor().setValueAt(pe.getCedula(), i.value, 0);//Fila 1 para que inicie despues de los titulos
-    vista.getTbldoctor().setValueAt(pe.getNombres(), i.value, 1);
-    vista.getTbldoctor().setValueAt(pe.getApellidos(), i.value, 2);
-    vista.getTbldoctor().setValueAt(pe.getDireccion(), i.value, 3);
-    vista.getTbldoctor().setValueAt(pe.getEspecialidad(), i.value, 4);
-    vista.getTbldoctor().setValueAt(pe.getTelefono(), i.value, 5);
+    vista.getTbldoctor().setValueAt(med.getCedula(), i.value, 0);
+    vista.getTbldoctor().setValueAt(med.getNombres(), i.value, 1);
+    vista.getTbldoctor().setValueAt(med.getApellidos(), i.value, 2);
+    vista.getTbldoctor().setValueAt(med.getDireccion(), i.value, 3);
+    vista.getTbldoctor().setValueAt(med.getEspecialidad(), i.value, 4);
+    vista.getTbldoctor().setValueAt(med.getTelefono(), i.value, 5);
+    i.value++;
+    });
+    }
+    //Cargar tabla anamnesis
+    private void cargarAnamnesis(){
+    DefaultTableModel tblModel;
+    tblModel=(DefaultTableModel)vista.getTabla_anam().getModel();
+    tblModel.setNumRows(0);
+    String idPac=modelo.idPac(vista.getTxtcedula_pac().getText());
+//    List<Anamnesis> listaan= modelo.listarbuscar(idPac, "");
+    List<Anamnesis> listaan= modelo.listaran(idPac);
+    Holder<Integer> i = new Holder<>(0);
+
+    listaan.stream().forEach(an->{
+    tblModel.addRow(new Object[3]);   
+    vista.getTabla_anam().setValueAt(an.getId_anamnesis(), i.value, 0);//Fila 1 para que inicie despues de los titulos
+    vista.getTabla_anam().setValueAt(an.getId_doctor(), i.value, 1);
+    vista.getTabla_anam().setValueAt(an.getId_paciente(), i.value, 2);
+    vista.getTabla_anam().setValueAt(an.getEmbarazo(), i.value, 3);
     i.value++;
     });
     }
@@ -184,7 +216,7 @@ public class Controller_Anamnesis {
            vista.getTxtnombredoc().setText(listaper.get(a).getNombres());
            vista.getTxtapellidodoc().setText(listaper.get(a).getApellidos());
            vista.getTxttelefonomed().setText(listaper.get(a).getTelefono());
-           vista.getTxtespecialidad().setText(listaper.get(a).getEspecialidad());
+           vista.getTxtespecialidad().setText(modelo.especialidad_Med(listaper.get(a).getCedula()));
         }
       }
     }
@@ -194,6 +226,18 @@ public class Controller_Anamnesis {
         int filasel = vista.getTblpac().getSelectedRow();
         vista.getTxtcedula_pac().setText((String) vista.getTblpac().getValueAt(filasel, 0));
         llenarpac();
+    }
+    //cargar datos de anamnesis
+    private void selec_anam(java.awt.event.MouseEvent e){
+        int filasel = vista.getTabla_anam().getSelectedRow();
+        String id_med=(String) vista.getTabla_anam().getValueAt(filasel, 1);
+        String id_pac=(String) vista.getTabla_anam().getValueAt(filasel, 2);
+        
+        vista.getTxtcedula_pac().setText(modelo.cedulaPac(id_pac));
+        vista.getTxtcedulamed().setText(modelo.cedulaMed(id_med));
+        llenarpac();
+        llenarmed();
+        llenaranam();
     }
         //Cargar datos paciente buscar
     private void buscarpac(java.awt.event.KeyEvent e){
@@ -238,7 +282,33 @@ public class Controller_Anamnesis {
            vista.getDateFechanacEsp().setDate(listaper.get(a).getFecha_nac());
         }
       }}
-    
+    //Llenar medico
+    private void llenarmed(){
+    List<Doctor> listmed=modelo.listarMedico(vista.getTxtcedulamed().getText());
+     for (int a = 0; a < listmed.size(); a++) {
+        if (listmed.get(a).getCedula().equals(vista.getTxtcedulamed().getText())) {
+           vista.getTxtcedulamed().setText(listmed.get(a).getCedula());
+           vista.getTxtnombredoc().setText(listmed.get(a).getNombres());
+           vista.getTxtapellidodoc().setText(listmed.get(a).getApellidos());
+           vista.getTxttelefonomed().setText(listmed.get(a).getTelefono());
+           vista.getTxtespecialidad().setText(modelo.especialidad_Med(listmed.get(a).getCedula()));
+           
+        }
+      }}
+    //Llenar txt anamnesis
+    private void llenaranam(){
+        int filasel = vista.getTabla_anam().getSelectedRow();
+        String idanam=(String) vista.getTabla_anam().getValueAt(filasel, 0);
+        String idpac=(String) vista.getTabla_anam().getValueAt(filasel, 2);
+        
+        List<Anamnesis> listan=modelo.listarbuscar(idpac, idanam);
+     for (int a = 0; a < listan.size(); a++) {
+        if (listan.get(a).getId_anamnesis().equals(idanam)) {
+           vista.getTxtembarazo().setText(listan.get(a).getEmbarazo());
+           vista.getTxproblema().setText(listan.get(a).getProble_act());
+           vista.getTxtconsulta().setText(listan.get(a).getMotiv_consul());
+        }
+      }}
     //Crear anamnesis
     private void crearEditarAnamnesis(){
     Model_Anamnesis anam = new Model_Anamnesis();
@@ -253,18 +323,25 @@ public class Controller_Anamnesis {
             JOptionPane.showMessageDialog(vista, "Datos guardados");
             accion="editar";
             vista.getBtnguardar().setText("Editar");
+            cargarAnamnesis();
+            limpiar();
         } else {JOptionPane.showMessageDialog(vista, "No se pudo guardar");}
     } else if(accion.equals("editar")){
-    anam.setId_anamnesis(id_an_act());
+    int filasel = vista.getTabla_anam().getSelectedRow();
+    String idanam=(String) vista.getTabla_anam().getValueAt(filasel, 0);
+    anam.setId_anamnesis(idanam);
     anam.setId_paciente(modelo.idPac(vista.getTxtcedula_pac().getText()));
     anam.setEmbarazo(vista.getTxtembarazo().getText());
     anam.setMotiv_consul(vista.getTxtconsulta().getText());
     anam.setProble_act(vista.getTxproblema().getText());
     anam.setId_doctor(modelo.idMed(vista.getTxtcedulamed().getText()));
+       
         if(anam.actualizarAnamnesis()){
             JOptionPane.showMessageDialog(vista, "Se modificaron los datos");
             accion="guardar";
             vista.getBtnguardar().setText("Guardar");
+            cargarAnamnesis();
+            limpiar();
         } else {JOptionPane.showMessageDialog(vista, "No se pudo modificar");}
     }
     }
@@ -296,16 +373,16 @@ public class Controller_Anamnesis {
     vista.getTxtapellidodoc().setText("");
     vista.getTxtespecialidad().setText("");
     vista.getTxttelefonomed().setText("");
-    vista.getTxtcedula_pac().setText("");
-    vista.getTxtnombrespac().setText("");
-    vista.getTxtapellidopac().setText("");
-    vista.getTxtgeneropac().setText("");
-    vista.getTxtdireccion().setText("");
-    vista.getTxttelefonopac().setText("");
-    vista.getTxtcorreo().setText("");
-    vista.getTxtprovincia().setText("");
-    vista.getTxtciudad().setText("");
-    vista.getDateFechanacEsp().setDate(null);
+//    vista.getTxtcedula_pac().setText("");
+//    vista.getTxtnombrespac().setText("");
+//    vista.getTxtapellidopac().setText("");
+//    vista.getTxtgeneropac().setText("");
+//    vista.getTxtdireccion().setText("");
+//    vista.getTxttelefonopac().setText("");
+//    vista.getTxtcorreo().setText("");
+//    vista.getTxtprovincia().setText("");
+//    vista.getTxtciudad().setText("");
+//    vista.getDateFechanacEsp().setDate(null);
     }
 
     private String id_anam() {

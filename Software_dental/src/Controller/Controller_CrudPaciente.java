@@ -8,11 +8,8 @@ import Model.Model_Paciente;
 import Model.Paciente;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -22,10 +19,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,12 +31,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
-import jtextfieldround.JTextFieldRound;
 
 /**
  *
@@ -76,7 +69,7 @@ public class Controller_CrudPaciente {
           vista.getBtnexaminar().addActionListener(l-> btnexaminar());
           vista.getBtnguardarpac().addActionListener(l-> crearpaciente());
           cargarPersonas();
-          vista.getBtneditar().addActionListener(l-> llenartxtsobrantes());
+          vista.getBtneditar().addActionListener(l-> editarpaciente());
           
           
           KeyListener kl = new KeyListener() {
@@ -200,9 +193,8 @@ public class Controller_CrudPaciente {
             String ciudad = vista.getJtbPacientes().getValueAt(xx, 5).toString();
             vista.getTxtciudad().setText(ciudad);
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
-            System.out.println(genero);
             vista.getCmgenero().setSelectedItem(genero);
-            
+            llenartxtsobrantes();
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
                     if(lp.get(i).getFoto()!=null){
@@ -211,18 +203,26 @@ public class Controller_CrudPaciente {
                    
                      InputStream in = new ByteArrayInputStream(ft);
                      img = ImageIO.read(in);
-          
+                     if(img!=null){
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+                    
                     Icon ic = new ImageIcon(j);
                     vista.getLablefoto().setIcon(ic);
-                    } else {
-                    if(lp.get(i).getGenero().equalsIgnoreCase("F")){
-                    ImageIcon icmuj = new ImageIcon("/view/icons/icono mujer.png");
-                    vista.getLablefoto().setIcon(icmuj);
-                    } else if (lp.get(i).getGenero().equalsIgnoreCase("M")){
-                    ImageIcon icho = new ImageIcon("/view/icons/icono hombre.png");
-                    vista.getLablefoto().setIcon(icho);
-                    }
+                    }  else {
+                    vista.getLablefoto().setIcon(null);}
+                  
+                 } else if (lp.get(i).getFoto() == null) {
+                   
+                    Icon icmuj = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
+                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
+                         vista.getLablefoto().setIcon(icmuj);
+                 //   vista.getLablefoto().setIcon(null);
+                    
+//                    Icon icho = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
+//                    vista.getLablefoto().setIcon(icho);
+//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
+//
+                    
                     }
                   
           
@@ -240,8 +240,8 @@ public class Controller_CrudPaciente {
             
             
             
-            String fecha_nac = vista.getJtbPacientes().getValueAt(xx, 8).toString();
-           // vista.getJdcFecha().setDate(fecha_nac););
+            Date fecha_nac = (Date) vista.getJtbPacientes().getValueAt(xx, 8);
+            vista.getJdcFecha().setDate(fecha_nac);
              String tipo_sang = vista.getJtbPacientes().getValueAt(xx, 9).toString();
             vista.getCbSangre().setSelectedItem(tipo_sang);
             
@@ -308,7 +308,6 @@ public class Controller_CrudPaciente {
            pac.setFoto(icono);
 
             }catch(Exception ex){
-                 System.out.println(ex);
            pac.setFoto(null);
         }
             pac.setId_paciente(id);
@@ -323,7 +322,83 @@ public class Controller_CrudPaciente {
           
       }
       
-      
+      //
+       public void editarpaciente(){
+      File ruta = new File(vista.getTxtruta().getText());
+     
+     String cedula;
+     String nombres;
+     String apellidos;
+     String celular;
+     String telefono;
+     String direccion;
+     String correo;
+     String provincia;
+     String ciudad;
+     String genero;
+     Date fechanac;
+     String tiposang;
+     String id;
+     
+    
+    cedula = vista.getTxtced().getText();
+    nombres = vista.getYxynom().getText();
+    apellidos = vista.getTxtapellidos().getText();
+    celular = vista.getTxtcelular().getText();
+    telefono = vista.getTxttelefono().getText();
+    direccion = vista.getTxtdireccion().getText();
+    correo = vista.getTxtcorreo().getText();
+    provincia = vista.getTxtprovincia().getText();
+    ciudad = vista.getTxtciudad().getText();
+    genero = vista.getCmgenero().getSelectedItem().toString();
+    id = vista.getLabelserie().getText();
+     SimpleDateFormat dateFormat = new SimpleDateFormat ("yyy-MM-dd");
+     java.util.Date date= vista.getJdcFecha().getDate();
+     long d = date.getTime();
+     String fechael=dateFormat.format(d);
+     java.sql.Date fecha = new java.sql.Date (d);
+          
+    tiposang = vista.getCbSangre().getSelectedItem().toString();
+     
+          Model_Paciente pac = new Model_Paciente();
+           pac.setCedula(cedula);
+           pac.setNombres(nombres);
+           pac.setApellidos(apellidos);
+           pac.setCelular(celular);
+           pac.setTelefono(telefono);
+           pac.setDireccion(direccion);
+           pac.setCorreo(correo);
+           pac.setProvincia(provincia);
+           pac.setCiudad(ciudad);
+           pac.setGenero(genero);
+             try{
+            if(vista.getTxtruta().getText().trim().length()!=0){ 
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            pac.setFoto(icono);
+            }
+
+            }catch(IOException ex){
+                 System.out.println(ex);
+           pac.setFoto(null);
+        }
+            pac.setId_paciente(id);
+            pac.setCedula_pac(cedula);
+            pac.setFecha_nac(fecha);
+            pac.setTipo_sang(tiposang);
+            if(vista.getTxtruta().getText().trim().length()!=0){ 
+            pac.ActualizarPersonas();
+             } else {
+            
+            pac.Actualizarsinfoto();
+            }
+            generarSerie();
+            cargarPersonas ();
+            limpiartxt();
+          
+      }
+       //
        private void  cargarPersonas (){
         
         vista.getJtbPacientes().setDefaultRenderer(Object.class, new  ImagenTabla()); 
