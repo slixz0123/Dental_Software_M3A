@@ -24,274 +24,165 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public JComboBox<String> getCbDescuento() {
-        return cbDescuento;
-    }
-
-    public void setCbDescuento(JComboBox<String> cbDescuento) {
-        this.cbDescuento = cbDescuento;
-    }
-    
-    
-
-    public JTextField getTxtPrecio() {
-        return txtPrecio;
-    }
-
-    public void setTxtPrecio(JTextField txtPrecio) {
-        this.txtPrecio = txtPrecio;
-    }
-
-    public JTextField getTxtFecha() {
-        return txtFecha;
-    }
-
-    public void setTxtFecha(JTextField txtFecha) {
-        this.txtFecha = txtFecha;
-    }
-
-    public JButton getBtnAgregar() {
-        return btnAgregar;
-    }
-
-    public void setBtnAgregar(JButton btnAgregar) {
-        this.btnAgregar = btnAgregar;
-    }
-
-    public JButton getBtnNombres() {
-        return btnNombres;
-    }
-
-    public void setBtnNombres(JButton btnNombres) {
-        this.btnNombres = btnNombres;
-    }
-
-    public JButton getBtnTratamiento() {
-        return btnTratamiento;
-    }
-
-    public void setBtnTratamiento(JButton btnTratamiento) {
-        this.btnTratamiento = btnTratamiento;
-    }
-
-    public JSpinner getSpiCantidad() {
-        return spiCantidad;
-    }
-
-    public void setSpiCantidad(JSpinner spiCantidad) {
-        this.spiCantidad = spiCantidad;
-    }
-
-
-    public JTable getTblFactura() {
-        return tblFactura;
-    }
-
-    public void setTblFactura(JTable tblFactura) {
-        this.tblFactura = tblFactura;
-    }
-
-    public JTextField getTxtDescuento() {
-        return txtDescuento;
-    }
-
-    public void setTxtDescuento(JTextField txtDescuento) {
-        this.txtDescuento = txtDescuento;
-    }
-
-    public JTextField getTxtIva() {
-        return txtIva;
-    }
-
-    public void setTxtIva(JTextField txtIva) {
-        this.txtIva = txtIva;
-    }
-
-    public JTextField getTxtNombreFac() {
-        return txtNombreFac;
-    }
-
-    public void setTxtNombreFac(JTextField txtNombreFac) {
-        this.txtNombreFac = txtNombreFac;
-    }
-
-    public JTextField getTxtNumSerie() {
-        return txtNumSerie;
-    }
-
-    public void setTxtNumSerie(JTextField txtNumSerie) {
-        this.txtNumSerie = txtNumSerie;
-    }
-
-    public JTextField getTxtSubtotal() {
-        return txtSubtotal;
-    }
-
-    public void setTxtSubtotal(JTextField txtSubtotal) {
-        this.txtSubtotal = txtSubtotal;
-    }
-
-    public JTextField getTxtTotal() {
-        return txtTotal;
-    }
-
-    public void setTxtTotal(JTextField txtTotal) {
-        this.txtTotal = txtTotal;
-    }
-
-    public JTextField getTxtTratamientoFac() {
-        return txtTratamientoFac;
-    }
-
-    public void setTxtTratamientoFac(JTextField txtTratamientoFac) {
-        this.txtTratamientoFac = txtTratamientoFac;
-    }
-
-    public JButton getBtnAceptar() {
-        return btnAceptar;
-    }
-
-    public void setBtnAceptar(JButton btnAceptar) {
-        this.btnAceptar = btnAceptar;
-    }
-
-    public JButton getBtnCalculadora() {
-        return btnCalculadora;
-    }
-
-    public void setBtnCalculadora(JButton btnCalculadora) {
-        this.btnCalculadora = btnCalculadora;
-    }
-
-    public JButton getBtnCancelar() {
-        return btnCancelar;
-    }
-
-    public void setBtnCancelar(JButton btnCancelar) {
-        this.btnCancelar = btnCancelar;
-    }
+   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNumSerie = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtNombreFac = new javax.swing.JTextField();
-        btnNombres = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblid = new javax.swing.JLabel();
+        lblid1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtTratamientoFac = new javax.swing.JTextField();
-        btnTratamiento = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        lblid2 = new javax.swing.JLabel();
+        lblid3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         spiCantidad = new javax.swing.JSpinner();
-        jLabel6 = new javax.swing.JLabel();
-        txtPrecio = new javax.swing.JTextField();
+        btnNombres = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        cbDescuento = new javax.swing.JComboBox<>();
+        txtPrecio = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        panelNice2 = new org.edisoncor.gui.panel.PanelNice();
+        btneliminar = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFactura = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         txtSubtotal = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         txtDescuento = new javax.swing.JTextField();
         txtIva = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
-        btnCalculadora = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnCalculadora = new javax.swing.JButton();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(166, 166, 216));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelNice1.setBackground(new java.awt.Color(166, 104, 216));
+        panelNice1.setAlignmentX(1.0F);
+        panelNice1.setAlignmentY(1.0F);
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconlogo.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 11, 92, 142));
-
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel2.setText("ODONTOLOGIA ESPECIALIZADA");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, -1, 32));
+        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 92, 142));
 
         jLabel3.setBackground(new java.awt.Color(108, 51, 130));
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(108, 51, 130));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FACTURA");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 12, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel4.setText("SERIE:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 39, -1, -1));
-
-        txtNumSerie.setEnabled(false);
-        jPanel3.add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 37, 112, -1));
-
-        jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel5.setText("DESCUENTO:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, 80, 20));
-        jPanel3.add(txtNombreFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 91, 162, -1));
-
-        btnNombres.setText("...");
-        jPanel3.add(btnNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 90, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel7.setText("TRATAMIENTO:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
-        jPanel3.add(txtTratamientoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 163, -1));
-
-        btnTratamiento.setText("...");
-        jPanel3.add(btnTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel8.setText("CANTIDAD:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel13.setText("FECHA:");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, -1, 20));
-
-        txtFecha.setEditable(false);
-        jPanel3.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 130, -1));
-
-        btnAgregar.setText("Agregar");
-        jPanel3.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 97, -1));
-
-        spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
-        jPanel3.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 90, -1));
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(108, 51, 130));
-        jLabel6.setText("NOMBRES:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 93, -1, -1));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("CEDULA PACIENTE");
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, 20));
 
-        txtPrecio.setEditable(false);
-        jPanel3.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 110, -1));
+        jLabel13.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("FECHA:");
+        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("SERIE:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, -1, -1));
+
+        txtNumSerie.setEnabled(false);
+        panelNice1.add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 112, -1));
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ODONTOLOGIA ESPECIALIZADA");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 32));
+
+        lblid.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid.setForeground(new java.awt.Color(255, 255, 255));
+        lblid.setText("....");
+        panelNice1.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 120, 20));
+
+        lblid1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid1.setForeground(new java.awt.Color(255, 255, 255));
+        lblid1.setText("....");
+        panelNice1.add(lblid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 60, -1));
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("NOMBRES Y APELLIDOS:");
+        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, 20));
+
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("TRATAMIENTO:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
+        panelNice1.add(txtTratamientoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 230, -1));
+
+        btnAgregar.setText("Agregar");
+        panelNice1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 97, -1));
+
+        lblid2.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid2.setForeground(new java.awt.Color(255, 255, 255));
+        lblid2.setText("....");
+        panelNice1.add(lblid2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 60, 20));
+
+        lblid3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid3.setForeground(new java.awt.Color(255, 255, 255));
+        lblid3.setText("....");
+        panelNice1.add(lblid3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 60, 20));
+
+        jLabel8.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("CANTIDAD:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+
+        spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
+        panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
+
+        btnNombres.setText("BUSCAR");
+        panelNice1.add(btnNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("DESCUENTO:");
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 80, 20));
 
         jLabel14.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(108, 51, 130));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("PRECIO:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 120, 50, 20));
+        panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 50, 20));
 
-        cbDescuento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--SELECIONAR--", "10%", "20%", "30%" }));
-        jPanel3.add(cbDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 110, -1));
+        txtPrecio.setEditable(false);
+        panelNice1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 230, -1));
+        panelNice1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 100, 20));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 180));
+
+        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btneliminar.setText("Eliminar");
+        panelNice2.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 220, 40));
+
+        btneditar.setText("Editar");
+        panelNice2.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
 
         tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -321,112 +212,46 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
             tblFactura.getColumnModel().getColumn(3).setPreferredWidth(5);
         }
 
-        jPanel4.setBackground(new java.awt.Color(90, 170, 170));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 960, 250));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("SUBTOTAL $:");
+        panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
+        panelNice2.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 100, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("DESCUENTO $:");
+        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, -1, -1));
+        panelNice2.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 100, -1));
+        panelNice2.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 100, -1));
 
         jLabel11.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("I.V.A. $:");
+        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("TOTAL $:");
+        panelNice2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, -1, -1));
+        panelNice2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 100, -1));
+
+        btnAceptar.setText("Aceptar");
+        panelNice2.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
+
+        btnCancelar.setText("Cancelar");
+        panelNice2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, -1));
 
         btnCalculadora.setBackground(new java.awt.Color(90, 170, 170));
         btnCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/calculadora.png"))); // NOI18N
         btnCalculadora.setBorder(null);
+        panelNice2.add(btnCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 56, 57));
 
-        btnAceptar.setText("Aceptar");
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 980, 470));
 
-        btnCancelar.setText("Cancelar");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnCalculadora, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(18, 18, 18)
-                .addComponent(btnAceptar)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(txtDescuento)
-                    .addComponent(txtIva)
-                    .addComponent(txtTotal))
-                .addGap(58, 58, 58))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txtIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAceptar)
-                            .addComponent(btnCancelar)))
-                    .addComponent(btnCalculadora, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -438,14 +263,15 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCalculadora;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnNombres;
-    private javax.swing.JButton btnTratamiento;
-    private javax.swing.JComboBox<String> cbDescuento;
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btneliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -455,15 +281,18 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblid;
+    private javax.swing.JLabel lblid1;
+    private javax.swing.JLabel lblid2;
+    private javax.swing.JLabel lblid3;
+    private org.edisoncor.gui.panel.PanelNice panelNice1;
+    private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JSpinner spiCantidad;
     private javax.swing.JTable tblFactura;
     private javax.swing.JTextField txtDescuento;
-    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIva;
-    private javax.swing.JTextField txtNombreFac;
     private javax.swing.JTextField txtNumSerie;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtSubtotal;
