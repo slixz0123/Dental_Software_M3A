@@ -105,6 +105,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
+        setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         cargarcboxMedico();
  
 
@@ -419,6 +420,13 @@ CrudDiag(e);
         vista_InicioProceso.getPnCitas().add(vistacitastrat);
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+//recetas
+Model_Receta modelrec = new Model_Receta();
+        Vista_Receta vistarec = new Vista_Receta();
+        vista_InicioProceso.getPnreceta().add(vistarec);
+        vistarec.setBorder(null);
+        Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec, vista); 
+//        controlrece.iniciarcontrol();
 
         
 
@@ -430,17 +438,8 @@ CrudDiag(e);
         vistafac.setBorder(null);
         Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac);
         controlfac.iniciarControl();
+     
         
-        
-//RECETAS
-
-        Model_Receta modelrec = new Model_Receta();
-        Vista_Receta vistarec = new Vista_Receta();
-        vista_InicioProceso.getPnreceta().add(vistarec);
-        vistarec.setBorder(null);
-        Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec, vista); 
-          
-
     }
         
 
