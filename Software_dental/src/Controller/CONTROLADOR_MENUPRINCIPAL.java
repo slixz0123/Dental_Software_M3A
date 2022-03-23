@@ -15,7 +15,7 @@ import Model.Model_Especialista;
 import Model.Model_Farmacos;
 import Model.Model_HistorialMedico;
 import Model.Model_ListadoPacientes;
-import Model.Model_NuevaEndodoncia;
+
 import Model.Model_Paciente;
 import Model.Model_Proforma;
 import Model.Model_Tratamiento;
@@ -36,7 +36,7 @@ import View.Vista_Farmacos;
 import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
 import View.Vista_ListadoPacientes;
-import View.Vista_NuevaEndodoncia;
+
 import View.Vista_Receta;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
@@ -294,11 +294,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
           Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
     }
     private void CrudNuevaE(java.awt.event.MouseEvent evt) {
-        Model_NuevaEndodoncia modelnuevae = new Model_NuevaEndodoncia();
-        Vista_NuevaEndodoncia vistanuevae = new Vista_NuevaEndodoncia();
-        vista.getDkpPrincipal().add(vistanuevae);
-        vistanuevae.setBorder(null);
-        Controller.Controller_NuevaEndodoncia controllernueva = new Controller_NuevaEndodoncia(modelnuevae, vistanuevae);
+      
     }
     private void CitasTratamiento(java.awt.event.MouseEvent evt) {
         Model_Citas modelcitastrat = new Model_Citas();
