@@ -11,6 +11,7 @@ import View.Vista_Farmacos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -81,7 +82,7 @@ public class Controller_Farmacos {
     }
 
     public void crearFarmaco() {
-        
+
         String nombre = vista.getTxtNombreFar().getText().trim();
         String descrip = vista.getTxtADescripcionFarma().getText();
         String mg = vista.getTxtMgFar().getText();
@@ -168,6 +169,7 @@ public class Controller_Farmacos {
 
         }
     }
+    
 
     private void limpiarCampos() {
         vista.getTxtNombreFar().setText("");
@@ -175,5 +177,7 @@ public class Controller_Farmacos {
         vista.getTxtMgFar().setText("");
         vista.getCbxMaterial().setSelectedItem(null);
     }
+
+  
 
 }
