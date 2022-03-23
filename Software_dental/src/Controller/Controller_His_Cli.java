@@ -46,7 +46,7 @@ public class Controller_His_Cli {
       //vista.getBtncargardatos().addActionListener(l-> cargardatosexternosIdmed());
       generarSerie();
       vista.getBtnguardar().addActionListener(l-> registrarHistorialMedico());
-    //  vista.getBtnOdonto().addActionListener(l-> abrirodontograma());
+     vista.getBtnOdonto().addActionListener(l-> abrirodontograma());
     }
     
     public void registrarHistorialMedico(){
@@ -96,8 +96,9 @@ public class Controller_His_Cli {
         limpiartxt();
     }
     public void abrirodontograma(){
-//        vista.getJdodomtograma().setVisible(true);
-//        vista.getJdodomtograma().setLocationRelativeTo(vista);
+        vista.getJdodomtogram().setVisible(true);
+       vista.getJdodomtogram().setLocationRelativeTo( vistamenu);
+         vista.getJdodomtogram().setSize(1050,550);
     }
     
      public void limpiartxt(){

@@ -40,7 +40,7 @@ import View.Vista_NuevaEndodoncia;
 import View.Vista_Receta;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
-import View.vista_Odontograma;
+//import View.vista_Odontograma;
 
 import desplazable.Desface;
 

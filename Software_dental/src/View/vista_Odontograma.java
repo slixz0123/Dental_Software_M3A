@@ -8,7 +8,7 @@ package View;
  *
  * @author slix0
  */
-public class vista_Odontograma extends javax.swing.JInternalFrame {
+public class vista_Odontograma extends javax.swing.JFrame {
 
     /**
      * Creates new form vista_Odontograma
@@ -531,6 +531,7 @@ public class vista_Odontograma extends javax.swing.JInternalFrame {
         jPanel117 = new javax.swing.JPanel();
         jPanel118 = new javax.swing.JPanel();
         jPanel119 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -6893,6 +6894,9 @@ public class vista_Odontograma extends javax.swing.JInternalFrame {
 
         jPanel4.add(jPanel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, 50, 70));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 70, -1));
+
         jTabbedPane1.addTab("ODONTOGRAMA ADULTO", jPanel4);
 
         panelNice1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 990, 600));
@@ -6903,11 +6907,11 @@ public class vista_Odontograma extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -6987,6 +6991,7 @@ public class vista_Odontograma extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
