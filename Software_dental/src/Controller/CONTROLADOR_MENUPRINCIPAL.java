@@ -430,9 +430,19 @@ CrudDiag(e);
         vistafac.setBorder(null);
         Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac);
         controlfac.iniciarControl();
- 
+        
+        
+//RECETAS
+
+        Model_Receta modelrec = new Model_Receta();
+        Vista_Receta vistarec = new Vista_Receta();
+        vista_InicioProceso.getPnreceta().add(vistarec);
+        vistarec.setBorder(null);
+        Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec, vista); 
+          
 
     }
+        
 
     /*private void crudcie10(){
 =======
