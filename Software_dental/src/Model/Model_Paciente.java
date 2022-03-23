@@ -4,27 +4,14 @@
  */
 package Model;
 
-import java.awt.Image;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -216,14 +203,32 @@ public String NumSerie() {
         
         
         
-        
+       //generar id historial medico
+     public byte[] extraerfoto(String ced){
+        String sql = "SELECT fotos FROM persona where cedula="+ced+"'";
+        byte[] foto = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+         
+        try {
+         ps = con.Con().prepareStatement(sql);
+         rs = ps.executeQuery();
+            while (rs.next()) {
+                foto = rs.getBytes(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+        return foto;
+    } 
         
         
   
  public boolean ActualizarPersonas ()  {
         String Sql ;
         Sql="UPDATE persona SET\n" ;
-        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provinvia= '"   +getProvincia()+"', ciudad= '"   +getProvincia()+"', genero= '"   +getProvincia()+"', foto= '"   +getFoto()+"'";
+        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provincia= '"   +getProvincia()+"', ciudad= '"   +getCiudad()+"', genero= '"   +getGenero()+"', fotos= '"   +getFoto()+"'";
       
         Sql +=  "WHERE cedula = '" +getCedula()+ "';";
     

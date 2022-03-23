@@ -105,6 +105,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel45 = new javax.swing.JLabel();
         txtapellidodoc = new jtextfieldround.JTextFieldRound();
         btnbuscardoc = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabla_anam = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
 
         paneldialog.setBackground(new java.awt.Color(90, 166, 166));
@@ -280,8 +282,6 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("FECHA DE NACIMIENTO:");
         panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
-
-        dateFechanacEsp.setEnabled(false);
         panelNice1.add(dateFechanacEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 200, -1));
         panelNice1.add(txtcedula_pac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 21));
 
@@ -312,10 +312,10 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         btncerrar.setBackground(new java.awt.Color(166, 104, 216));
-        btncerrar.setText("Cerrar");
+        btncerrar.setText("Cargar Datos");
         panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txtnombrespac.setEditable(false);
@@ -407,7 +407,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DATOS DEL ANAMESIS");
+        jLabel15.setText("DATOS DEL ANAMNESIS");
         panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         btnnuevo.setText("Nuevo");
@@ -431,6 +431,37 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         btnbuscardoc.setText("Buscar");
         panelNice2.add(btnbuscardoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 90, -1));
+
+        tabla_anam.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "#", "", "", "Medico Tratante"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tabla_anam);
+        if (tabla_anam.getColumnModel().getColumnCount() > 0) {
+            tabla_anam.getColumnModel().getColumn(0).setMinWidth(25);
+            tabla_anam.getColumnModel().getColumn(0).setPreferredWidth(25);
+            tabla_anam.getColumnModel().getColumn(0).setMaxWidth(25);
+            tabla_anam.getColumnModel().getColumn(1).setMinWidth(15);
+            tabla_anam.getColumnModel().getColumn(1).setPreferredWidth(15);
+            tabla_anam.getColumnModel().getColumn(1).setMaxWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setMinWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setPreferredWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setMaxWidth(15);
+        }
+
+        panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 300, 180));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 690, 630));
 
@@ -462,6 +493,14 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JTable getTabla_anam() {
+        return tabla_anam;
+    }
+
+    public void setTabla_anam(JTable tabla_anam) {
+        this.tabla_anam = tabla_anam;
+    }
 
     public JPanel getPaneldialog() {
         return paneldialog;
@@ -765,11 +804,13 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JPanel paneldialog;
+    private javax.swing.JTable tabla_anam;
     private javax.swing.JTable tbldoctor;
     private javax.swing.JTable tblpac;
     private javax.swing.JTextArea txproblema;

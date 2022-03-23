@@ -248,6 +248,8 @@ public class Controller_HistorialMedico {
     @Override
     public void mouseClicked(MouseEvent e){
         cargardatosmed(e);
+        vista.getBtnlimpiar().setText("Limpiar");
+        cambio="limpio";
     }
     });
     }  
@@ -260,6 +262,13 @@ public class Controller_HistorialMedico {
         cambio="nuevo";
         vista.getBtnguardar().setText("Editar");
         accion="editar";
+        int filasel = vista.getTablahistorial().getSelectedRow();
+        Date fecha=(Date) vista.getTablahistorial().getValueAt(filasel, 1);
+        if(fecha.before(fecha_his_Med())){
+        vista.getBtnguardar().setEnabled(false);
+        } else {
+            vista.getBtnguardar().setEnabled(true);
+        }
         llenardatoshistorial(e);
     }
     });
@@ -453,9 +462,11 @@ public class Controller_HistorialMedico {
     vista.getTxtoxi().setText("");
     vista.getCalendariobuscar().setDate(null);
     cargartablahistorial();
+    vista.getBtnguardar().setEnabled(true);
     cambio="nuevo";
     vista.getBtnlimpiar().setText("Nuevo");
     } else if (cambio.equals("nuevo")){
+    vista.getBtnguardar().setEnabled(true);
     vista.getTxtcedulamed().setText("");
     vista.getTxtnombresmed().setText("");
     vista.getTxtapellidosmed().setText("");
