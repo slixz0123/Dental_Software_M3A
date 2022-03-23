@@ -12,9 +12,7 @@ import javax.swing.JPanel;
  */
 public class Vista_InicioProceso extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Vista_InicioProceso
-     */
+   
     public Vista_InicioProceso() {
         initComponents();
     }
@@ -35,6 +33,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
         this.pnCitas = pnCitas;
     }
 
+   
    
 
     public JPanel getPnFacturacion() {
@@ -152,7 +151,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
             .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("HISTORIAL MEDICO", pnHistorial);
+        jTabbedPane1.addTab("HISTORIAL ODONTOLOGICO", pnHistorial);
 
         pnHistorialClinico.setBackground(new java.awt.Color(255, 255, 255));
         pnHistorialClinico.setPreferredSize(new java.awt.Dimension(1255, 752));
@@ -168,7 +167,7 @@ public class Vista_InicioProceso extends javax.swing.JInternalFrame {
             .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("HISTORIAL CLINICO", pnHistorialClinico);
+        jTabbedPane1.addTab("HISTORIA CLINICA", pnHistorialClinico);
 
         pnCitas.setBackground(new java.awt.Color(255, 255, 255));
 

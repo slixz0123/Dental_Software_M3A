@@ -112,8 +112,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="HISTORIAL MEDICO">
-                <Property name="tabTitle" type="java.lang.String" value="HISTORIAL MEDICO"/>
+              <JTabbedPaneConstraints tabName="HISTORIAL ODONTOLOGICO">
+                <Property name="tabTitle" type="java.lang.String" value="HISTORIAL ODONTOLOGICO"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -142,8 +142,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="HISTORIAL CLINICO">
-                <Property name="tabTitle" type="java.lang.String" value="HISTORIAL CLINICO"/>
+              <JTabbedPaneConstraints tabName="HISTORIA CLINICA">
+                <Property name="tabTitle" type="java.lang.String" value="HISTORIA CLINICA"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

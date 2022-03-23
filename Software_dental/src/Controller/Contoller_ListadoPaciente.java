@@ -9,11 +9,8 @@ import Model.Model_ListadoPacientes;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_ListadoPacientes;
-import java.awt.Image;
-import java.awt.Label;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,11 +19,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
@@ -37,14 +32,17 @@ import javax.xml.ws.Holder;
  */
 public class Contoller_ListadoPaciente {
     
-     private Model_ListadoPacientes modelo;
+    private Model_ListadoPacientes modelo;
     private Vista_ListadoPacientes vista;
-
-    public Contoller_ListadoPaciente(Model_ListadoPacientes modelo, Vista_ListadoPacientes vista) {
+    private MenuPrincipal vistaMenu ;
+    public Contoller_ListadoPaciente(Model_ListadoPacientes modelo, Vista_ListadoPacientes vista, MenuPrincipal vistaMenu) {
         this.modelo = modelo;
         this.vista = vista;
+        this.vistaMenu = vistaMenu; 
         vista.setVisible(true);
         iniciarcontrol ();
+        
+        
     }
     
      public void iniciarcontrol (){
@@ -66,38 +64,37 @@ public class Contoller_ListadoPaciente {
         };
          
           vista.getTxtbuscar().addKeyListener(kl);
-           vista.getJtbllistadopac().addMouseListener(new java.awt.event.MouseAdapter() {
+           toquetabla();
+          
+     }
+     
+     
+     
+     public void toquetabla(){
+          vista.getJtbllistadopac().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (e.getClickCount() == 1) {
                     try {
                         System.out.println("Se ha hecho un click");
-                        MenuPrincipal vistamenu = new MenuPrincipal();
                         cargardatosTxt();
                     } catch (IOException ex) {
-                        System.out.println(ex);
                         Logger.getLogger(Contoller_ListadoPaciente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 if (e.getClickCount() == 2) {
                     try {
                         System.out.println("Se ha hecho doble click");
-                        MenuPrincipal vistamenu = new MenuPrincipal();
                         cargardatosTxt();
                     } catch (IOException ex) {
-                            System.out.println(ex);
                         Logger.getLogger(Contoller_ListadoPaciente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         }
         );
-          
+     
      }
-     
-     
-     
-     
      
      
      
@@ -206,29 +203,27 @@ public class Contoller_ListadoPaciente {
       private void cargardatosTxt () throws IOException{
 
         List<Paciente> lp = modelo.listarpac();
-          MenuPrincipal vistamenu = new MenuPrincipal();
+         
         int xx = vista.getJtbllistadopac().getSelectedRow();
         if (xx != -1) {
             String id = vista.getJtbllistadopac().getValueAt(xx, 0).toString();
             String pro = id ;
-            vistamenu.getLblCedulapac().setText(id);
+            vistaMenu.getLblCedulapac().setText(id);
             String nom = vista.getJtbllistadopac().getValueAt(xx, 1).toString();
-            vistamenu.getLblnombrescomp().setText(nom);
+            vistaMenu.getLblnombrescomp().setText(nom);
             String apellido = vista.getJtbllistadopac().getValueAt(xx, 2).toString();
-            vistamenu.getLabelapellido().setText(apellido);
+            vistaMenu.getLabelapellido().setText(apellido);
            for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
-    vistamenu.getLblCedulapac().setText(id);
-            vistamenu.getLblnombrescomp().setText(nom);
-             vistamenu.getLabelapellido().setText(apellido);
+       vistaMenu.getLblCedulapac().setText(id);
+       vistaMenu.getLblnombrescomp().setText(nom);
+       vistaMenu.getLabelapellido().setText(apellido);
+            
             System.out.println(id+""+nom+apellido);
                     
                 }
             }
-           vistamenu.getLblCedulapac().setText(id);
-            vistamenu.getLblnombrescomp().setText(nom);
-             vistamenu.getLabelapellido().setText(apellido);
-            System.out.println(id+""+nom+apellido);
+           
             }
             else {
             JOptionPane.showMessageDialog(vista, "error seleccione una fila");
@@ -237,10 +232,6 @@ public class Contoller_ListadoPaciente {
   
 
 }
-     
-    
-     
-     
-     
+
 }
 

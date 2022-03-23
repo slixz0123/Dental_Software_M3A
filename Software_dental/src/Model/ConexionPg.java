@@ -23,9 +23,13 @@ public class ConexionPg {
     String usuario = "postgres";
 
 
-   // String contrasena = "159753";
+    String contrasena = "159753";
 
-    String contrasena = "17112002Diana";
+
+   // String contrasena = "17112002Diana";
+
+    //String contrasena = "1234";
+
 
 
   
@@ -93,5 +97,14 @@ public class ConexionPg {
     public Connection GetCon(){
         return con;
     }
-        
+         public void cerrar(){
+         try {
+             con.close();
+             System.out.println("conexion cerrada");
+         } catch (SQLException ex) {
+             Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
+         
+         }
+       
+    }
 }

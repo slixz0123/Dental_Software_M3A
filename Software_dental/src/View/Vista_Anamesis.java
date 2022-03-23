@@ -1,11 +1,10 @@
 package View;
 
-import Model.Persona;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -40,7 +39,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         dialogbuscar = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
+        paneldialog = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbldoctor = new javax.swing.JTable();
         txtbuscardoc = new javax.swing.JTextField();
@@ -106,26 +105,21 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel45 = new javax.swing.JLabel();
         txtapellidodoc = new jtextfieldround.JTextFieldRound();
         btnbuscardoc = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabla_anam = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
 
-        jPanel3.setBackground(new java.awt.Color(90, 166, 166));
+        paneldialog.setBackground(new java.awt.Color(90, 166, 166));
 
         tbldoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Cedula", "Nombre", "Apellido", "Especialidad", "Telefono"
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Especialidad", "Telefono"
             }
         ));
         jScrollPane3.setViewportView(tbldoctor);
-        if (tbldoctor.getColumnModel().getColumnCount() > 0) {
-            tbldoctor.getColumnModel().getColumn(0).setHeaderValue("Cedula");
-            tbldoctor.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-            tbldoctor.getColumnModel().getColumn(2).setHeaderValue("Apellido");
-            tbldoctor.getColumnModel().getColumn(3).setHeaderValue("Especialidad");
-            tbldoctor.getColumnModel().getColumn(4).setHeaderValue("Telefono");
-        }
 
         txtbuscardoc.setToolTipText("Ingrese la cedula o el nombre para buscar");
 
@@ -133,26 +127,26 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Buscar:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout paneldialogLayout = new javax.swing.GroupLayout(paneldialog);
+        paneldialog.setLayout(paneldialogLayout);
+        paneldialogLayout.setHorizontalGroup(
+            paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneldialogLayout.createSequentialGroup()
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(paneldialogLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        paneldialogLayout.setVerticalGroup(
+            paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
@@ -164,11 +158,11 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         dialogbuscar.getContentPane().setLayout(dialogbuscarLayout);
         dialogbuscarLayout.setHorizontalGroup(
             dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dialogbuscarLayout.setVerticalGroup(
             dialogbuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(paneldialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(166, 104, 216));
@@ -184,7 +178,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
         ));
         jScrollPane4.setViewportView(tblpac);
@@ -318,10 +312,10 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         btncerrar.setBackground(new java.awt.Color(166, 104, 216));
-        btncerrar.setText("Cerrar");
+        btncerrar.setText("Cargar Datos");
         panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txtnombrespac.setEditable(false);
@@ -413,7 +407,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DATOS DEL ANAMESIS");
+        jLabel15.setText("DATOS DEL ANAMNESIS");
         panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         btnnuevo.setText("Nuevo");
@@ -437,6 +431,37 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         btnbuscardoc.setText("Buscar");
         panelNice2.add(btnbuscardoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 90, -1));
+
+        tabla_anam.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "#", "", "", "Medico Tratante"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tabla_anam);
+        if (tabla_anam.getColumnModel().getColumnCount() > 0) {
+            tabla_anam.getColumnModel().getColumn(0).setMinWidth(25);
+            tabla_anam.getColumnModel().getColumn(0).setPreferredWidth(25);
+            tabla_anam.getColumnModel().getColumn(0).setMaxWidth(25);
+            tabla_anam.getColumnModel().getColumn(1).setMinWidth(15);
+            tabla_anam.getColumnModel().getColumn(1).setPreferredWidth(15);
+            tabla_anam.getColumnModel().getColumn(1).setMaxWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setMinWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setPreferredWidth(15);
+            tabla_anam.getColumnModel().getColumn(2).setMaxWidth(15);
+        }
+
+        panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 300, 180));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 690, 630));
 
@@ -468,6 +493,22 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JTable getTabla_anam() {
+        return tabla_anam;
+    }
+
+    public void setTabla_anam(JTable tabla_anam) {
+        this.tabla_anam = tabla_anam;
+    }
+
+    public JPanel getPaneldialog() {
+        return paneldialog;
+    }
+
+    public void setPaneldialog(JPanel paneldialog) {
+        this.paneldialog = paneldialog;
+    }
 
     public JDialog getDialogpac() {
         return dialogpac;
@@ -758,16 +799,18 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblidanam;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JPanel paneldialog;
+    private javax.swing.JTable tabla_anam;
     private javax.swing.JTable tbldoctor;
     private javax.swing.JTable tblpac;
     private javax.swing.JTextArea txproblema;

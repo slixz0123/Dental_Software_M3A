@@ -21,6 +21,7 @@ public class Contoller_HistorialMedico {
         vista.setVisible(true);
     }
     
+   
     
     
 }
