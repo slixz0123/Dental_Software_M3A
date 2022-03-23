@@ -40,6 +40,7 @@ import View.Vista_ListadoPacientes;
 import View.Vista_Receta;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
+import View.vista_Odontograma;
 //import View.vista_Odontograma;
 
 import desplazable.Desface;
@@ -89,7 +90,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         cargarcboxMedico();
- 
+  vista.getBtnOdontograma().addActionListener(l-> odontograma());
 
     }
 
@@ -275,7 +276,13 @@ private void setEventoMouseClickProgreso(JLabel laba) {
     }
      
      
-     
+     public void odontograma(){
+               model_Odontograma modelro = new model_Odontograma();
+     vista_Odontograma vistao = new vista_Odontograma();
+       vista.getDkpPrincipal().add(vistao);
+      vistao.setBorder(null);
+      Controller.Controller_odonto controlod = new Controller_odonto(modelro, vistao); 
+     }
      
      
       private void proforma(java.awt.event.MouseEvent evt) {
