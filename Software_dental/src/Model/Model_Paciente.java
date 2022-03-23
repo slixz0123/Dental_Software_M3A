@@ -201,29 +201,7 @@ public String NumSerie() {
      return milistapac;
          }
         
-        
-        
-       //generar id historial medico
-     public byte[] extraerfoto(String ced){
-        String sql = "SELECT fotos FROM persona where cedula="+ced+"'";
-        byte[] foto = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-         
-        try {
-         ps = con.Con().prepareStatement(sql);
-         rs = ps.executeQuery();
-            while (rs.next()) {
-                foto = rs.getBytes(1);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-
-        }
-        return foto;
-    } 
-        
-        
+ 
   
  public boolean ActualizarPersonas ()  {
 

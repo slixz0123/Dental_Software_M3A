@@ -203,19 +203,26 @@ public class Controller_CrudPaciente {
                    
                      InputStream in = new ByteArrayInputStream(ft);
                      img = ImageIO.read(in);
-          
+                     if(img!=null){
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+                    
                     Icon ic = new ImageIcon(j);
                     vista.getLablefoto().setIcon(ic);
-                    } else {
-                    if(lp.get(i).getGenero().equalsIgnoreCase("F")){
-                    ImageIcon icmuj = new ImageIcon("/view/icons/icono mujer.png");
-                    vista.getLablefoto().setIcon(icmuj);
-                    } else if (lp.get(i).getGenero().equalsIgnoreCase("M")){
-                    ImageIcon icho = new ImageIcon("/view/icons/icono hombre.png");
-                    vista.getLablefoto().setIcon(icho);
+                    }  else {
+                    vista.getLablefoto().setIcon(null);}
+                  
+                 } else {
+//                    if(lp.get(i).getGenero().equalsIgnoreCase("F")){
+//                    //Icon icmuj = new ImageIcon("/view/icons/icono mujer.png");
+//                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
+                    vista.getLablefoto().setIcon(null);
+//                    } else if (lp.get(i).getGenero().equalsIgnoreCase("M")){
+//                    //Icon icho = new ImageIcon("/view/icons/icono hombre.png");
+//                    vista.getLablefoto().setIcon(new ImageIcon("/view/icons/icono hombre.png"));
+//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
+//
+//                    }
                     }
-                 }
                   
           
                     
@@ -300,7 +307,6 @@ public class Controller_CrudPaciente {
            pac.setFoto(icono);
 
             }catch(Exception ex){
-                 System.out.println(ex);
            pac.setFoto(null);
         }
             pac.setId_paciente(id);
