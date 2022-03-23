@@ -226,15 +226,53 @@ public String NumSerie() {
         
   
  public boolean ActualizarPersonas ()  {
-        String Sql ;
-        Sql="UPDATE persona SET\n" ;
-        Sql +=  "nombres= '" +getNombres()+"', apellidos= '"+getApellidos()+ "', celular= '"+getCelular() +  "', telefono= '"+getTelefono()+"', direccion= '"+getDireccion() +"', correo= '"+getCorreo()+"', provincia= '"   +getProvincia()+"', ciudad= '"   +getCiudad()+"', genero= '"   +getGenero()+"', fotos= '"   +getFoto()+"'";
-      
-        Sql +=  "WHERE cedula = '" +getCedula()+ "';";
-    
-        return con.accion(Sql);
+
+        try {
+    String sql;
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
+    PreparedStatement actp= con.Con().prepareStatement(sql);
+    actp.setString(1, getNombres());
+    actp.setString(2, getApellidos());
+    actp.setString(3, getCelular());
+    actp.setString(4, getTelefono());
+    actp.setString(5, getDireccion());
+    actp.setString(6, getCorreo());
+    actp.setString(7, getProvincia());
+    actp.setString(8, getCiudad());
+    actp.setString(9, getGenero());
+    actp.setBytes(10, getFoto());
+    actp.setString(11, getCedula());
+    actp.executeUpdate();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
   }
- 
+ //
+  public boolean Actualizarsinfoto ()  {
+           try {
+    String sql;
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=? WHERE cedula=?";
+    PreparedStatement actp= con.Con().prepareStatement(sql);
+    actp.setString(1, getNombres());
+    actp.setString(2, getApellidos());
+    actp.setString(3, getCelular());
+    actp.setString(4, getTelefono());
+    actp.setString(5, getDireccion());
+    actp.setString(6, getCorreo());
+    actp.setString(7, getProvincia());
+    actp.setString(8, getCiudad());
+    actp.setString(9, getGenero());
+    actp.setString(10, getCedula());
+    actp.executeUpdate();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
+  }
+  //
  public boolean borrarPersona( String Cedulaborrar)  {
         String Sql ;
         Sql="DELETE FROM paciente WHERE cedula_pac ='" +Cedulaborrar+ "'";

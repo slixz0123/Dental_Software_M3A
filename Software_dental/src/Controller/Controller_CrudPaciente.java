@@ -332,7 +332,6 @@ public class Controller_CrudPaciente {
      Date fechanac;
      String tiposang;
      String id;
-     byte foto ; 
      
     
     cedula = vista.getTxtced().getText();
@@ -366,17 +365,14 @@ public class Controller_CrudPaciente {
            pac.setCiudad(ciudad);
            pac.setGenero(genero);
              try{
-            if(vista.getTxtruta().getText().trim().length()!=0){
+            if(vista.getTxtruta().getText().trim().length()!=0){ 
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
             pac.setFoto(icono);
-            } else {
-            
-            pac.setFoto(modelo.extraerfoto(vista.getTxtced().getText()));
             }
 
-            }catch(Exception ex){
+            }catch(IOException ex){
                  System.out.println(ex);
            pac.setFoto(null);
         }
@@ -384,8 +380,12 @@ public class Controller_CrudPaciente {
             pac.setCedula_pac(cedula);
             pac.setFecha_nac(fecha);
             pac.setTipo_sang(tiposang);
-             
+            if(vista.getTxtruta().getText().trim().length()!=0){ 
             pac.ActualizarPersonas();
+             } else {
+            
+            pac.Actualizarsinfoto();
+            }
             generarSerie();
             cargarPersonas ();
             limpiartxt();

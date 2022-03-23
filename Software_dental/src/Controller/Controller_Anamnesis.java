@@ -10,7 +10,6 @@ import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Anamnesis;
 import Model.Paciente;
-import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
 import java.awt.event.KeyEvent;
@@ -324,6 +323,7 @@ public class Controller_Anamnesis {
             JOptionPane.showMessageDialog(vista, "Datos guardados");
             accion="editar";
             vista.getBtnguardar().setText("Editar");
+            cargarAnamnesis();
             limpiar();
         } else {JOptionPane.showMessageDialog(vista, "No se pudo guardar");}
     } else if(accion.equals("editar")){
@@ -335,7 +335,7 @@ public class Controller_Anamnesis {
     anam.setMotiv_consul(vista.getTxtconsulta().getText());
     anam.setProble_act(vista.getTxproblema().getText());
     anam.setId_doctor(modelo.idMed(vista.getTxtcedulamed().getText()));
-        System.out.println(modelo.idMed(vista.getTxtcedulamed().getText()));
+       
         if(anam.actualizarAnamnesis()){
             JOptionPane.showMessageDialog(vista, "Se modificaron los datos");
             accion="guardar";
