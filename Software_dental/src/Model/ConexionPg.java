@@ -19,11 +19,11 @@ import java.util.logging.Logger;
  */
 public class ConexionPg {
      Connection con ;
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
+    String cadenaConexion = "jdbc:postgresql://localhost:5433/Dental";
     String usuario = "postgres";
 
 
-    String contrasena = "159753";
+    String contrasena = "1234";
 
 
    // String contrasena = "17112002Diana";

@@ -37,18 +37,11 @@ import View.Vista_Farmacos;
 import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
 import View.Vista_ListadoPacientes;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import View.Vista_NuevaEndodoncia;
 import View.Vista_crud_Factura;
-=======
 
 import View.Vista_Receta;
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-=======
 
-import View.Vista_Receta;
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 //import View.vista_Odontograma;
@@ -58,12 +51,9 @@ import desplazable.Desface;
 import java.awt.Frame;
 
 import java.awt.event.MouseEvent;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-=======
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -71,7 +61,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-=======
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -79,9 +68,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
 
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
 
 /**
  *
@@ -106,16 +93,12 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         setEventoMouseClickeDiag(vista.getLbl_Diagnostico());
         setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia());
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
     setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
         setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
       setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
@@ -299,8 +282,7 @@ CrudDiag(e);
     }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     /*private void CrudDiag(java.awt.event.MouseEvent evt) {
         Model_Diagnostico modeldiag = new Model_Diagnostico();
         Vista_Diagnostico vistadiag = new Vista_Diagnostico();
@@ -308,15 +290,11 @@ CrudDiag(e);
         vistadiag.setBorder(null);
         Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
     }*/
-    private void agendacitas() {
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
     
     
     
      private void agendacitas() {
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         Model_AgendaCitas modelagendacitas = new Model_AgendaCitas();
         Vista_AgendaCitas vistaAgendarcitas = new Vista_AgendaCitas();
         vista.getDkpPrincipal().add(vistaAgendarcitas);
@@ -337,15 +315,12 @@ CrudDiag(e);
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista.getDkpPrincipal().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
-=======
-          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-=======
-          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
+//          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+//
+//          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
     }
 
     private void CrudNuevaE(java.awt.event.MouseEvent evt) {
@@ -376,14 +351,6 @@ CrudDiag(e);
         Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
         controlfarma.iniciaControl();
     }
-<<<<<<< HEAD
-
-
-
-    private void Proceso(java.awt.event.MouseEvent evt) {
-        Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
-
-=======
         
         
         
@@ -393,96 +360,68 @@ CrudDiag(e);
         private void Proceso(java.awt.event.MouseEvent evt) {
        
           Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
-<<<<<<< HEAD
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
         vista.getDkpPrincipal().add(vista_InicioProceso);
         vista_InicioProceso.setVisible(true);
         vista_InicioProceso.setBorder(null);
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-        
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         //historial medico
         Model_HistorialMedico modHisto = new Model_HistorialMedico();
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista_InicioProceso.getPnHistorial().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
 
         // listado
         //listado de pacientes
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+
+//        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
         
        
          //listado de pacientes
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         Model_ListadoPacientes modlistado = new Model_ListadoPacientes();
         Vista_ListadoPacientes vistaLista = new Vista_ListadoPacientes();
         vista_InicioProceso.getPnListadoPac().add(vistaLista);
         vistaLista.setBorder(null);
-<<<<<<< HEAD
 
-        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente(modlistado, vistaLista);
+        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente(modlistado, vistaLista,vista);
 
-=======
         
-        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente (modlistado, vistaLista,vista);
+//        Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente (modlistado, vistaLista,vista);
  
    
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         //anamesis
         Model_Anamnesis modAne = new Model_Anamnesis();
         Vista_Anamesis vistaana = new Vista_Anamesis();
         vista_InicioProceso.getPnAnamesis().add(vistaana);
         vistaana.setBorder(null);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis(modAne, vistaana);
+
+        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis(modAne, vistaana,vista);
 
         // diagnostico
-        Model_Hist_clinico modeldiag = new Model_Hist_clinico();
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana , vista);
+//        Model_Hist_clinico modeldiag = new Model_Hist_clinico();
+
+//        Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana , vista);
  
           // historial clicica
            Model_Hist_clinico modeldiag = new Model_Hist_clinico();
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
         vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
         vistadiag.setBorder(null);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag);
-        // CITAS
-        Model_Citas modelcitastrat = new Model_Citas();
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
+        // CITAS
+
+//        Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag,vista);
          // CITAS
          Model_Citas modelcitastrat = new Model_Citas();
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
         vista_InicioProceso.getPnCitas().add(vistacitastrat);
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
 
         
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 //Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
         //Facturacion 
         Model_Factura modelfac = new Model_Factura();
@@ -531,8 +470,7 @@ CrudDiag(e);
         controladorcrudPersonas.iniciar();  
           
     }*/
-<<<<<<< HEAD
-=======
+
      
         
        
@@ -565,8 +503,5 @@ CrudDiag(e);
         
        
         
-<<<<<<< HEAD
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
 }
