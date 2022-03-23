@@ -44,23 +44,80 @@ public class Controller_His_Cli {
         
        vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
       //vista.getBtncargardatos().addActionListener(l-> cargardatosexternosIdmed());
-       generarSerie();
-
+      generarSerie();
+      vista.getBtnguardar().addActionListener(l-> registrarHistorialMedico());
+     vista.getBtnOdonto().addActionListener(l-> abrirodontograma());
     }
     
     public void registrarHistorialMedico(){
         
+        String medicacion ; 
+        String motivo;
+        String patologias; 
+        String alergias ; 
+        String observaciones;
+        String id ; 
+        String iddoc ; 
+        String idhist ; 
+        Date fecha_nac  ;
+        medicacion = vista.getTxtAmedicacion().getText();
+        motivo =  vista.getTxtAmotivoocnsul().getText();
+        patologias = vista.getTxtApatologiass().getText();
+        alergias  = vista.getTxtAalergias().getText();
+        observaciones = vista.getTxtAobservaciones().getText();
+         SimpleDateFormat dateFormat = new SimpleDateFormat ("yyy-MM-dd");
+     java.util.Date date= vista.getJdtfechanac().getDate();
+     long d = date.getTime();
+     String fechael=dateFormat.format(d);
+     java.sql.Date fecha = new java.sql.Date (d);
+        idhist = vista.getLblCodHist().getText();
+        id = vista.getLblid().getText();
+        iddoc = vista.getLabelIddoc().getText();
         
         
         
         
+        Model_Hist_clinico histo = new Model_Hist_clinico();
+        histo.setId_historia(idhist);
+        histo.setFecha_his( fecha);
+        histo.setId_pac(id);
+        histo.setAlergia(alergias);
+        histo.setMotivo(motivo);  
+    
+        histo.setObservacion(observaciones);
+        histo.setEnfermedad(patologias);
+         histo.setMedicacion(medicacion);
+         histo.setId_odonto(iddoc);
+         histo.crearHistoriaCli();
         
         
+        generarSerie();
         
-        
+        limpiartxt();
+    }
+    public void abrirodontograma(){
+        vista.getJdodomtogram().setVisible(true);
+       vista.getJdodomtogram().setLocationRelativeTo( vistamenu);
+         vista.getJdodomtogram().setSize(1050,550);
     }
     
-    
+     public void limpiartxt(){
+    vista.getLabelIddoc().setText("");
+    vista.getLblid().setText("");
+    vista.getTxtnombrespac().setText("");
+    vista.getTxtgeneropac().setText("");
+    vista.getTxttelefono().setText("");
+    vista.getTxtapellidospac().setText("");
+    vista.getTxtdomicilio().setText("");
+    vista.getTxtedad().setText("");
+    vista.getTxtAmedicacion().setText("");
+    vista.getTxtAmotivoocnsul().setText("");
+    vista.getTxtApatologiass().setText("");
+    vista.getTxtAalergias().setText("");
+    vista.getTxtAobservaciones().setText("");
+    vista.getJdtfechanac().setDate(null);
+  
+    }
        private void generarSerie() {
       String   serie = model.NumSerie();
         if (serie == null) {

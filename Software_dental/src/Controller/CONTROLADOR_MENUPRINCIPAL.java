@@ -10,6 +10,7 @@ import Model.Model_Anamnesis;
 import Model.Model_Cie10;
 import Model.Model_Citas;
 import Model.Model_CitasTratamiento;
+import Model.Model_Diagnostico;
 import Model.Model_Especialista;
 import Model.Model_Farmacos;
 import Model.Model_HistorialMedico;
@@ -22,6 +23,7 @@ import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
 import Model.Model_Receta;
 import Model.Persona;
+import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -38,6 +40,7 @@ import View.Vista_NuevaEndodoncia;
 import View.Vista_Receta;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
+//import View.vista_Odontograma;
 
 import desplazable.Desface;
 
@@ -77,10 +80,10 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeda(vista.getLblNuevoEsp());
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-        setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
+    setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
         setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
-        setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
+      setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l-> agendacitas());
@@ -184,8 +187,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                CrudDiag(e);
+CrudDiag(e);
 
             }
         });
@@ -261,15 +263,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
     }
 
 
-    /*private void CrudDiag(java.awt.event.MouseEvent evt) {
-        Model_Diagnostico modeldiag = new Model_Diagnostico();
-        Vista_Diagnostico vistadiag = new Vista_Diagnostico();
-        vista.getDkpPrincipal().add(vistadiag);
-        vistadiag.setBorder(null);
-        Controller.Controller_Diagnostico controllerdiag = new Controller_Diagnostico(modeldiag, vistadiag);
-    }*/
-
-
+    
     
     
      private void agendacitas() {
@@ -366,7 +360,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistaana.setBorder(null);
         Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis (modAne, vistaana , vista);
  
-          // diagnostico
+          // historial clicica
            Model_Hist_clinico modeldiag = new Model_Hist_clinico();
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
          vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
@@ -388,7 +382,13 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         vistarec.setBorder(null);
         Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec); 
           
-        
+        // odonto
+//        model_Odontograma modelro = new model_Odontograma();
+//        vista_Odontograma vistao = new vista_Odontograma();
+//        vista_InicioProceso.getPnOdontograma().add(vistao);
+//        vistao.setBorder(null);
+//        Controller.Controller_odonto controlod = new Controller_odonto(modelro, vistao); 
+          
         
         }
         

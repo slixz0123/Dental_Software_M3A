@@ -232,8 +232,8 @@ public class Controller_CrudPaciente {
             
             
             
-            String fecha_nac = vista.getJtbPacientes().getValueAt(xx, 8).toString();
-           // vista.getJdcFecha().setDate(fecha_nac););
+            Date fecha_nac = (Date) vista.getJtbPacientes().getValueAt(xx, 8);
+            vista.getJdcFecha().setDate(fecha_nac);
              String tipo_sang = vista.getJtbPacientes().getValueAt(xx, 9).toString();
             vista.getCbSangre().setSelectedItem(tipo_sang);
             

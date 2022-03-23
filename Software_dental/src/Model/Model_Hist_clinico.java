@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,8 +47,9 @@ public class Model_Hist_clinico extends Hist_clinico{
                 his_cli.setObservacion(rs.getString("observaciones_his"));
                 his_cli.setEnfermedad(rs.getString("enfermedades_his"));
                 his_cli.setMedicacion(rs.getString("medicacion_his"));
-                his_cli.setId_odonto(rs.getString("id_odoto"));
+                his_cli.setId_odonto(rs.getString("id_odotc"));
                 mostrar.add(his_cli);
+                
             }
             rs.close();
             return mostrar;
@@ -85,8 +87,8 @@ public class Model_Hist_clinico extends Hist_clinico{
         
     String sql;
     sql="Insert into historia_clinica (id_historia_cli, fecha_his, id_pac_his, alergias_his, motivo_his,"
-            + "observaciones_his, enfermedades_his, medicacion_his, id_odoto)";
-    sql+="values(?,?,?,?,?,?)";   
+            + "observaciones_his, enfermedades_his, medicacion_his, id_doc)";
+    sql+="values(?,?,?,?,?,?,?,?,?)";   
     PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_historia());
     ps.setDate(2, getFecha_his());
@@ -98,6 +100,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     ps.setString(8, getMedicacion());
     ps.setString(9, getId_odonto());
     ps.executeUpdate();
+    JOptionPane.showMessageDialog(null,"guardado con exito");
     return true;
     
         } catch (SQLException ex) {
@@ -199,8 +202,8 @@ public class Model_Hist_clinico extends Hist_clinico{
         return null;
         }
     }
-        
-        
+
+
         
         
 }
