@@ -74,7 +74,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         txtgeneropac = new jtextfieldround.JTextFieldRound();
         btnbuscarpac = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
-        btncerrar = new org.edisoncor.gui.button.ButtonRound();
+        btncargardesdmen = new org.edisoncor.gui.button.ButtonRound();
         txtnombrespac = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         lblidanam = new javax.swing.JLabel();
@@ -307,6 +307,8 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice1.add(txtgeneropac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 21));
 
         btnbuscarpac.setText("Buscar");
+        btnbuscarpac.setDefaultCapable(false);
+        btnbuscarpac.setFocusPainted(false);
         panelNice1.add(btnbuscarpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -314,9 +316,9 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         jLabel41.setText("DATOS DEL PACIENTE");
         panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        btncerrar.setBackground(new java.awt.Color(166, 104, 216));
-        btncerrar.setText("Cargar Datos");
-        panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        btncargardesdmen.setBackground(new java.awt.Color(166, 104, 216));
+        btncargardesdmen.setText("Cargar Datos");
+        panelNice1.add(btncargardesdmen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         txtnombrespac.setEditable(false);
         panelNice1.add(txtnombrespac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 220, 21));
@@ -380,9 +382,11 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.add(txttelefonomed, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 170, 21));
 
         btnimprimir.setText("Imprimir");
+        btnimprimir.setDefaultCapable(false);
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 200, 50));
 
         btnguardar.setText("Guardar");
+        btnguardar.setDefaultCapable(false);
         panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 210, 50));
 
         txproblema.setColumns(20);
@@ -411,6 +415,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         btnnuevo.setText("Nuevo");
+        btnnuevo.setDefaultCapable(false);
         panelNice2.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 210, 50));
 
         txtnombredoc.setEditable(false);
@@ -430,6 +435,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.add(txtapellidodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 170, 21));
 
         btnbuscardoc.setText("Buscar");
+        btnbuscardoc.setDefaultCapable(false);
         panelNice2.add(btnbuscardoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 90, -1));
 
         tabla_anam.setModel(new javax.swing.table.DefaultTableModel(
@@ -494,6 +500,14 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public ButtonRound getBtncargardesdmen() {
+        return btncargardesdmen;
+    }
+
+    public void setBtncargardesdmen(ButtonRound btncargardesdmen) {
+        this.btncargardesdmen = btncargardesdmen;
+    }
+
     public JTable getTabla_anam() {
         return tabla_anam;
     }
@@ -551,11 +565,11 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     }
 
     public ButtonRound getBtncerrar() {
-        return btncerrar;
+        return btncargardesdmen;
     }
 
     public void setBtncerrar(ButtonRound btncerrar) {
-        this.btncerrar = btncerrar;
+        this.btncargardesdmen = btncerrar;
     }
 
     public JButton getBtnguardar() {
@@ -764,7 +778,7 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscardoc;
     private javax.swing.JButton btnbuscarpac;
-    private org.edisoncor.gui.button.ButtonRound btncerrar;
+    private org.edisoncor.gui.button.ButtonRound btncargardesdmen;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JButton btnnuevo;

@@ -611,6 +611,8 @@
                 <Component class="javax.swing.JButton" name="btnbuscarpac">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
+                    <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -634,7 +636,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="org.edisoncor.gui.button.ButtonRound" name="btncerrar">
+                <Component class="org.edisoncor.gui.button.ButtonRound" name="btncargardesdmen">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="d8" green="68" red="a6" type="rgb"/>
@@ -857,6 +859,7 @@
                 <Component class="javax.swing.JButton" name="btnimprimir">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Imprimir"/>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -867,6 +870,7 @@
                 <Component class="javax.swing.JButton" name="btnguardar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -959,6 +963,7 @@
                 <Component class="javax.swing.JButton" name="btnnuevo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1021,6 +1026,7 @@
                 <Component class="javax.swing.JButton" name="btnbuscardoc">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

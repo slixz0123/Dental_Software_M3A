@@ -211,22 +211,9 @@ public class Controller_CrudPaciente {
                     }  else {
                     vista.getLablefoto().setIcon(null);}
                   
-                 } else {
-//                    if(lp.get(i).getGenero().equalsIgnoreCase("F")){
-//                    //Icon icmuj = new ImageIcon("/view/icons/icono mujer.png");
-//                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
-                    vista.getLablefoto().setIcon(null);
-//                    } else if (lp.get(i).getGenero().equalsIgnoreCase("M")){
-//                    //Icon icho = new ImageIcon("/view/icons/icono hombre.png");
-//                    vista.getLablefoto().setIcon(new ImageIcon("/view/icons/icono hombre.png"));
-//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
-//
-//                    }
-                    }
-                  
-          
-                    
-                }
+                 } 
+                   
+               }
             }
             llenartxtsobrantes ();
             }

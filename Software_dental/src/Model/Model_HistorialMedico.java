@@ -30,13 +30,13 @@ public class Model_HistorialMedico extends Hist_Medico {
     }
 
        //Listar y buscar
-    public List<Hist_Medico> listarbuscarhist (String busc){
+    public List<Hist_Medico> listarbuscarhist (String busc, String id){
     List<Hist_Medico> mostrar = new ArrayList<Hist_Medico>();
     String sql="";
     if(busc.equals("")){
-    sql="select * from historial_medico";
+    sql="select * from historial_medico where id_paciente_his='"+id+"'";
     } else {
-     sql="select * from historial_medico where fecha_his ='"+busc+"'";}
+     sql="select * from historial_medico where fecha_his ='"+busc+"' and id_paciente_his='"+id+"'";}
      try {       
         ResultSet rs=con.consulta(sql);
         while(rs.next()){
@@ -80,10 +80,11 @@ public class Model_HistorialMedico extends Hist_Medico {
      public List<Hist_Medico> listarbuscarhisttabla (String busc, String id){
     List<Hist_Medico> mostrar = new ArrayList<Hist_Medico>();
     String sql="";
-    if(busc.equals("")){
-    sql="select * from historial_medico";
-    } else {
-     sql="select * from historial_medico where fecha_his ='"+busc+"' and id_his_med='"+id+"'";}
+//    if(id.equals("")){
+//    sql="select * from historial_medico";
+//    } else {
+     sql="select * from historial_medico where fecha_his ='"+busc+"' and id_his_med='"+id+"'";
+//     }
      try {       
         ResultSet rs=con.consulta(sql);
         while(rs.next()){

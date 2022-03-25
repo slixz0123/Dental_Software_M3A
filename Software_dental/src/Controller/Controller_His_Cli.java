@@ -138,10 +138,7 @@ public class Controller_His_Cli {
        
         
          String id2 = vistamenu.getLblCedulapac().getText();
-           // pac.cargartxtsobrantes(id2);
-           System.out.println(id2+"-----");
- 
-            List<Paciente> milistapa =  model.cargartxtsobrantes(id2);
+         List<Paciente> milistapa =  model.cargartxtsobrantes(id2);
          for(int i = 0 ; i < milistapa.size() ; i++){
               
             vista.getTxtnombrespac().setText(milistapa.get(i).getNombres());

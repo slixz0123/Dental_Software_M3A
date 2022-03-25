@@ -291,7 +291,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista.getDkpPrincipal().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
     }
     private void CrudNuevaE(java.awt.event.MouseEvent evt) {
       
@@ -337,7 +337,7 @@ private void setEventoMouseClickProgreso(JLabel laba) {
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
         vista_InicioProceso.getPnHistorial().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
-        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
         
        
          //listado de pacientes
