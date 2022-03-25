@@ -139,51 +139,6 @@ public class Model_Especialista extends Doctor{
      return milistadoc;
     }
     
-    public  List<Doctor> buscarPersonas (String buscar){
-        List<Doctor> milista = new ArrayList<Doctor>();
-        String sql="";
-        String datos = buscar;
-        if(buscar.equalsIgnoreCase("")){
-             sql = "select * from doctor" ;
-        }else{
-            if(datos.equalsIgnoreCase(buscar)){
-                 sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d WHERE p.cedula=d.cedula_doc AND p.cedula='"+buscar+"' OR p.nombres='"+buscar+"' OR p.apellidos='"+buscar+"'";
-            }
-        }
-        try {
-            ResultSet rs = cpg.consulta(sql) ;
-            // barremos el resulset
-           while(rs.next()){
-               
-            //agregamos lo que nos llegue del resulset al array de persona   
-               Doctor esp1 = new Doctor();
-               // getstring = colocar el nombre de la columnas de la tabla 
-               esp1.setCedula(rs.getString("cedula"));
-                esp1.setNombres(rs.getString("nombres"));
-                 esp1.setApellidos(rs.getString("apellidos"));
-                  esp1.setCelular(rs.getString("celular"));
-                   esp1.setTelefono(rs.getString("telefono"));
-                    esp1.setDireccion(rs.getString("direccion"));
-                     esp1.setCorreo(rs.getString("correo"));
-                      esp1.setProvincia(rs.getString("provincia"));
-                       esp1.setCiudad(rs.getString("ciudad"));
-                        esp1.setGenero(rs.getString("genero"));
-                         esp1.setId_doctor(rs.getString("id_doctor"));
-                          esp1.setCedula_doc(rs.getString("cedula"));
-                           esp1.setId_usuario(rs.getString("id_usuario"));
-                            esp1.setEspecialidad(rs.getString("especialidad"));
-                             esp1.setCargo(rs.getString("cargo"));
-                              esp1.setCedula_doc(rs.getString("cedula"));
-                 milista.add(esp1);
-           }
-           rs.close();
-           return milista;
-        } catch (SQLException ex) {
-            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
-        return null;
-        }
-        }
-    
     public boolean crearPersonasByte(){
         try{
         String sql;

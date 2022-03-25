@@ -214,6 +214,24 @@ public class Controller_CrudPaciente {
                  } 
                    
                }
+                 } else if (lp.get(i).getFoto() == null) {
+                   
+                    Icon icmuj = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
+                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
+                         vista.getLablefoto().setIcon(icmuj);
+                 //   vista.getLablefoto().setIcon(null);
+                    
+//                    Icon icho = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
+//                    vista.getLablefoto().setIcon(icho);
+//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
+//
+                    
+                    }
+                  
+          
+                    
+                }
+
             }
             llenartxtsobrantes ();
             }

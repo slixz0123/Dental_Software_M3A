@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -24,13 +26,13 @@ import org.edisoncor.gui.panel.PanelNice;
  * @author slix0
  */
 public class Vista_Receta extends javax.swing.JInternalFrame {
-    Calendar fechaactual=new GregorianCalendar();
+//    Calendar fechaactual=new GregorianCalendar();
     /**
      * Creates new form Vista_Anamesis
      */
     public Vista_Receta() {
         initComponents();
-        jdcFechareceta.setCalendar(fechaactual);
+//        jdcFechanaciento.setCalendar(fechaactual);
     }
     
     public void fecha(){
@@ -50,14 +52,14 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         paneldialog = new javax.swing.JPanel();
         txtbuscarfar = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblbuscarFarmacos = new javax.swing.JTable();
         dialogCIE = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         txtbuscarcie10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblbuscarcie10 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -66,7 +68,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jdcFechareceta = new com.toedter.calendar.JDateChooser();
+        jdcFechanaciento = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtIDreceta = new jtextfieldround.JTextFieldRound();
@@ -77,7 +79,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         btnBuscarcie = new javax.swing.JButton();
         spcantidad = new javax.swing.JSpinner();
-        txtdias = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtobservaciones = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
@@ -99,19 +100,15 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        txtcedula = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         txtsexo = new javax.swing.JLabel();
-        txtanios = new javax.swing.JLabel();
-        txtmeses = new javax.swing.JLabel();
+        txtedad = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
@@ -125,30 +122,29 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         tblcie10 = new javax.swing.JTable();
         jLabel29 = new javax.swing.JLabel();
         txtmiligramos = new jtextfieldround.JTextFieldRound();
+        btncargardatos = new javax.swing.JButton();
         btnCrearRec = new javax.swing.JButton();
         btnEditarrec = new javax.swing.JButton();
         btnEliminarrec = new javax.swing.JButton();
+        lblfecha = new javax.swing.JLabel();
 
         paneldialog.setBackground(new java.awt.Color(90, 166, 166));
 
-        txtbuscarfar.setToolTipText("Ingrese la cedula o el nombre para buscar");
+        txtbuscarfar.setToolTipText("Ingrese el nombre para buscar");
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Buscar:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblbuscarFarmacos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "NOMBRE", "MILIGRAMOS"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tblbuscarFarmacos);
 
         javax.swing.GroupLayout paneldialogLayout = new javax.swing.GroupLayout(paneldialog);
         paneldialog.setLayout(paneldialogLayout);
@@ -159,11 +155,11 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         paneldialogLayout.setVerticalGroup(
             paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +169,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
                     .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dialogFarmacoLayout = new javax.swing.GroupLayout(dialogFarmaco.getContentPane());
@@ -190,24 +186,21 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(166, 104, 216));
 
-        txtbuscarcie10.setToolTipText("Ingrese la cedula o el nombre para buscar");
+        txtbuscarcie10.setToolTipText("Ingrese el id, la categoria  o el titulo para buscar");
 
         jLabel13.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Buscar:");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblbuscarcie10.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "CATEGORIA", "TITULO"
             }
         ));
-        jScrollPane2.setViewportView(jTable4);
+        jScrollPane2.setViewportView(tblbuscarcie10);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -221,9 +214,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,8 +274,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelNice1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1140, 10));
 
-        jdcFechareceta.setDateFormatString("dd-MM-yyyy");
-        panelNice1.add(jdcFechareceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 220, 20));
+        jdcFechanaciento.setDateFormatString("yyyy-MM-dd");
+        panelNice1.add(jdcFechanaciento, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 220, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -313,11 +306,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         btnBuscarcie.setText("Buscar");
         panelNice1.add(btnBuscarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
         panelNice1.add(spcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 70, -1));
-
-        txtdias.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        txtdias.setForeground(new java.awt.Color(255, 255, 255));
-        txtdias.setText("......");
-        panelNice1.add(txtdias, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 30, 20));
 
         txtobservaciones.setColumns(20);
         txtobservaciones.setRows(5);
@@ -355,18 +343,18 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(txtalergias);
 
         panelNice1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 390, 70));
-        panelNice1.add(txtCie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, 150, 21));
+        panelNice1.add(txtCie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 150, 21));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Categoria");
-        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 70, 20));
+        jLabel7.setText("Categoria:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 70, 20));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Titulo");
-        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 50, 20));
-        panelNice1.add(txttitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 340, 21));
+        jLabel8.setText("Titulo:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 50, 20));
+        panelNice1.add(txttitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 340, 21));
 
         btnagregardatos.setText("Agregar");
         panelNice1.add(btnagregardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 130, -1, -1));
@@ -387,27 +375,27 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Id Receta");
+        jLabel22.setText("Id Receta:");
         panelNice1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 80, 20));
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText(".....");
-        panelNice1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 140, 20));
+        txtcedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtcedula.setForeground(new java.awt.Color(255, 255, 255));
+        txtcedula.setText(".....");
+        panelNice1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 130, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("Nombre y apellidos");
-        panelNice1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 130, 20));
+        jLabel28.setText("Nombres y apellidos:");
+        panelNice1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 20));
 
         txtnombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtnombre.setForeground(new java.awt.Color(255, 255, 255));
         txtnombre.setText(".....");
-        panelNice1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 140, 20));
+        panelNice1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 130, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("Cedula");
+        jLabel30.setText("Cedula:");
         panelNice1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 20));
 
         txtApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -417,7 +405,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("Sexo");
+        jLabel32.setText("Sexo:");
         panelNice1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 60, 20));
 
         txtsexo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -425,35 +413,15 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         txtsexo.setText("......");
         panelNice1.add(txtsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 60, 20));
 
-        txtanios.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        txtanios.setForeground(new java.awt.Color(255, 255, 255));
-        txtanios.setText("......");
-        panelNice1.add(txtanios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 40, 20));
-
-        txtmeses.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        txtmeses.setForeground(new java.awt.Color(255, 255, 255));
-        txtmeses.setText("......");
-        panelNice1.add(txtmeses, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 40, 20));
+        txtedad.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtedad.setForeground(new java.awt.Color(255, 255, 255));
+        txtedad.setText("......");
+        panelNice1.add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 240, 20));
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Edad");
+        jLabel36.setText("Edad:");
         panelNice1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 40, 20));
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("Años");
-        panelNice1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 40, 20));
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Meses");
-        panelNice1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 50, 20));
-
-        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Dias");
-        panelNice1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 50, 20));
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
@@ -520,6 +488,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 70, 20));
         panelNice1.add(txtmiligramos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 90, 21));
 
+        btncargardatos.setText("Cargar Datos");
+        panelNice1.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 600));
 
         btnCrearRec.setText("Crear");
@@ -530,6 +501,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         btnEliminarrec.setText("Eliminar");
         jPanel1.add(btnEliminarrec, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 160, 40));
+
+        lblfecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lblfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 620, 100, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -562,6 +536,353 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     public void setTxtIDreceta(JTextFieldRound txtIDreceta) {
         this.txtIDreceta = txtIDreceta;
     }
+
+
+    public JButton getBtnBuscarcie() {
+        return btnBuscarcie;
+    }
+
+    public void setBtnBuscarcie(JButton btnBuscarcie) {
+        this.btnBuscarcie = btnBuscarcie;
+    }
+
+    public JButton getBtnCrearRec() {
+        return btnCrearRec;
+    }
+
+    public void setBtnCrearRec(JButton btnCrearRec) {
+        this.btnCrearRec = btnCrearRec;
+    }
+
+    public JButton getBtnEditarrec() {
+        return btnEditarrec;
+    }
+
+    public void setBtnEditarrec(JButton btnEditarrec) {
+        this.btnEditarrec = btnEditarrec;
+    }
+
+    public JButton getBtnEliminarrec() {
+        return btnEliminarrec;
+    }
+
+    public void setBtnEliminarrec(JButton btnEliminarrec) {
+        this.btnEliminarrec = btnEliminarrec;
+    }
+
+    public JButton getBtnagregarcie() {
+        return btnagregarcie;
+    }
+
+    public JButton getBtncargardatos() {
+        return btncargardatos;
+    }
+
+    public void setBtncargardatos(JButton btncargardatos) {
+        this.btncargardatos = btncargardatos;
+    }
+
+    public void setBtnagregarcie(JButton btnagregarcie) {
+        this.btnagregarcie = btnagregarcie;
+    }
+
+    public JButton getBtnagregardatos() {
+        return btnagregardatos;
+    }
+
+    public void setBtnagregardatos(JButton btnagregardatos) {
+        this.btnagregardatos = btnagregardatos;
+    }
+
+    public JButton getBtnbuscarfarmaco() {
+        return btnbuscarfarmaco;
+    }
+
+    public void setBtnbuscarfarmaco(JButton btnbuscarfarmaco) {
+        this.btnbuscarfarmaco = btnbuscarfarmaco;
+    }
+
+    public ButtonRound getBtncerrar() {
+        return btncerrar;
+    }
+
+    public void setBtncerrar(ButtonRound btncerrar) {
+        this.btncerrar = btncerrar;
+    }
+
+    public JDialog getDialogCIE() {
+        return dialogCIE;
+    }
+
+    public void setDialogCIE(JDialog dialogCIE) {
+        this.dialogCIE = dialogCIE;
+    }
+
+    public JDialog getDialogFarmaco() {
+        return dialogFarmaco;
+    }
+
+    public void setDialogFarmaco(JDialog dialogFarmaco) {
+        this.dialogFarmaco = dialogFarmaco;
+    }
+
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane4() {
+        return jScrollPane4;
+    }
+
+    public void setjScrollPane4(JScrollPane jScrollPane4) {
+        this.jScrollPane4 = jScrollPane4;
+    }
+
+    public JScrollPane getjScrollPane5() {
+        return jScrollPane5;
+    }
+
+    public void setjScrollPane5(JScrollPane jScrollPane5) {
+        this.jScrollPane5 = jScrollPane5;
+    }
+
+    public JScrollPane getjScrollPane6() {
+        return jScrollPane6;
+    }
+
+    public void setjScrollPane6(JScrollPane jScrollPane6) {
+        this.jScrollPane6 = jScrollPane6;
+    }
+
+    public JScrollPane getjScrollPane8() {
+        return jScrollPane8;
+    }
+
+    public void setjScrollPane8(JScrollPane jScrollPane8) {
+        this.jScrollPane8 = jScrollPane8;
+    }
+
+    public JTable getjTable1() {
+        return tblbuscarFarmacos;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.tblbuscarFarmacos = jTable1;
+    }
+
+    public JTable getjTable4() {
+        return tblbuscarcie10;
+    }
+
+    public void setjTable4(JTable jTable4) {
+        this.tblbuscarcie10 = jTable4;
+    }
+
+    public static JDateChooser getJdcFechanaciento() {
+        return jdcFechanaciento;
+    }
+
+    public static void setJdcFechanaciento(JDateChooser jdcFechanaciento) {
+        Vista_Receta.jdcFechanaciento = jdcFechanaciento;
+    }
+
+    public PanelNice getPanelNice1() {
+        return panelNice1;
+    }
+
+    public void setPanelNice1(PanelNice panelNice1) {
+        this.panelNice1 = panelNice1;
+    }
+
+    public JPanel getPaneldialog() {
+        return paneldialog;
+    }
+
+    public void setPaneldialog(JPanel paneldialog) {
+        this.paneldialog = paneldialog;
+    }
+
+    public JSpinner getSpcantidad() {
+        return spcantidad;
+    }
+
+    public void setSpcantidad(JSpinner spcantidad) {
+        this.spcantidad = spcantidad;
+    }
+
+    public JTable getTblcie10() {
+        return tblcie10;
+    }
+
+    public void setTblcie10(JTable tblcie10) {
+        this.tblcie10 = tblcie10;
+    }
+
+    public JTable getTblreceta() {
+        return tblreceta;
+    }
+
+    public void setTblreceta(JTable tblreceta) {
+        this.tblreceta = tblreceta;
+    }
+
+    public JLabel getTxtApellido() {
+        return txtApellido;
+    }
+
+    public void setTxtApellido(JLabel txtApellido) {
+        this.txtApellido = txtApellido;
+    }
+
+    public JTextFieldRound getTxtCie() {
+        return txtCie;
+    }
+
+    public void setTxtCie(JTextFieldRound txtCie) {
+        this.txtCie = txtCie;
+    }
+
+    public JTextFieldRound getTxtCie1() {
+        return txtCie1;
+    }
+
+    public void setTxtCie1(JTextFieldRound txtCie1) {
+        this.txtCie1 = txtCie1;
+    }
+
+    public JTextFieldRound getTxtIdfamaco() {
+        return txtIdfamaco;
+    }
+
+    public void setTxtIdfamaco(JTextFieldRound txtIdfamaco) {
+        this.txtIdfamaco = txtIdfamaco;
+    }
+
+    public JTextArea getTxtalergias() {
+        return txtalergias;
+    }
+
+    public void setTxtalergias(JTextArea txtalergias) {
+        this.txtalergias = txtalergias;
+    }
+
+    public JLabel getLblfecha() {
+        return lblfecha;
+    }
+
+    public void setLblfecha(JLabel lblfecha) {
+        this.lblfecha = lblfecha;
+    }
+
+    public JLabel getTxtedad() {
+        return txtedad;
+    }
+
+    public void setTxtedad(JLabel txtedad) {
+        this.txtedad = txtedad;
+    }
+
+    public JTextField getTxtbuscarcie10() {
+        return txtbuscarcie10;
+    }
+
+    public void setTxtbuscarcie10(JTextField txtbuscarcie10) {
+        this.txtbuscarcie10 = txtbuscarcie10;
+    }
+
+    public JTextField getTxtbuscarfar() {
+        return txtbuscarfar;
+    }
+
+    public void setTxtbuscarfar(JTextField txtbuscarfar) {
+        this.txtbuscarfar = txtbuscarfar;
+    }
+
+    public JTextFieldRound getTxtdosis() {
+        return txtdosis;
+    }
+
+    public void setTxtdosis(JTextFieldRound txtdosis) {
+        this.txtdosis = txtdosis;
+    }
+
+    public JTextFieldRound getTxtfrecuencia() {
+        return txtfrecuencia;
+    }
+
+    public void setTxtfrecuencia(JTextFieldRound txtfrecuencia) {
+        this.txtfrecuencia = txtfrecuencia;
+    }
+
+    public JTextFieldRound getTxtmiligramos() {
+        return txtmiligramos;
+    }
+
+    public void setTxtmiligramos(JTextFieldRound txtmiligramos) {
+        this.txtmiligramos = txtmiligramos;
+    }
+
+    public JLabel getTxtcedula() {
+        return txtcedula;
+    }
+
+    public void setTxtcedula(JLabel txtcedula) {
+        this.txtcedula = txtcedula;
+    }
+
+    public JLabel getTxtnombre() {
+        return txtnombre;
+    }
+
+    public void setTxtnombre(JLabel txtnombre) {
+        this.txtnombre = txtnombre;
+    }
+
+    public JTextArea getTxtobservaciones() {
+        return txtobservaciones;
+    }
+
+    public void setTxtobservaciones(JTextArea txtobservaciones) {
+        this.txtobservaciones = txtobservaciones;
+    }
+
+    public JLabel getTxtsexo() {
+        return txtsexo;
+    }
+
+    public void setTxtsexo(JLabel txtsexo) {
+        this.txtsexo = txtsexo;
+    }
+
+    public JTextFieldRound getTxttitulo() {
+        return txttitulo;
+    }
+
+    public void setTxttitulo(JTextFieldRound txttitulo) {
+        this.txttitulo = txttitulo;
+    }
+
+    public JTable getTblbuscarFarmacos() {
+        return tblbuscarFarmacos;
+    }
+
+    public void setTblbuscarFarmacos(JTable tblbuscarFarmacos) {
+        this.tblbuscarFarmacos = tblbuscarFarmacos;
+    }
+
+
+    public JTable getTblbuscarcie10() {
+        return tblbuscarcie10;
+    }
+
+    public void setTblbuscarcie10(JTable tblbuscarcie10) {
+        this.tblbuscarcie10 = tblbuscarcie10;
+    }
     
     
     
@@ -573,6 +894,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnagregarcie;
     private javax.swing.JButton btnagregardatos;
     private javax.swing.JButton btnbuscarfarmaco;
+    private javax.swing.JButton btncargardatos;
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JDialog dialogCIE;
     private javax.swing.JDialog dialogFarmaco;
@@ -583,7 +905,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -594,9 +915,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -612,8 +930,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -622,31 +940,31 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable4;
-    public static com.toedter.calendar.JDateChooser jdcFechareceta;
+    public static com.toedter.calendar.JDateChooser jdcFechanaciento;
+    public static javax.swing.JLabel lblfecha;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private javax.swing.JPanel paneldialog;
-    private javax.swing.JSpinner spcantidad;
-    private javax.swing.JTable tblcie10;
-    private javax.swing.JTable tblreceta;
+    public static javax.swing.JSpinner spcantidad;
+    private javax.swing.JTable tblbuscarFarmacos;
+    private javax.swing.JTable tblbuscarcie10;
+    public static javax.swing.JTable tblcie10;
+    public static javax.swing.JTable tblreceta;
     private javax.swing.JLabel txtApellido;
-    private jtextfieldround.JTextFieldRound txtCie;
-    private jtextfieldround.JTextFieldRound txtCie1;
+    public static jtextfieldround.JTextFieldRound txtCie;
+    public static jtextfieldround.JTextFieldRound txtCie1;
     private jtextfieldround.JTextFieldRound txtIDreceta;
-    private jtextfieldround.JTextFieldRound txtIdfamaco;
+    public static jtextfieldround.JTextFieldRound txtIdfamaco;
     private javax.swing.JTextArea txtalergias;
-    private javax.swing.JLabel txtanios;
     private javax.swing.JTextField txtbuscarcie10;
     private javax.swing.JTextField txtbuscarfar;
-    private javax.swing.JLabel txtdias;
-    private jtextfieldround.JTextFieldRound txtdosis;
-    private jtextfieldround.JTextFieldRound txtfrecuencia;
-    private javax.swing.JLabel txtmeses;
-    private jtextfieldround.JTextFieldRound txtmiligramos;
+    private javax.swing.JLabel txtcedula;
+    public static jtextfieldround.JTextFieldRound txtdosis;
+    private javax.swing.JLabel txtedad;
+    public static jtextfieldround.JTextFieldRound txtfrecuencia;
+    public static jtextfieldround.JTextFieldRound txtmiligramos;
     private javax.swing.JLabel txtnombre;
     private javax.swing.JTextArea txtobservaciones;
     private javax.swing.JLabel txtsexo;
-    private jtextfieldround.JTextFieldRound txttitulo;
+    public static jtextfieldround.JTextFieldRound txttitulo;
     // End of variables declaration//GEN-END:variables
 }

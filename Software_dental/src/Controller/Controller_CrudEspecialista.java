@@ -434,31 +434,6 @@ public class Controller_CrudEspecialista {
         }
     }
 
-    private void setKeyReleased(JTextField buscar){
-        buscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e){
-                buscarDoc(e);
-            }
-        });
-    }
-    
-    
-    
-    private void buscarDoc(java.awt.event.KeyEvent evt){
-        DefaultTableModel tbPersonas;
-        tbPersonas = (DefaultTableModel)vista.getTblEspecialista().getModel();
-        tbPersonas.setNumRows(0);
-        
-        List<Doctor> listap=modelo.buscarPersonas(vista.getTxtBuscarEsp().getText());
-        listap.stream().forEach(pe->{
-//           LocalDateTime fechaactual = LocalDateTime.now();
-//           Period periodo = Period.between(pe.getFecha().toLocalDate(), fechaactual.toLocalDate());
-           String[] filap = {pe.getCedula(),pe.getNombres(),pe.getApellidos(),pe.getCelular(),pe.getTelefono(),pe.getDireccion(),pe.getCorreo(),pe.getProvincia(),pe.getCiudad(),pe.getGenero(),pe.getId_doctor(),pe.getId_usuario(),pe.getEspecialidad(),pe.getCargo(),pe.getCedula_doc()};
-           tbPersonas.addRow(filap);
-        });
-    }
-
     public void eliminarPersonas(){
         int seleccion = vista.getTblEspecialista().getSelectedRow();
         int resp=0;

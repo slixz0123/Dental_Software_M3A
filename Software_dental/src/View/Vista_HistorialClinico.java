@@ -23,24 +23,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public JDialog getJdodomtogram() {
-        return Jdodomtogram;
-    }
-
-    public void setJdodomtogram(JDialog Jdodomtogram) {
-        this.Jdodomtogram = Jdodomtogram;
-    }
-
-  
-
-    public JButton getBtnOdonto() {
-        return btnOdonto;
-    }
-
-    public void setBtnOdonto(JButton btnOdonto) {
-        this.btnOdonto = btnOdonto;
-    }
-
+   
     public JButton getBtnguardar() {
         return btnguardar;
     }
@@ -189,8 +172,6 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Jdodomtogram = new javax.swing.JDialog();
-        jPanel2 = new javax.swing.JPanel();
         panelNice5 = new org.edisoncor.gui.panel.PanelNice();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -727,23 +708,6 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         lblCodHist = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btnOdonto = new javax.swing.JButton();
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout JdodomtogramLayout = new javax.swing.GroupLayout(Jdodomtogram.getContentPane());
-        Jdodomtogram.getContentPane().setLayout(JdodomtogramLayout);
-        JdodomtogramLayout.setHorizontalGroup(
-            JdodomtogramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        JdodomtogramLayout.setVerticalGroup(
-            JdodomtogramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JdodomtogramLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         panelNice5.setBackground(new java.awt.Color(166, 104, 216));
         panelNice5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -7223,9 +7187,6 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
         jLabel10.setText("Historia clinica");
         panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 90, -1));
 
-        btnOdonto.setText("Abrir Odontograma");
-        panelNice2.add(btnOdonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 340, -1));
-
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1140, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -7246,9 +7207,7 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog Jdodomtogram;
     private jtextfieldround.JTextFieldRound Txtgeneropac;
-    private javax.swing.JButton btnOdonto;
     private javax.swing.JButton btncargardatos;
     private javax.swing.JButton btnguardar;
     private javax.swing.JLabel d11;
@@ -7446,7 +7405,6 @@ public class Vista_HistorialClinico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel197;
     private javax.swing.JPanel jPanel198;
     private javax.swing.JPanel jPanel199;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel200;
     private javax.swing.JPanel jPanel201;

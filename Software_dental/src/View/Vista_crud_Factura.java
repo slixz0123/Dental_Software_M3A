@@ -1,0 +1,302 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package View;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author Usuario
+ */
+public class Vista_crud_Factura extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form Vista_crud_Factura
+     */
+    public Vista_crud_Factura() {
+        initComponents();
+    }
+
+   
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        panelNice1 = new org.edisoncor.gui.panel.PanelNice();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtNumSerie = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lblid = new javax.swing.JLabel();
+        lblid1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtTratamientoFac = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        lblid2 = new javax.swing.JLabel();
+        lblid3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        spiCantidad = new javax.swing.JSpinner();
+        btnNombres = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        panelNice2 = new org.edisoncor.gui.panel.PanelNice();
+        btneliminar = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFactura = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        txtSubtotal = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtDescuento = new javax.swing.JTextField();
+        txtIva = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnCalculadora = new javax.swing.JButton();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelNice1.setBackground(new java.awt.Color(166, 104, 216));
+        panelNice1.setAlignmentX(1.0F);
+        panelNice1.setAlignmentY(1.0F);
+        panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconlogo.png"))); // NOI18N
+        panelNice1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 92, 142));
+
+        jLabel3.setBackground(new java.awt.Color(108, 51, 130));
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("FACTURA");
+        panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 20));
+
+        jLabel6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("CEDULA PACIENTE");
+        panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, 20));
+
+        jLabel13.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("FECHA:");
+        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("SERIE:");
+        panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, -1, -1));
+
+        txtNumSerie.setEnabled(false);
+        panelNice1.add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 112, -1));
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ODONTOLOGIA ESPECIALIZADA");
+        panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 32));
+
+        lblid.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid.setForeground(new java.awt.Color(255, 255, 255));
+        lblid.setText("....");
+        panelNice1.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 120, 20));
+
+        lblid1.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid1.setForeground(new java.awt.Color(255, 255, 255));
+        lblid1.setText("....");
+        panelNice1.add(lblid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 60, -1));
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("NOMBRES Y APELLIDOS:");
+        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, 20));
+
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("TRATAMIENTO:");
+        panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
+        panelNice1.add(txtTratamientoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 230, -1));
+
+        btnAgregar.setText("Agregar");
+        panelNice1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 97, -1));
+
+        lblid2.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid2.setForeground(new java.awt.Color(255, 255, 255));
+        lblid2.setText("....");
+        panelNice1.add(lblid2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 60, 20));
+
+        lblid3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        lblid3.setForeground(new java.awt.Color(255, 255, 255));
+        lblid3.setText("....");
+        panelNice1.add(lblid3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 60, 20));
+
+        jLabel8.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("CANTIDAD:");
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+
+        spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
+        panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
+
+        btnNombres.setText("BUSCAR");
+        panelNice1.add(btnNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("DESCUENTO:");
+        panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, 80, 20));
+
+        jLabel14.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("PRECIO:");
+        panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 50, 20));
+
+        txtPrecio.setEditable(false);
+        panelNice1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 230, -1));
+        panelNice1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 100, 20));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 180));
+
+        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btneliminar.setText("Eliminar");
+        panelNice2.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 220, 40));
+
+        btneditar.setText("Editar");
+        panelNice2.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
+
+        tblFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CANT", "DESCRIPCION", "V. UNIT", "V. TOTAL"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblFactura);
+        if (tblFactura.getColumnModel().getColumnCount() > 0) {
+            tblFactura.getColumnModel().getColumn(0).setResizable(false);
+            tblFactura.getColumnModel().getColumn(0).setPreferredWidth(5);
+            tblFactura.getColumnModel().getColumn(1).setResizable(false);
+            tblFactura.getColumnModel().getColumn(1).setPreferredWidth(450);
+            tblFactura.getColumnModel().getColumn(2).setResizable(false);
+            tblFactura.getColumnModel().getColumn(2).setPreferredWidth(5);
+            tblFactura.getColumnModel().getColumn(3).setResizable(false);
+            tblFactura.getColumnModel().getColumn(3).setPreferredWidth(5);
+        }
+
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 960, 250));
+
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("SUBTOTAL $:");
+        panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
+        panelNice2.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 100, -1));
+
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("DESCUENTO $:");
+        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, -1, -1));
+        panelNice2.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 100, -1));
+        panelNice2.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 100, -1));
+
+        jLabel11.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("I.V.A. $:");
+        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("TOTAL $:");
+        panelNice2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, -1, -1));
+        panelNice2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 100, -1));
+
+        btnAceptar.setText("Aceptar");
+        panelNice2.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
+
+        btnCancelar.setText("Cancelar");
+        panelNice2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, -1));
+
+        btnCalculadora.setBackground(new java.awt.Color(90, 170, 170));
+        btnCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/calculadora.png"))); // NOI18N
+        btnCalculadora.setBorder(null);
+        panelNice2.add(btnCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 56, 57));
+
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 980, 470));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnCalculadora;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnNombres;
+    private javax.swing.JButton btneditar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblid;
+    private javax.swing.JLabel lblid1;
+    private javax.swing.JLabel lblid2;
+    private javax.swing.JLabel lblid3;
+    private org.edisoncor.gui.panel.PanelNice panelNice1;
+    private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JSpinner spiCantidad;
+    private javax.swing.JTable tblFactura;
+    private javax.swing.JTextField txtDescuento;
+    private javax.swing.JTextField txtIva;
+    private javax.swing.JTextField txtNumSerie;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtSubtotal;
+    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtTratamientoFac;
+    // End of variables declaration//GEN-END:variables
+}
