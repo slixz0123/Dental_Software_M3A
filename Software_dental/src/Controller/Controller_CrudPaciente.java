@@ -269,8 +269,6 @@ public class Controller_CrudPaciente {
      String tiposang;
      String id;
      byte foto ; 
-     
-    
     cedula = vista.getTxtced().getText();
     nombres = vista.getYxynom().getText();
     apellidos = vista.getTxtapellidos().getText();
@@ -290,7 +288,7 @@ public class Controller_CrudPaciente {
           
     tiposang = vista.getCbSangre().getSelectedItem().toString();
      
-          Model_Paciente pac = new Model_Paciente();
+           Model_Paciente pac = new Model_Paciente();
            pac.setCedula(cedula);
            pac.setNombres(nombres);
            pac.setApellidos(apellidos);
