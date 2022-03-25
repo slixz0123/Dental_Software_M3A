@@ -211,9 +211,6 @@ public class Controller_CrudPaciente {
                     }  else {
                     vista.getLablefoto().setIcon(null);}
                   
-                 } 
-                   
-               }
                  } else if (lp.get(i).getFoto() == null) {
                    
                     Icon icmuj = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
@@ -231,7 +228,6 @@ public class Controller_CrudPaciente {
           
                     
                 }
-
             }
             llenartxtsobrantes ();
             }
@@ -273,6 +269,8 @@ public class Controller_CrudPaciente {
      String tiposang;
      String id;
      byte foto ; 
+     
+    
     cedula = vista.getTxtced().getText();
     nombres = vista.getYxynom().getText();
     apellidos = vista.getTxtapellidos().getText();
@@ -292,7 +290,7 @@ public class Controller_CrudPaciente {
           
     tiposang = vista.getCbSangre().getSelectedItem().toString();
      
-           Model_Paciente pac = new Model_Paciente();
+          Model_Paciente pac = new Model_Paciente();
            pac.setCedula(cedula);
            pac.setNombres(nombres);
            pac.setApellidos(apellidos);
@@ -541,8 +539,12 @@ public class Controller_CrudPaciente {
           
       }
       
+}
+      
+  
+
   
 
     
     
-}
+

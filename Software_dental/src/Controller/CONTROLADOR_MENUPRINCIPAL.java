@@ -320,7 +320,7 @@ CrudDiag(e);
           Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
 
 
-        Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
+     
 
 //          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
 //
@@ -378,7 +378,7 @@ CrudDiag(e);
         Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
 
 
-        Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
+      
 
         // listado
         //listado de pacientes
