@@ -329,8 +329,16 @@ private void setEventoMouseClicked(JTable tbl)
          String id2 = vistamenu.getLblCedulapac().getText();
            // pac.cargartxtsobrantes(id2);
             vista.getTxtcedulapac().setText(id2);
-            vista.getTxtNombrePac().setText(vistamenu.getLblnombrescomp().getText());
-            vista.getTxtApellidosPac().setText(vistamenu.getLabelapellido().getText());
+             List<Paciente> milistapa =  modelo.cargartxtsobrantes(id2);
+         for(int i = 0 ; i < milistapa.size() ; i++){
+              
+            vista.getTxtNombrePac().setText(milistapa.get(i).getNombres());
+            vista.getTxtApellidosPac().setText(milistapa.get(i).getApellidos());
+            vista.getLbidPac().setText(milistapa.get(i).getId_paciente());
+                   
+        
+              
+            }
           
         
             
@@ -342,11 +350,20 @@ private void setEventoMouseClicked(JTable tbl)
     
      public void cargardatosexternosIdmed(){
        
-        //String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-       
-            vista.getTxtceduladoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10).toString());
-            vista.getTxtNombredoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(11, 16).toString());
-             vista.getTxtapellidosdoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(17, 24).toString());
+        String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+   
+           // pac.cargartxtsobrantes(id2);
+            vista.getTxtceduladoc().setText(iddoc);
+            List<Doctor> milistado =  modelo.cargaridDoctor(iddoc);
+         for(int i = 0 ; i < milistado.size() ; i++){
+              
+            vista.getTxtNombredoc().setText(milistado.get(i).getNombres());
+            vista.getTxtapellidosdoc().setText(milistado.get(i).getApellidos());
+            vista.getLbidDoc().setText(milistado.get(i).getId_doctor());
+                   
+        
+              
+            }
             
          
               

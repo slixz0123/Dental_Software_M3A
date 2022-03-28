@@ -362,10 +362,75 @@ public String idMed(String ced){
     return id;
  }
    
+   public List<Paciente> cargartxtsobrantes ( String cedula){
+    List<Paciente> milistapaci = new ArrayList<Paciente>();
+    String sql3;
+    
+        try {
+            sql3 = "select p.nombres , p.apellidos , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '"+cedula+"'  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Paciente pac = new Paciente();
+               
+                pac.setNombres(rs.getString("nombres"));
+                pac.setApellidos(rs.getString("apellidos"));
+             
+                pac.setId_paciente(rs.getString("id_paciente"));
+                
+                milistapaci.add(pac);
+       
+                
+                
+            }
+            return milistapaci;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
 
 
-
-
+   }
+   
+     public List<Doctor> cargaridDoctor ( String cedula){
+    List<Doctor> milistado = new ArrayList<Doctor>();
+    String sql3;
+    
+        try {
+            sql3 = "select  p.nombres , p.apellidos  , doc.id_doctor  from  persona p , doctor doc  WHERE  doc.cedula_doc = p.cedula AND doc.cedula_doc = '"+cedula+"'  " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Doctor doc = new Doctor();
+                doc.setNombres(rs.getString("nombres"));
+                doc.setApellidos(rs.getString("apellidos"));
+                doc.setId_doctor(rs.getString("id_doctor"));
+                
+                
+                milistado.add(doc);
+       
+                
+                
+            }
+            return milistado;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
          
        /*  select per.cedula,per.nombres,per.apellidos,(select p.cedula from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),
 (select p.nombres from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),
