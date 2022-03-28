@@ -317,11 +317,15 @@ CrudDiag(e);
         vista.getDkpPrincipal().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
 
-        Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
+          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
+
+
+     
 
 //          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
 //
 //          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+
     }
 
     private void CrudNuevaE(java.awt.event.MouseEvent evt) {
@@ -371,12 +375,16 @@ CrudDiag(e);
         vista_InicioProceso.getPnHistorial().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
 
-        Controller.Contoller_HistorialMedico controllerHisto = new Contoller_HistorialMedico(modHisto, vistaHistorialMedico);
+        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
+
+
+      
 
         // listado
         //listado de pacientes
 
 //        Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico);
+
         
        
          //listado de pacientes
@@ -444,9 +452,8 @@ Model_Receta modelrec = new Model_Receta();
         
 
     /*private void crudcie10(){
-=======
-=======
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
+
         
 //RECETAS
 
@@ -469,7 +476,7 @@ Model_Receta modelrec = new Model_Receta();
         
         
         /*private void crudcie10(){
->>>>>>> e8735298c89b56711c0b75b5b0af2c8378ff3ec4
+
          Model_Cie10 modelocrud = new Model_Cie10();
         Vista_Crud_Cie10 vistacrud = new Vista_Crud_Cie10();
         //agregar Vista Persona al Desktop Pane.

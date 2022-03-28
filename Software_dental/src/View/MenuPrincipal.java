@@ -440,7 +440,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         lblCedulapac.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         lblCedulapac.setForeground(new java.awt.Color(255, 255, 255));
-        lblCedulapac.setText("0111111111");
+        lblCedulapac.setText("...");
 
         jButton1.setText("Listado Pacientes");
 
