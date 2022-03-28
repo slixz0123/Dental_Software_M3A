@@ -4,7 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Model_Factura extends Factura {
 
@@ -56,6 +59,32 @@ public class Model_Factura extends Factura {
 
         }
     }
-    
 
+    public List<Paciente> cargartxtsobrantes(String cedula) {
+        List<Paciente> milistapaci = new ArrayList<Paciente>();
+        String sql3;
+
+        try {
+            sql3 = "select p.nombres , p.apellidos , p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
+            ResultSet rs = conVentas.consulta(sql3);
+
+            // barremos el resulset
+            while (rs.next()) {
+                Paciente pac = new Paciente();
+
+                pac.setNombres(rs.getString("nombres"));
+                pac.setApellidos(rs.getString("apellidos"));
+                pac.setDireccion(rs.getString("direccion"));
+                pac.setId_paciente(rs.getString("id_paciente"));
+                milistapaci.add(pac);
+
+            }
+            return milistapaci;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
 }

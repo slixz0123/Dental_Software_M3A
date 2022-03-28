@@ -436,7 +436,7 @@ Model_Receta modelrec = new Model_Receta();
         Vista_crud_Factura vistafac = new Vista_crud_Factura();
         vista_InicioProceso.getPnFacturacion().add(vistafac);
         vistafac.setBorder(null);
-        Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac);
+        Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac,vista);
         controlfac.iniciarControl();
      
         

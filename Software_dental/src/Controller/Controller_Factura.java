@@ -6,18 +6,23 @@ import Model.Model_ListadoPacientes;
 import Model.Model_Tratamiento;
 import Model.Paciente;
 import Model.Tratamiento;
+import View.MenuPrincipal;
 import View.Vista_crud_Factura;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
 
 public class Controller_Factura {
 
     private Model_Factura model;
     private Vista_crud_Factura vista;
+    private MenuPrincipal vistamenu;
+
     Model_ListadoPacientes modelpac = new Model_ListadoPacientes();
     Model_Tratamiento modeltrat = new Model_Tratamiento();
     Tratamiento trat = new Tratamiento();
@@ -31,9 +36,10 @@ public class Controller_Factura {
     double descuento;
     double iva;
 
-    public Controller_Factura(Model_Factura model, Vista_crud_Factura vista) {
+    public Controller_Factura(Model_Factura model, Vista_crud_Factura vista, MenuPrincipal vistamenu) {
         this.model = model;
         this.vista = vista;
+        this.vistamenu = vistamenu;
         vista.setVisible(true);
         vista.setTitle("Factura");
         modelo = (DefaultTableModel) vista.getTblFactura().getModel();
@@ -43,11 +49,78 @@ public class Controller_Factura {
 
     public void iniciarControl() {
         vista.getBtnAceptar().addActionListener(l -> generarVentas());
-        vista.getBtnNombres().addActionListener(l -> BuscarPaciente());
-        vista.getBtnTratamiento().addActionListener(l -> BuscarTratamiento());
+//        vista.getBtnNombres().addActionListener(l -> BuscarPaciente());
+//        vista.getBtnTratamiento().addActionListener(l -> BuscarTratamiento());
+        vista.getBtnCargarDatos().addActionListener(l -> cargardatosexternosconcedula());
         vista.getBtnAgregar().addActionListener(l -> agrgarTratamiento());
 //        vista.getBtnAgregar().addActionListener(l -> calculardesc());
         vista.getBtnCalculadora().addActionListener(l -> iniciarCalculadora());
+        vista.getBtnBuscarTrat().addActionListener(l -> abrir_dialog());
+        vista.getTblDialTratamiento().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                    System.out.println("Se ha hecho un click");
+                }
+                if (e.getClickCount() == 2) {
+                    System.out.println("Se ha hecho doble click");
+                    SetDatos();
+                    vista.getDlTratamiento().dispose();
+                }
+            }
+        }
+        );
+    }
+
+    private void abrir_dialog() {
+        vista.getDlTratamiento().setVisible(true);
+        vista.getDlTratamiento().setTitle("Buscar Tratamiento");
+        vista.getDlTratamiento().setSize(550, 420);
+        cargarTratamiento();
+    }
+
+    private void cargarTratamiento() {
+        DefaultTableModel tblTrat = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
+        int fila = vista.getTblDialTratamiento().getSelectedRow();
+
+        DefaultTableModel tbmodel;
+
+        tbmodel = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
+
+        tbmodel.setNumRows(0);
+
+        List<Tratamiento> milista = modeltrat.listaTratamiento("");
+
+        Holder<Integer> i = new Holder<>(0);
+        milista.stream().forEach(pe -> {
+
+            tbmodel.addRow(new Object[3]);// creo una fila vacia
+            //dibujar elementos de la tabla 
+//       vista.getTblbuscarFarmacos().setValueAt(pe.getId_farmaco(), i.value, 0);
+            vista.getTblDialTratamiento().setValueAt(pe.getId_tratamiento(), i.value, 0);
+            vista.getTblDialTratamiento().setValueAt(pe.getNombre_trat(), i.value, 1);
+            vista.getTblDialTratamiento().setValueAt(pe.getMaterial(), i.value, 2);
+            vista.getTblDialTratamiento().setValueAt(pe.getDescripcion_trat(), i.value, 3);
+            vista.getTblDialTratamiento().setValueAt(pe.getPrecio_trat(), i.value, 4);
+
+            i.value++;
+
+        });
+
+    }
+
+    public void SetDatos() {
+        DefaultTableModel tblTrat = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
+        int fila = vista.getTblDialTratamiento().getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(vista, "Seleccione una fila");
+        } else {
+            if (fila >= 0) {
+                vista.getTxtTratamientoFac().setText(tblTrat.getValueAt(fila, 1).toString());
+                vista.getTxtPrecio().setText(tblTrat.getValueAt(fila, 4).toString());
+
+            }
+        }
     }
 
     public void generarVentas() {
@@ -59,16 +132,33 @@ public class Controller_Factura {
     }
 
     public void guardarFactura() {
-        String idpacien = vista.getTxtNombreFac().getText();
-        if (vista.getTxtNombreFac().equals("")) {
+        String idpacien = vista.getLblid().getText();
+        if (vista.getLblid().equals("")) {
             JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
         } else {
             Paciente pacien = modelpac.listarpaciente(idpacien);
             if (pacien.getId_paciente() != null) {
                 String serie = vista.getTxtNumSerie().getText();
-                String paciente= pacien.getNombres();
+                String paciente = pacien.getNombres();
             } else {
             }
+        }
+
+    }
+
+    public void cargardatosexternosconcedula() {
+
+        String id12 = vistamenu.getLblCedulapac().getText();
+        // pac.cargartxtsobrantes(id2);
+        System.out.println(id12 + "-----");
+
+        List<Paciente> milistapa = model.cargartxtsobrantes(id12);
+        for (int i = 0; i < milistapa.size(); i++) {
+
+            vista.getLblNombre().setText(milistapa.get(i).getNombres());
+            vista.getLblApellido().setText(milistapa.get(i).getApellidos());
+            vista.getLblDireccion().setText(milistapa.get(i).getDireccion());
+            vista.getLblid().setText(id12);
         }
 
     }
@@ -90,13 +180,13 @@ public class Controller_Factura {
 
     private void BuscarPaciente() {
         int r;
-        String idpac = vista.getTxtNombreFac().getText();
-        if (vista.getTxtNombreFac().equals("")) {
+        String idpac = vista.getLblid().getText();
+        if (vista.getLblid().equals("")) {
             JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
         } else {
             Paciente pac = modelpac.listarpaciente(idpac);
             if (pac.getId_paciente() != null) {
-                vista.getTxtNombreFac().setText(pac.getCedula_pac());
+//                vista.getTxtNombreFac().setText(pac.getCedula_pac());
 
             } else {
                 r = JOptionPane.showConfirmDialog(vista, "Paciente no registrado,¿Desea Registrar? ");
