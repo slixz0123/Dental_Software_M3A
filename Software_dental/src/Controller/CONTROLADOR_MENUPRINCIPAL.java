@@ -337,7 +337,7 @@ CrudDiag(e);
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
         vista.getDkpPrincipal().add(vistacitastrat);
         vistacitastrat.setBorder(null);
-        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat, vista);
     }
 
     private void CrudDiag(java.awt.event.MouseEvent evt) {
@@ -427,7 +427,7 @@ CrudDiag(e);
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
         vista_InicioProceso.getPnCitas().add(vistacitastrat);
         vistacitastrat.setBorder(null);
-        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat);
+        Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat, vista);
 //recetas
 Model_Receta modelrec = new Model_Receta();
         Vista_Receta vistarec = new Vista_Receta();

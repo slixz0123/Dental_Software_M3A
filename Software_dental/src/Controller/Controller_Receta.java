@@ -15,7 +15,6 @@ import Model.historia_clinica;
 import Model.receta;
 import View.MenuPrincipal;
 import View.Vista_Receta;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
