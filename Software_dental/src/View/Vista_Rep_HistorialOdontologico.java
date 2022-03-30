@@ -64,6 +64,19 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        txtfrecres = new jtextfieldround.JTextFieldRound();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        txtfreccar = new jtextfieldround.JTextFieldRound();
+        txtpresart = new jtextfieldround.JTextFieldRound();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        txttemp = new jtextfieldround.JTextFieldRound();
+        txtoxi = new jtextfieldround.JTextFieldRound();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -188,10 +201,55 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 320, 1020, 230));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 370, 1020, 180));
 
         jButton2.setText("Cargar Datos");
         panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        panelNice2.add(txtfrecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 110, 21));
+
+        jLabel36.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Frecuencia ");
+        panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Respiratoria x min");
+        panelNice2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Frecuencia ");
+        panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
+
+        jLabel40.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Cardiaca x min");
+        panelNice2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        panelNice2.add(txtfreccar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 110, 21));
+        panelNice2.add(txtpresart, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 110, 21));
+
+        jLabel37.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Presion");
+        panelNice2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Arterial");
+        panelNice2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Temperatura");
+        panelNice2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, -1));
+        panelNice2.add(txttemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 110, 21));
+        panelNice2.add(txtoxi, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 110, 21));
+
+        jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Oximetria");
+        panelNice2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,6 +275,7 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -233,7 +292,14 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
@@ -244,12 +310,17 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
     private jtextfieldround.JTextFieldRound txtdolorescab;
     private jtextfieldround.JTextFieldRound txtenfermedad;
     private jtextfieldround.JTextFieldRound txtepilepsia;
+    private jtextfieldround.JTextFieldRound txtfreccar;
+    private jtextfieldround.JTextFieldRound txtfrecres;
     private jtextfieldround.JTextFieldRound txtfumbebe;
     private jtextfieldround.JTextFieldRound txthepatitis;
     private jtextfieldround.JTextFieldRound txtmedicamento;
+    private jtextfieldround.JTextFieldRound txtoxi;
+    private jtextfieldround.JTextFieldRound txtpresart;
     private jtextfieldround.JTextFieldRound txtpresion;
     private jtextfieldround.JTextFieldRound txtprobcoag;
     private jtextfieldround.JTextFieldRound txtproblemascar;
+    private jtextfieldround.JTextFieldRound txttemp;
     private jtextfieldround.JTextFieldRound txttratamiento;
     private jtextfieldround.JTextFieldRound txtulcera;
     private jtextfieldround.JTextFieldRound txtvih;
