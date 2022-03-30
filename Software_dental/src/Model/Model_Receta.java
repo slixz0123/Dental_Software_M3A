@@ -5,6 +5,8 @@
  */
 package Model;
 
+import static View.Vista_Receta.tblcie10;
+import static View.Vista_Receta.tblreceta;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,11 +29,13 @@ public class Model_Receta extends receta{
     public Model_Receta() {
     }
 
-    public Model_Receta(String id_receta, String cedula_pac, String nombre, String apellido, String sexo, String edad, Date fecha, String farmaco, String miligramos, String cantidad, String dosis, String frecuencia, String observaciones, String alergias) {
-        super(id_receta, cedula_pac, nombre, apellido, sexo, edad, fecha, farmaco, miligramos, cantidad, dosis, frecuencia, observaciones, alergias);
+    public Model_Receta(String id_receta, String cedula_pac, String nombre, String apellido, String sexo, String edad, String fecha, String farmaco, String miligramos, String cantidad, String frecuencia, String observaciones, String alergias, String id_titulo, String categoria) {
+        super(id_receta, cedula_pac, nombre, apellido, sexo, edad, fecha, farmaco, miligramos, cantidad, frecuencia, observaciones, alergias, id_titulo, categoria);
     }
 
-    
+    public Model_Receta(String farmaco, String miligramos, String cantidad, String frecuencia) {
+        super(farmaco, miligramos, cantidad, frecuencia);
+    }
     
     public String id_receta(){
         String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM receta ";
@@ -47,31 +52,6 @@ public class Model_Receta extends receta{
         return serie;
     }
     
-    public boolean crearReceta(){
-    try {
-    String sql;
-    sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, farmaco_mg, cantidad, dosis, frecuencia, observaciones, alergias)";
-    sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";    
-        PreparedStatement ps= con.Con().prepareStatement(sql);
-        ps.setString(1, getId_receta());
-        ps.setString(2, getCedula_pac());
-        ps.setString(3, getNombre()+" "+getApellido());
-        ps.setString(4, getSexo());
-        ps.setString(5, getEdad());
-        ps.setDate(6, getFecha());
-        ps.setString(7, getFarmaco()+" "+getMiligramos()+"mg");
-        ps.setString(8, getCantidad());
-        ps.setString(9, getDosis());
-        ps.setString(10, getFrecuencia());
-        ps.setString(11, getObservaciones());
-        ps.setString(12, getAlergias());
-        ps.executeUpdate();
-    return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    return false;
-    }
     
     public List<Paciente> cargartxtsobrantes ( String cedula){
     List<Paciente> milistapaci = new ArrayList<Paciente>();
@@ -159,10 +139,8 @@ public class Model_Receta extends receta{
             sql3 = "select nombre_farmaco, mg from  farmaco" ;
             ResultSet rs = con.consulta(sql3) ;
             
-            // barremos el resulset
             while(rs.next()){
                 farmaco far = new farmaco();
-//                far.setId_farmaco(rs.getString(1));
                 far.setNombre_farmaco(rs.getString(1));
                 far.setMiligramos(rs.getString(2));
                 
@@ -275,4 +253,228 @@ public class Model_Receta extends receta{
     }
      return milistacie;
          }
+    
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
+    
+    public String NumIdCIE() {
+        String sql = "SELECT MAX (CAST (id_receta_cie AS INTEGER)) FROM receta_cie ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR ID");
+
+        }
+        return serie;
+    }
+    
+    public String NumIdFAR() {
+        String sql = "SELECT MAX (CAST (receta_far_id AS INTEGER)) FROM receta_far ";
+        String serie = "";
+        try {
+            ResultSet rs = con.consulta(sql);
+            while (rs.next()) {
+                serie = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR GENERAR ID");
+
+        }
+        return serie;
+    }
+
+    public boolean crearReceta(){
+        try{
+        String sql;
+        
+        sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
+    sql+="VALUES(?,?,?,?,?,?,?,?)";
+            PreparedStatement ps= con.Con().prepareStatement(sql);
+        ps.setString(1, getId_receta());
+        ps.setString(2, getCedula_pac());
+        ps.setString(3, getNombre());
+        ps.setString(4, getSexo());
+        ps.setString(5, getEdad());
+        ps.setString(6, getFecha());
+        ps.setString(7, getObservaciones());
+        ps.setString(8, getAlergias());
+            ps.executeUpdate();
+            
+        System.out.println("GUARDADO CON EXITO");
+        JOptionPane.showMessageDialog(null, "Receta creada con exito"); 
+        return true;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "No se ha podido crear la receta");
+            return false;
+        }
+       
+    }
+    
+    
+    
+//    public boolean crearRecetaCie(){
+//    try {
+//        String sql2;
+//sql2="INSERT INTO receta_cie (id_receta_cie,id_recetaFK,titulo_cie,categoria_cie)";
+//    sql2+="VALUES(?,?,?,?)";
+//    
+//        PreparedStatement ps= con.Con().prepareStatement(sql2);
+//            
+//        for (int i = 0; i < tblcie10.getRowCount(); i++) {
+//            
+//            
+//            ps.setString(1, (String) tblcie10.getValueAt(i, 0));
+//            ps.setString(2, (String) tblcie10.getValueAt(i, 1));
+//            ps.setString(3, (String) tblcie10.getValueAt(i, 2));
+//            ps.setString(4, (String) tblcie10.getValueAt(i, 3));
+//            ps.executeUpdate();
+//        }
+//        
+//    return true;
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    return false;
+//    }
+//    
+//    public boolean crearRecetaFar(){
+//    try {
+//        String sql2;
+//sql2="INSERT INTO receta_far (receta_far_id,id_recetaFK,detalle_far,dosis_far,cantidad,frecuencia)";
+//    sql2+="VALUES(?,?,?,?,?,?)";
+//    
+//        PreparedStatement ps= con.Con().prepareStatement(sql2);
+//            
+//        for (int i = 0; i < tblreceta.getRowCount(); i++) {
+//            
+//            
+//            ps.setString(1, (String) tblreceta.getValueAt(i, 0));
+//            ps.setString(2, (String) tblreceta.getValueAt(i, 1));
+//            ps.setString(3, (String) tblreceta.getValueAt(i, 2));
+//            ps.setString(4, (String) tblreceta.getValueAt(i, 3));
+//            ps.setString(5, (String) tblreceta.getValueAt(i, 4));
+//            ps.setString(6, (String) tblreceta.getValueAt(i, 5));
+//            
+//            ps.executeUpdate();
+//        }
+//        
+//    return true;
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    return false;
+//    }
+    
+    public boolean crearRecCie(){
+        try{
+        String sql2;
+        
+        sql2="INSERT INTO receta_cie (id_receta_cie,id_receta,titulo_cie,categoria_cie)";
+        sql2+="VALUES(?,?,?,?)";
+            PreparedStatement ps= con.Con().prepareStatement(sql2);
+        ps.setString(1, getId_rec_cie());
+        ps.setString(2, getId_receta());
+        ps.setString(3, getId_titulo());
+        ps.setString(4, getCategoria());
+            ps.executeUpdate();
+            
+        System.out.println("GUARDADO CON EXITO");
+        return true;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+       
+    }
+    
+    public boolean crearRecFar(){
+        try{
+        String sql;
+        
+        sql="INSERT INTO receta_far (receta_far_id, id_receta, detalle_far, dosis_far,cantidad,frecuencia)";
+    sql+="VALUES(?,?,?,?,?,?)";
+            PreparedStatement ps= con.Con().prepareStatement(sql);
+        ps.setString(1, getId_rec_far());
+        ps.setString(2, getId_receta());
+        ps.setString(3, getFarmaco());
+        ps.setString(4, getMiligramos());
+        ps.setString(5, getCantidad());
+        ps.setString(6, getFrecuencia());
+            ps.executeUpdate();
+            
+        System.out.println("GUARDADO CON EXITO");
+        return true;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+       
+    }
+    
+    public List<receta> mostrarCie10Rec (String idreceta){//String idreceta
+    List<receta> milistareccie = new ArrayList<receta>();
+    String sql3;
+    
+        try {
+            sql3 = "select r.titulo_cie, r.categoria_cie from  receta_cie r, receta rec where rec.id_receta=r.id_receta AND r.id_receta'"+idreceta+"'" ;//where id_receta'"+idreceta+"'
+            ResultSet rs = con.consulta(sql3) ;
+            
+            while(rs.next()){
+                receta reccie = new receta();
+                reccie.setId_titulo(rs.getString(1));
+                reccie.setCategoria(rs.getString(2));
+                
+                milistareccie.add(reccie);
+                
+                
+            }
+            return milistareccie;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+
+   
+    }
+    
+    public List<receta> mostrarFarRec (String idreceta ){
+    List<receta> milistarecfar = new ArrayList<receta>();
+    String sql3;
+    
+        try {
+            sql3 = "select r.detalle_far, r.dosis_far, r.cantidad, r.frecuencia from  receta_far r, receta rec where rec.id_receta=r.id_receta AND r.id_receta'"+idreceta+"'" ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            while(rs.next()){
+                receta recfar = new receta();
+                recfar.setFarmaco(rs.getString(1));
+                recfar.setMiligramos(rs.getString(2));
+                recfar.setCantidad(rs.getString(3));
+                recfar.setFrecuencia(rs.getString(4));
+                
+                milistarecfar.add(recfar);
+                
+                
+            }
+            return milistarecfar;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+
+   
+    }
 }

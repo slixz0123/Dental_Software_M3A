@@ -70,21 +70,17 @@ public class Controller_Receta {
     ArrayList<receta> listareceta = new ArrayList<>();
     DefaultTableModel dtmcie10= new DefaultTableModel();
     ArrayList<Cie_10> listacie10 = new ArrayList<>();
+    DefaultTableModel dtm, dtm2;
     public void iniciarcontrol (){
         
         vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
         
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
-        vista.getBtnagregardatos().addActionListener(l->llenarLista());
-        vista.getBtnagregarcie().addActionListener(l->llenarListacie());
-        vista.getBtnCrearRec().addActionListener(l->{
-            try {
-                crearRecetas();
-            } catch (ParseException ex) {
-                Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+//        vista.getBtnagregardatos().addActionListener(l->crearRecFar());
+        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
+        vista.getBtnCrearRec().addActionListener(l->crearRecetas());
+        //cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
         setEventoMouseClicked(vista.getTblbuscarcie10());
         KeyListener kl = new KeyListener() {
@@ -101,21 +97,25 @@ public class Controller_Receta {
             public void keyReleased(KeyEvent e) {
                 cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
                 cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
-                
+                cargarCIE10Rec(vista.getTxtIDreceta().getText());
+                cargarFARRec(vista.getTxtIDreceta().getText());
             }
         };
         vista.getTxtbuscarcie10().addKeyListener(kl);
         vista.getTxtbuscarfar().addKeyListener(kl);
+        vista.getTxtIDreceta().addKeyListener(kl);
+        vista.getTxtIDreceta().addKeyListener(kl);
+        
         generarSerie();
         Fechaactual();
-        setModelo();
-        setModelocie();
+        generarIdFar();
+        generarIdCie();
     }
     
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
-            vista.getTxtIDreceta().setText("1");
+            vista.getTxtIDreceta().setText("01");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
@@ -153,10 +153,27 @@ public class Controller_Receta {
     
     
     public void limpiartxt(){
-    vista.getTxtCie().setText("");
-    vista.getTxtIDreceta().setText("");
+    vista.getTxtnombre().setText("");
+    vista.getTxtApellido().setText("");
+    vista.getTxtcedula().setText("");
+    vista.getTxtsexo().setText("");
+    vista.getTxtedad().setText("");
+    vista.getJdcFechanaciento().setCalendar(null);
+    vista.getTxtobservaciones().setText("");
+    vista.getTxtalergias().setText("");
+    LimpiarTablafar();
+    LimpiarTablacie();
+    generarSerie();
+    }
+    private void LimpiarTablafar(){
+            dtm2.getDataVector().removeAllElements();
+            vista.tblreceta.updateUI();
     }
     
+    private void LimpiarTablacie(){
+            dtm.getDataVector().removeAllElements();
+            vista.tblcie10.updateUI();
+    }
     public void cargardatosexternosconcedula(){
        
         
@@ -173,7 +190,6 @@ public class Controller_Receta {
             vista.getTxtApellido().setText(milistapa.get(i).getApellidos());
             vista.getTxtsexo().setText(milistapa.get(i).getGenero());
             vista.getJdcFechanaciento().setDate(milistapa.get(i).getFecha_nac()) ;
-            //vista.getTxtalergias().setText(milista.get(i).getAlergias_his);
               calcu_edad();
               cargarAlergia();
             }        
@@ -210,9 +226,9 @@ public class Controller_Receta {
         System.out.println(fechael);
         LocalDate fechanac = LocalDate.parse(fechael);
       Period p = Period.between(fechanac, hoy);   
-      double Anio = p.getYears();
-      double mes = p.getMonths();
-      double dias = p.getDays();
+      int Anio = p.getYears();
+      int mes = p.getMonths();
+      int dias = p.getDays();
     
       vista.getTxtedad().setText(Anio + " Años " + mes + " Meses "+dias+ " Dias" );
       
@@ -380,55 +396,13 @@ public class Controller_Receta {
         if (xx != -1) {
             String id = vista.getTblbuscarcie10().getValueAt(xx, 0).toString();
             vista.getTxtCie().setText(id);
-            String categoria = vista.getTblbuscarcie10().getValueAt(xx, 1).toString();
+            String categoria = vista.getTblbuscarcie10().getValueAt(xx, 2).toString();
             vista.getTxtCie1().setText(categoria);
-            String titulo = vista.getTblbuscarcie10().getValueAt(xx, 2).toString();
+            String titulo = vista.getTblbuscarcie10().getValueAt(xx, 1).toString();
             vista.getTxttitulo().setText(titulo);
             }
+        vista.getDialogFarmaco().dispose();
        }
-         
-         public void crearRecetas() throws ParseException{
-        System.out.println("creando receta");
-     
-     String id_rec=vista.getTxtIDreceta().getText();
-     String nombres=vista.getTxtnombre().getText();
-     String apellido=vista.getTxtApellido().getText();
-     String sexo=vista.getTxtsexo().getText();
-     String edad=vista.getTxtedad().getText();
-     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        String fechaac="";
-     Date dataFormateada = sdf.parse(fechaac);
-        System.out.println(fechaac);
-     String farmaco=vista.getTxtIdfamaco().getText();
-     String mg=vista.getTxtmiligramos().getText();
-     String cantidad=String.valueOf(vista.getSpcantidad().getValue()).toString();
-     String dosis=vista.getTxtdosis().getText();
-     String frecuencia=vista.getTxtfrecuencia().getText();
-     String obs=vista.getTxtobservaciones().getText();
-     String alergias=vista.getTxtalergias().getText();
-        System.out.println("antes del metodo");
-     Model_Receta mEsp= new Model_Receta();
-     
-     mEsp.setId_receta(id_rec);
-     mEsp.setNombre(nombres+" "+ apellido);
-     mEsp.setSexo(sexo);
-     mEsp.setEdad(edad);
-     
-     mEsp.setFecha((java.sql.Date) dataFormateada);
-     mEsp.setFarmaco(farmaco+" "+mg+"mg");
-     mEsp.setCantidad(cantidad);
-     mEsp.setDosis(dosis);
-     mEsp.setFrecuencia(frecuencia);
-     mEsp.setObservaciones(obs);
-     mEsp.setAlergias(alergias);     
-     
-     mEsp.crearReceta();
-//     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
-                generarSerie();
-                limpiartxt();
-
-    }
          
          public void Fechaactual(){
             
@@ -442,76 +416,214 @@ public class Controller_Receta {
         }
 //         public static LinkedList modelot2 = new LinkedList();
          
-         private void setModelo(){
-             String [] cabecera={"DETALLE", "CANTIDAD", "DOSIS", "FRECUENCIA"};
-             dtmreceta.setColumnIdentifiers(cabecera);
-             vista.tblreceta.setModel(dtmreceta);
-         }
-         
-         private void llenarLista(){
-             String nombre = vista.getTxtIdfamaco().getText();
-             String mg = vista.getTxtmiligramos().getText();
-             String cantidad = vista.getSpcantidad().getValue().toString();
-             String dosis = vista.getTxtdosis().getText();
-             String frecuencia = vista.getTxtfrecuencia().getText();
-             receta mireceta = new receta(nombre,mg,cantidad,dosis,frecuencia);
-             listareceta.add(mireceta);
-             setDatos();
-         }   
-         private void setDatos(){
-             Object[] datos = new Object[dtmreceta.getColumnCount()];
-             int i = 0;
-             dtmreceta.setRowCount(0);
-             for (receta mireceta : listareceta) {
-                 datos[0] = mireceta.getFarmaco()+" "+mireceta.getMiligramos()+"mg";
-                 datos[1] = mireceta.getCantidad();
-                 datos[2] = mireceta.getDosis();
-                 datos[3] = mireceta.getFrecuencia();
-                 i++;
-                 dtmreceta.addRow(datos);
-             }
-             vista.tblreceta.setModel(dtmreceta);
-             limpiartxtReceta();
-         }
+//         private void setModelo(){
+//             String [] cabecera={"DETALLE", "DOSIS", "CANTIDAD", "FRECUENCIA"};
+//             dtmreceta.setColumnIdentifiers(cabecera);
+//             vista.tblreceta.setModel(dtmreceta);
+//         }
+//         
+//         private void llenarLista(){
+//             String nombre = vista.getTxtIdfamaco().getText();
+//             String mg = vista.getTxtmiligramos().getText();
+//             String cantidad = vista.getSpcantidad().getValue().toString();
+////             String dosis = vista.getTxtdosis().getText();
+//             String frecuencia = vista.getTxtfrecuencia().getText();
+//             receta mireceta = new receta(nombre,mg,cantidad,frecuencia);
+//             listareceta.add(mireceta);
+//             setDatos();
+//         }   
+//         private void setDatos(){
+//             Object[] datos = new Object[dtmreceta.getColumnCount()];
+//             int i = 0;
+//             dtmreceta.setRowCount(0);
+//             for (receta mireceta : listareceta) {
+//                 datos[0] = mireceta.getFarmaco();
+//                 datos[1] = mireceta.getMiligramos()+"mg";
+//                 datos[2] = mireceta.getCantidad();
+//                 datos[3] = mireceta.getFrecuencia();
+//                 i++;
+//                 dtmreceta.addRow(datos);
+//             }
+//             vista.tblreceta.setModel(dtmreceta);
+//             limpiartxtReceta();
+//         }
          
          private void limpiartxtReceta(){
              vista.txtIdfamaco.setText("");
              vista.txtmiligramos.setText("");
              vista.spcantidad.setValue(0);
-             vista.txtdosis.setText("");
              vista.txtfrecuencia.setText("");
          }
          
-         private void setModelocie(){
-             String [] cabecera={"CIE-10"};
-             dtmcie10.setColumnIdentifiers(cabecera);
-             vista.tblcie10.setModel(dtmcie10);
-         }
-         
-         private void llenarListacie(){
-             String id = vista.getTxtCie().getText();
-             String patologia = vista.getTxtCie1().getText();
-             String titulo = vista.getTxttitulo().getText();
-             Cie_10 micie = new Cie_10(id,titulo,patologia);
-             listacie10.add(micie);
-             setDatoscie();
-         }   
-         private void setDatoscie(){
-             Object[] datos = new Object[dtmcie10.getColumnCount()];
-             int i = 0;
-             dtmcie10.setRowCount(0);
-             for (Cie_10 micie : listacie10) {
-                 datos[0] = micie.getId_cie()+" - "+micie.getCategoria()+" - "+micie.getTitulo();
-                 i++;
-                 dtmcie10.addRow(datos);
-             }
-             vista.tblcie10.setModel(dtmcie10);
-             limpiartxtcie10();
-         }
          
          private void limpiartxtcie10(){
              vista.txtCie.setText("");
              vista.txtCie1.setText("");
              vista.txttitulo.setText("");
+         }
+         
+         
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+         private void generarIdFar() {
+      String   serie = modelo.NumIdFAR();
+        if (serie == null) {
+            vista.getId_rec_far().setText("01");
+        } else {
+            int inc = Integer.parseInt(serie);
+            inc++;
+            vista.getId_rec_far().setText("0" + inc);
+
+        }
+    }
+         
+         private void generarIdCie() {
+      String   serie = modelo.NumIdCIE();
+        if (serie == null) {
+            vista.getId_rec_cie().setText("01");
+        } else {
+            int inc = Integer.parseInt(serie);
+            inc++;
+            vista.getId_rec_cie().setText("0" + inc);
+
+        }
+    }
+         
+         public void crearRecetas(){
+        System.out.println("creando receta");
+     
+     String id_rec=vista.getTxtIDreceta().getText();
+     String cedula=vista.getTxtcedula().getText();
+     String nombres=vista.getTxtnombre().getText();
+     String apellido=vista.getTxtApellido().getText();
+     String sexo=vista.getTxtsexo().getText();
+     String edad=vista.getTxtedad().getText();
+     String fechaac=vista.getLblfecha().getText();
+     String obs=vista.getTxtobservaciones().getText();
+     String alergias=vista.getTxtalergias().getText();
+        System.out.println("antes del metodo");
+     Model_Receta mEsp= new Model_Receta();
+     
+     mEsp.setId_receta(id_rec);
+     mEsp.setCedula_pac(cedula);
+     mEsp.setNombre(nombres+" "+ apellido);
+     mEsp.setSexo(sexo);
+     mEsp.setEdad(edad);
+     mEsp.setFecha(fechaac);
+     mEsp.setObservaciones(obs);
+     mEsp.setAlergias(alergias);     
+     
+     mEsp.crearReceta();
+//     mEsp.crearPersonas2();
+        System.out.println("despues del metodo");
+                limpiartxt();
+                generarSerie();
+
+    }
+         
+         public void crearRecFar(){
+         
+     String id_rec_far=vista.getId_rec_far().getText();
+     String id_rec=vista.getTxtIDreceta().getText();
+     String farmaco=vista.getTxtIdfamaco().getText();
+     String mg=vista.getTxtmiligramos().getText();
+     String cantidad=String.valueOf(vista.getSpcantidad().getValue());
+     String frecuencia=vista.getTxtfrecuencia().getText();
+        System.out.println("antes del metodo");
+     Model_Receta mEsp= new Model_Receta();
+     
+     mEsp.setId_rec_far(id_rec_far);
+     mEsp.setId_receta(id_rec);
+     mEsp.setFarmaco(farmaco);
+     mEsp.setMiligramos(mg);
+     mEsp.setCantidad(cantidad);
+     mEsp.setFrecuencia(frecuencia);    
+     
+     mEsp.crearRecFar();
+//     mEsp.crearPersonas2();
+        System.out.println("despues del metodo");
+                generarIdFar();
+                limpiartxtReceta();
+//                cargarFARRec();
+                LimpiarTablafar();
+                
+    }
+         
+         public void crearRecCie(){
+         
+     String id_rec_cie=vista.getId_rec_cie().getText();
+     String id_rec=vista.getTxtIDreceta().getText();
+     String id_cie=vista.getTxtCie().getText();
+     String titulo=vista.getTxtCie1().getText();
+     String categoria=vista.getTxttitulo().getText();
+        System.out.println("antes del metodo");
+     Model_Receta mEsp= new Model_Receta();
+     
+     mEsp.setId_rec_cie(id_rec_cie);
+     mEsp.setId_receta(id_rec);
+     mEsp.setId_titulo(id_cie+" - "+titulo);
+     mEsp.setCategoria(categoria);    
+     
+     mEsp.crearRecCie();
+//     mEsp.crearPersonas2();
+        System.out.println("despues del metodo");
+                generarIdCie();
+                limpiartxtcie10();
+//                cargarCIE10Rec(vista.getTxtIDreceta().getText());//vista.getTxtIDreceta().getText()
+                LimpiarTablacie();
+                
+    }
+         
+         private void  cargarCIE10Rec (String id){//String buscar
+             
+        DefaultTableModel tbmodel ; 
+
+        tbmodel = (DefaultTableModel) vista.getTblcie10().getModel() ; 
+  
+        tbmodel.setNumRows(0);
+
+        List<receta> mireccie = modelo.mostrarCie10Rec(id);//buscar
+     
+        Holder<Integer> i = new Holder<>(0);
+        mireccie.stream().forEach(pe -> {
+
+      tbmodel.addRow( new Object[2]);// creo una fila vacia
+       //dibujar elementos de la tabla 
+       vista.getTblcie10().setValueAt(pe.getId_titulo(), i.value, 0);
+       vista.getTblcie10().setValueAt(pe.getCategoria(), i.value, 1);
+       
+        i.value++;
+
+           
+        });
+        
+         }
+         
+         private void  cargarFARRec (String buscar){//String buscar
+             
+        DefaultTableModel tbmodel ; 
+
+        tbmodel = (DefaultTableModel) vista.getTblreceta().getModel() ; 
+  
+        tbmodel.setNumRows(0);
+
+        List<receta> mireccfar = modelo.mostrarFarRec(buscar);//buscar
+     
+        Holder<Integer> i = new Holder<>(0);
+        mireccfar.stream().forEach(pe -> {
+
+      tbmodel.addRow( new Object[4]);// creo una fila vacia
+       //dibujar elementos de la tabla 
+       vista.getTblreceta().setValueAt(pe.getFarmaco(), i.value, 0);
+       vista.getTblreceta().setValueAt(pe.getMiligramos(), i.value, 1);
+       vista.getTblreceta().setValueAt(pe.getCantidad(), i.value, 2);
+       vista.getTblreceta().setValueAt(pe.getFrecuencia(), i.value, 3);
+       
+        i.value++;
+
+           
+        });
+        
          }
 }

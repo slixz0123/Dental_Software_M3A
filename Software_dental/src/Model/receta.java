@@ -19,19 +19,22 @@ public class receta {
     private String apellido;
     private String sexo;
     private String edad;
-    private Date fecha;
+    private String fecha;
     private String farmaco;
     private String miligramos;
     private String cantidad;
-    private String dosis;
     private String frecuencia;
     private String observaciones;
     private String alergias;
+    private String id_titulo;
+    private String categoria;
+    private String id_rec_cie;
+    private String id_rec_far;
 
     public receta() {
     }
 
-    public receta(String id_receta, String cedula_pac, String nombre, String apellido, String sexo, String edad, Date fecha, String farmaco, String miligramos, String cantidad, String dosis, String frecuencia, String observaciones, String alergias) {
+    public receta(String id_receta, String cedula_pac, String nombre, String apellido, String sexo, String edad, String fecha, String farmaco, String miligramos, String cantidad, String frecuencia, String observaciones, String alergias, String id_titulo, String categoria) {
         this.id_receta = id_receta;
         this.cedula_pac = cedula_pac;
         this.nombre = nombre;
@@ -42,20 +45,49 @@ public class receta {
         this.farmaco = farmaco;
         this.miligramos = miligramos;
         this.cantidad = cantidad;
-        this.dosis = dosis;
         this.frecuencia = frecuencia;
+        this.observaciones = observaciones;
+        this.alergias = alergias;
+        this.id_titulo = id_titulo;
+        this.categoria = categoria;
+    }
+
+    public receta(String id_receta, String farmaco, String miligramos, String cantidad, String frecuencia, String id_rec_far) {
+        this.id_receta = id_receta;
+        this.farmaco = farmaco;
+        this.miligramos = miligramos;
+        this.cantidad = cantidad;
+        this.frecuencia = frecuencia;
+        this.id_rec_far = id_rec_far;
+    }
+
+    
+
+    public receta(String farmaco, String miligramos, String cantidad, String frecuencia) {
+        this.farmaco = farmaco;
+        this.miligramos = miligramos;
+        this.cantidad = cantidad;
+        this.frecuencia = frecuencia;
+    }
+
+    public receta(String id_titulo, String categoria) {
+        this.id_titulo = id_titulo;
+        this.categoria = categoria;
+    }
+
+    public receta(String id_receta, String cedula_pac, String nombre, String apellido, String sexo, String edad, String fecha, String observaciones, String alergias) {
+        this.id_receta = id_receta;
+        this.cedula_pac = cedula_pac;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.fecha = fecha;
         this.observaciones = observaciones;
         this.alergias = alergias;
     }
 
-    public receta(String farmaco, String miligramos, String cantidad, String dosis, String frecuencia) {
-        this.farmaco = farmaco;
-        this.miligramos = miligramos;
-        this.cantidad = cantidad;
-        this.dosis = dosis;
-        this.frecuencia = frecuencia;
-    }
-
+    
     public String getId_receta() {
         return id_receta;
     }
@@ -104,11 +136,11 @@ public class receta {
         this.edad = edad;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -136,14 +168,6 @@ public class receta {
         this.cantidad = cantidad;
     }
 
-    public String getDosis() {
-        return dosis;
-    }
-
-    public void setDosis(String dosis) {
-        this.dosis = dosis;
-    }
-
     public String getFrecuencia() {
         return frecuencia;
     }
@@ -166,6 +190,38 @@ public class receta {
 
     public void setAlergias(String alergias) {
         this.alergias = alergias;
+    }
+
+    public String getId_titulo() {
+        return id_titulo;
+    }
+
+    public void setId_titulo(String id_titulo) {
+        this.id_titulo = id_titulo;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getId_rec_cie() {
+        return id_rec_cie;
+    }
+
+    public void setId_rec_cie(String id_rec_cie) {
+        this.id_rec_cie = id_rec_cie;
+    }
+
+    public String getId_rec_far() {
+        return id_rec_far;
+    }
+
+    public void setId_rec_far(String id_rec_far) {
+        this.id_rec_far = id_rec_far;
     }
     
 }
