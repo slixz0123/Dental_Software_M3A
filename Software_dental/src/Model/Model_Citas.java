@@ -35,10 +35,10 @@ public class Model_Citas extends Citas{
     }
 
     //liastar citas
-    public  List<Citas> listarCitas (){
+    public  List<Citas> listarCitas (String id){
         List<Citas> milista = new ArrayList<Citas>();
         try {
-            String sql = "select * from citas" ;
+            String sql = "select * from citas where id_paciente='"+id+"'" ;
            ResultSet rs = con.consulta(sql) ;
           
             // barremos el resulset
@@ -362,22 +362,21 @@ public String idMed(String ced){
     return id;
  }
    
-   public List<Paciente> cargartxtsobrantes ( String cedula){
+   public List<Paciente> cargarpacientes ( String idci){
     List<Paciente> milistapaci = new ArrayList<Paciente>();
     String sql3;
     
         try {
-            sql3 = "select p.nombres , p.apellidos , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '"+cedula+"'  " ;
+            sql3 = "select p.cedula,p.nombres , p.apellidos  from  persona p Join paciente pac on  pac.cedula_pac = p.cedula Join citas c on c.id_paciente=pac.id_paciente Where id_cita= '"+idci+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
             while(rs.next()){
                 Paciente pac = new Paciente();
                
+                pac.setCedula_pac(rs.getString("cedula"));
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
-             
-                pac.setId_paciente(rs.getString("id_paciente"));
                 
                 milistapaci.add(pac);
        
@@ -394,84 +393,71 @@ public String idMed(String ced){
 
    }
    
-     public List<Doctor> cargaridDoctor ( String cedula){
-    List<Doctor> milistado = new ArrayList<Doctor>();
+    public List<Doctor> cargardoctores ( String idci){
+    List<Doctor> milistapaci = new ArrayList<Doctor>();
     String sql3;
     
         try {
-            sql3 = "select  p.nombres , p.apellidos  , doc.id_doctor  from  persona p , doctor doc  WHERE  doc.cedula_doc = p.cedula AND doc.cedula_doc = '"+cedula+"'  " ;
+            sql3 = " select p.cedula,p.nombres , p.apellidos  from persona p Join doctor doc on  doc.cedula_doc = p.cedula Join citas c on c.id_doctor_c=doc.id_doctor Where id_cita='"+idci+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
             while(rs.next()){
                 Doctor doc = new Doctor();
+               
+                doc.setCedula_doc(rs.getString("cedula"));
                 doc.setNombres(rs.getString("nombres"));
                 doc.setApellidos(rs.getString("apellidos"));
-                doc.setId_doctor(rs.getString("id_doctor"));
                 
-                
-                milistado.add(doc);
+                milistapaci.add(doc);
        
                 
                 
             }
-            return milistado;
+            return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-    }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-         
-       /*  select per.cedula,per.nombres,per.apellidos,(select p.cedula from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),
-(select p.nombres from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),
-(select p.apellidos from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1')
-from doctor d join persona per on d.cedula_doc=per.cedula join citas c on
- c.id_doctor_c=d.id_doctor where c.id_cita='1';*/
 
 
-
- public boolean cargardatos(String idcit){
-    try {
-    String sql;
-    sql="Insert into historial_medico (id_his_med, id_medico_his, id_paciente_his, enfermedad_act, ant_fam, trat_med, aler_med, med_hab,"
-            + "fum_b, pro_card, ulc_gas, presion, epat, diabetes, epilepsia, do_cab, al_endo, vih, pro_coagu, fre_res, fre_car, pre_art,"
-            + "tem, oxim, fecha_his, hora_his) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";    
-        
-        String sql2;
-    
-  sql2= "select per.cedula,per.nombres,per.apellidos,(select p.cedula from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),"
-    +"(select p.nombres from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1'),"
-+" (select p.apellidos from persona p join paciente pac on pac.cedula_pac =p.cedula join citas ci on ci.id_paciente= pac.id_paciente where pac.id_paciente='1' and ci.id_cita='1')"
-+"from doctor d join persona per on d.cedula_doc=per.cedula join citas c on"
- +"c.id_doctor_c=d.id_doctor where c.id_cita='"+idcit+"'";
-    
-    
-    PreparedStatement ps= con.Con().prepareStatement(sql);
-        Persona per= new Persona();
-         
-         /*
-        ps.setString(1, getId_his_med());
-        ps.setString(2, getId_medico_his());
-        ps.setString(3, getId_paciente_his());*/
-        
-        ps.executeUpdate();
-    return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
+   }
+   public String cedPaciente(String ced){
+    String id ="";
+        String sql="Select pac.cedula_pac from paciente pac Join citas ci on ci.id_paciente = pac.id_paciente where ci.id_cita ='"+ced+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    id = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            id = "";
         }
-    return false;
-    }
-    
+    return id;
+ }
+   
+   public String cedDoctor(String ced){
+    String id ="";
+        String sql="Select doc.cedula_doc from doctor doc Join citas ci on ci.id_doctor_c = doc.id_doctor where ci.id_cita ='"+ced+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{    
+                ps = con.Con().prepareStatement(sql);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    id = rs.getString(1);
+                }
+        }catch(SQLException ex){
+            id = "";
+        }
+    return id;
+ }
+   
+     
 }
 
 

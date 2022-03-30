@@ -42,7 +42,7 @@ public class Controller_CitasTratamiento {
          this.vistamenu = vistamenu;
         vista.setVisible(true);
         iniciar();
-        cargarcitas();
+        //cargarcitas();
     }
     
     public void iniciar(){
@@ -54,6 +54,32 @@ public class Controller_CitasTratamiento {
         vista.getBtncargar().addActionListener(l->cargardatosexternosconcedula());
     
     }
+    
+     public void cargardatosexternosconcedula(){
+       
+        
+         String id2 = vistamenu.getLblCedulapac().getText();
+           // pac.cargartxtsobrantes(id2);
+            vista.getTxtcedulapac().setText(id2);
+            vista.getTxtNombrePac().setText(vistamenu.getLblnombrescomp().getText());
+            vista.getTxtApellidosPac().setText(vistamenu.getLabelapellido().getText());
+          
+             
+      cargardatosexternosIdmed();
+        cargarcitas();
+        
+    }
+     public void cargardatosexternosIdmed(){
+       
+        //String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+       
+            vista.getTxtceduladoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10).toString());
+            vista.getTxtNombredoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(11, 16).toString());
+             vista.getTxtapellidosdoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(17, 24).toString());
+            
+         
+              
+            }
     
     private void generarSerie() {
       String   serie = modelo.NumSerie();
@@ -105,6 +131,7 @@ public class Controller_CitasTratamiento {
      if (mci.crearCita())    
      { 
          cargarcitas();
+         generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita creada correctamente ");
          limpiar();
      }else {
@@ -150,6 +177,7 @@ public class Controller_CitasTratamiento {
      if (mci.actualizarCitas()) 
      {
          cargarcitas();
+         generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita editada correctamente ");
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Editar  ");
@@ -191,6 +219,7 @@ public class Controller_CitasTratamiento {
     
      if (mci.eliminarcita())    {
          cargarcitas();
+         generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita eliminada correctamente ");
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Eliminar  ");
@@ -209,17 +238,14 @@ public class Controller_CitasTratamiento {
         tbmodel = (DefaultTableModel) vista.getJtblcitas().getModel() ;
         tbmodel.setNumRows(0);
         
-        List<Citas> milista = modelo.listarCitas();
+        List<Citas> milista = modelo.listarCitas(modelo.idPac(vista.getTxtcedulapac().getText()));
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(ci -> {
        
            tbmodel.addRow(new Object[6]);
            vista.getJtblcitas().setValueAt(ci.getId_cita(), i.value, 0);
-           vista.getJtblcitas().setValueAt(ci.getId_paciente(), i.value, 1);
-           vista.getJtblcitas().setValueAt(ci.getFecha_cita(), i.value, 2);
-           vista.getJtblcitas().setValueAt(ci.getHora_cita(), i.value, 3);
-           vista.getJtblcitas().setValueAt(ci.getMotivo(), i.value, 4);
-           vista.getJtblcitas().setValueAt(ci.getId_doctor(), i.value, 5);
+           vista.getJtblcitas().setValueAt(ci.getFecha_cita(), i.value, 1);
+           vista.getJtblcitas().setValueAt(ci.getHora_cita(), i.value, 2);
            
            i.value++;
         });
@@ -228,60 +254,58 @@ public class Controller_CitasTratamiento {
    
    
    private void cargardatosTxtcie (java.awt.event.MouseEvent evt) throws IOException{
-
-        List<Citas> lp = modelo.listarCitas();
-        int xx = vista.getJtblcitas().getSelectedRow();
-        if (xx != -1) {
-            String id = vista.getJtblcitas().getValueAt(xx, 0).toString();
-            vista.getTxtficha().setText(id);
-            vista.getTxtficha().setEnabled(false);
-            
-            
-            String idpa = vista.getJtblcitas().getValueAt(xx, 1).toString();
-            vista.getTxtcedulapac().setText(idpa);
-            
-            String fecha = vista.getJtblcitas().getValueAt(xx, 2).toString();
-            vista.getJdateFecha().setDateFormatString(fecha);
-            
-            
-            String hora= vista.getJtblcitas().getValueAt(xx, 3).toString();
-            vista.getTxthora().setText(hora);
-            
-            
-            
-            
-            
-            String motivo = vista.getJtblcitas().getValueAt(xx, 4).toString();
-            vista.getJareades().setText(motivo);
-            
-            String iddoc = vista.getJtblcitas().getValueAt(xx, 5).toString();
-            vista.getTxtceduladoc().setText(iddoc);
-         
-            llenartxtsobrantesdoc ();   
+        int filasel = vista.getJtblcitas().getSelectedRow();
+        String id=(String) vista.getJtblcitas().getValueAt(filasel, 0);
+     
+     
+     
+     String cedula=modelo.cedPaciente(id);
+     List<Citas> listaci=modelo.listarCitas(modelo.idPac(cedula));
+     for (int a = 0; a < listaci.size(); a++) {
+        if (listaci.get(a).getId_cita().equals(id)) {
+           vista.getTxtficha().setText(listaci.get(a).getId_cita());
+           vista.getJdateFecha().setDate(listaci.get(a).getFecha_cita());
+           vista.getTxthora().setText(listaci.get(a).getHora_cita());
+           vista.getJareades().setText(listaci.get(a).getMotivo());
         }
         
-        else{
-            
-            JOptionPane.showMessageDialog(vista, "error seleccione una fila");
-        }
-        
+      }
+     cargardatospacientes();  
+     cargardatosdoct();
 } 
-
-   
-   public void llenartxtsobrantesdoc () {
-           Model_Citas mc = new Model_Citas();
-       
-            String id2 = vista.getTxtceduladoc().getText();
-           // pac.cargartxtsobrantes(id2);
-            List<Doctor> milistadoc =  mc.cargartxtsobrantesdoc(id2);
-            for(int i = 0 ; i < milistadoc.size() ; i++){
-            vista.getTxtceduladoc().setText(milistadoc.get(i).getCedula_doc()) ;
-            vista.getTxtNombredoc().setText(milistadoc.get(i).getCorreo()) ;
-            vista.getTxtApellidosPac().setText(milistadoc.get(i).getProvincia()) ;
+private void cargardatosdoct() {
+     int filasel = vista.getJtblcitas().getSelectedRow();
+        String id=(String) vista.getJtblcitas().getValueAt(filasel, 0);
+        
+List<Doctor> listadoc=modelo.cargardoctores(id);
+     for (int a = 0; a < listadoc.size(); a++) {
+        if (listadoc.get(a).getCedula().equals(modelo.cedDoctor(id))) {
+           vista.getTxtceduladoc().setText(listadoc.get(a).getCedula());
+           vista.getTxtNombredoc().setText(listadoc.get(a).getNombres());
+           vista.getTxtapellidosdoc().setText(listadoc.get(a).getApellidos());
+           
+        }
+        
+      }
+}
+  
+private void cargardatospacientes() {
+ int filasel = vista.getJtblcitas().getSelectedRow();
+        String id=(String) vista.getJtblcitas().getValueAt(filasel, 0);
+           
+        List<Paciente> listaper=modelo.cargarpacientes(id);
+     for (int a = 0; a < listaper.size(); a++) {
+        if (listaper.get(a).getCedula().equals(modelo.cedPaciente(id))) {
             
-            }          
-    } 
-   
+           vista.getTxtcedulapac().setText(listaper.get(a).getCedula());
+           vista.getTxtNombrePac().setText(listaper.get(a).getNombres());
+           vista.getTxtApellidosPac().setText(listaper.get(a).getApellidos());
+           
+        }
+        
+      }
+        
+}
    
    
 private void setEventoMouseClicked(JTable tbl)
@@ -290,6 +314,7 @@ private void setEventoMouseClicked(JTable tbl)
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            System.out.println("CLICK EN TABLA");
             try {
                 cargardatosTxtcie(e);
             } catch (IOException ex) {
@@ -323,51 +348,11 @@ private void setEventoMouseClicked(JTable tbl)
        
    }
    
-    public void cargardatosexternosconcedula(){
-       
-        
-         String id2 = vistamenu.getLblCedulapac().getText();
-           // pac.cargartxtsobrantes(id2);
-            vista.getTxtcedulapac().setText(id2);
-             List<Paciente> milistapa =  modelo.cargartxtsobrantes(id2);
-         for(int i = 0 ; i < milistapa.size() ; i++){
-              
-            vista.getTxtNombrePac().setText(milistapa.get(i).getNombres());
-            vista.getTxtApellidosPac().setText(milistapa.get(i).getApellidos());
-            vista.getLbidPac().setText(milistapa.get(i).getId_paciente());
-                   
-        
-              
-            }
           
         
             
              
-      cargardatosexternosIdmed();
-        
-        
-    }
     
-     public void cargardatosexternosIdmed(){
-       
-        String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-   
-           // pac.cargartxtsobrantes(id2);
-            vista.getTxtceduladoc().setText(iddoc);
-            List<Doctor> milistado =  modelo.cargaridDoctor(iddoc);
-         for(int i = 0 ; i < milistado.size() ; i++){
-              
-            vista.getTxtNombredoc().setText(milistado.get(i).getNombres());
-            vista.getTxtapellidosdoc().setText(milistado.get(i).getApellidos());
-            vista.getLbidDoc().setText(milistado.get(i).getId_doctor());
-                   
-        
-              
-            }
-            
-         
-              
-            }
         
         
         

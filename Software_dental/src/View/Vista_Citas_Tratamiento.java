@@ -261,6 +261,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 20));
         panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 220, 20));
         panelNice1.add(txtcedulapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 220, 20));
+
+        txtceduladoc.setEditable(false);
         panelNice1.add(txtceduladoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 220, 20));
 
         btnbuspa.setText("Buscar");
@@ -300,7 +302,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID CITA", "CEDULA PACIENTE", "NOMBRES PACIENTE", "APELLIDOS PACIENTE", "FECHA CITA", "HORA", "MOTIVO", "CEDULA DOCTOR"
+                "ID CITA", "FECHA CITA", "HORA"
             }
         ));
         jScrollPane1.setViewportView(jtblcitas);

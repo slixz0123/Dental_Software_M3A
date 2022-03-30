@@ -477,6 +477,9 @@
               </Constraints>
             </Component>
             <Component class="jtextfieldround.JTextFieldRound" name="txtceduladoc">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="240" y="30" width="220" height="20"/>
@@ -608,44 +611,14 @@
                 <Component class="javax.swing.JTable" name="jtblcitas">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="0">
+                      <Table columnCount="3" rowCount="0">
                         <Column editable="true" title="ID CITA" type="java.lang.Object"/>
-                        <Column editable="true" title="CEDULA PACIENTE" type="java.lang.Object"/>
-                        <Column editable="true" title="NOMBRES PACIENTE" type="java.lang.Object"/>
-                        <Column editable="true" title="APELLIDOS PACIENTE" type="java.lang.Object"/>
                         <Column editable="true" title="FECHA CITA" type="java.lang.Object"/>
                         <Column editable="true" title="HORA" type="java.lang.Object"/>
-                        <Column editable="true" title="MOTIVO" type="java.lang.Object"/>
-                        <Column editable="true" title="CEDULA DOCTOR" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
