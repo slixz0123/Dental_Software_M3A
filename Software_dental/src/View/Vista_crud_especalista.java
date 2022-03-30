@@ -361,17 +361,21 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         panelNice1.add(txtCargoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, 21));
 
         btnguardarEsp.setText("Guardar");
-        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, -1, -1));
+        panelNice1.add(btnguardarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, -1, -1));
 
-        cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar", "m", "f" }));
+        cboxGeneroEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar genero", "Masculino", "Femenino" }));
         panelNice1.add(cboxGeneroEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 190, -1));
 
-        cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
+        cBoxespecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione la especialidad", "Odontólogo general", "Odontopediatra", "Ortodoncista", "Periodoncista", "Endodoncista", "Patólogo oral o Cirujano oral", "Prostodoncista" }));
         panelNice1.add(cBoxespecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 190, -1));
+
+        txtruta.setBackground(new java.awt.Color(166, 104, 216));
+        txtruta.setForeground(new java.awt.Color(166, 104, 216));
+        txtruta.setBorder(null);
         panelNice1.add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 220, -1));
 
-        btnExaminar.setText("Examinar");
-        panelNice1.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
+        btnExaminar.setText("Buscar Foto");
+        panelNice1.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
         panelNice1.add(txtapellidoesp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, 21));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 330, 600));
@@ -394,7 +398,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         btneliminar.setText("Eliminar");
 
-        btneditar.setText("Editar");
+        btneditar.setText("Nuevo");
 
         javax.swing.GroupLayout panelNice2Layout = new javax.swing.GroupLayout(panelNice2);
         panelNice2.setLayout(panelNice2Layout);

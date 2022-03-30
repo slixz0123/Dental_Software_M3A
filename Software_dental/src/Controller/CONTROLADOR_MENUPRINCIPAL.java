@@ -9,8 +9,6 @@ import Model.Model_AgendaCitas;
 import Model.Model_Anamnesis;
 import Model.Model_Cie10;
 import Model.Model_Citas;
-import Model.Model_CitasTratamiento;
-import Model.Model_Diagnostico;
 import Model.Model_Especialista;
 import Model.Model_Factura;
 import Model.Model_Farmacos;
@@ -20,11 +18,8 @@ import Model.Model_ListadoPacientes;
 import Model.Model_Paciente;
 import Model.Model_Proforma;
 import Model.Model_Tratamiento;
-import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
 import Model.Model_Receta;
-import Model.Persona;
-import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -51,23 +46,8 @@ import desplazable.Desface;
 import java.awt.Frame;
 
 import java.awt.event.MouseEvent;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 
 /**

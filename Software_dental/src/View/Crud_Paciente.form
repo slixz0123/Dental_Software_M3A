@@ -356,7 +356,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnexaminar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="EXAMINAR"/>
+                <Property name="text" type="java.lang.String" value="ELEGIR FOTO"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -421,9 +421,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Seleccionar"/>
-                    <StringItem index="1" value="M"/>
-                    <StringItem index="2" value="F"/>
+                    <StringItem index="0" value="Seleccione el genero"/>
+                    <StringItem index="1" value="Masculino"/>
+                    <StringItem index="2" value="Femenino"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -439,11 +439,16 @@
             <Component class="javax.swing.JComboBox" name="cbSangre">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="9">
+                    <StringItem index="0" value="Seleccione"/>
+                    <StringItem index="1" value="O+"/>
+                    <StringItem index="2" value="O-"/>
+                    <StringItem index="3" value="A+"/>
+                    <StringItem index="4" value="A-"/>
+                    <StringItem index="5" value="B+"/>
+                    <StringItem index="6" value="B-"/>
+                    <StringItem index="7" value="AB+"/>
+                    <StringItem index="8" value="AB-"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -457,6 +462,17 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtruta">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="68" red="a6" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="68" red="a6" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="230" y="530" width="220" height="-1"/>
@@ -550,7 +566,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btneditar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="text" type="java.lang.String" value="Limpiar"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -575,7 +591,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="numero serie"/>
+            <Property name="text" type="java.lang.String" value="Numero Serie"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

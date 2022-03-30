@@ -57,21 +57,21 @@ public class Model_Especialista extends Doctor{
                Doctor esp1 = new Doctor();
                // getstring = colocar el nombre de la columnas de la tabla 
                esp1.setCedula(rs.getString(1));
-                esp1.setNombres(rs.getString(2));
-                 esp1.setApellidos(rs.getString(3));
-                  esp1.setCelular(rs.getString(4));
-                   esp1.setTelefono(rs.getString(5));
-                    esp1.setDireccion(rs.getString(6));
-                     esp1.setCorreo(rs.getString(7));
-                      esp1.setProvincia(rs.getString(8));
-                       esp1.setCiudad(rs.getString(9));
-                        esp1.setGenero(rs.getString(10));
-                         esp1.setFoto(rs.getBytes(11));
-                          esp1.setId_doctor(rs.getString(12));
-                           esp1.setId_usuario(rs.getString(13));
-                            esp1.setEspecialidad(rs.getString(14));
-                             esp1.setCargo(rs.getString(15));
-                             
+               esp1.setNombres(rs.getString(2));
+               esp1.setApellidos(rs.getString(3));
+               esp1.setCelular(rs.getString(4));
+               esp1.setTelefono(rs.getString(5));
+               esp1.setDireccion(rs.getString(6));
+               esp1.setCorreo(rs.getString(7));
+               esp1.setProvincia(rs.getString(8));
+               esp1.setCiudad(rs.getString(9));
+               esp1.setGenero(rs.getString(10));
+               esp1.setFoto(rs.getBytes(11));
+               esp1.setId_doctor(rs.getString(12));
+               esp1.setId_usuario(rs.getString(13));
+               esp1.setEspecialidad(rs.getString(14));
+               esp1.setCargo(rs.getString(15));
+                            
 //                      //proceso de conversion del formato de la base a formato Image 
 //                      
 //                      //bytea = Bytes Array
@@ -206,6 +206,12 @@ public class Model_Especialista extends Doctor{
         return cpg.accion(sql2);
     }
     
+    public boolean modificarEspecialista(){
+        String sql2 = "UPDATE doctor SET\n"
+                +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
+        JOptionPane.showMessageDialog(null, "Especialista modificado especialidad"); 
+        return cpg.accion(sql2);
+    }
 //    public boolean modificarPersonasByte(){
 ////        try{
 //        String sql2 = "UPDATE persona SET\n"

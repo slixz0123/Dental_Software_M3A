@@ -363,7 +363,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="120" y="560" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="230" y="480" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -371,9 +371,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="seleccionar"/>
-                    <StringItem index="1" value="m"/>
-                    <StringItem index="2" value="f"/>
+                    <StringItem index="0" value="Seleccionar genero"/>
+                    <StringItem index="1" value="Masculino"/>
+                    <StringItem index="2" value="Femenino"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -390,7 +390,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="8">
-                    <StringItem index="0" value="Seleccionar"/>
+                    <StringItem index="0" value="Seleccione la especialidad"/>
                     <StringItem index="1" value="Odont&#xf3;logo general"/>
                     <StringItem index="2" value="Odontopediatra"/>
                     <StringItem index="3" value="Ortodoncista"/>
@@ -411,6 +411,17 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtruta">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="68" red="a6" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="68" red="a6" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="520" width="220" height="-1"/>
@@ -419,11 +430,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnExaminar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Examinar"/>
+                <Property name="text" type="java.lang.String" value="Buscar Foto"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="430" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="220" y="390" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -540,7 +551,7 @@
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonRound" name="btneditar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="text" type="java.lang.String" value="Nuevo"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -53,8 +53,14 @@ public class ValidarCedula {
     } catch (   HeadlessException | NumberFormatException e) {
         System.out.println(e);
     }
-    JOptionPane.showMessageDialog(null, "La cédula ingresada no pertenece a Ecuador");
+    //JOptionPane.showMessageDialog(null, "La cédula ingresada no pertenece a Ecuador");
+    int input = JOptionPane.showConfirmDialog(null, 
+                "La cédula ingresada no pertenece a Ecuador", "¿Desea guardarla de todos modos?",JOptionPane.YES_NO_CANCEL_OPTION);
+    if(input==0){
+        return true;
+    }else{
     return false;
+    }
             } else {///Fin Restricción 1
                 estado = false;
                 JOptionPane.showMessageDialog(null, "La cedula ingresada tiene menos de 10 caracteres");

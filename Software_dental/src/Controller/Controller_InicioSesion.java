@@ -8,9 +8,13 @@ package Controller;
 import Model.Model_InicioSesion;
 import View.MenuPrincipal;
 import View.Vista_InicioSesion;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import jtextfieldround.JPasswordFieldRound;
+import jtextfieldround.JTextFieldRound;
 
 /**
  *
@@ -32,8 +36,32 @@ public class Controller_InicioSesion {
     public void iniciocontrol() {
         vista.getBtnAceptar().addActionListener(l -> registrar());
         setEventoMouseClickedSalir(vista.getLblSalir());
+        eventoenter(vista.getTxtContrasena());
+        eventofoco(vista.getTxtUsuario());
     }
 
+   private void eventoenter(JPasswordFieldRound txt){
+    txt.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(e.getKeyCode()== KeyEvent.VK_ENTER){
+               registrar();
+            }
+        }
+
+    });
+    }
+private void eventofoco(JTextFieldRound txt){
+    txt.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(e.getKeyCode()== KeyEvent.VK_ENTER){
+               vista.getTxtContrasena().requestFocus();
+            }
+        }
+
+    });
+    }
     public void registrar() {
         char clave[] = vista.getTxtContrasena().getPassword();
         String clavedef = new String(clave);
