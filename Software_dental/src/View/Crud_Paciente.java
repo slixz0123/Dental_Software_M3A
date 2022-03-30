@@ -352,7 +352,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(txtprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 260, -1));
         panelNice1.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 260, -1));
 
-        lablefoto.setText("jLabel2");
+        lablefoto.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
         panelTranslucido1.setLayout(panelTranslucido1Layout);

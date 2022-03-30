@@ -23,12 +23,12 @@ public class ConexionPg {
     String usuario = "postgres";
 
 
-//    String contrasena = "159753";
+    String contrasena = "159753";
 
 
    // String contrasena = "17112002Diana";
 
-    String contrasena = "1234";
+    //String contrasena = "1234";
 
 
 

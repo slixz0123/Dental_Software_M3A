@@ -25,7 +25,7 @@ ConexionPg con= new ConexionPg();
         
     }
 public String NumSerie() {
-      //  String sql = "SELECT MAX(id_paciente) FROM paciente";
+   
          String sql = "SELECT MAX (CAST (id_paciente AS INTEGER)) FROM paciente ";
         String serie = "";
         try {
@@ -45,7 +45,6 @@ public String NumSerie() {
          try {
             String sql;
             sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
-            //        sql+="VALUES('" + getIdPersona() + "','"+ getNombre() +"','"+ getApellido()+"','"+ getFecha() +"','"+ getTelefono() +"','"+ getSexo() +"','"+ getSueldo() +"','"+ getCupo() +"','"+getFoto()+"')";
             sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps=con.GetCon().prepareStatement(sql);
             ps.setString(1, getCedula());
@@ -277,9 +276,7 @@ public String NumSerie() {
                 pac.setProvincia(rs.getString("provincia"));
                 
                 milistapaci.add(pac);
-                System.out.println(rs.getString("telefono"));
-                System.out.println(rs.getString("correo"));
-                System.out.println(rs.getString("provincia"));
+                
                 
             }
             return milistapaci;

@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Model_Paciente;
 import Model.Paciente;
+import Model.ValidarCedula;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import java.awt.Component;
@@ -24,6 +25,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -41,7 +44,8 @@ import javax.xml.ws.Holder;
  * @author slix0
  */
 public class Controller_CrudPaciente {
-    private Model_Paciente modelo ; 
+    private Model_Paciente modelo ;
+    private ValidarCedula val;
  JFileChooser jfc = new JFileChooser();
  private Crud_Paciente vista ; 
  private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen","jpg","png");
@@ -70,7 +74,7 @@ public class Controller_CrudPaciente {
           vista.getBtnguardarpac().addActionListener(l-> crearpaciente());
           cargarPersonas();
           vista.getBtneditar().addActionListener(l-> editarpaciente());
-          
+          eventos();
           
           KeyListener kl = new KeyListener() {
             @Override
@@ -96,9 +100,165 @@ public class Controller_CrudPaciente {
           
       }
       
-      
-      
-      
+      //EVENTOS
+ private void eventos(){
+    KeyListener cedula=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtced().getText().length()>9) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    KeyListener nombre=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getYxynom().getText();
+      StringBuffer strbf = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getYxynom().setText(match.appendTail(strbf).toString()); 
+        }
+    };
+    KeyListener apellido=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getTxtapellidos().getText();
+      StringBuffer capital = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(capital, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtapellidos().setText(match.appendTail(capital).toString()); 
+        }
+    };
+    KeyListener direccion=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String dirmay = vista.getTxtdireccion().getText();
+      StringBuffer strbf = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(dirmay);
+      while(match.find()) {
+         match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtdireccion().setText(match.appendTail(strbf).toString()); 
+        }
+    };
+    KeyListener provincia=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cad = vista.getTxtprovincia().getText();
+      StringBuffer may = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cad);
+      while(match.find()) {
+         match.appendReplacement(may, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtprovincia().setText(match.appendTail(may).toString()); 
+        }
+    };
+    KeyListener ciudad=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cadena = vista.getTxtciudad().getText();
+      StringBuffer mayciu = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cadena);
+      while(match.find()) {
+         match.appendReplacement(mayciu, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtciudad().setText(match.appendTail(mayciu).toString()); 
+        }
+    };
+    KeyListener telcel = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();   
+        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=15){
+
+       }else{
+        e.consume();
+       }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {} 
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+  
+    vista.getTxtced().addKeyListener(cedula);
+    vista.getYxynom().addKeyListener(nombre);
+    vista.getTxtapellidos().addKeyListener(apellido);
+    vista.getTxttelefono().addKeyListener(telcel);
+    vista.getTxtcelular().addKeyListener(telcel);
+    vista.getTxtdireccion().addKeyListener(direccion);
+    vista.getTxtprovincia().addKeyListener(provincia);
+    vista.getTxtciudad().addKeyListener(ciudad);
+    }
+      private boolean validarCorreo(String correo){
+      Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@ [A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        // El email a validar
+        
+ 
+        Matcher mather = pattern.matcher(correo);
+ 
+//        if (mather.find() == true) {
+//            System.out.println("El email ingresado es válido.");
+//        } else {
+//            JOptionPane.showMessageDialog(null, "El email ingresado es inválido.");
+//        }
+        return mather.find();
+      }
       private void generarSerie() {
       String   serie = modelo.NumSerie();
         if (serie == null) {
@@ -291,12 +451,14 @@ public class Controller_CrudPaciente {
     tiposang = vista.getCbSangre().getSelectedItem().toString();
      
           Model_Paciente pac = new Model_Paciente();
+          if(validarCorreo(correo)){
            pac.setCedula(cedula);
            pac.setNombres(nombres);
            pac.setApellidos(apellidos);
            pac.setCelular(celular);
            pac.setTelefono(telefono);
            pac.setDireccion(direccion);
+           
            pac.setCorreo(correo);
            pac.setProvincia(provincia);
            pac.setCiudad(ciudad);
@@ -314,12 +476,14 @@ public class Controller_CrudPaciente {
             pac.setCedula_pac(cedula);
             pac.setFecha_nac(fecha);
             pac.setTipo_sang(tiposang);
-             
+             if(ValidarCedula.validarcedula(cedula)){
             pac.crearPersonaByte();
             generarSerie();
             cargarPersonas ();
             limpiartxt();
-          
+             }} else {
+          JOptionPane.showMessageDialog(null, "La direccion de correo electronico no es valida");
+          }
       }
       
       //
@@ -539,8 +703,12 @@ public class Controller_CrudPaciente {
           
       }
       
+}
+      
+  
+
   
 
     
     
-}
+

@@ -12,10 +12,12 @@ import Model.Model_Anamnesis;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -34,6 +36,7 @@ public class Controller_Anamnesis {
     public Controller_Anamnesis(Model_Anamnesis modelo, Vista_Anamesis vista ,MenuPrincipal vistame) {
       this.modelo = modelo;
       this.vista = vista;
+      this.vistame= vistame;
       vista.setVisible(true); 
       iniciarControl();
     }
@@ -45,6 +48,7 @@ public class Controller_Anamnesis {
         vista.getBtnbuscardoc().addActionListener(l->abrir_dialog(1));
         vista.getBtnbuscarpac().addActionListener(l->abrir_dialog(2));
         vista.getDialogbuscar().setLocationRelativeTo(null);
+        vista.getBtncargardesdmen().addActionListener(l->cargardesdeMenu());
         setEventMouseClicked(vista.getTbldoctor());
         cargarPaciente();
         cargarMedico();
@@ -53,6 +57,8 @@ public class Controller_Anamnesis {
         setEventMouseClicked2(vista.getTblpac());
         cargpaci(vista.getTxtcedula_pac());
         cargaranam(vista.getTabla_anam());
+        pintarbtnpac(vista.getBtnbuscarpac());
+        pintarbtnmed(vista.getBtnbuscardoc());
     }
     
     
@@ -76,6 +82,36 @@ public class Controller_Anamnesis {
     });
     }
 //
+    private void pintarbtnpac(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnbuscarpac().setBackground(new Color (90, 10, 160));
+     vista.getBtnbuscarpac().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnbuscarpac().setBackground(new Color (240, 240, 240));
+     vista.getBtnbuscarpac().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
+    private void pintarbtnmed(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnbuscardoc().setBackground(new Color (3, 100, 80));
+     vista.getBtnbuscardoc().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnbuscardoc().setBackground(new Color (240, 240, 240));
+     vista.getBtnbuscardoc().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
     private void cargaranam(JTable tbl){
     tbl.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
@@ -192,7 +228,6 @@ public class Controller_Anamnesis {
     tblModel=(DefaultTableModel)vista.getTabla_anam().getModel();
     tblModel.setNumRows(0);
     String idPac=modelo.idPac(vista.getTxtcedula_pac().getText());
-//    List<Anamnesis> listaan= modelo.listarbuscar(idPac, "");
     List<Anamnesis> listaan= modelo.listaran(idPac);
     Holder<Integer> i = new Holder<>(0);
 
@@ -345,7 +380,18 @@ public class Controller_Anamnesis {
         } else {JOptionPane.showMessageDialog(vista, "No se pudo modificar");}
     }
     }
-
+//
+    //
+     private void cargardesdeMenu(){
+     String cedu=vistame.getLblCedulapac().getText();
+     if(cedu.equals("...")){JOptionPane.showMessageDialog(vistame, "Debe tener cargado un paciente en la parte superior "
+             + "\nno puede elegir en la opcion buscar");} else{
+     vista.getTxtcedula_pac().setText(cedu);
+     llenarpac();
+     cargarAnamnesis();
+     limpiar();
+     }
+     }
     //Imprimir
     private void imprimir(){
     ConexionPg con= new ConexionPg();   
@@ -395,12 +441,6 @@ public class Controller_Anamnesis {
             id=String.valueOf(inc);
 
         }
-        return id;
-    }
-//
-   
-    private String id_an_act() {
-        String id=modelo.id_act_anam();
         return id;
     }
 

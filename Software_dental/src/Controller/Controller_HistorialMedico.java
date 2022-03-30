@@ -38,9 +38,10 @@ public class Controller_HistorialMedico {
     private String accion = "guardar";
     private String cambio = "nuevo";
 
-    public Controller_HistorialMedico(Model_HistorialMedico modelo, Vista_Crud_HistorialMedico vista) {
+    public Controller_HistorialMedico(Model_HistorialMedico modelo, Vista_Crud_HistorialMedico vista, MenuPrincipal vistaMenu) {
         this.modelo = modelo;
         this.vista = vista;
+        this.vistaMenu = vistaMenu;
         vista.setVisible(true);
         iniciar();
     }
@@ -49,10 +50,11 @@ public class Controller_HistorialMedico {
         vista.getBtnlimpiar().addActionListener(l->limpiar());
         vista.getBtnbuscarpac().addActionListener(l->abrir_dialog(1));
         vista.getBtnbuscarmed().addActionListener(l->abrir_dialog(2));
+        vista.getBtncargardatmenu().addActionListener(l->cargardesdeMenu());
         evtcalendario(vista.getCalendariobuscar());
         buscarMedico();
         buscarPaciente();
-        cargartablahistorial();
+        //cargartablahistorial();
         eventos();
         eventotblmed(vista.getTbldoctor());
         eventotblpac(vista.getTblpaciente());
@@ -99,7 +101,7 @@ public class Controller_HistorialMedico {
     if(vista.getCalendariobuscar().getDate()!=null){
     SimpleDateFormat fechacon = new SimpleDateFormat("yyyy-MM-dd");
     String fecha = fechacon.format(vista.getCalendariobuscar().getDate());
-    List<Hist_Medico> listap= modelo.listarbuscarhist(fecha);
+    List<Hist_Medico> listap= modelo.listarbuscarhist(fecha,modelo.idPac(vista.getTxtcedulapac().getText()));
     Holder<Integer> i = new Holder<>(0);
 
     listap.stream().forEach(pe->{
@@ -110,7 +112,7 @@ public class Controller_HistorialMedico {
     i.value++;
     });
     } else {
-    List<Hist_Medico> listap= modelo.listarbuscarhist("");
+    List<Hist_Medico> listap= modelo.listarbuscarhist("",modelo.idPac(vista.getTxtcedulapac().getText()));
     Holder<Integer> i = new Holder<>(0);
 
     listap.stream().forEach(pe->{
@@ -159,10 +161,12 @@ public class Controller_HistorialMedico {
         vista.getBtnlimpiar().setText("Limpiar");
         vista.getBtnguardar().setText("Editar");
         limpiar();
+        cargartablahistorial();
         } else {JOptionPane.showMessageDialog(null, "No se pudo guardar");
       }
      } else if(accion.equals("editar")){
          actualizar_hist();
+         cargartablahistorial();
      }
     }
     //
@@ -342,6 +346,7 @@ public class Controller_HistorialMedico {
            vista.getTxtprovinciapac().setText(listaper.get(a).getProvincia());
            vista.getTxtciudadpac().setText(listaper.get(a).getCiudad());
            vista.getCalendario().setDate(listaper.get(a).getFecha_nac());
+           cargartablahistorial();
         }
       }
     }
@@ -412,6 +417,16 @@ public class Controller_HistorialMedico {
       }
     }
      //
+     private void cargardesdeMenu(){
+     String cedu=vistaMenu.getLblCedulapac().getText();
+     if(cedu.equals("...")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior "
+             + "o puede elegir en la opcion buscar");} else{
+     vista.getTxtcedulapac().setText(cedu);
+     cargarpaciente();
+     cambio="nuevo";
+     limpiar();
+     }
+     }
       private void cargarpaciente(){
         String ced_pac=vista.getTxtcedulapac().getText();
         List<Paciente> listaper=modelo.listarPacientes(ced_pac);
@@ -430,6 +445,7 @@ public class Controller_HistorialMedico {
            vista.getTxtprovinciapac().setText(listaper.get(a).getProvincia());
            vista.getTxtciudadpac().setText(listaper.get(a).getCiudad());
            vista.getCalendario().setDate(listaper.get(a).getFecha_nac());
+           cargartablahistorial();
         }
       }
     }

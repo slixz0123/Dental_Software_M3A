@@ -71,7 +71,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtapellidospac = new jtextfieldround.JTextFieldRound();
         btnbuscarpac = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
+        btncargardatmenu = new org.edisoncor.gui.button.ButtonRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         txtulcera = new jtextfieldround.JTextFieldRound();
         jLabel19 = new javax.swing.JLabel();
@@ -359,11 +359,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("Cargar datos");
-        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        btncargardatmenu.setBackground(new java.awt.Color(140, 47, 216));
+        btncargardatmenu.setText("Cargar datos");
+        panelNice1.add(btncargardatmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 460));
 
@@ -495,7 +495,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("DATOS DEL HISTORIAL MEDICO");
+        jLabel13.setText("DATOS DEL HISTORIAL ODONTOLOGICO");
         panelNice2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -612,6 +612,14 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public ButtonRound getBtncargardatmenu() {
+        return btncargardatmenu;
+    }
+
+    public void setBtncargardatmenu(ButtonRound btncargardatmenu) {
+        this.btncargardatmenu = btncargardatmenu;
+    }
+
     public JTextFieldRound getTxtfumbebe() {
         return txtfumbebe;
     }
@@ -641,11 +649,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     }
 
     public ButtonRound getBtnAnteriorEsp() {
-        return btnAnteriorEsp;
+        return btncargardatmenu;
     }
 
     public void setBtnAnteriorEsp(ButtonRound btnAnteriorEsp) {
-        this.btnAnteriorEsp = btnAnteriorEsp;
+        this.btncargardatmenu = btnAnteriorEsp;
     }
 
     public JButton getBtnbuscarmed() {
@@ -1006,9 +1014,9 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btnbuscarmed;
     private javax.swing.JButton btnbuscarpac;
+    private org.edisoncor.gui.button.ButtonRound btncargardatmenu;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JButton btnlimpiar;
