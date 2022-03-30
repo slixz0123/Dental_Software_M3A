@@ -94,7 +94,11 @@ public class Controller_CrudTratamiento {
         trat.setDescripcion_trat(descripcion);
         trat.setPrecio_trat(precio);
         trat.setMaterial(material);
-        trat.grabar();
+        if (trat.grabar()== true){
+            JOptionPane.showMessageDialog(null,"Tratamiento guardado");
+        }else {
+                 JOptionPane.showMessageDialog(null,"Error al guardar tratamiento");
+                }
         llenarTabla("");
         limpiarCampos();
         generarId();

@@ -17,10 +17,10 @@ public class Controller_odonto {
       private model_Odontograma modelo;
     private vista_Odontograma vista;
     private MenuPrincipal vistaMenu ;
-    public Controller_odonto(model_Odontograma modelo , vista_Odontograma vista) {
+    public Controller_odonto(model_Odontograma modelo , vista_Odontograma vista , MenuPrincipal vistaMenu) {
         this.modelo = modelo;
         this.vista = vista;
-       
+       this.vistaMenu = vistaMenu;
         vista.setVisible(true);
         
         

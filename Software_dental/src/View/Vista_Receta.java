@@ -84,8 +84,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel24 = new javax.swing.JLabel();
         txtfrecuencia = new jtextfieldround.JTextFieldRound();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        txtdosis = new jtextfieldround.JTextFieldRound();
         btnagregarcie = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -123,6 +121,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel29 = new javax.swing.JLabel();
         txtmiligramos = new jtextfieldround.JTextFieldRound();
         btncargardatos = new javax.swing.JButton();
+        id_rec_cie = new javax.swing.JLabel();
+        id_rec_far = new javax.swing.JLabel();
         btnCrearRec = new javax.swing.JButton();
         btnEditarrec = new javax.swing.JButton();
         btnEliminarrec = new javax.swing.JButton();
@@ -305,7 +305,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         btnBuscarcie.setText("Buscar");
         panelNice1.add(btnBuscarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
-        panelNice1.add(spcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 70, -1));
+        panelNice1.add(spcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 140, -1));
 
         txtobservaciones.setColumns(20);
         txtobservaciones.setRows(5);
@@ -315,7 +315,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Miligramos:");
+        jLabel24.setText("Dosis:");
         panelNice1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 80, 20));
         panelNice1.add(txtfrecuencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 130, 90, 21));
 
@@ -323,12 +323,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Frecuencia:");
         panelNice1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 80, 20));
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Dosis:");
-        panelNice1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 50, 20));
-        panelNice1.add(txtdosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 90, 21));
 
         btnagregarcie.setText("Agregar");
         panelNice1.add(btnagregarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 180, -1, -1));
@@ -463,7 +457,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "DETALLE", "CANTIDAD", "DOSIS", "FRECUENCIA"
+                "DETALLE", "DOSIS", "CANTIDAD", "FRECUENCIA"
             }
         ));
         jScrollPane6.setViewportView(tblreceta);
@@ -475,7 +469,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "PATOLOGIA"
+                "CIE 10", "CATEGORIA"
             }
         ));
         jScrollPane8.setViewportView(tblcie10);
@@ -485,11 +479,13 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Cantidad:");
-        panelNice1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 70, 20));
-        panelNice1.add(txtmiligramos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 90, 21));
+        panelNice1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 70, 20));
+        panelNice1.add(txtmiligramos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 150, 21));
 
         btncargardatos.setText("Cargar Datos");
         panelNice1.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        panelNice1.add(id_rec_cie, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 30, 20));
+        panelNice1.add(id_rec_far, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 30, 20));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 600));
 
@@ -803,14 +799,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         this.txtbuscarfar = txtbuscarfar;
     }
 
-    public JTextFieldRound getTxtdosis() {
-        return txtdosis;
-    }
-
-    public void setTxtdosis(JTextFieldRound txtdosis) {
-        this.txtdosis = txtdosis;
-    }
-
     public JTextFieldRound getTxtfrecuencia() {
         return txtfrecuencia;
     }
@@ -883,6 +871,22 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     public void setTblbuscarcie10(JTable tblbuscarcie10) {
         this.tblbuscarcie10 = tblbuscarcie10;
     }
+
+    public JLabel getId_rec_cie() {
+        return id_rec_cie;
+    }
+
+    public void setId_rec_cie(JLabel id_rec_cie) {
+        this.id_rec_cie = id_rec_cie;
+    }
+
+    public JLabel getId_rec_far() {
+        return id_rec_far;
+    }
+
+    public void setId_rec_far(JLabel id_rec_far) {
+        this.id_rec_far = id_rec_far;
+    }
     
     
     
@@ -898,6 +902,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JDialog dialogCIE;
     private javax.swing.JDialog dialogFarmaco;
+    private javax.swing.JLabel id_rec_cie;
+    private javax.swing.JLabel id_rec_far;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
@@ -907,7 +913,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -958,7 +963,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtbuscarcie10;
     private javax.swing.JTextField txtbuscarfar;
     private javax.swing.JLabel txtcedula;
-    public static jtextfieldround.JTextFieldRound txtdosis;
     private javax.swing.JLabel txtedad;
     public static jtextfieldround.JTextFieldRound txtfrecuencia;
     public static jtextfieldround.JTextFieldRound txtmiligramos;

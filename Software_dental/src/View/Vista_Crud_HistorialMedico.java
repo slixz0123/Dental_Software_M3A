@@ -359,7 +359,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("DATOS DEL PACIENTE");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         btncargardatmenu.setBackground(new java.awt.Color(140, 47, 216));
         btncargardatmenu.setText("Cargar datos");
@@ -495,7 +495,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("DATOS DEL HISTORIAL MEDICO");
+        jLabel13.setText("DATOS DEL HISTORIAL ODONTOLOGICO");
         panelNice2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N

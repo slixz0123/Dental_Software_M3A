@@ -193,7 +193,7 @@ public class Model_Especialista extends Doctor{
                 serie = rs.getString(1);
             }
         } catch (SQLException e) {
-            System.out.println("ERROR GENERAR ID");
+          JOptionPane.showMessageDialog(null,"ERROR GENERAR ID");
 
         }
         return serie;
@@ -206,6 +206,7 @@ public class Model_Especialista extends Doctor{
         return cpg.accion(sql2);
     }
     
+
     public boolean modificarEspecialista(){
         String sql2 = "UPDATE doctor SET\n"
                 +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
@@ -219,6 +220,7 @@ public class Model_Especialista extends Doctor{
 //
 //        return cpg.accion(sql2);
 //    }
+
     
     
     public boolean removerPersonas(String ced){
@@ -246,11 +248,7 @@ public class Model_Especialista extends Doctor{
                 esp.setCargo(rs.getString("cargo"));
                 
                 milistaesp.add(esp);
-                System.out.println(rs.getString("telefono"));
-                System.out.println(rs.getString("correo"));
-                System.out.println(rs.getString("provincia"));
-                System.out.println(rs.getString("id_usuario"));
-                System.out.println(rs.getString("cargo"));
+               
                 
             }
             return milistaesp;
@@ -282,11 +280,7 @@ public class Model_Especialista extends Doctor{
                
                 
                 milistaespc.add(esp);
-                System.out.println(rs.getString("cedula"));
-                     System.out.println(rs.getString("nombres"));
-                          System.out.println(rs.getString("apellidos"));
-                          System.out.println(rs.getString("id_doctor"));
-                          System.out.println("-------------------------");
+              
               
                 
             }
