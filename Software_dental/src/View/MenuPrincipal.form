@@ -93,7 +93,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/View/icons/dolor-de-muelas.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nuevo Paciente     "/>
+                <Property name="text" type="java.lang.String" value="  Nuevo Paciente      "/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Constraints>
@@ -197,12 +197,12 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/View/icons/Copia de chequeo-dental.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Historial Medico "/>
+                    <Property name="text" type="java.lang.String" value="Reporte H Odonto "/>
                     <Property name="horizontalTextPosition" type="int" value="10"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="290" width="160" height="30"/>
+                      <AbsoluteConstraints x="0" y="370" width="170" height="50"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -215,30 +215,12 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/View/icons/registro-dental.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Agendar de citas     "/>
+                    <Property name="text" type="java.lang.String" value="Agenda de citas     "/>
                     <Property name="horizontalTextPosition" type="int" value="10"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="380" width="170" height="40"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_NuevaEndodoncia">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/View/icons/perforacion.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Historial Medico"/>
-                    <Property name="horizontalTextPosition" type="int" value="2"/>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="430" width="160" height="40"/>
+                      <AbsoluteConstraints x="0" y="480" width="170" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -251,12 +233,12 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/View/icons/diagnostico.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Historial Clinico   "/>
+                    <Property name="text" type="java.lang.String" value="Reporte His Clinica  "/>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="330" width="160" height="40"/>
+                      <AbsoluteConstraints x="0" y="430" width="170" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -274,7 +256,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="480" width="160" height="40"/>
+                      <AbsoluteConstraints x="10" y="330" width="160" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -292,7 +274,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="530" width="160" height="40"/>
+                      <AbsoluteConstraints x="0" y="290" width="170" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -310,25 +292,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="580" width="160" height="40"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_Contabilidad1">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/View/icons/informacion-financiera.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Contablidad          "/>
-                    <Property name="horizontalTextPosition" type="int" value="2"/>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="630" width="160" height="40"/>
+                      <AbsoluteConstraints x="10" y="530" width="160" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -509,19 +473,21 @@
                       <Component id="lblnombrescomp" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelapellido" min="-2" pref="107" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblCedulapac" min="-2" pref="127" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jcbDocs" min="-2" pref="94" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jcbDocs" pref="153" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnOdontograma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnagendaCitas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -540,6 +506,7 @@
                               <Component id="btnagendaCitas" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jcbDocs" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnOdontograma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
@@ -562,7 +529,7 @@
             <Component class="javax.swing.JLabel" name="lblnombrescomp">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="SF Pro Display" size="18" style="0"/>
+                  <Font name="SF Pro Display" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -584,7 +551,7 @@
             <Component class="javax.swing.JLabel" name="lblCedulapac">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="SF Pro Display" size="18" style="0"/>
+                  <Font name="SF Pro Display" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -604,6 +571,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelapellido">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SF Pro Display" size="14" style="0"/>
+                </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
@@ -622,6 +592,17 @@
             <Component class="javax.swing.JButton" name="btnOdontograma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Odontograma"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SF Pro Display" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Doctor"/>
               </Properties>
             </Component>
           </SubComponents>

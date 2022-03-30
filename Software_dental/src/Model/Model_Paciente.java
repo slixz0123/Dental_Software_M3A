@@ -276,9 +276,7 @@ public String NumSerie() {
                 pac.setProvincia(rs.getString("provincia"));
                 
                 milistapaci.add(pac);
-                System.out.println(rs.getString("telefono"));
-                System.out.println(rs.getString("correo"));
-                System.out.println(rs.getString("provincia"));
+                
                 
             }
             return milistapaci;

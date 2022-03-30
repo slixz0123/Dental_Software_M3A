@@ -178,14 +178,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.lbl_Diagnostico = lbl_Diagnostico;
     }
 
-    public JLabel getLbl_NuevaEndodoncia() {
-        return lbl_NuevaEndodoncia;
-    }
-
-    public void setLbl_NuevaEndodoncia(JLabel lbl_NuevaEndodoncia) {
-        this.lbl_NuevaEndodoncia = lbl_NuevaEndodoncia;
-    }
-
+    
     public JButton getBtnagendaCitas() {
         return btnagendaCitas;
     }
@@ -227,12 +220,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_CrudCie = new javax.swing.JLabel();
         lbl_historialCliniico = new javax.swing.JLabel();
         lbl_Agendarcitas = new javax.swing.JLabel();
-        lbl_NuevaEndodoncia = new javax.swing.JLabel();
         lbl_Diagnostico = new javax.swing.JLabel();
         lbl_CitasTratamientos = new javax.swing.JLabel();
         lbl_Cotizacion = new javax.swing.JLabel();
         lbl_Certificado = new javax.swing.JLabel();
-        lbl_Contabilidad1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -260,6 +251,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         labelapellido = new javax.swing.JLabel();
         jcbDocs = new javax.swing.JComboBox<>();
         btnOdontograma = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -282,7 +274,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblCrud_Paciente.setForeground(new java.awt.Color(255, 255, 255));
         lblCrud_Paciente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCrud_Paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/dolor-de-muelas.png"))); // NOI18N
-        lblCrud_Paciente.setText("Nuevo Paciente     ");
+        lblCrud_Paciente.setText("  Nuevo Paciente      ");
         lblCrud_Paciente.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         MenuDesplegable.add(lblCrud_Paciente);
         lblCrud_Paciente.setBounds(0, 70, 170, 30);
@@ -321,58 +313,44 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_historialCliniico.setForeground(new java.awt.Color(255, 255, 255));
         lbl_historialCliniico.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_historialCliniico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/Copia de chequeo-dental.png"))); // NOI18N
-        lbl_historialCliniico.setText("Historial Medico ");
+        lbl_historialCliniico.setText("Reporte H Odonto ");
         lbl_historialCliniico.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        panelCurves1.add(lbl_historialCliniico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 160, 30));
+        panelCurves1.add(lbl_historialCliniico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 170, 50));
 
         lbl_Agendarcitas.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Agendarcitas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_Agendarcitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/registro-dental.png"))); // NOI18N
-        lbl_Agendarcitas.setText("Agendar de citas     ");
+        lbl_Agendarcitas.setText("Agenda de citas     ");
         lbl_Agendarcitas.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        panelCurves1.add(lbl_Agendarcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 170, 40));
-
-        lbl_NuevaEndodoncia.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_NuevaEndodoncia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_NuevaEndodoncia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/perforacion.png"))); // NOI18N
-        lbl_NuevaEndodoncia.setText("Historial Medico");
-        lbl_NuevaEndodoncia.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        panelCurves1.add(lbl_NuevaEndodoncia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 160, 40));
+        panelCurves1.add(lbl_Agendarcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 170, 40));
 
         lbl_Diagnostico.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Diagnostico.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_Diagnostico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/diagnostico.png"))); // NOI18N
-        lbl_Diagnostico.setText("Historial Clinico   ");
+        lbl_Diagnostico.setText("Reporte His Clinica  ");
         lbl_Diagnostico.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        panelCurves1.add(lbl_Diagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 160, 40));
+        panelCurves1.add(lbl_Diagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 170, 40));
 
         lbl_CitasTratamientos.setForeground(new java.awt.Color(255, 255, 255));
         lbl_CitasTratamientos.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_CitasTratamientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/tratamiento.png"))); // NOI18N
         lbl_CitasTratamientos.setText("Citas y Tratamiento");
         lbl_CitasTratamientos.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        panelCurves1.add(lbl_CitasTratamientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 160, 40));
+        panelCurves1.add(lbl_CitasTratamientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 160, 40));
 
         lbl_Cotizacion.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Cotizacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/chequeo-dental.png"))); // NOI18N
         lbl_Cotizacion.setText("Cotizacion             ");
         lbl_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        panelCurves1.add(lbl_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 160, 40));
+        panelCurves1.add(lbl_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 170, 40));
 
         lbl_Certificado.setForeground(new java.awt.Color(255, 255, 255));
         lbl_Certificado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_Certificado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/certificado.png"))); // NOI18N
         lbl_Certificado.setText("Certificacion          ");
         lbl_Certificado.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        panelCurves1.add(lbl_Certificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 160, 40));
-
-        lbl_Contabilidad1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_Contabilidad1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_Contabilidad1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/informacion-financiera.png"))); // NOI18N
-        lbl_Contabilidad1.setText("Contablidad          ");
-        lbl_Contabilidad1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        panelCurves1.add(lbl_Contabilidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, 160, 40));
+        panelCurves1.add(lbl_Certificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 160, 40));
         panelCurves1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, -1));
         panelCurves1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 170, -1));
         panelCurves1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 170, -1));
@@ -430,7 +408,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Paciente:");
 
-        lblnombrescomp.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        lblnombrescomp.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         lblnombrescomp.setForeground(new java.awt.Color(255, 255, 255));
         lblnombrescomp.setText("...");
 
@@ -438,7 +416,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cedula:");
 
-        lblCedulapac.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        lblCedulapac.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         lblCedulapac.setForeground(new java.awt.Color(255, 255, 255));
         lblCedulapac.setText("...");
 
@@ -446,9 +424,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btnagendaCitas.setText("Agenda de citas");
 
+        labelapellido.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         labelapellido.setForeground(new java.awt.Color(255, 255, 255));
 
         btnOdontograma.setText("Odontograma");
+
+        jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Doctor");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -461,19 +444,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(lblnombrescomp, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCedulapac, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbDocs, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcbDocs, 0, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnOdontograma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnagendaCitas)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,7 +474,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addComponent(btnagendaCitas)
                         .addComponent(jcbDocs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnOdontograma)))
+                        .addComponent(btnOdontograma)
+                        .addComponent(jLabel5)))
                 .addGap(17, 17, 17))
         );
 
@@ -555,6 +541,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -580,13 +567,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Agendarcitas;
     private javax.swing.JLabel lbl_Certificado;
     private javax.swing.JLabel lbl_CitasTratamientos;
-    private javax.swing.JLabel lbl_Contabilidad1;
     private javax.swing.JLabel lbl_Cotizacion;
     private javax.swing.JLabel lbl_CrudCie;
     private javax.swing.JLabel lbl_CrudFarmacos;
     private javax.swing.JLabel lbl_CrudTratamiento;
     private javax.swing.JLabel lbl_Diagnostico;
-    private javax.swing.JLabel lbl_NuevaEndodoncia;
     private javax.swing.JLabel lbl_historialCliniico;
     private javax.swing.JLabel lblnombrescomp;
     private org.edisoncor.gui.panel.PanelCurves panelCurves1;

@@ -23,6 +23,7 @@ import Model.Model_Tratamiento;
 import Model.model_Anamesis;
 import Model.Model_Hist_clinico;
 import Model.Model_Receta;
+import Model.Model_Rep_HistorialOdontologico;
 import Model.Persona;
 import Model.model_Odontograma;
 import View.Crud_Paciente;
@@ -40,6 +41,7 @@ import View.Vista_ListadoPacientes;
 import View.Vista_crud_Factura;
 
 import View.Vista_Receta;
+import View.Vista_Rep_HistorialOdontologico;
 
 
 import View.Vista_crud_Tratamiento;
@@ -95,12 +97,12 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
 
         setEventoMouseClickeDiag(vista.getLbl_Diagnostico());
-        setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia());
+        
 
     setEventoMouseClickeDiag(vista.getLbl_Diagnostico()); 
-        setEventoMouseClickNuevaE(vista.getLbl_NuevaEndodoncia()); 
+        
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
-      setEventoMouseClickHistorial(vista.getLbl_historialCliniico());
+      HistorialReporteOdontologico(vista.getLbl_historialCliniico());
         setEventoMouseClickProgreso(vista.getLabelini());
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
@@ -186,13 +188,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
         });
     }
 
-    private void setEventoMouseClickHistorial(JLabel laba) {
+    private void HistorialReporteOdontologico(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                HistorialMedico(e);
+                HistorialReporteOdontologico(e);
 
             }
         });
@@ -311,13 +313,13 @@ CrudDiag(e);
         Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
     }
 
-    private void HistorialMedico(java.awt.event.MouseEvent evt) {
-        Model_HistorialMedico modHisto = new Model_HistorialMedico();
-        Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
-        vista.getDkpPrincipal().add(vistaHistorialMedico);
-        vistaHistorialMedico.setBorder(null);
+    private void HistorialReporteOdontologico(java.awt.event.MouseEvent evt) {
+        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
+        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
+        vista.getDkpPrincipal().add(vistaHistorialrepmed);
+        vistaHistorialrepmed.setBorder(null);
 
-          Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
+          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
 
 
      
