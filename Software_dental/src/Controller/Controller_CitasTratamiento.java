@@ -242,7 +242,7 @@ public class Controller_CitasTratamiento {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(ci -> {
        
-           tbmodel.addRow(new Object[6]);
+           tbmodel.addRow(new Object[3]);
            vista.getJtblcitas().setValueAt(ci.getId_cita(), i.value, 0);
            vista.getJtblcitas().setValueAt(ci.getFecha_cita(), i.value, 1);
            vista.getJtblcitas().setValueAt(ci.getHora_cita(), i.value, 2);
@@ -279,12 +279,15 @@ private void cargardatosdoct() {
         
 List<Doctor> listadoc=modelo.cargardoctores(id);
      for (int a = 0; a < listadoc.size(); a++) {
-        if (listadoc.get(a).getCedula().equals(modelo.cedDoctor(id))) {
-           vista.getTxtceduladoc().setText(listadoc.get(a).getCedula());
+        
+           String ceduladoc ;
+           vista.getTxtceduladoc().setText(listadoc.get(a).getCedula_doc());
+           
            vista.getTxtNombredoc().setText(listadoc.get(a).getNombres());
+           
            vista.getTxtapellidosdoc().setText(listadoc.get(a).getApellidos());
            
-        }
+        
         
       }
 }
@@ -294,14 +297,15 @@ private void cargardatospacientes() {
         String id=(String) vista.getJtblcitas().getValueAt(filasel, 0);
            
         List<Paciente> listaper=modelo.cargarpacientes(id);
-     for (int a = 0; a < listaper.size(); a++) {
-        if (listaper.get(a).getCedula().equals(modelo.cedPaciente(id))) {
+     for (int a = 0; a < listaper.size(); a++) {   
+       
             
-           vista.getTxtcedulapac().setText(listaper.get(a).getCedula());
+          
            vista.getTxtNombrePac().setText(listaper.get(a).getNombres());
            vista.getTxtApellidosPac().setText(listaper.get(a).getApellidos());
+           vista.getTxtcedulapac().setText(vistamenu.getLblCedulapac().getText());
            
-        }
+        
         
       }
         

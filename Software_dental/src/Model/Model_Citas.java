@@ -398,14 +398,14 @@ public String idMed(String ced){
     String sql3;
     
         try {
-            sql3 = " select p.cedula,p.nombres , p.apellidos  from persona p Join doctor doc on  doc.cedula_doc = p.cedula Join citas c on c.id_doctor_c=doc.id_doctor Where id_cita='"+idci+"'  " ;
+            sql3 = " select doc.cedula_doc ,p.nombres , p.apellidos  from persona p Join doctor doc on  doc.cedula_doc = p.cedula Join citas c on c.id_doctor_c=doc.id_doctor Where id_cita='"+idci+"'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
             while(rs.next()){
                 Doctor doc = new Doctor();
                
-                doc.setCedula_doc(rs.getString("cedula"));
+                doc.setCedula_doc(rs.getString("cedula_doc"));
                 doc.setNombres(rs.getString("nombres"));
                 doc.setApellidos(rs.getString("apellidos"));
                 
@@ -423,9 +423,9 @@ public String idMed(String ced){
 
 
    }
-   public String cedPaciente(String ced){
+   public String cedPaciente(String id2){
     String id ="";
-        String sql="Select pac.cedula_pac from paciente pac Join citas ci on ci.id_paciente = pac.id_paciente where ci.id_cita ='"+ced+"'";
+        String sql="Select pac.cedula_pac from paciente pac Join citas ci on ci.id_paciente = pac.id_paciente where ci.id_cita ='"+id2+"'";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
