@@ -72,13 +72,19 @@ public class Controller_Receta {
     ArrayList<Cie_10> listacie10 = new ArrayList<>();
     DefaultTableModel dtm, dtm2;
     public void iniciarcontrol (){
-        
+         generarSerie();
+        Fechaactual();
+        generarIdFar();
+        generarIdCie();
         vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
         
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
-//        vista.getBtnagregardatos().addActionListener(l->crearRecFar());
-        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
+      vista.getBtnagregardatos().addActionListener(l->crearRecFar());
+       vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
+      
+       vista.getBtnagregarcie().addActionListener(l->crearRecCie());
+        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
         vista.getBtnCrearRec().addActionListener(l->crearRecetas());
         //cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
@@ -95,26 +101,30 @@ public class Controller_Receta {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
-                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
-                cargarCIE10Rec(vista.getTxtIDreceta().getText());
-                cargarFARRec(vista.getTxtIDreceta().getText());
+               
             }
         };
-        vista.getTxtbuscarcie10().addKeyListener(kl);
-        vista.getTxtbuscarfar().addKeyListener(kl);
-        vista.getTxtIDreceta().addKeyListener(kl);
-        vista.getTxtIDreceta().addKeyListener(kl);
+//        vista.getTxtbuscarcie10().addKeyListener(kl);
+//        vista.getTxtbuscarfar().addKeyListener(kl);
+//        vista.getTxtIDreceta().addKeyListener(kl);
+//        vista.getTxtIDreceta().addKeyListener(kl);
         
-        generarSerie();
-        Fechaactual();
-        generarIdFar();
-        generarIdCie();
+        
+         cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
+                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
+                //--
+//                cargarCIE10Rec(vista.getTxtIDreceta().getText());
+               // vista.getBtncargarTabFarm().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
+        
+        
+        
+       
     }
     
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
+            System.out.println("nunmero serie" + serie);
             vista.getTxtIDreceta().setText("01");
         } else {
             int inc = Integer.parseInt(serie);
@@ -161,19 +171,19 @@ public class Controller_Receta {
     vista.getJdcFechanaciento().setCalendar(null);
     vista.getTxtobservaciones().setText("");
     vista.getTxtalergias().setText("");
-    LimpiarTablafar();
-    LimpiarTablacie();
+   // LimpiarTablafar();
+   // LimpiarTablacie();
     generarSerie();
     }
-    private void LimpiarTablafar(){
-            dtm2.getDataVector().removeAllElements();
-            vista.tblreceta.updateUI();
-    }
+//    private void LimpiarTablafar(){
+//            dtm2.getDataVector().removeAllElements();
+//            vista.tblreceta.updateUI();
+//    }
     
-    private void LimpiarTablacie(){
-            dtm.getDataVector().removeAllElements();
-            vista.tblcie10.updateUI();
-    }
+//    private void LimpiarTablacie(){
+//            dtm.getDataVector().removeAllElements();
+//            vista.tblcie10.updateUI();
+//    }
     public void cargardatosexternosconcedula(){
        
         
@@ -546,7 +556,7 @@ public class Controller_Receta {
                 generarIdFar();
                 limpiartxtReceta();
 //                cargarFARRec();
-                LimpiarTablafar();
+//                LimpiarTablafar();
                 
     }
          
@@ -571,7 +581,7 @@ public class Controller_Receta {
                 generarIdCie();
                 limpiartxtcie10();
 //                cargarCIE10Rec(vista.getTxtIDreceta().getText());//vista.getTxtIDreceta().getText()
-                LimpiarTablacie();
+              ///  LimpiarTablacie();
                 
     }
          

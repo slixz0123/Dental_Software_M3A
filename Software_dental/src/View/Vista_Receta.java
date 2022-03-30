@@ -35,9 +35,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 //        jdcFechanaciento.setCalendar(fechaactual);
     }
     
-    public void fecha(){
-        
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,6 +121,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         btncargardatos = new javax.swing.JButton();
         id_rec_cie = new javax.swing.JLabel();
         id_rec_far = new javax.swing.JLabel();
+        btncargarTabFarm = new javax.swing.JButton();
         btnCrearRec = new javax.swing.JButton();
         btnEditarrec = new javax.swing.JButton();
         btnEliminarrec = new javax.swing.JButton();
@@ -351,6 +350,11 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         panelNice1.add(txttitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 340, 21));
 
         btnagregardatos.setText("Agregar");
+        btnagregardatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregardatosActionPerformed(evt);
+            }
+        });
         panelNice1.add(btnagregardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 130, -1, -1));
 
         jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -462,7 +466,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         ));
         jScrollPane6.setViewportView(tblreceta);
 
-        panelNice1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 700, 110));
+        panelNice1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 700, 80));
 
         tblcie10.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -486,6 +490,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         panelNice1.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
         panelNice1.add(id_rec_cie, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 30, 20));
         panelNice1.add(id_rec_far, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 30, 20));
+
+        btncargarTabFarm.setText("Cargar Tablas");
+        panelNice1.add(btncargarTabFarm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 600));
 
@@ -524,6 +531,10 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnagregardatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregardatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnagregardatosActionPerformed
 
     public JTextFieldRound getTxtIDreceta() {
         return txtIDreceta;
@@ -887,6 +898,14 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     public void setId_rec_far(JLabel id_rec_far) {
         this.id_rec_far = id_rec_far;
     }
+
+    public JButton getBtncargarTabFarm() {
+        return btncargarTabFarm;
+    }
+
+    public void setBtncargarTabFarm(JButton btncargarTabFarm) {
+        this.btncargarTabFarm = btncargarTabFarm;
+    }
     
     
     
@@ -898,6 +917,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnagregarcie;
     private javax.swing.JButton btnagregardatos;
     private javax.swing.JButton btnbuscarfarmaco;
+    private javax.swing.JButton btncargarTabFarm;
     private javax.swing.JButton btncargardatos;
     private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JDialog dialogCIE;
