@@ -220,6 +220,34 @@ public String NumSerie() {
     actp.setBytes(10, getFoto());
     actp.setString(11, getCedula());
     actp.executeUpdate();
+    
+    String sql2;
+            sql2="Update paciente SET fecha_nac=?, tipo_sang=? where cedula_pac=?";
+
+            PreparedStatement ps2=con.GetCon().prepareStatement(sql2);
+            ps2.setDate(1, getFecha_nac());
+            ps2.setString(2, getTipo_sang());
+            System.out.println(getTipo_sang());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
+  }
+ //
+ public boolean ActualizarPaciente ()  {
+
+        try {
+    String sql2;
+            sql2="Update paciente SET fecha_nac=?, tipo_sang=? where cedula_pac=?";
+
+            PreparedStatement ps2=con.GetCon().prepareStatement(sql2);
+            ps2.setDate(1, getFecha_nac());
+            ps2.setString(2, getTipo_sang());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -276,9 +304,7 @@ public String NumSerie() {
                 pac.setProvincia(rs.getString("provincia"));
                 
                 milistapaci.add(pac);
-                System.out.println(rs.getString("telefono"));
-                System.out.println(rs.getString("correo"));
-                System.out.println(rs.getString("provincia"));
+                
                 
             }
             return milistapaci;

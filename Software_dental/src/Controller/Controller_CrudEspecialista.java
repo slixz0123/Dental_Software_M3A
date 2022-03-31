@@ -2,10 +2,9 @@ package Controller;
 
 import Model.Doctor;
 import Model.Model_Especialista;
-import Model.Model_Paciente;
-import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_crud_especalista;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -17,8 +16,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +26,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -40,6 +36,7 @@ public class Controller_CrudEspecialista {
     private Model_Especialista modelo;
     private Vista_crud_especalista vista;
     private JFileChooser jfc;
+    private String accion="guardar";
     private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen","jpg","png");
 
     public Controller_CrudEspecialista(Model_Especialista modelo, Vista_crud_especalista vista) {
@@ -55,7 +52,7 @@ public class Controller_CrudEspecialista {
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->crearDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
-        vista.getBtneditar().addActionListener(l-> editarDoctor());
+        vista.getBtneditar().addActionListener(l-> limpiartxt());
 //        setKeyReleased(vista.getTxtBuscarEsp());
 //        vista.getTxtBuscarEsp().addKeyListener(kl);
         cargarPersonas();
@@ -91,9 +88,9 @@ public class Controller_CrudEspecialista {
     }
     
     public void crearDoctor(){
+        if(accion.equals("guardar")){ 
         File ruta = new File(vista.getTxtruta().getText());
-        System.out.println("creando persona 1");
-     
+   
      String cedula=vista.getTxtcedulaesp().getText();
      String nombres=vista.getTxtnombreesp().getText();
      String apellido=vista.getTxtapellidoesp().getText();
@@ -104,13 +101,10 @@ public class Controller_CrudEspecialista {
      String provincia=vista.getTxtprovinciaesp().getText();
      String ciudad=vista.getTxtciudadesp().getText();
      String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
-        System.out.println(genero);
      String id_doctor=vista.getTxtIdDoctor().getText();
      String id_usuario=vista.getTxtIdUsuario().getText();
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
-//     cedula_doc=vista.getTxtcedulaesp().getText();
-        System.out.println("antes del metodo");
      Model_Especialista mEsp= new Model_Especialista();
      
      mEsp.setCedula(cedula);
@@ -122,7 +116,11 @@ public class Controller_CrudEspecialista {
      mEsp.setCorreo(correo);
      mEsp.setProvincia(provincia);
      mEsp.setCiudad(ciudad);
-     mEsp.setGenero(genero);
+     if(genero.equals("Masculino")){
+           mEsp.setGenero("M");
+           } else if(genero.equals("Femenino")){
+           mEsp.setGenero("F");
+           }
      try{
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
@@ -142,20 +140,23 @@ public class Controller_CrudEspecialista {
     
      
      
-     mEsp.crearPersonasByte();
-//     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
-                cargarPersonas();
-                generarSerie();
-                limpiartxt();
+     if(mEsp.crearPersonasByte()){
 
+           cargarPersonas();
+           generarSerie();
+           accion="editar";
+           vista.getBtnguardarEsp().setText("Editar");
+           limpiartxt();} else {
+     JOptionPane.showMessageDialog(vista, "No se pudo crear");
+     }
+} else if(accion.equals("editar")){
+             editarDoctor();
+             }
     }
     
     public void editarDoctor(){
         File ruta = new File(vista.getTxtruta().getText());
-        System.out.println("persona mdificada");
-     
-//     String cedula=vista.getTxtcedulaesp().getText();
+
      String nombres=vista.getTxtnombreesp().getText();
      String apellido=vista.getTxtapellidoesp().getText();
      String celular=vista.getTxtCelularesp().getText();
@@ -170,12 +171,11 @@ public class Controller_CrudEspecialista {
      String id_usuario=vista.getTxtIdUsuario().getText();
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
-//     cedula_doc=vista.getTxtcedulaesp().getText();
-        System.out.println("antes del metodo");
      Model_Especialista mEsp= new Model_Especialista();
      
 //     mEsp.setCedula(cedula);
      mEsp.setNombres(nombres);
+        System.out.println(nombres);
      mEsp.setApellidos(apellido);
      mEsp.setCelular(celular);
      mEsp.setTelefono(telefono);
@@ -183,15 +183,20 @@ public class Controller_CrudEspecialista {
      mEsp.setCorreo(correo);
      mEsp.setProvincia(provincia);
      mEsp.setCiudad(ciudad);
-     mEsp.setGenero(genero);
+     if(genero.equals("Masculino")){
+           mEsp.setGenero("M");
+           } else if(genero.equals("Femenino")){
+           mEsp.setGenero("F");
+           }
      try{
+          if(vista.getTxtruta().getText().trim().length()!=0){ 
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
-           mEsp.setFoto(icono);
+           mEsp.setFoto(icono);}
 
             }catch(Exception ex){
-                 System.out.println(ex);
+ 
            mEsp.setFoto(null);
         }
      mEsp.setId_doctor(id_doctor);
@@ -203,12 +208,15 @@ public class Controller_CrudEspecialista {
     
      
      
-     mEsp.modificarPersonasbyte();
-//     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
-                cargarPersonas();
-                generarSerie();
-                limpiartxt();
+     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
+
+            cargarPersonas();
+            generarSerie();
+            accion="guardar";
+            vista.getBtnguardarEsp().setText("Guardar");
+            limpiartxt();} else {
+     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
+     }
 
     }
     
@@ -328,7 +336,11 @@ public class Controller_CrudEspecialista {
         public void mouseClicked(MouseEvent e) {
             try {
                 cargardatosTxt(e);
-            
+                cargardatosTxt(e);
+                accion="editar";
+                vista.getBtnguardarEsp().setText("Editar");
+                vista.getTxtcedulaesp().setBackground(new Color (56, 224, 210));
+                vista.getTxtcedulaesp().setForeground(Color.BLACK);
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudEspecialista.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -344,7 +356,7 @@ public class Controller_CrudEspecialista {
             String cedula = vista.getTblEspecialista().getValueAt(xx, 0).toString();
             String esp = cedula ;
             vista.getTxtcedulaesp().setText(cedula);
-            vista.getTxtcedulaesp().setEnabled(false);
+            vista.getTxtcedulaesp().setEditable(false);
             vistamenu.getLblCedulapac().setText(cedula);
             String nom = vista.getTblEspecialista().getValueAt(xx, 1).toString();
             vista.getTxtnombreesp().setText(nom);
@@ -360,15 +372,14 @@ public class Controller_CrudEspecialista {
             vista.getTxtciudadesp().setText(ciudad);
             String genero = vista.getTblEspecialista().getValueAt(xx, 6).toString();
             vista.getCboxGeneroEsp().setSelectedItem(genero);
-            
-            
-            
-          
-       
-            
+            if(genero.equals("M")){
+           vista.getCboxGeneroEsp().setSelectedItem("Masculino");
+           } else if(genero.equals("F")){
+           vista.getCboxGeneroEsp().setSelectedItem("Femenino");
+           }
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(esp)) {
-   
+                    if(lp.get(i).getFoto()!=null){
                     byte[] ft = lp.get(i).getFoto();
                     BufferedImage img = null;
                    
@@ -378,6 +389,9 @@ public class Controller_CrudEspecialista {
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                     Icon ic = new ImageIcon(j);
                     vista.getLblFotoEsp().setIcon(ic);
+                    } else {
+                    vista.getLblFotoEsp().setIcon(null);
+                    }
             String id_doc = vista.getTblEspecialista().getValueAt(xx, 8).toString();
             vista.getTxtIdDoctor().setText(id_doc);      
             String especialidad = vista.getTblEspecialista().getValueAt(xx, 9).toString();
@@ -474,6 +488,10 @@ public class Controller_CrudEspecialista {
     }
     
     public void limpiartxt(){
+    accion="guardar";
+    vista.getBtnguardarEsp().setText("Guardar");
+    vista.getTxtcedulaesp().setBackground(new Color (255, 255, 255));
+    vista.getTxtcedulaesp().setEditable(true);
     vista.getTxtIdDoctor().setText("");
     vista.getTxtcedulaesp().setText("");
     vista.getTxtCelularesp().setText("");

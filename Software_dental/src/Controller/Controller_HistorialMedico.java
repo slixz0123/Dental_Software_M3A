@@ -8,7 +8,6 @@ import Model.Doctor;
 import Model.Hist_Medico;
 import Model.Model_HistorialMedico;
 import Model.Paciente;
-import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Crud_HistorialMedico;
 import java.awt.Component;

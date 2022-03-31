@@ -6,8 +6,10 @@ package Controller;
 
 import Model.Model_Paciente;
 import Model.Paciente;
+import Model.ValidarCedula;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -24,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -41,10 +45,11 @@ import javax.xml.ws.Holder;
  * @author slix0
  */
 public class Controller_CrudPaciente {
-    private Model_Paciente modelo ; 
- JFileChooser jfc = new JFileChooser();
- private Crud_Paciente vista ; 
- private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen","jpg","png");
+    private Model_Paciente modelo ;
+    JFileChooser jfc = new JFileChooser();
+    private Crud_Paciente vista ;
+    private String accion="guardar";
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen","jpg","png");
 
     
       public Controller_CrudPaciente(Model_Paciente modelo, Crud_Paciente vista) {
@@ -56,21 +61,16 @@ public class Controller_CrudPaciente {
        iniciarcontrol();
        cargarPersonas();
         
-   
     }
     
-      
-      
-      
-      
     
-      public void iniciarcontrol (){
+   public void iniciarcontrol (){
           generarSerie();
           vista.getBtnexaminar().addActionListener(l-> btnexaminar());
           vista.getBtnguardarpac().addActionListener(l-> crearpaciente());
           cargarPersonas();
-          vista.getBtneditar().addActionListener(l-> editarpaciente());
-          
+          vista.getBtneditar().addActionListener(l-> limpiartxt());
+          eventos();
           
           KeyListener kl = new KeyListener() {
             @Override
@@ -95,11 +95,167 @@ public class Controller_CrudPaciente {
           
           
       }
+   
       
       
-      
-      
-      private void generarSerie() {
+      //EVENTOS
+ private void eventos(){
+    KeyListener cedula=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtced().getText().length()>9) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    KeyListener nombre=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getYxynom().getText();
+      StringBuffer strbf = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getYxynom().setText(match.appendTail(strbf).toString()); 
+        }
+    };
+    KeyListener apellido=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getTxtapellidos().getText();
+      StringBuffer capital = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(capital, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtapellidos().setText(match.appendTail(capital).toString()); 
+        }
+    };
+    KeyListener direccion=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String dirmay = vista.getTxtdireccion().getText();
+      StringBuffer dir = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(dirmay);
+      while(match.find()) {
+         match.appendReplacement(dir, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtdireccion().setText(match.appendTail(dir).toString()); 
+        }
+    };
+    KeyListener provincia=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cad = vista.getTxtprovincia().getText();
+      StringBuffer may = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cad);
+      while(match.find()) {
+         match.appendReplacement(may, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtprovincia().setText(match.appendTail(may).toString()); 
+        }
+    };
+    KeyListener ciudad=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cadena = vista.getTxtciudad().getText();
+      StringBuffer mayciu = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cadena);
+      while(match.find()) {
+         match.appendReplacement(mayciu, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtciudad().setText(match.appendTail(mayciu).toString()); 
+        }
+    };
+    KeyListener telcel = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();   
+        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=15){
+
+       }else{
+        e.consume();
+       }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {} 
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+  
+    vista.getTxtced().addKeyListener(cedula);
+    vista.getYxynom().addKeyListener(nombre);
+    vista.getTxtapellidos().addKeyListener(apellido);
+    vista.getTxttelefono().addKeyListener(telcel);
+    vista.getTxtcelular().addKeyListener(telcel);
+    vista.getTxtdireccion().addKeyListener(direccion);
+    vista.getTxtprovincia().addKeyListener(provincia);
+    vista.getTxtciudad().addKeyListener(ciudad);
+    }
+ 
+ 
+ private boolean validarCorreo(String email){
+      if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
+          || email.endsWith(".edu.ec")|| email.endsWith(".net"))){
+        return true;
+      } else{
+        return false;
+        }
+      }
+ 
+ 
+ 
+ private void generarSerie() {
       String   serie = modelo.NumSerie();
         if (serie == null) {
             vista.getLabelserie().setText("1");
@@ -124,7 +280,10 @@ public class Controller_CrudPaciente {
         public void mouseClicked(MouseEvent e) {
             try {
                 cargardatosTxt(e);
-            
+                accion="editar";
+                vista.getBtnguardarpac().setText("Editar");
+                vista.getTxtced().setBackground(new Color (56, 224, 210));
+                vista.getTxtced().setForeground(Color.BLACK);
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -151,7 +310,13 @@ public class Controller_CrudPaciente {
         }
     }
     
+    
+    
     public void limpiartxt(){
+    accion="guardar";
+    vista.getBtnguardarpac().setText("Guardar");
+    vista.getTxtced().setBackground(new Color (255, 255, 255));
+    vista.getTxtced().setEditable(true);
     vista.getTxtced().setText("");
     vista.getYxynom().setText("");
     vista.getTxtapellidos().setText("");
@@ -170,8 +335,7 @@ public class Controller_CrudPaciente {
     vista.getLablefoto().setIcon(null);
     }
     
-      private void cargardatosTxt (java.awt.event.MouseEvent evt) throws IOException{
-
+ private void cargardatosTxt (java.awt.event.MouseEvent evt) throws IOException{
         List<Paciente> lp = modelo.listarpac();
          MenuPrincipal vistamenu = new MenuPrincipal();
         int xx = vista.getJtbPacientes().getSelectedRow();
@@ -179,6 +343,9 @@ public class Controller_CrudPaciente {
             String id = vista.getJtbPacientes().getValueAt(xx, 0).toString();
             String pro = id ;
             vista.getTxtced().setText(id);
+            vista.getTxtced().setEditable(false);
+            
+            
             vistamenu.getLblCedulapac().setText(id);
             String nom = vista.getJtbPacientes().getValueAt(xx, 1).toString();
             vista.getYxynom().setText(nom);
@@ -193,7 +360,12 @@ public class Controller_CrudPaciente {
             String ciudad = vista.getJtbPacientes().getValueAt(xx, 5).toString();
             vista.getTxtciudad().setText(ciudad);
             String genero = vista.getJtbPacientes().getValueAt(xx, 6).toString();
-            vista.getCmgenero().setSelectedItem(genero);
+            if(genero.equals("M")){
+           vista.getCmgenero().setSelectedItem("Masculino");
+           } else if(genero.equals("F")){
+           vista.getCmgenero().setSelectedItem("Femenino");
+           }
+            //vista.getCmgenero().setSelectedItem(genero);
             llenartxtsobrantes();
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(pro)) {
@@ -223,10 +395,7 @@ public class Controller_CrudPaciente {
 //                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
 //
                     
-                    }
-                  
-          
-                    
+                    }  
                 }
             }
             llenartxtsobrantes ();
@@ -245,16 +414,12 @@ public class Controller_CrudPaciente {
              String tipo_sang = vista.getJtbPacientes().getValueAt(xx, 9).toString();
             vista.getCbSangre().setSelectedItem(tipo_sang);
             
-             
-           
-       
-
 }
     
     
-      public void crearpaciente(){
-           File ruta = new File(vista.getTxtruta().getText());
-     
+  public void crearpaciente(){
+     if(accion.equals("guardar")){ 
+      File ruta = new File(vista.getTxtruta().getText());
      String cedula;
      String nombres;
      String apellidos;
@@ -265,10 +430,8 @@ public class Controller_CrudPaciente {
      String provincia;
      String ciudad;
      String genero;
-     Date fechanac;
      String tiposang;
      String id;
-     byte foto ; 
      
     
     cedula = vista.getTxtced().getText();
@@ -285,7 +448,6 @@ public class Controller_CrudPaciente {
      SimpleDateFormat dateFormat = new SimpleDateFormat ("yyy-MM-dd");
      java.util.Date date= vista.getJdcFecha().getDate();
      long d = date.getTime();
-     String fechael=dateFormat.format(d);
      java.sql.Date fecha = new java.sql.Date (d);
           
     tiposang = vista.getCbSangre().getSelectedItem().toString();
@@ -297,33 +459,54 @@ public class Controller_CrudPaciente {
            pac.setCelular(celular);
            pac.setTelefono(telefono);
            pac.setDireccion(direccion);
+            if(correo.isEmpty()){
            pac.setCorreo(correo);
+           } else {
+           if(validarCorreo(correo)){
+           pac.setCorreo(correo);
+           } else {
+           JOptionPane.showMessageDialog(null, "Correo Electronico no valido");
+           pac.setCorreo("");
+            }
+           }
            pac.setProvincia(provincia);
            pac.setCiudad(ciudad);
-           pac.setGenero(genero);
+           if(genero.equals("Masculino")){
+           pac.setGenero("M");
+           } else if(genero.equals("Femenino")){
+           pac.setGenero("F");
+           }
              try{
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
            pac.setFoto(icono);
 
-            }catch(Exception ex){
+            }catch(IOException ex){
            pac.setFoto(null);
         }
             pac.setId_paciente(id);
             pac.setCedula_pac(cedula);
             pac.setFecha_nac(fecha);
             pac.setTipo_sang(tiposang);
-             
+           
+           
+            
+         if(ValidarCedula.validarcedula(cedula)){
+             if(vista.getCmgenero().getSelectedIndex()!=0 && vista.getCbSangre().getSelectedIndex()!=0){
             pac.crearPersonaByte();
             generarSerie();
             cargarPersonas ();
-            limpiartxt();
-          
+            accion="editar";
+            vista.getBtnguardarpac().setText("Editar");
+            limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
+             }} else if(accion.equals("editar")){
+             editarpaciente();
+             }
       }
       
       //
-       public void editarpaciente(){
+public void editarpaciente(){
       File ruta = new File(vista.getTxtruta().getText());
      
      String cedula;
@@ -351,6 +534,7 @@ public class Controller_CrudPaciente {
     provincia = vista.getTxtprovincia().getText();
     ciudad = vista.getTxtciudad().getText();
     genero = vista.getCmgenero().getSelectedItem().toString();
+           
     id = vista.getLabelserie().getText();
      SimpleDateFormat dateFormat = new SimpleDateFormat ("yyy-MM-dd");
      java.util.Date date= vista.getJdcFecha().getDate();
@@ -359,7 +543,6 @@ public class Controller_CrudPaciente {
      java.sql.Date fecha = new java.sql.Date (d);
           
     tiposang = vista.getCbSangre().getSelectedItem().toString();
-     
           Model_Paciente pac = new Model_Paciente();
            pac.setCedula(cedula);
            pac.setNombres(nombres);
@@ -367,10 +550,23 @@ public class Controller_CrudPaciente {
            pac.setCelular(celular);
            pac.setTelefono(telefono);
            pac.setDireccion(direccion);
+           if(correo.isEmpty()){
            pac.setCorreo(correo);
+           } else {
+           if(validarCorreo(correo)){
+           pac.setCorreo(correo);
+           } else {
+           JOptionPane.showMessageDialog(null, "Correo Electronico no valido");
+           pac.setCorreo("");
+            }
+           }
            pac.setProvincia(provincia);
            pac.setCiudad(ciudad);
-           pac.setGenero(genero);
+           if(genero.equals("Masculino")){
+           pac.setGenero("M");
+           } else if(genero.equals("Femenino")){
+           pac.setGenero("F");
+           }
              try{
             if(vista.getTxtruta().getText().trim().length()!=0){ 
             byte[] icono = new byte[(int) ruta.length()];
@@ -380,7 +576,6 @@ public class Controller_CrudPaciente {
             }
 
             }catch(IOException ex){
-                 System.out.println(ex);
            pac.setFoto(null);
         }
             pac.setId_paciente(id);
@@ -388,18 +583,31 @@ public class Controller_CrudPaciente {
             pac.setFecha_nac(fecha);
             pac.setTipo_sang(tiposang);
             if(vista.getTxtruta().getText().trim().length()!=0){ 
-            pac.ActualizarPersonas();
+            if(pac.ActualizarPersonas() && pac.ActualizarPaciente()){
+            if(vista.getCmgenero().getSelectedIndex()!=0 && vista.getCbSangre().getSelectedIndex()!=0){
+            JOptionPane.showMessageDialog(null, "Se modifico con exito");
+            accion="guardar";
+            vista.getBtnguardarpac().setText("Guardar");
+            generarSerie();
+            cargarPersonas();
+            limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
+            } else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
              } else {
             
-            pac.Actualizarsinfoto();
-            }
+            if(pac.Actualizarsinfoto() && pac.ActualizarPaciente()){
+            if(vista.getCmgenero().getSelectedIndex()!=0 && vista.getCbSangre().getSelectedIndex()!=0){
+            JOptionPane.showMessageDialog(null, "Se modifico con exito");
+            accion="guardar";
+            vista.getBtnguardarpac().setText("Guardar");
             generarSerie();
-            cargarPersonas ();
-            limpiartxt();
-          
+            cargarPersonas();
+            limpiartxt();} else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
+            }else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
+            }
+
       }
        //
-       private void  cargarPersonas (){
+private void  cargarPersonas (){
         
         vista.getJtbPacientes().setDefaultRenderer(Object.class, new  ImagenTabla()); 
         vista.getJtbPacientes().setRowHeight(100);
@@ -448,7 +656,7 @@ public class Controller_CrudPaciente {
                 
     }
    
-       private void  cargarPersonasbusqueda (String busqueda){
+private void  cargarPersonasbusqueda (String busqueda){
         
         vista.getJtbPacientes().setDefaultRenderer(Object.class, new  ImagenTabla()); 
         vista.getJtbPacientes().setRowHeight(100);
@@ -489,7 +697,7 @@ public class Controller_CrudPaciente {
                   
                 }
          vista.getJtbPacientes().setValueAt(pe.getFecha_nac(), i.value, 8);
-          vista.getJtbPacientes().setValueAt(pe.getTipo_sang(), i.value, 9);
+         vista.getJtbPacientes().setValueAt(pe.getTipo_sang(), i.value, 9);
 //      
         i.value++;
 
@@ -499,7 +707,7 @@ public class Controller_CrudPaciente {
     }
       
        
-      public void llenartxtsobrantes () {
+public void llenartxtsobrantes () {
            Model_Paciente pac = new Model_Paciente();
        
             String id2 = vista.getTxtced().getText();
@@ -512,13 +720,11 @@ public class Controller_CrudPaciente {
             System.out.println(pac.getTelefono());
             System.out.println(pac.getCorreo());
             System.out.println(pac.getProvincia());
-            }
-     
-       
-       
-                
+            }       
     } 
-      public void eliminar(){
+
+
+public void eliminar(){
            int seleccion = vista.getJtbPacientes().getSelectedRow();
         int resp=0;
         Component rootPane = null;
