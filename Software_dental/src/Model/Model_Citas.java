@@ -263,7 +263,7 @@ public String NumSerie() {
             return milista;
         } catch (SQLException ex) {
             System.out.println(ex);
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
     }
@@ -321,7 +321,7 @@ public String NumSerie() {
             return milistado;
         } catch (SQLException ex) {
             System.out.println(ex);
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
     }
@@ -386,7 +386,7 @@ public String idMed(String ced){
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
 
@@ -417,7 +417,7 @@ public String idMed(String ced){
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
-            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
 

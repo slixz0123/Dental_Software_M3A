@@ -179,6 +179,7 @@ public class Controller_CitasTratamiento {
          cargarcitas();
          generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita editada correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Editar  ");
           
@@ -221,6 +222,7 @@ public class Controller_CitasTratamiento {
          cargarcitas();
          generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita eliminada correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Eliminar  ");
           
@@ -242,11 +244,11 @@ public class Controller_CitasTratamiento {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(ci -> {
        
-           tbmodel.addRow(new Object[3]);
+           tbmodel.addRow(new Object[4]);
            vista.getJtblcitas().setValueAt(ci.getId_cita(), i.value, 0);
            vista.getJtblcitas().setValueAt(ci.getFecha_cita(), i.value, 1);
            vista.getJtblcitas().setValueAt(ci.getHora_cita(), i.value, 2);
-           
+           vista.getJtblcitas().setValueAt(ci.getMotivo(), i.value, 3);
            i.value++;
         });
                 
@@ -322,7 +324,7 @@ private void setEventoMouseClicked(JTable tbl)
             try {
                 cargardatosTxtcie(e);
             } catch (IOException ex) {
-                Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Controller_CrudTratamiento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         });
@@ -330,7 +332,6 @@ private void setEventoMouseClicked(JTable tbl)
    
    
    private void limpiar(){
-       vista.getTxtficha().setText("");
        vista.getTxtceduladoc().setText("");
        vista.getTxtNombredoc().setText("");
        vista.getTxtapellidosdoc().setText("");
