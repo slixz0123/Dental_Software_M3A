@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class Model_Especialista extends Doctor1{
+public class Model_Especialista extends Doctor{
     ConexionPg con= new ConexionPg();
     
     public Model_Especialista() {
