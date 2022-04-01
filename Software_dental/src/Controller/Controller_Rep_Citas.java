@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import Model.Model_Rep_Citas;
+import Model.Model_Citas;
+
 import View.MenuPrincipal;
 import View.Vista_Rep_Citas;
 
@@ -13,12 +14,12 @@ import View.Vista_Rep_Citas;
  * @author slix0
  */
 public class Controller_Rep_Citas {
-     private Model_Rep_Citas modelo;
+     private Model_Citas modelo;
     private Vista_Rep_Citas vista;
  private MenuPrincipal vistamenu ;
 
       
-    public Controller_Rep_Citas(Model_Rep_Citas modelo, Vista_Rep_Citas vista, MenuPrincipal vistamenu) {
+    public Controller_Rep_Citas(Model_Citas modelo, Vista_Rep_Citas vista, MenuPrincipal vistamenu) {
         this.modelo = modelo;
         this.vista = vista;
          this.vistamenu = vistamenu;

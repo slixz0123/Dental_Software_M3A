@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import Model.Model_Rep_ListTrat;
+
+import Model.Model_Tratamiento;
 import View.MenuPrincipal;
 import View.Vista_Rep_ListTrat;
 
@@ -13,12 +14,12 @@ import View.Vista_Rep_ListTrat;
  * @author slix0
  */
 public class Controller_Rep_ListTrat {
-     private Model_Rep_ListTrat modelo;
+     private Model_Tratamiento modelo;
     private Vista_Rep_ListTrat vista;
     private MenuPrincipal vistamenu ;
     
 
-    public Controller_Rep_ListTrat(Model_Rep_ListTrat modelo, Vista_Rep_ListTrat vista, MenuPrincipal vistamenu) {
+    public Controller_Rep_ListTrat(Model_Tratamiento modelo, Vista_Rep_ListTrat vista, MenuPrincipal vistamenu) {
         this.modelo = modelo;
         this.vista = vista;
         this.vistamenu = vistamenu;

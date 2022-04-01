@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import Model.Model_Rep_ListFarm;
+import Model.Model_Farmacos;
+
 import View.MenuPrincipal;
 import View.Vista_Rep_ListFarm;
 
@@ -13,12 +14,12 @@ import View.Vista_Rep_ListFarm;
  * @author slix0
  */
 public class Controller_Rep_ListFarm {
-     private Model_Rep_ListFarm modelo;
+     private Model_Farmacos modelo;
     private Vista_Rep_ListFarm vista;
     private MenuPrincipal vistamenu ;
     
 
-    public Controller_Rep_ListFarm(Model_Rep_ListFarm modelo, Vista_Rep_ListFarm vista, MenuPrincipal vistamenu) {
+    public Controller_Rep_ListFarm(Model_Farmacos modelo, Vista_Rep_ListFarm vista, MenuPrincipal vistamenu) {
         this.modelo = modelo;
         this.vista = vista;
         this.vistamenu = vistamenu;

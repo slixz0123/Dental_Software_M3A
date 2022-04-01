@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import Model.Model_Rep_ListEspe;
+import Model.Model_Especialista;
+
 import View.MenuPrincipal;
 import View.Vista_Rep_ListEspe;
 
@@ -14,12 +15,12 @@ import View.Vista_Rep_ListEspe;
  */
 public class Controller_Rep_ListEspe {
     
-     private Model_Rep_ListEspe modelo;
+     private Model_Especialista modelo;
     private Vista_Rep_ListEspe vista;
     private MenuPrincipal vistamenu ;
     
 
-    public Controller_Rep_ListEspe(Model_Rep_ListEspe modelo, Vista_Rep_ListEspe vista, MenuPrincipal vistamenu) {
+    public Controller_Rep_ListEspe(Model_Especialista modelo, Vista_Rep_ListEspe vista, MenuPrincipal vistamenu) {
         this.modelo = modelo;
         this.vista = vista;
         this.vistamenu = vistamenu;

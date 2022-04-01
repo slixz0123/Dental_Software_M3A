@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import Model.Model_Rep_HistoriaClinica;
+
+import Model.Model_Hist_clinico;
 import View.MenuPrincipal;
 import View.View_Rep_HistoriaClinica;
 
@@ -13,12 +14,12 @@ import View.View_Rep_HistoriaClinica;
  * @author slix0
  */
 public class Controller_Rep_HistoriaClinica {
-    private Model_Rep_HistoriaClinica model;
+    private Model_Hist_clinico model;
     private View_Rep_HistoriaClinica vista;
     private MenuPrincipal vistamenu ;
    
 
-    public Controller_Rep_HistoriaClinica(Model_Rep_HistoriaClinica model, View_Rep_HistoriaClinica vista , MenuPrincipal vistamenu) {
+    public Controller_Rep_HistoriaClinica(Model_Hist_clinico model, View_Rep_HistoriaClinica vista , MenuPrincipal vistamenu) {
         this.model = model;
         this.vista = vista;
         this.vistamenu = vistamenu;
