@@ -144,13 +144,11 @@ public class Controller_Rep_His_Med {
 }
     private void imprimir(){
     ConexionPg con= new ConexionPg();
-        System.out.println("Hola ");
     int filasel = vista.getTablahistorial().getSelectedRow();
     if (filasel==-1){
     JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla");
     }else{
     String num=(String) vista.getTablahistorial().getValueAt(filasel, 0);
-    //String num=String.valueOf(p);
         try {
             JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Reporte Hist Odontologico.jasper"));
             
