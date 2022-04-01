@@ -85,10 +85,13 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         txtmedicamento = new javax.swing.JTextArea();
         btnImprimir = new javax.swing.JButton();
 
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setBackground(new java.awt.Color(166, 104, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N

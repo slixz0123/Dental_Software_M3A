@@ -3,7 +3,6 @@ package Model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,9 +15,13 @@ public class Model_Factura extends Factura {
     public Model_Factura() {
     }
 
-    public Model_Factura(String serieFac, String nombres, String direccion, String tratamiento, Date fecha, int cantidad, double total) {
-        super(serieFac, nombres, direccion, tratamiento, fecha, cantidad, total);
+    public Model_Factura(int idDetalle, double totalprod, double preciounit, String serieFac, String nombres, String direccion, String tratamiento, String fecha, int cantidad, double total) {
+        super(idDetalle, totalprod, preciounit, serieFac, nombres, direccion, tratamiento, fecha, cantidad, total);
     }
+
+  
+    
+
 
     public String NumSerie() {
         String sql = "SELECT MAX(serie) FROM factura";
@@ -35,6 +38,28 @@ public class Model_Factura extends Factura {
         return serie;
     }
 
+    public int IdFactura() {
+        int idf = 0;
+        String sql = "SELECT MAX(iddetalle) FROM detalle_factura";
+        try {
+            ResultSet rs = conVentas.consulta(sql);
+            while (rs.next()) {
+                idf = rs.getInt(1) + 1;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error idfactura " + e);
+
+        }
+        return idf;
+
+    }
+    
+    public boolean Actualizarprecio(double precio, String serie){
+        String sql = "UPDATE factura SET total ='"+precio+"' WHERE serie ='"+serie+"'";
+        return conVentas.accion(sql);
+        
+    }
+
     public boolean GuardarFactura(Factura fac) {
         try {
             System.out.println("INGRESA GUARDAR FACTURA");
@@ -46,7 +71,7 @@ public class Model_Factura extends Factura {
             ps.setString(2, fac.getNombres());
             ps.setString(3, fac.getDireccion());
             ps.setString(4, fac.getTratamiento());
-            ps.setDate(5, fac.getFecha());
+            ps.setString(5, fac.getFecha());
             ps.setInt(6, fac.getCantidad());
             ps.setDouble(7, fac.getTotal());
             ps.executeUpdate();
@@ -55,6 +80,30 @@ public class Model_Factura extends Factura {
 
         } catch (SQLException e) {
             System.out.println("NO SE PUEDE EJECUTAR GUARDAR FACTURA " + e);
+            return false;
+
+        }
+    }
+    
+        public boolean GuardarDetalleFactura(Factura fac) {
+        try {
+            System.out.println("INGRESA GUARDAR FACTURA");
+            String sql = "INSERT INTO detalle_factura(iddetalle,idfactura,tratamiento,cantidad,preciounit,total) ";
+            sql += " VALUES(?,?,?,?,?,?) ";
+
+            PreparedStatement ps = conVentas.GetCon().prepareStatement(sql);
+            ps.setInt(1, fac.getIdDetalle());
+            ps.setString(2, fac.getSerieFac());
+            ps.setString(3, fac.getTratamiento());
+            ps.setInt(4, fac.getCantidad());
+            ps.setDouble(5, fac.getPreciounit());
+            ps.setDouble(6, fac.getTotal());
+            ps.executeUpdate();
+            System.out.println("EJECUTA GUARDAR DETALLEFACTURA");
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("NO SE PUEDE EJECUTAR GUARDAR DETALLEFACTURA " + e);
             return false;
 
         }

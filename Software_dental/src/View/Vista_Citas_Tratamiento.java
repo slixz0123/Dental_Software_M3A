@@ -58,7 +58,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jdateFecha = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
-        lbidDoc = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jareades = new javax.swing.JTextArea();
         txtficha = new jtextfieldround.JTextFieldRound();
@@ -70,14 +69,10 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         txtNombrePac = new jtextfieldround.JTextFieldRound();
         txtcedulapac = new jtextfieldround.JTextFieldRound();
         txtceduladoc = new jtextfieldround.JTextFieldRound();
-        btnbuspa = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtcedulapac1 = new jtextfieldround.JTextFieldRound();
         btncargar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        lbidPac = new javax.swing.JLabel();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblcitas = new javax.swing.JTable();
@@ -222,6 +217,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("APELLIDOS DEL DOCTOR:");
         panelNice1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, 20));
+
+        txtNombredoc.setEditable(false);
         panelNice1.add(txtNombredoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 220, 20));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,23 +227,23 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("FECHA:");
-        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        panelNice1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
         panelNice1.add(jdateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 220, 20));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("HORA:");
-        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
-        lbidDoc.setForeground(new java.awt.Color(255, 255, 255));
-        lbidDoc.setText("....");
-        panelNice1.add(lbidDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 30, -1));
+        panelNice1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
         jareades.setColumns(20);
         jareades.setRows(5);
         jScrollPane2.setViewportView(jareades);
 
         panelNice1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 270, 160));
+
+        txtficha.setEditable(false);
         panelNice1.add(txtficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 220, 20));
+
+        txtApellidosPac.setEditable(false);
         panelNice1.add(txtApellidosPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 220, 20));
 
         btnAgendar1.setText("AGENDAR");
@@ -259,38 +256,29 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("NOMBRES DEL PACIENTE:");
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 20));
+
+        txtNombrePac.setEditable(false);
         panelNice1.add(txtNombrePac, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 220, 20));
+
+        txtcedulapac.setEditable(false);
         panelNice1.add(txtcedulapac, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 220, 20));
 
         txtceduladoc.setEditable(false);
         panelNice1.add(txtceduladoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 220, 20));
 
-        btnbuspa.setText("Buscar");
-        panelNice1.add(btnbuspa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 70, -1));
-
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("NOMBRE DEL DOCTOR:");
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
+
+        txtcedulapac1.setEditable(false);
         panelNice1.add(txtcedulapac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 220, 20));
 
-        btncargar.setText("jButton1");
+        btncargar.setText("Cargar Datos");
         panelNice1.add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("MOTIVO:");
-        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
-
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Id Doc");
-        panelNice1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Id Pac");
-        panelNice1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
-
-        lbidPac.setForeground(new java.awt.Color(255, 255, 255));
-        lbidPac.setText("....");
-        panelNice1.add(lbidPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 50, -1));
+        panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         jPanel2.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 480, 490));
 
@@ -302,7 +290,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID CITA", "FECHA CITA", "HORA"
+                "ID CITA", "FECHA CITA", "HORA", "MOTIVO"
             }
         ));
         jScrollPane1.setViewportView(jtblcitas);
@@ -337,7 +325,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnACTU;
     private javax.swing.JButton btnAgendar1;
     private javax.swing.JButton btnELIM;
-    private javax.swing.JButton btnbuspa;
     private javax.swing.JButton btncargar;
     private javax.swing.JDialog dialogbuscar;
     private javax.swing.JDialog dialogpac;
@@ -346,9 +333,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -366,8 +351,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jareades;
     private com.toedter.calendar.JDateChooser jdateFecha;
     private javax.swing.JTable jtblcitas;
-    private javax.swing.JLabel lbidDoc;
-    private javax.swing.JLabel lbidPac;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTable tbldoctor;
@@ -492,13 +475,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     }
 
 
-    public JButton getBtnbuspa() {
-        return btnbuspa;
-    }
-
-    public void setBtnbuspa(JButton btnbuspa) {
-        this.btnbuspa = btnbuspa;
-    }
 
     public JDialog getDialogbuscar() {
         return dialogbuscar;
@@ -566,22 +542,6 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
 
     public void setTxtapellidosdoc(JTextFieldRound txtapellidosdoc) {
         this.txtcedulapac1 = txtapellidosdoc;
-    }
-
-    public JLabel getLbidDoc() {
-        return lbidDoc;
-    }
-
-    public void setLbidDoc(JLabel lbidDoc) {
-        this.lbidDoc = lbidDoc;
-    }
-
-    public JLabel getLbidPac() {
-        return lbidPac;
-    }
-
-    public void setLbidPac(JLabel lbidPac) {
-        this.lbidPac = lbidPac;
     }
 
     

@@ -179,6 +179,7 @@ public class Controller_CitasTratamiento {
          cargarcitas();
          generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita editada correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Editar  ");
           
@@ -221,6 +222,7 @@ public class Controller_CitasTratamiento {
          cargarcitas();
          generarSerie();
          JOptionPane.showMessageDialog(vista, "Cita eliminada correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Eliminar  ");
           
@@ -242,11 +244,11 @@ public class Controller_CitasTratamiento {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(ci -> {
        
-           tbmodel.addRow(new Object[6]);
+           tbmodel.addRow(new Object[4]);
            vista.getJtblcitas().setValueAt(ci.getId_cita(), i.value, 0);
            vista.getJtblcitas().setValueAt(ci.getFecha_cita(), i.value, 1);
            vista.getJtblcitas().setValueAt(ci.getHora_cita(), i.value, 2);
-           
+           vista.getJtblcitas().setValueAt(ci.getMotivo(), i.value, 3);
            i.value++;
         });
                 
@@ -279,12 +281,15 @@ private void cargardatosdoct() {
         
 List<Doctor> listadoc=modelo.cargardoctores(id);
      for (int a = 0; a < listadoc.size(); a++) {
-        if (listadoc.get(a).getCedula().equals(modelo.cedDoctor(id))) {
-           vista.getTxtceduladoc().setText(listadoc.get(a).getCedula());
+        
+           String ceduladoc ;
+           vista.getTxtceduladoc().setText(listadoc.get(a).getCedula_doc());
+           
            vista.getTxtNombredoc().setText(listadoc.get(a).getNombres());
+           
            vista.getTxtapellidosdoc().setText(listadoc.get(a).getApellidos());
            
-        }
+        
         
       }
 }
@@ -294,14 +299,15 @@ private void cargardatospacientes() {
         String id=(String) vista.getJtblcitas().getValueAt(filasel, 0);
            
         List<Paciente> listaper=modelo.cargarpacientes(id);
-     for (int a = 0; a < listaper.size(); a++) {
-        if (listaper.get(a).getCedula().equals(modelo.cedPaciente(id))) {
+     for (int a = 0; a < listaper.size(); a++) {   
+       
             
-           vista.getTxtcedulapac().setText(listaper.get(a).getCedula());
+          
            vista.getTxtNombrePac().setText(listaper.get(a).getNombres());
            vista.getTxtApellidosPac().setText(listaper.get(a).getApellidos());
+           vista.getTxtcedulapac().setText(vistamenu.getLblCedulapac().getText());
            
-        }
+        
         
       }
         
@@ -318,7 +324,7 @@ private void setEventoMouseClicked(JTable tbl)
             try {
                 cargardatosTxtcie(e);
             } catch (IOException ex) {
-                Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Controller_CrudTratamiento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         });
@@ -326,7 +332,6 @@ private void setEventoMouseClicked(JTable tbl)
    
    
    private void limpiar(){
-       vista.getTxtficha().setText("");
        vista.getTxtceduladoc().setText("");
        vista.getTxtNombredoc().setText("");
        vista.getTxtapellidosdoc().setText("");

@@ -38,7 +38,7 @@ public class Model_Receta extends receta{
     }
     
     public String id_receta(){
-        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM receta ";
+        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM recetas ";
         String serie = "";
         try {
             ResultSet rs = con.consulta(sql);
@@ -281,7 +281,8 @@ public class Model_Receta extends receta{
                 serie = rs.getString(1);
             }
         } catch (SQLException e) {
-            System.out.println("ERROR GENERAR ID");
+          
+            System.out.println(e);
 
         }
         return serie;
@@ -291,7 +292,7 @@ public class Model_Receta extends receta{
         try{
         String sql;
         
-        sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
+        sql="INSERT INTO recetas (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
     sql+="VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement ps= con.Con().prepareStatement(sql);
         ps.setString(1, getId_receta());
@@ -427,7 +428,7 @@ public class Model_Receta extends receta{
     String sql3;
     
         try {
-            sql3 = "select r.titulo_cie, r.categoria_cie from  receta_cie r, receta rec where rec.id_receta=r.id_receta AND r.id_receta'"+idreceta+"'" ;//where id_receta'"+idreceta+"'
+            sql3 = "select  titulo_cie , categoria_cie from  receta_cie    where   id_receta = '"+idreceta+"'" ;//where id_receta'"+idreceta+"'
             ResultSet rs = con.consulta(sql3) ;
             
             while(rs.next()){
@@ -454,7 +455,7 @@ public class Model_Receta extends receta{
     String sql3;
     
         try {
-            sql3 = "select r.detalle_far, r.dosis_far, r.cantidad, r.frecuencia from  receta_far r, receta rec where rec.id_receta=r.id_receta AND r.id_receta'"+idreceta+"'" ;
+            sql3 = "select detalle_far, dosis_far, cantidad, frecuencia from   receta_far  where id_receta = '"+idreceta+"'" ;
             ResultSet rs = con.consulta(sql3) ;
             
             while(rs.next()){

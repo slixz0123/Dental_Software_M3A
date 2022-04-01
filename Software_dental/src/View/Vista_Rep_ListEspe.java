@@ -8,12 +8,12 @@ package View;
  *
  * @author slix0
  */
-public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
+public class Vista_Rep_ListEspe extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Vista_Rep_Citas
+     * Creates new form Vista_Rep_ListEspe
      */
-    public Vista_Rep_Citas() {
+    public Vista_Rep_ListEspe() {
         initComponents();
     }
 
@@ -33,12 +33,8 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelNice2.setBackground(new java.awt.Color(166, 104, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,13 +42,13 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BUSCAR POR NOMBRE O CEDULA");
-        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
+        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Reporte de citas");
-        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 180, -1));
-        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 830, 30));
+        jLabel3.setText("LISTADO DE ESPECIALISTAS");
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
 
         jButton1.setText("Imprimir");
         panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
@@ -75,26 +71,15 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtbllistadopac);
 
-        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
-
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Especifico");
-        panelNice2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
-
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("General");
-        panelNice2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
-
-        jButton2.setText("Consultar");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
+        panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,15 +92,15 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * @param args the command line arguments
+     */
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtbllistadopac;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
