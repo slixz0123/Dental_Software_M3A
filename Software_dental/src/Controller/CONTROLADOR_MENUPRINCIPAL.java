@@ -21,9 +21,6 @@ import Model.Model_Hist_clinico;
 import Model.Model_Receta;
 import Model.Model_Rep_Citas;
 import Model.Model_Rep_HistoriaClinica;
-import Model.Model_Rep_HistorialOdontologico;
-import Model.Persona;
-import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
 import View.VISTA_PROFORMA;
@@ -46,7 +43,6 @@ import View.Vista_Rep_HistorialOdontologico;
 
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
-import View.vista_Odontograma;
 //import View.vista_Odontograma;
 
 import desplazable.Desface;
@@ -57,10 +53,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JLabel;
 
 
@@ -292,12 +284,19 @@ CrudReporteHistClinica(e);
     }
 
     private void HistorialReporteOdontologico(java.awt.event.MouseEvent evt) {
-        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
-        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
-        vista.getDkpPrincipal().add(vistaHistorialrepmed);
-        vistaHistorialrepmed.setBorder(null);
-
-          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
+        //Controller historial medico
+        Model_HistorialMedico modHistor = new Model_HistorialMedico();
+        Vista_Rep_HistorialOdontologico vistaHistorialod = new Vista_Rep_HistorialOdontologico ();
+        vista.getDkpPrincipal().add(vistaHistorialod);
+        vistaHistorialod.setBorder(null);
+        Controller.Controller_Rep_His_Med controllerHist_od = new Controller_Rep_His_Med (modHistor, vistaHistorialod , vista);
+      
+//        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
+//        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
+//        vista.getDkpPrincipal().add(vistaHistorialrepmed);
+//        vistaHistorialrepmed.setBorder(null);
+//
+//          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
 
     }
 
@@ -350,6 +349,7 @@ CrudReporteHistClinica(e);
         vista.getDkpPrincipal().add(vista_InicioProceso);
         vista_InicioProceso.setVisible(true);
         vista_InicioProceso.setBorder(null);
+        
         //historial medico
         Model_HistorialMedico modHisto = new Model_HistorialMedico();
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
@@ -357,12 +357,6 @@ CrudReporteHistClinica(e);
         vistaHistorialMedico.setBorder(null);
 
         Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
-
-
-      
-
-        // listado
-        //listado de pacientes
 
 
         

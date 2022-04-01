@@ -418,8 +418,7 @@ public class Controller_HistorialMedico {
      //
      private void cargardesdeMenu(){
      String cedu=vistaMenu.getLblCedulapac().getText();
-     if(cedu.equals("...")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior "
-             + "o puede elegir en la opcion buscar");} else{
+     if(cedu.equals("...")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior");} else{
      vista.getTxtcedulapac().setText(cedu);
      cargarpaciente();
      cambio="nuevo";

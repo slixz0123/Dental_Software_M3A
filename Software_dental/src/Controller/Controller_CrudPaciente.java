@@ -477,10 +477,11 @@ public class Controller_CrudPaciente {
            pac.setGenero("F");
            }
              try{
+             if(vista.getTxtruta().getText().trim().length()!=0){ 
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
-           pac.setFoto(icono);
+           pac.setFoto(icono);}
 
             }catch(IOException ex){
            pac.setFoto(null);
