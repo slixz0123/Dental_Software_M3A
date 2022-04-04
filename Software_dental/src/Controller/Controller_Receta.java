@@ -64,9 +64,7 @@ public class Controller_Receta {
         vista.getBtncargardatos().addActionListener(l-> cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText()));
         vista.getBtncargardatos().addActionListener(l-> cargarCIE10busqueda(vista.getTxtbuscarcie10().getText()));
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
-//        vista.getBtnbuscarfarmaco().addActionListener(l->cargarFARRec(vista.getTxtIDreceta().getText()));
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
-//        vista.getBtnBuscarcie().addActionListener(l->cargarCIE10Rec(vista.getTxtIDreceta().getText()));
       vista.getBtnagregardatos().addActionListener(l->crearRecFar());
 //       vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
@@ -74,7 +72,7 @@ public class Controller_Receta {
         vista.getBtnCrearRec().addActionListener(l->Validarreceta());
         //cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
-        setEventoMouseClicked(vista.getTblbuscarcie10());
+        setEventoMouseClicked2(vista.getTblbuscarcie10());
         
         KeyListener kl = new KeyListener() {
             @Override
@@ -91,20 +89,11 @@ public class Controller_Receta {
                
             }
         };
-//        vista.getTxtbuscarcie10().addKeyListener(kl);
-//        vista.getTxtbuscarfar().addKeyListener(kl);
-//        vista.getTxtIDreceta().addKeyListener(kl);
-//        vista.getTxtIDreceta().addKeyListener(kl);
         
         
          cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
+         
          cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
-                //--
-//                cargarCIE10Rec(vista.getTxtIDreceta().getText());
-               // vista.getBtncargarTabFarm().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
-        
-        
-        
        
     }
     
@@ -241,7 +230,6 @@ public class Controller_Receta {
       vista.getDialogFarmaco().setTitle("Buscar farmaco");
       vista.getDialogFarmaco().setSize(550, 420);
       cargarFarmacos();
-        limpiartxtcie10();
      }
     
     private void abrir_Dialogcie(){
@@ -250,7 +238,6 @@ public class Controller_Receta {
         vista.getDialogCIE().setTitle("Buscar CIE-10");
         vista.getDialogCIE().setSize(550, 420);
         cargarCIE10();
-        limpiartxtReceta();
      }
     
     
@@ -327,8 +314,8 @@ public class Controller_Receta {
        vista.getTblbuscarFarmacos().setValueAt(pe.getMiligramos(), i.value, 1);
        
         i.value++;
-
-           
+        
+               
         });
                 
     }
@@ -354,7 +341,6 @@ public class Controller_Receta {
        
         i.value++;
 
-           
         });
                 
     }
@@ -365,10 +351,28 @@ public class Controller_Receta {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
+                
                 cargardatosTxtFarmaco(e);
+                vista.getDialogFarmaco().dispose();
+                
+            
+            } catch (IOException ex) {
+                Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        });
+    }
+         
+         private void setEventoMouseClicked2(JTable tbl2)
+    {
+        tbl2.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                
                 cargardatosTxtCIE10(e);
-                
-                
+                vista.getDialogCIE().dispose();
             
             } catch (IOException ex) {
                 Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
@@ -379,21 +383,19 @@ public class Controller_Receta {
          
          private void cargardatosTxtFarmaco (MouseEvent evt) throws IOException{
 
-        List<farmaco> lp = modelo.mostrarFarmaco();
+        //List<farmaco> lp = modelo.mostrarFarmaco();
         int xx = vista.getTblbuscarFarmacos().getSelectedRow();
         if (xx != -1) {
             String nombre = vista.getTblbuscarFarmacos().getValueAt(xx, 0).toString();
             vista.getTxtIdfamaco().setText(nombre);
             String mg = vista.getTblbuscarFarmacos().getValueAt(xx, 1).toString();
             vista.getTxtmiligramos().setText(mg);
-            
             }
-        vista.getDialogCIE().dispose();
        }
          
          private void cargardatosTxtCIE10 (java.awt.event.MouseEvent evt) throws IOException{
 
-        List<Cie_10> lp = modelo.mostrarCIE10();
+        //List<Cie_10> lp = modelo.mostrarCIE10();
         int xx = vista.getTblbuscarcie10().getSelectedRow();
         if (xx != -1) {
             String id = vista.getTblbuscarcie10().getValueAt(xx, 0).toString();
@@ -403,7 +405,6 @@ public class Controller_Receta {
             String titulo = vista.getTblbuscarcie10().getValueAt(xx, 1).toString();
             vista.getTxttitulo().setText(titulo);
             }
-        vista.getDialogFarmaco().dispose();
         
        }
          
@@ -452,17 +453,17 @@ public class Controller_Receta {
 //         }
          
          private void limpiartxtReceta(){
-             vista.txtIdfamaco.setText("");
-             vista.txtmiligramos.setText("");
-             vista.spcantidad.setValue(0);
-             vista.txtfrecuencia.setText("");
+             vista.getTxtIdfamaco().setText("");
+             vista.getTxtmiligramos().setText("");
+             vista.getSpcantidad().setValue(0);
+             vista.getTxtfrecuencia().setText("");
          }
          
          
          private void limpiartxtcie10(){
-             vista.txtCie.setText("");
-             vista.txtCie1.setText("");
-             vista.txttitulo.setText("");
+             vista.getTxtCie().setText("");
+             vista.getTxtCie1().setText("");
+             vista.getTxttitulo().setText("");
          }
          
          
@@ -519,7 +520,6 @@ public class Controller_Receta {
      mEsp.setAlergias(alergias);     
      
      mEsp.crearReceta();
-//     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 limpiartxt();
                 generarSerie();
@@ -545,14 +545,9 @@ public class Controller_Receta {
      mEsp.setFrecuencia(frecuencia);    
      
      mEsp.crearRecFar();
-//     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 generarIdFar();
                 limpiartxtReceta();
-                limpiartxtcie10();
-
-//                cargarFARRec();
-//                LimpiarTablafar();
                 cargarFARRec(vista.getTxtIDreceta().getText());
     }
          
@@ -576,7 +571,6 @@ public class Controller_Receta {
         System.out.println("despues del metodo");
                 generarIdCie();
                 limpiartxtcie10();
-                limpiartxtReceta();
                 cargarCIE10Rec(vista.getTxtIDreceta().getText());
                 
     }
@@ -648,16 +642,6 @@ public class Controller_Receta {
         }else if (vista.getLblfecha().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la fecha actual","Error", JOptionPane.PLAIN_MESSAGE, advert);
         } else{crearRecetas();}
-        
-        
-//          else if (spinneredad.getValue().toString().equals("0")) {
-//            JOptionPane.showMessageDialog(this, "Ingrese una edad valida","Error", JOptionPane.PLAIN_MESSAGE, advert);
-//        } else if (selecsangre.getSelectedItem().toString().equals("Seleccione el tipo")) {
-//            JOptionPane.showMessageDialog(this, "Elija el tipo de sangre","error", JOptionPane.PLAIN_MESSAGE, advert);
-//        } else if (selecsexo.getSelectedItem().toString().equals("Seleccione el genero")) {
-//            JOptionPane.showMessageDialog(this, "Elija el genero","error", JOptionPane.PLAIN_MESSAGE, advert);
-//        } else if (txtprescripcion.getText().equals("")) {
-//            JOptionPane.showMessageDialog(this, "Ingrese las observaciones","error", JOptionPane.PLAIN_MESSAGE, advert);
-//        }
+
          }
 }
