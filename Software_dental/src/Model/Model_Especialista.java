@@ -233,7 +233,7 @@ public class Model_Especialista extends Doctor{
     actp.executeUpdate();
     
     String sql2;
-            sql2="Update doctor SET especialidad=?, cargo=? where cedula_pac=?";
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
             PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
             
@@ -252,7 +252,7 @@ public class Model_Especialista extends Doctor{
     public boolean modificarEspecialista(){
         try {
     String sql2;
-            sql2="Update paciente SET fecha_nac=?, tipo_sang=? where cedula_pac=?";
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
             PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
             
