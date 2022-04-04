@@ -8,6 +8,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import jtextfieldround.JTextFieldRound;
 import org.edisoncor.gui.button.ButtonRound;
 
@@ -99,7 +100,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtmedicamento = new jtextfieldround.JTextFieldRound();
         txtfumbebe = new jtextfieldround.JTextFieldRound();
         txtproblemascar = new jtextfieldround.JTextFieldRound();
-        jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -107,8 +107,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         txtfrecres = new jtextfieldround.JTextFieldRound();
         txtfreccar = new jtextfieldround.JTextFieldRound();
         jLabel36 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         txtpresart = new jtextfieldround.JTextFieldRound();
         txttemp = new jtextfieldround.JTextFieldRound();
         jLabel39 = new javax.swing.JLabel();
@@ -129,14 +127,15 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         btnguardar = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         calendariobuscar = new com.toedter.calendar.JDateChooser();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablahistorial = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         txtcedulamed = new jtextfieldround.JTextFieldRound();
         txtnombresmed = new jtextfieldround.JTextFieldRound();
         btnbuscarmed = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablahistorial = new javax.swing.JTable();
+        id_his = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(166, 104, 216));
@@ -448,14 +447,9 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(txtfumbebe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 200, 21));
         panelNice2.add(txtproblemascar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, 21));
 
-        jLabel33.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Arterial");
-        panelNice2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 575, -1, -1));
-
         jLabel34.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Frecuencia ");
+        jLabel34.setText("<html>Frecuencia<p>Cardiaca x min<html>");
         panelNice2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -465,7 +459,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel37.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("Presion");
+        jLabel37.setText("<html>Presion<p>Arterial<html>");
         panelNice2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
         panelNice2.add(txtprobcoag, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 200, 21));
         panelNice2.add(txtfrecres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 110, 21));
@@ -473,18 +467,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jLabel36.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Frecuencia ");
+        jLabel36.setText("<html>Frecuencia<p>Respiratoria x min<html>");
         panelNice2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
-
-        jLabel38.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Respiratoria x min");
-        panelNice2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 575, -1, -1));
-
-        jLabel40.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Cardiaca x min");
-        panelNice2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 575, -1, -1));
         panelNice2.add(txtpresart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 110, 21));
         panelNice2.add(txttemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 110, 21));
 
@@ -540,9 +524,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(txtapellidosmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 170, 21));
 
         btnimprimir.setText("Imprimir");
+        btnimprimir.setDefaultCapable(false);
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 130, -1));
 
         btnguardar.setText("Guardar");
+        btnguardar.setDefaultCapable(false);
         panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 120, -1));
 
         jLabel47.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -552,31 +538,6 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         calendariobuscar.setToolTipText("Seleccione una fecha y de clic sobre el campo");
         panelNice2.add(calendariobuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, -1));
-
-        tablahistorial.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "#", "Fecha Atencion", "Hora"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablahistorial.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane1.setViewportView(tablahistorial);
-        if (tablahistorial.getColumnModel().getColumnCount() > 0) {
-            tablahistorial.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tablahistorial.getColumnModel().getColumn(1).setPreferredWidth(150);
-        }
-
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 270, 260));
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -598,7 +559,31 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         panelNice2.add(btnbuscarmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         btnlimpiar.setText("Nuevo");
+        btnlimpiar.setDefaultCapable(false);
         panelNice2.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, 120, -1));
+
+        tablahistorial.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "#", "Fecha", "Hora"
+            }
+        ));
+        jScrollPane3.setViewportView(tablahistorial);
+        if (tablahistorial.getColumnModel().getColumnCount() > 0) {
+            tablahistorial.getColumnModel().getColumn(0).setMinWidth(30);
+            tablahistorial.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablahistorial.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
+
+        panelNice2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 260, 270));
+
+        id_his.setEditable(false);
+        id_his.setBackground(new java.awt.Color(90, 166, 166));
+        id_his.setForeground(new java.awt.Color(90, 166, 166));
+        id_his.setBorder(null);
+        panelNice2.add(id_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 30, -1));
 
         jPanel2.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 720, 650));
 
@@ -735,6 +720,14 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
     public void setTbldoctor(JTable tbldoctor) {
         this.tbldoctor = tbldoctor;
+    }
+
+    public JTextField getId_his() {
+        return id_his;
+    }
+
+    public void setId_his(JTextField id_his) {
+        this.id_his = id_his;
     }
 
     public JTable getTblpaciente() {
@@ -1024,6 +1017,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser calendariobuscar;
     private javax.swing.JDialog dialog_doc;
     private javax.swing.JDialog dialog_pac;
+    private javax.swing.JTextField id_his;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1050,15 +1044,12 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -1073,8 +1064,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

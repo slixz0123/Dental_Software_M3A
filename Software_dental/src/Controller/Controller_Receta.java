@@ -52,7 +52,7 @@ public class Controller_Receta {
     ArrayList<Cie_10> listacie10 = new ArrayList<>();
     DefaultTableModel dtm, dtm2;
     public void iniciarcontrol (){
-         generarSerie();
+        generarSerie();
         Fechaactual();
         generarIdFar();
         generarIdCie();
@@ -91,7 +91,7 @@ public class Controller_Receta {
         
         
          cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
-                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
+         cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
                 //--
 //                cargarCIE10Rec(vista.getTxtIDreceta().getText());
                // vista.getBtncargarTabFarm().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
@@ -104,7 +104,7 @@ public class Controller_Receta {
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
-            System.out.println("nunmero serie" + serie);
+            System.out.println("numero serie" + serie);
             vista.getTxtIDreceta().setText("01");
         } else {
             int inc = Integer.parseInt(serie);
@@ -256,9 +256,7 @@ public class Controller_Receta {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(pe -> {
 
-      tbmodel.addRow( new Object[3]);// creo una fila vacia
-       //dibujar elementos de la tabla 
-//       vista.getTblbuscarFarmacos().setValueAt(pe.getId_farmaco(), i.value, 0);
+      tbmodel.addRow( new Object[3]);
        vista.getTblbuscarFarmacos().setValueAt(pe.getNombre_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getMiligramos(), i.value, 1);
        
@@ -282,8 +280,7 @@ public class Controller_Receta {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(pe -> {
 
-      tbmodel.addRow( new Object[3]);// creo una fila vacia
-       //dibujar elementos de la tabla 
+      tbmodel.addRow( new Object[3]);
        vista.getTblbuscarcie10().setValueAt(pe.getId_cie(), i.value, 0);
        vista.getTblbuscarcie10().setValueAt(pe.getCategoria(), i.value, 1);
        vista.getTblbuscarcie10().setValueAt(pe.getTitulo(), i.value, 2);
@@ -308,9 +305,7 @@ public class Controller_Receta {
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(pe -> {
 
-      tbmodel.addRow( new Object[2]);// creo una fila vacia
-       //dibujar elementos de la tabla 
-//       vista.getTblbuscarFarmacos().setValueAt(pe.getId_farmaco(), i.value, 0);
+      tbmodel.addRow( new Object[2]);
        vista.getTblbuscarFarmacos().setValueAt(pe.getNombre_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getMiligramos(), i.value, 1);
        
@@ -400,9 +395,7 @@ public class Controller_Receta {
         int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        System.out.println("Fecha Actual: " + dia + "/" + (mes+1) + "/" + año);
         vista.getLblfecha().setText(+ dia + "-" + (mes+1) + "-" + año);
-
         }
 //         public static LinkedList modelot2 = new LinkedList();
          
@@ -480,9 +473,7 @@ public class Controller_Receta {
         }
     }
          
-         public void crearRecetas(){
-        System.out.println("creando receta");
-     
+   public void crearRecetas(){
      String id_rec=vista.getTxtIDreceta().getText();
      String cedula=vista.getTxtcedula().getText();
      String nombres=vista.getTxtnombre().getText();
@@ -492,9 +483,7 @@ public class Controller_Receta {
      String fechaac=vista.getLblfecha().getText();
      String obs=vista.getTxtobservaciones().getText();
      String alergias=vista.getTxtalergias().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
-     
      mEsp.setId_receta(id_rec);
      mEsp.setCedula_pac(cedula);
      mEsp.setNombre(nombres+" "+ apellido);
@@ -503,16 +492,12 @@ public class Controller_Receta {
      mEsp.setFecha(fechaac);
      mEsp.setObservaciones(obs);
      mEsp.setAlergias(alergias);     
-     
      mEsp.crearReceta();
-//     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
-                limpiartxt();
-                generarSerie();
-
+     limpiartxt();
+     generarSerie();
     }
          
-         public void crearRecFar(){
+   public void crearRecFar(){
          
      String id_rec_far=vista.getId_rec_far().getText();
      String id_rec=vista.getTxtIDreceta().getText();
@@ -520,7 +505,6 @@ public class Controller_Receta {
      String mg=vista.getTxtmiligramos().getText();
      String cantidad=String.valueOf(vista.getSpcantidad().getValue());
      String frecuencia=vista.getTxtfrecuencia().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
      
      mEsp.setId_rec_far(id_rec_far);
@@ -531,13 +515,8 @@ public class Controller_Receta {
      mEsp.setFrecuencia(frecuencia);    
      
      mEsp.crearRecFar();
-//     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
-                generarIdFar();
-                limpiartxtReceta();
-//                cargarFARRec();
-//                LimpiarTablafar();
-                
+      generarIdFar();
+      limpiartxtReceta();           
     }
          
          public void crearRecCie(){
@@ -547,7 +526,6 @@ public class Controller_Receta {
      String id_cie=vista.getTxtCie().getText();
      String titulo=vista.getTxtCie1().getText();
      String categoria=vista.getTxttitulo().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
      
      mEsp.setId_rec_cie(id_rec_cie);
@@ -557,7 +535,6 @@ public class Controller_Receta {
      
      mEsp.crearRecCie();
 //     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
                 generarIdCie();
                 limpiartxtcie10();
 //                cargarCIE10Rec(vista.getTxtIDreceta().getText());//vista.getTxtIDreceta().getText()

@@ -10,6 +10,7 @@ import Model.Hist_Medico;
 import Model.Model_HistorialMedico;
 import View.MenuPrincipal;
 import View.Vista_Rep_HistorialOdontologico;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -51,6 +53,53 @@ public class Controller_Rep_His_Med {
     vista.getBtnImprimir().addActionListener(l->imprimir());
     eventocargar(vista.getTablahistorial());
     }
+    //
+    //
+    private void pintarbtnimprimir(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnImprimir().setBackground(new Color (3, 100, 80));
+     vista.getBtnImprimir().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnImprimir().setBackground(new Color (240, 240, 240));
+     vista.getBtnImprimir().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
+    private void pintarbtncargar(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnCargarDatos().setBackground(new Color (3, 100, 80));
+     vista.getBtnCargarDatos().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnCargarDatos().setBackground(new Color (240, 240, 240));
+     vista.getBtnCargarDatos().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
+    private void pintarbtnlimpiar(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnLimpiar().setBackground(new Color (3, 100, 80));
+     vista.getBtnLimpiar().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnLimpiar().setBackground(new Color (240, 240, 240));
+     vista.getBtnLimpiar().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
     private void cargardesdeMenu(){
      String cedu=vistaMenu.getLblCedulapac().getText();
      if(cedu.equals("...")||cedu.equals("")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior");} else{
@@ -146,7 +195,7 @@ public class Controller_Rep_His_Med {
     ConexionPg con= new ConexionPg();
     int filasel = vista.getTablahistorial().getSelectedRow();
     if (filasel==-1){
-    JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla");
+    JOptionPane.showMessageDialog(null, "Debe seleccionar un dato de la tabla");
     }else{
     String num=(String) vista.getTablahistorial().getValueAt(filasel, 0);
         try {
@@ -157,8 +206,6 @@ public class Controller_Rep_His_Med {
             JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.Con());
             JasperViewer ver= new JasperViewer(impr,false);
             ver.setVisible(true);
-            
-            limpiar();
         } catch (JRException ex) {
             Logger.getLogger(Controller_Rep_His_Med.class.getName()).log(Level.SEVERE, null, ex);
         }}
