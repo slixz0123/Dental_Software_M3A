@@ -377,7 +377,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         txtcedula.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtcedula.setForeground(new java.awt.Color(255, 255, 255));
-        txtcedula.setText(".....");
         panelNice1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 130, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -387,7 +386,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         txtnombre.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtnombre.setForeground(new java.awt.Color(255, 255, 255));
-        txtnombre.setText(".....");
         panelNice1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 130, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -397,7 +395,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         txtApellido.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(255, 255, 255));
-        txtApellido.setText("......");
         panelNice1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 130, 20));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -407,12 +404,10 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         txtsexo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtsexo.setForeground(new java.awt.Color(255, 255, 255));
-        txtsexo.setText("......");
         panelNice1.add(txtsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 60, 20));
 
         txtedad.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtedad.setForeground(new java.awt.Color(255, 255, 255));
-        txtedad.setText("......");
         panelNice1.add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 240, 20));
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
