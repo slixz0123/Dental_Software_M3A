@@ -162,7 +162,15 @@ public class Model_Especialista extends Doctor{
         ps2.setString(5,getCedula_doc());
                
         ps2.executeUpdate();
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+        System.out.println("GUARDADO CON EXITO");
+=======
+
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
+>>>>>>> Stashed changes
         JOptionPane.showMessageDialog(null, "Especialista creado con exito"); 
         return true;
             
@@ -190,11 +198,39 @@ public class Model_Especialista extends Doctor{
         return serie;
     }
     
+//    public boolean modificarPersonasbyte(){
+//        String sql2 = "UPDATE persona SET\n"
+//                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"'"+"WHERE cedula= '"+getCedula()+"'";
+//        JOptionPane.showMessageDialog(null, "Especialista modificado correctamente");        
+//        return cpg.accion(sql2);
+//    }
+//    
+//
+//    public boolean modificarEspecialista(){
+//        String sql2 = "UPDATE doctor SET\n"
+//                +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
+//        JOptionPane.showMessageDialog(null, "Especialista modificado especialidad"); 
+//        return cpg.accion(sql2);
+//    }
+
     public boolean modificarPersonasbyte(){
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        try {
+    String sql;
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
+    PreparedStatement actp= cpg.Con().prepareStatement(sql);
+=======
+>>>>>>> Stashed changes
          try {
     String sql;
     sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
     PreparedStatement actp= con.Con().prepareStatement(sql);
+<<<<<<< Updated upstream
+=======
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
+>>>>>>> Stashed changes
     actp.setString(1, getNombres());
     actp.setString(2, getApellidos());
     actp.setString(3, getCelular());
@@ -208,10 +244,29 @@ public class Model_Especialista extends Doctor{
     actp.setString(11, getCedula());
     actp.executeUpdate();
     
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    String sql2;
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+
+            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            
+            ps2.setString(1, getEspecialidad());
+            ps2.setString(2, getCargo());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
+    return true;
+=======
+>>>>>>> Stashed changes
   System.out.println("editado con foto");
     return true;
   
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
+>>>>>>> Stashed changes
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -244,22 +299,46 @@ public boolean modificarPersonasinfoto(){
     }
 
     public boolean modificarEspecialista(){
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        try {
+    String sql2;
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+
+            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            
+=======
+>>>>>>> Stashed changes
          try {
     String sql2;
             sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
             PreparedStatement ps2=con.GetCon().prepareStatement(sql2);
+<<<<<<< Updated upstream
+=======
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
+>>>>>>> Stashed changes
             ps2.setString(1, getEspecialidad());
             ps2.setString(2, getCargo());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
+<<<<<<< Updated upstream
             System.out.println("editado cargos");
+=======
+<<<<<<< HEAD
+=======
+            System.out.println("editado cargos");
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
+>>>>>>> Stashed changes
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
         }
     return false;
     }
+<<<<<<< HEAD
+=======
 //    public boolean modificarPersonasByte(){
 ////        try{
 //        String sql2 = "UPDATE persona SET\n"
@@ -267,6 +346,7 @@ public boolean modificarPersonasinfoto(){
 //
 //        return con.accion(sql2);
 //    }
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
 
     
     

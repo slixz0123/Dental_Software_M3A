@@ -45,30 +45,35 @@ public class Controller_Receta {
         this.vistamenu = vistamenu;
         vista.setVisible(true);
         iniciarcontrol();
+        
     }
     DefaultTableModel dtmreceta= new DefaultTableModel();
     ArrayList<receta> listareceta = new ArrayList<>();
     DefaultTableModel dtmcie10= new DefaultTableModel();
     ArrayList<Cie_10> listacie10 = new ArrayList<>();
     DefaultTableModel dtm, dtm2;
+    
     public void iniciarcontrol (){
          generarSerie();
         Fechaactual();
         generarIdFar();
         generarIdCie();
         vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
+        vista.getBtncargardatos().addActionListener(l-> cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText()));
+        vista.getBtncargardatos().addActionListener(l-> cargarCIE10busqueda(vista.getTxtbuscarcie10().getText()));
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
-        
+//        vista.getBtnbuscarfarmaco().addActionListener(l->cargarFARRec(vista.getTxtIDreceta().getText()));
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
+//        vista.getBtnBuscarcie().addActionListener(l->cargarCIE10Rec(vista.getTxtIDreceta().getText()));
       vista.getBtnagregardatos().addActionListener(l->crearRecFar());
-       vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
-      
+//       vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
-        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
-        vista.getBtnCrearRec().addActionListener(l->crearRecetas());
+//        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
+        vista.getBtnCrearRec().addActionListener(l->Validarreceta());
         //cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
         setEventoMouseClicked(vista.getTblbuscarcie10());
+        
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -91,7 +96,7 @@ public class Controller_Receta {
         
         
          cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
-                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
+         cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
                 //--
 //                cargarCIE10Rec(vista.getTxtIDreceta().getText());
                // vista.getBtncargarTabFarm().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
@@ -151,15 +156,18 @@ public class Controller_Receta {
     vista.getJdcFechanaciento().setCalendar(null);
     vista.getTxtobservaciones().setText("");
     vista.getTxtalergias().setText("");
-   // LimpiarTablafar();
-   // LimpiarTablacie();
+//    LimpiarTablafar();
+//    LimpiarTablacie();
     generarSerie();
+    
+    cargarCIE10Rec(vista.getTxtIDreceta().getText());
+    cargarFARRec(vista.getTxtIDreceta().getText());
     }
 //    private void LimpiarTablafar(){
 //            dtm2.getDataVector().removeAllElements();
 //            vista.tblreceta.updateUI();
 //    }
-    
+//    
 //    private void LimpiarTablacie(){
 //            dtm.getDataVector().removeAllElements();
 //            vista.tblcie10.updateUI();
@@ -231,6 +239,7 @@ public class Controller_Receta {
       vista.getDialogFarmaco().setTitle("Buscar farmaco");
       vista.getDialogFarmaco().setSize(550, 420);
       cargarFarmacos();
+        limpiartxtcie10();
      }
     
     private void abrir_Dialogcie(){
@@ -239,6 +248,7 @@ public class Controller_Receta {
         vista.getDialogCIE().setTitle("Buscar CIE-10");
         vista.getDialogCIE().setSize(550, 420);
         cargarCIE10();
+        limpiartxtReceta();
      }
     
     
@@ -392,6 +402,7 @@ public class Controller_Receta {
             vista.getTxttitulo().setText(titulo);
             }
         vista.getDialogFarmaco().dispose();
+        
        }
          
          public void Fechaactual(){
@@ -401,7 +412,7 @@ public class Controller_Receta {
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         System.out.println("Fecha Actual: " + dia + "/" + (mes+1) + "/" + año);
-        vista.getLblfecha().setText(+ dia + "-" + (mes+1) + "-" + año);
+        vista.getLblfecha().setText(dia + "-" + (mes+1) + "-" + año);
 
         }
 //         public static LinkedList modelot2 = new LinkedList();
@@ -481,6 +492,7 @@ public class Controller_Receta {
     }
          
          public void crearRecetas(){
+             
         System.out.println("creando receta");
      
      String id_rec=vista.getTxtIDreceta().getText();
@@ -535,9 +547,11 @@ public class Controller_Receta {
         System.out.println("despues del metodo");
                 generarIdFar();
                 limpiartxtReceta();
+                limpiartxtcie10();
+
 //                cargarFARRec();
 //                LimpiarTablafar();
-                
+                cargarFARRec(vista.getTxtIDreceta().getText());
     }
          
          public void crearRecCie(){
@@ -560,8 +574,8 @@ public class Controller_Receta {
         System.out.println("despues del metodo");
                 generarIdCie();
                 limpiartxtcie10();
-//                cargarCIE10Rec(vista.getTxtIDreceta().getText());//vista.getTxtIDreceta().getText()
-              ///  LimpiarTablacie();
+                limpiartxtReceta();
+                cargarCIE10Rec(vista.getTxtIDreceta().getText());
                 
     }
          
@@ -585,7 +599,7 @@ public class Controller_Receta {
        
         i.value++;
 
-           
+        generarSerie();    
         });
         
          }
@@ -612,8 +626,36 @@ public class Controller_Receta {
        
         i.value++;
 
-           
+        generarSerie();   
         });
         
+         }
+         Icon advert;
+          void Validarreceta(){
+    //validaciones
+        if (vista.txtnombre.getText().equals("")&& vista.txtApellido.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.txtcedula.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la cedula del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.txtsexo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el genero del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.txtedad.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la edad del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.txtIDreceta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el id de Receta","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        }else if (vista.lblfecha.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la fecha actual","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else{crearRecetas();}
+        
+        
+//          else if (spinneredad.getValue().toString().equals("0")) {
+//            JOptionPane.showMessageDialog(this, "Ingrese una edad valida","Error", JOptionPane.PLAIN_MESSAGE, advert);
+//        } else if (selecsangre.getSelectedItem().toString().equals("Seleccione el tipo")) {
+//            JOptionPane.showMessageDialog(this, "Elija el tipo de sangre","error", JOptionPane.PLAIN_MESSAGE, advert);
+//        } else if (selecsexo.getSelectedItem().toString().equals("Seleccione el genero")) {
+//            JOptionPane.showMessageDialog(this, "Elija el genero","error", JOptionPane.PLAIN_MESSAGE, advert);
+//        } else if (txtprescripcion.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Ingrese las observaciones","error", JOptionPane.PLAIN_MESSAGE, advert);
+//        }
          }
 }

@@ -481,8 +481,8 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.button.ButtonRound btneditar;
     private org.edisoncor.gui.button.ButtonRound btneliminar;
     private javax.swing.JButton btnguardarEsp;
-    private javax.swing.JComboBox<String> cBoxespecialidad;
-    private javax.swing.JComboBox<String> cboxGeneroEsp;
+    public static javax.swing.JComboBox<String> cBoxespecialidad;
+    public static javax.swing.JComboBox<String> cboxGeneroEsp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -506,17 +506,27 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.panel.PanelRoundTranslucido panelRoundTranslucido1;
     private javax.swing.JTable tblEspecialista;
     private jtextfieldround.JTextFieldRound txtBuscarEsp;
+<<<<<<< HEAD
+    public static jtextfieldround.JTextFieldRound txtCargoesp;
+    public static jtextfieldround.JTextFieldRound txtCelularesp;
+    public static jtextfieldround.JTextFieldRound txtIdDoctor;
+    public static jtextfieldround.JTextFieldRound txtIdUsuario;
+    public static jtextfieldround.JTextFieldRound txtapellidoesp;
+    public static jtextfieldround.JTextFieldRound txtcedulaesp;
+    public static jtextfieldround.JTextFieldRound txtciudadesp;
+=======
     private jtextfieldround.JTextFieldRound txtCargoesp;
     private jtextfieldround.JTextFieldRound txtCelularesp;
     private jtextfieldround.JTextFieldRound txtIdUsuario;
     private jtextfieldround.JTextFieldRound txtapellidoesp;
     private jtextfieldround.JTextFieldRound txtcedulaesp;
     private jtextfieldround.JTextFieldRound txtciudadesp;
+>>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
     private jtextfieldround.JTextFieldRound txtcorreoesp;
-    private jtextfieldround.JTextFieldRound txtdirecesp;
-    private jtextfieldround.JTextFieldRound txtnombreesp;
-    private jtextfieldround.JTextFieldRound txtprovinciaesp;
+    public static jtextfieldround.JTextFieldRound txtdirecesp;
+    public static jtextfieldround.JTextFieldRound txtnombreesp;
+    public static jtextfieldround.JTextFieldRound txtprovinciaesp;
     private javax.swing.JTextField txtruta;
-    private jtextfieldround.JTextFieldRound txttelfesp;
+    public static jtextfieldround.JTextFieldRound txttelfesp;
     // End of variables declaration//GEN-END:variables
 }
