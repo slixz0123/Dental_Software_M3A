@@ -13,16 +13,29 @@ import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_Anamesis;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import jtextfieldround.JTextFieldRound;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -37,11 +50,12 @@ public class Controller_Anamnesis {
       this.modelo = modelo;
       this.vista = vista;
       this.vistame= vistame;
+      
       vista.setVisible(true); 
       iniciarControl();
     }
     public void iniciarControl(){
-
+        
         vista.getBtnguardar().addActionListener(l->crearEditarAnamnesis());
         vista.getBtnimprimir().addActionListener(l->imprimir());
         vista.getBtnnuevo().addActionListener(l->limpiar());
@@ -59,6 +73,10 @@ public class Controller_Anamnesis {
         cargaranam(vista.getTabla_anam());
         pintarbtnpac(vista.getBtnbuscarpac());
         pintarbtnmed(vista.getBtnbuscardoc());
+        pintarbtnguardar(vista.getBtnguardar());
+        pintarbtnimprimir(vista.getBtnimprimir());
+        pintarbtnnuevo(vista.getBtnnuevo());
+
     }
     
     
@@ -112,6 +130,51 @@ public class Controller_Anamnesis {
     });
     }
     //
+    private void pintarbtnguardar(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnguardar().setBackground(new Color (3, 100, 80));
+     vista.getBtnguardar().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnguardar().setBackground(new Color (240, 240, 240));
+     vista.getBtnguardar().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
+    private void pintarbtnnuevo(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnnuevo().setBackground(new Color (3, 100, 80));
+     vista.getBtnnuevo().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnnuevo().setBackground(new Color (240, 240, 240));
+     vista.getBtnnuevo().setForeground(Color.BLACK);
+    }
+    });
+    }
+    //
+    private void pintarbtnimprimir(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnimprimir().setBackground(new Color (3, 100, 80));
+     vista.getBtnimprimir().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnimprimir().setBackground(new Color (240, 240, 240));
+     vista.getBtnimprimir().setForeground(Color.BLACK);
+    }
+    });
+    }
+//
     private void cargaranam(JTable tbl){
     tbl.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
@@ -122,9 +185,63 @@ public class Controller_Anamnesis {
     }
     });
     }
+    //Eventos teclas
+    private void eventoemba(JTextFieldRound txt){
+    txt.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            
+            if(e.getKeyCode()== KeyEvent.VK_DOWN ){
+               vista.getTxproblema().requestFocus();
+            }
+        }
+         @Override
+        public void keyTyped(KeyEvent e) {
+            if(vista.getTxtembarazo().getText().length()>=50) e.consume();
+            }
+            
+
+    });
+    }
+    //
+     private void eventoprob(JTextArea txt){
+        txt.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            
+            if(e.getKeyCode()== KeyEvent.VK_DOWN ){
+               vista.getTxtconsulta().requestFocus();
+            }
+            if(vista.getTxproblema().getText().equals("")){
+            if(e.getKeyCode()== KeyEvent.VK_UP){
+               vista.getTxtembarazo().requestFocus();
+            }}
+        }
+         @Override
+        public void keyTyped(KeyEvent e) {
+            if(vista.getTxproblema().getText().length()>=500) e.consume();
+           }
+    });
+    }
+     //
+     private void eventoconsulta(JTextArea txt){
+        txt.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(vista.getTxtconsulta().getText().equals("")){
+            if(e.getKeyCode()== KeyEvent.VK_UP){
+               vista.getTxproblema().requestFocus();
+            }}
+        }
+         @Override
+        public void keyTyped(KeyEvent e) {
+            if(vista.getTxtconsulta().getText().length()>=500) e.consume();
+            }
+    });
+    }
 //Eventos busqueda
     private void eventos(){
-    
+
     KeyListener buscarpac=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {}
@@ -137,9 +254,23 @@ public class Controller_Anamnesis {
             cargarPaciente();
         }
     };
-   
-    
-   
+    KeyListener letras=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {}
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+         
+        }
+    };
     KeyListener buscarmed=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {}
@@ -152,6 +283,11 @@ public class Controller_Anamnesis {
          cargarMedico();
         }
     };
+    eventoemba(vista.getTxtembarazo());
+    eventoprob(vista.getTxproblema());
+    eventoconsulta(vista.getTxtconsulta());
+    vista.getTxproblema().addKeyListener(letras);
+    vista.getTxtconsulta().addKeyListener(letras);
     vista.getTxtbuscarpac().addKeyListener(buscarpac);
     vista.getTxtbuscardoc().addKeyListener(buscarmed);
     }
@@ -279,7 +415,7 @@ public class Controller_Anamnesis {
     List<Paciente> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula_pac().getText())) {
-           vista.getTxtcedula_pac().setText(listaper.get(a).getCedula());
+           vista.getTxtcedula_pac().setText(listaper.get(a).getCedula());  
            vista.getTxtnombrespac().setText(listaper.get(a).getNombres());
            vista.getTxtapellidopac().setText(listaper.get(a).getApellidos());
            if(listaper.get(a).getGenero().equalsIgnoreCase("M")){
@@ -299,11 +435,14 @@ public class Controller_Anamnesis {
 //cargarpaciente
     private void llenarpac(){
     List<Paciente> listaper=modelo.listarPersonas(vista.getTxtcedula_pac().getText());
+    vista.getTxtembarazo().requestFocus();
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula_pac().getText())) {
            vista.getTxtcedula_pac().setText(listaper.get(a).getCedula());
+           vistame.getLblCedulapac().setText(listaper.get(a).getCedula());
            vista.getTxtnombrespac().setText(listaper.get(a).getNombres());
            vista.getTxtapellidopac().setText(listaper.get(a).getApellidos());
+           vistame.getLblnombrescomp().setText(listaper.get(a).getNombres()+" "+listaper.get(a).getApellidos());
            if(listaper.get(a).getGenero().equalsIgnoreCase("M")){
            vista.getTxtgeneropac().setText("Masculino");
            } else {
@@ -316,7 +455,8 @@ public class Controller_Anamnesis {
            vista.getTxtciudad().setText(listaper.get(a).getCiudad());
            vista.getDateFechanacEsp().setDate(listaper.get(a).getFecha_nac());
         }
-      }}
+      }
+    }
     //Llenar medico
     private void llenarmed(){
     List<Doctor> listmed=modelo.listarMedico(vista.getTxtcedulamed().getText());
@@ -389,24 +529,38 @@ public class Controller_Anamnesis {
      vista.getTxtcedula_pac().setText(cedu);
      llenarpac();
      cargarAnamnesis();
-     limpiar();
+     cargardatosexternosmed();
+     vista.getTxtembarazo().requestFocus();
      }
+     }
+     
+     //
+     public void cargardatosexternosmed(){
+        String ced_doc =(String) vistame.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+        vista.getTxtcedulamed().setText(ced_doc);  
+        llenarmed();
      }
     //Imprimir
     private void imprimir(){
-    ConexionPg con= new ConexionPg();   
-//        try {
-//            JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Vista/Reporte/Factura.jasper"));
-//            Map parametros = new HashMap();
-//            String idan= vista.getLblidanam().getText();
-//            parametros.put("facturaid", idan);
-//            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.Con());
-//            JasperViewer ver= new JasperViewer(impr, false);
-//            ver.setVisible(true);
-//            limpiar();
-//        } catch (JRException ex) {
-//            Logger.getLogger(Controller_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+   ConexionPg con= new ConexionPg();
+    int filasel = vista.getTabla_anam().getSelectedRow();
+    if (filasel==-1){
+    JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla");
+    }else{
+    String num=(String) vista.getTabla_anam().getValueAt(filasel, 0);
+        try {
+            JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Reporte anamnesis.jasper"));
+            
+            Map parametros = new HashMap();
+            parametros.put("anamnesisid", num);
+            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.Con());
+            JasperViewer ver= new JasperViewer(impr,false);
+            ver.setVisible(true);
+            
+            limpiar();
+        } catch (JRException ex) {
+            Logger.getLogger(Controller_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
+        }}
     }
     private void limpiar(){
     accion="guardar";

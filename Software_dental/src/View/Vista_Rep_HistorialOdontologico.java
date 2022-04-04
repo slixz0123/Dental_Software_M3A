@@ -97,6 +97,7 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setDefaultCapable(false);
         panelNice2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 570, 130, 50));
 
         jLabel32.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -247,6 +248,7 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 270, 310));
 
         btnCargarDatos.setText("Cargar Datos");
+        btnCargarDatos.setDefaultCapable(false);
         panelNice2.add(btnCargarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         txtfrecres.setEditable(false);
@@ -325,6 +327,7 @@ public class Vista_Rep_HistorialOdontologico extends javax.swing.JInternalFrame 
         panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 300, -1));
 
         btnImprimir.setText("Imprimir");
+        btnImprimir.setDefaultCapable(false);
         panelNice2.add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 570, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

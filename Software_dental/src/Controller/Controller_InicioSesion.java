@@ -47,6 +47,9 @@ public class Controller_InicioSesion {
             if(e.getKeyCode()== KeyEvent.VK_ENTER){
                registrar();
             }
+            if(e.getKeyCode()== KeyEvent.VK_UP){
+               vista.getTxtUsuario().requestFocus();
+            }
         }
 
     });
@@ -55,7 +58,7 @@ private void eventofoco(JTextFieldRound txt){
     txt.addKeyListener(new KeyAdapter() {
         @Override
         public void keyPressed(KeyEvent e) {
-            if(e.getKeyCode()== KeyEvent.VK_ENTER){
+            if(e.getKeyCode()== KeyEvent.VK_ENTER || e.getKeyCode()== KeyEvent.VK_DOWN){
                vista.getTxtContrasena().requestFocus();
             }
         }
