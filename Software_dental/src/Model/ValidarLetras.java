@@ -7,8 +7,12 @@ package Model;
 
 /**
  *
- * @author Usuario
+ * @author jose illescas
  */
-public class Model_CitasTratamiento {
-    
+public class ValidarLetras {
+    public static boolean validarcedula(String cedula) {
+                
+        boolean estado = false;
+        return true;
+    }
 }
