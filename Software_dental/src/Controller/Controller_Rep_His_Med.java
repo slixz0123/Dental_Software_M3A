@@ -52,6 +52,9 @@ public class Controller_Rep_His_Med {
     vista.getBtnLimpiar().addActionListener(l->limpiar());
     vista.getBtnImprimir().addActionListener(l->imprimir());
     eventocargar(vista.getTablahistorial());
+    pintarbtnimprimir(vista.getBtnImprimir());
+    pintarbtncargar(vista.getBtnCargarDatos());
+    pintarbtnlimpiar(vista.getBtnLimpiar());
     }
     //
     //

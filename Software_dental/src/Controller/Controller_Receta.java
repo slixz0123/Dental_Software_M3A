@@ -495,7 +495,7 @@ public class Controller_Receta {
 
    public void crearRecetas(){
 
-         public void crearRecetas(){
+       //  public void crearRecetas(){
              
         System.out.println("creando receta");
      
