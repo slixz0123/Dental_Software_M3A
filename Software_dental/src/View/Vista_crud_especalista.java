@@ -16,7 +16,7 @@ import org.edisoncor.gui.button.ButtonRound;
 import org.edisoncor.gui.comboBox.ComboBoxRound;
 
 
-public class Vista_crud_especalista extends javax.swing.JFrame {
+public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
 
     public Vista_crud_especalista() {
@@ -146,13 +146,17 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
         this.txtCelularesp = txtCelularesp;
     }
 
-    public JTextFieldRound getTxtIdDoctor() {
-        return txtIdDoctor;
+    public JLabel getTxtIdDoctor() {
+        return TxtIdDoctor;
     }
 
-    public void setTxtIdDoctor(JTextFieldRound txtIdDoctor) {
-        this.txtIdDoctor = txtIdDoctor;
+    public void setTxtIdDoctor(JLabel TxtIdDoctor) {
+        this.TxtIdDoctor = TxtIdDoctor;
     }
+
+    
+
+    
 
     public JTextFieldRound getTxtIdUsuario() {
         return txtIdUsuario;
@@ -211,37 +215,7 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
     }
 
   
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vista_odontogramaAdult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vista_odontogramaAdult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vista_odontogramaAdult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vista_odontogramaAdult.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_crud_especalista().setVisible(true);
-            }
-        });
-    }
+    
 
  
     @SuppressWarnings("unchecked")
@@ -287,10 +261,10 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
         btneliminar = new org.edisoncor.gui.button.ButtonRound();
         btneditar = new org.edisoncor.gui.button.ButtonRound();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
-        txtIdDoctor = new jtextfieldround.JTextFieldRound();
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtIdUsuario = new jtextfieldround.JTextFieldRound();
+        TxtIdDoctor = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -472,7 +446,6 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("Cerrar");
         jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        jPanel1.add(txtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 11, 80, 20));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setText("ID DOCTOR:");
@@ -484,6 +457,7 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
 
         txtIdUsuario.setText("2");
         jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 11, 70, 20));
+        jPanel1.add(TxtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -501,6 +475,7 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TxtIdDoctor;
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btnExaminar;
     private org.edisoncor.gui.button.ButtonRound btneditar;
@@ -533,7 +508,6 @@ public class Vista_crud_especalista extends javax.swing.JFrame {
     private jtextfieldround.JTextFieldRound txtBuscarEsp;
     private jtextfieldround.JTextFieldRound txtCargoesp;
     private jtextfieldround.JTextFieldRound txtCelularesp;
-    private jtextfieldround.JTextFieldRound txtIdDoctor;
     private jtextfieldround.JTextFieldRound txtIdUsuario;
     private jtextfieldround.JTextFieldRound txtapellidoesp;
     private jtextfieldround.JTextFieldRound txtcedulaesp;
