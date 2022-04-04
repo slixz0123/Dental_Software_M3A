@@ -1,21 +1,25 @@
 package Model;
 
-import java.sql.Date;
-
-
 public class Factura {
+
+    private int idDetalle;
+    private double totalprod;
+    private double preciounit;
     private String serieFac;
     private String nombres;
     private String direccion;
     private String tratamiento;
-    private Date fecha;
+    private String fecha;
     private int cantidad;
     private double total;
 
     public Factura() {
     }
 
-    public Factura(String serieFac, String nombres, String direccion, String tratamiento, Date fecha, int cantidad, double total) {
+    public Factura(int idDetalle, double totalprod, double preciounit, String serieFac, String nombres, String direccion, String tratamiento, String fecha, int cantidad, double total) {
+        this.idDetalle = idDetalle;
+        this.totalprod = totalprod;
+        this.preciounit = preciounit;
         this.serieFac = serieFac;
         this.nombres = nombres;
         this.direccion = direccion;
@@ -23,6 +27,30 @@ public class Factura {
         this.fecha = fecha;
         this.cantidad = cantidad;
         this.total = total;
+    }
+
+    public double getPreciounit() {
+        return preciounit;
+    }
+
+    public void setPreciounit(double preciounit) {
+        this.preciounit = preciounit;
+    }
+
+    public int getIdDetalle() {
+        return idDetalle;
+    }
+
+    public void setIdDetalle(int idDetalle) {
+        this.idDetalle = idDetalle;
+    }
+
+    public double getTotalprod() {
+        return totalprod;
+    }
+
+    public void setTotalprod(double totalprod) {
+        this.totalprod = totalprod;
     }
 
     public String getSerieFac() {
@@ -57,11 +85,11 @@ public class Factura {
         this.tratamiento = tratamiento;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -80,6 +108,5 @@ public class Factura {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    
+
 }

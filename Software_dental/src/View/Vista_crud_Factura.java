@@ -5,6 +5,7 @@
  */
 package View;
 
+import com.toedter.components.JSpinField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -25,6 +26,24 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     public Vista_crud_Factura() {
         initComponents();
     }
+
+    public JButton getBtnCalculadora() {
+        return btnCalculadora;
+    }
+
+    public void setBtnCalculadora(JButton btnCalculadora) {
+        this.btnCalculadora = btnCalculadora;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+    
+    
 
     public JTextField getTxtDlgTratamiento() {
         return txtDlgTratamiento;
@@ -122,14 +141,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         this.btnBuscarTrat = btnBuscarTrat;
     }
 
-    public JButton getBtnCalculadora() {
-        return btnCalculadora;
-    }
-
-    public void setBtnCalculadora(JButton btnCalculadora) {
-        this.btnCalculadora = btnCalculadora;
-    }
-
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
@@ -154,14 +165,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         this.btneliminar = btneliminar;
     }
 
-    public JComboBox<String> getCbDescuento() {
-        return cbDescuento;
-    }
-
-    public void setCbDescuento(JComboBox<String> cbDescuento) {
-        this.cbDescuento = cbDescuento;
-    }
-
     public JSpinner getSpiCantidad() {
         return spiCantidad;
     }
@@ -169,6 +172,15 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     public void setSpiCantidad(JSpinner spiCantidad) {
         this.spiCantidad = spiCantidad;
     }
+
+    public JSpinner getSpiDesc() {
+        return spiDesc;
+    }
+
+    public void setSpiDesc(JSpinner spiDesc) {
+        this.spiDesc = spiDesc;
+    }
+
 
     public JTable getTblFactura() {
         return tblFactura;
@@ -263,16 +275,16 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         lblNombre = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        spiCantidad = new javax.swing.JSpinner();
+        spiDesc = new javax.swing.JSpinner();
         btnBuscarTrat = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
-        cbDescuento = new javax.swing.JComboBox<>();
         txtFecha = new javax.swing.JTextField();
         btnCargarDatos = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
+        spiCantidad = new javax.swing.JSpinner();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         btneliminar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
@@ -288,8 +300,8 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         txtTotal = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         btnCalculadora = new javax.swing.JButton();
-        btnCalculadora1 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(90, 166, 166));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -418,8 +430,8 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         jLabel8.setText("CANTIDAD:");
         panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
-        spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
-        panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
+        spiDesc.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 5));
+        panelNice1.add(spiDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 100, -1));
 
         btnBuscarTrat.setText("BUSCAR");
         panelNice1.add(btnBuscarTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, -1, -1));
@@ -437,9 +449,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         txtPrecio.setEditable(false);
         panelNice1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 230, -1));
 
-        cbDescuento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--SELECCIONAR--", "10%", "20%", "30%" }));
-        panelNice1.add(cbDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 120, 20));
-
         txtFecha.setEditable(false);
         panelNice1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 140, -1));
 
@@ -456,7 +465,10 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         lblDireccion.setText("....");
         panelNice1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 120, 20));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 180));
+        spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
+        panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
+
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 980, 180));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -527,15 +539,15 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         btnCancelar.setText("Cancelar");
         panelNice2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, -1));
 
-        btnCalculadora.setBackground(new java.awt.Color(90, 170, 170));
-        btnCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/boton-eliminar.png"))); // NOI18N
-        btnCalculadora.setBorder(null);
-        panelNice2.add(btnCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 56, -1));
+        btnEliminar.setBackground(new java.awt.Color(90, 170, 170));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/boton-eliminar.png"))); // NOI18N
+        btnEliminar.setBorder(null);
+        panelNice2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 56, -1));
 
-        btnCalculadora1.setBackground(new java.awt.Color(90, 170, 170));
-        btnCalculadora1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/calculadora.png"))); // NOI18N
-        btnCalculadora1.setBorder(null);
-        panelNice2.add(btnCalculadora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 56, 60));
+        btnCalculadora.setBackground(new java.awt.Color(90, 170, 170));
+        btnCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/calculadora.png"))); // NOI18N
+        btnCalculadora.setBorder(null);
+        panelNice2.add(btnCalculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 56, 60));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 980, 470));
 
@@ -550,12 +562,11 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscarTrat;
     private javax.swing.JButton btnCalculadora;
-    private javax.swing.JButton btnCalculadora1;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCargarDatos;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
-    private javax.swing.JComboBox<String> cbDescuento;
     private javax.swing.JDialog dlTratamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -585,6 +596,7 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JSpinner spiCantidad;
+    private javax.swing.JSpinner spiDesc;
     private javax.swing.JTable tblDialTratamiento;
     private javax.swing.JTable tblFactura;
     private javax.swing.JTextField txtDescuento;

@@ -29,12 +29,14 @@ public class Controller_Factura {
     Factura fac = new Factura();
     DefaultTableModel modelo;
     String serie;
-    String cbDescuento;
+    String spiDescuento;
     double pre;
     int cant;
     double tpagar;
     double descuento;
+    double porcentaje;
     double iva;
+    int fila;
 
     public Controller_Factura(Model_Factura model, Vista_crud_Factura vista, MenuPrincipal vistamenu) {
         this.model = model;
@@ -45,25 +47,22 @@ public class Controller_Factura {
         modelo = (DefaultTableModel) vista.getTblFactura().getModel();
         fecha();
         generarSerie();
+
     }
 
     public void iniciarControl() {
         vista.getBtnAceptar().addActionListener(l -> generarVentas());
-//        vista.getBtnNombres().addActionListener(l -> BuscarPaciente());
-//        vista.getBtnTratamiento().addActionListener(l -> BuscarTratamiento());
         vista.getBtnCargarDatos().addActionListener(l -> cargardatosexternosconcedula());
         vista.getBtnAgregar().addActionListener(l -> agrgarTratamiento());
-//        vista.getBtnAgregar().addActionListener(l -> calculardesc());
         vista.getBtnCalculadora().addActionListener(l -> iniciarCalculadora());
         vista.getBtnBuscarTrat().addActionListener(l -> abrir_dialog());
+        vista.getBtnEliminar().addActionListener(l -> eliminarFila());
         vista.getTblDialTratamiento().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (e.getClickCount() == 1) {
-                    System.out.println("Se ha hecho un click");
                 }
                 if (e.getClickCount() == 2) {
-                    System.out.println("Se ha hecho doble click");
                     SetDatos();
                     vista.getDlTratamiento().dispose();
                 }
@@ -81,7 +80,7 @@ public class Controller_Factura {
 
     private void cargarTratamiento() {
         DefaultTableModel tblTrat = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
-        int fila = vista.getTblDialTratamiento().getSelectedRow();
+        fila = vista.getTblDialTratamiento().getSelectedRow();
 
         DefaultTableModel tbmodel;
 
@@ -123,12 +122,30 @@ public class Controller_Factura {
         }
     }
 
-    public void generarVentas() {
-        if (vista.getTxtTotal().getText().equals("")) {
-            JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
-        } else {
-            JOptionPane.showMessageDialog(vista, "Se realizo con exito");
-        }
+//    public void generarVentas() {
+//        if (vista.getTxtTotal().getText().equals("")) {
+//            JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
+//        } else {
+//            JOptionPane.showMessageDialog(vista, "Se realizo con exito");
+//            guardarFactura();
+//            limpiarTabla();
+//            nuevo();
+//            generarSerie();
+//        }
+//    }
+    
+    public void generarVentas(){
+        double precio = Double.parseDouble(vista.getTxtTotal().getText());
+        String idfact = vista.getTxtNumSerie().getText();
+        model.Actualizarprecio(precio, idfact);
+    }
+
+    public void eliminarFila() {
+        DefaultTableModel temp = (DefaultTableModel) vista.getTblFactura().getModel();
+        temp.removeRow(vista.getTblFactura().getSelectedRow());
+        fila--;
+        calcularTotal();
+        vista.getTxtTratamientoFac().requestFocusInWindow();
     }
 
     public void guardarFactura() {
@@ -137,21 +154,54 @@ public class Controller_Factura {
             JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
         } else {
             Paciente pacien = modelpac.listarpaciente(idpacien);
-            if (pacien.getId_paciente() != null) {
-                String serie = vista.getTxtNumSerie().getText();
-                String paciente = pacien.getNombres();
-            } else {
+            String serie = vista.getTxtNumSerie().getText();
+            String paciente = vista.getLblNombre().getText();
+            String direccion = vista.getLblDireccion().getText();
+            String fecha = vista.getTxtFecha().getText();
+
+            int fila = vista.getTblFactura().getRowCount();
+            for (int i = 0; i < fila; i++) {
+                String tratamiento = vista.getTblFactura().getValueAt(i, 1).toString();
+                fac.setTratamiento(tratamiento);
             }
+
+            fac.setSerieFac(serie);
+            fac.setNombres(paciente);
+            fac.setDireccion(direccion);
+            fac.setFecha(fecha);
+            model.GuardarFactura(fac);
+            System.out.println("GUARDAR FACTURA OK");
+
         }
 
+    }
+
+    public void guardarDetalleFactura() {
+
+        String serie = (vista.getTxtNumSerie().getText());
+        int factura = model.IdFactura();
+        for (int i = 0; i < vista.getTblFactura().getRowCount(); i++) {
+            int cantidad = Integer.parseInt(vista.getTblFactura().getValueAt(i, 0).toString());
+            String trat = vista.getTblFactura().getValueAt(i, 1).toString();
+            double preciounit = Double.parseDouble(vista.getTblFactura().getValueAt(i, 2).toString());            
+            double precio = Double.parseDouble(vista.getTblFactura().getValueAt(i, 3).toString());
+
+            fac.setIdDetalle(factura);
+            fac.setSerieFac(serie);
+            fac.setTratamiento(trat);
+            fac.setPreciounit(preciounit);
+            fac.setTotalprod(precio);
+            fac.setCantidad(cantidad);
+
+            model.GuardarDetalleFactura(fac);
+            System.out.println("GUARDAR DETALLE FACTURA OK ");
+
+        }
     }
 
     public void cargardatosexternosconcedula() {
 
         String id12 = vistamenu.getLblCedulapac().getText();
-        // pac.cargartxtsobrantes(id2);
-        System.out.println(id12 + "-----");
-
         List<Paciente> milistapa = model.cargartxtsobrantes(id12);
         for (int i = 0; i < milistapa.size(); i++) {
 
@@ -159,41 +209,23 @@ public class Controller_Factura {
             vista.getLblApellido().setText(milistapa.get(i).getApellidos());
             vista.getLblDireccion().setText(milistapa.get(i).getDireccion());
             vista.getLblid().setText(id12);
+            guardarFactura();
+            generarSerie();
         }
 
     }
 
     public void generarSerie() {
+
         serie = model.NumSerie();
         if (serie == null) {
-            vista.getTxtNumSerie().setText("000001");
+            vista.getTxtNumSerie().setText("0000001");
         } else {
             int inc = Integer.parseInt(serie);
             inc++;
-            vista.getTxtNumSerie().setText("00000" + inc);
-            if (serie.substring(5).equals("10")) {
-                vista.getTxtNumSerie().setText("0000" + inc);//OJO OJO OJO OJO OJO
-            }
-        }
+            String nroSerie = String.format("%7s", String.valueOf(inc)).replace(' ', '0');
+            vista.getTxtNumSerie().setText(nroSerie);
 
-    }
-
-    private void BuscarPaciente() {
-        int r;
-        String idpac = vista.getLblid().getText();
-        if (vista.getLblid().equals("")) {
-            JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
-        } else {
-            Paciente pac = modelpac.listarpaciente(idpac);
-            if (pac.getId_paciente() != null) {
-//                vista.getTxtNombreFac().setText(pac.getCedula_pac());
-
-            } else {
-                r = JOptionPane.showConfirmDialog(vista, "Paciente no registrado,¿Desea Registrar? ");
-                if (r == 0) {
-
-                }
-            }
         }
 
     }
@@ -236,6 +268,7 @@ public class Controller_Factura {
         vista.getTblFactura().setModel(modelo);
         calcularTotal();
         nuevo();
+        guardarDetalleFactura();
 
     }
 
@@ -246,15 +279,15 @@ public class Controller_Factura {
         mes = calendar.get(Calendar.MONTH) + 1;
         dia = calendar.get(Calendar.DATE);
         if (mes < 10) {
-            vista.getTxtFecha().setText(año + "/0" + mes + "/" + dia);
+            vista.getTxtFecha().setText(año + "-0" + mes + "-" + dia);
         }
         if (dia < 10) {
-            vista.getTxtFecha().setText(año + "/" + mes + "/0" + dia);
+            vista.getTxtFecha().setText(año + "-" + mes + "-0" + dia);
         }
         if (dia > 10 && mes > 10) {
-            vista.getTxtFecha().setText(año + "/" + mes + "/" + dia);
+            vista.getTxtFecha().setText(año + "-" + mes + "-" + dia);
         } else if (dia < 10 && mes < 10) {
-            vista.getTxtFecha().setText(año + "/0" + mes + "/0" + dia);
+            vista.getTxtFecha().setText(año + "-0" + mes + "-0" + dia);
         }
 
     }
@@ -275,31 +308,26 @@ public class Controller_Factura {
             calculardesc();
         }
         vista.getTxtSubtotal().setText("" + tpagar);
-        vista.getTxtTotal().setText("" + descuento);
+        vista.getTxtIva().setText("12");
+        vista.getTxtTotal().setText("" + iva);
     }
 
     public void calculardesc() {
-        if (vista.getCbDescuento().getSelectedItem().equals("--SELECIONAR--")) {
-            cbDescuento = "--SELECIONAR--";
-            vista.getTxtDescuento().setText("0");
+        if (vista.getSpiDesc().getValue().toString().equals("0")) {
+            spiDescuento = vista.getSpiDesc().getValue().toString();
+            vista.getTxtDescuento().setText(spiDescuento);
             descuento = tpagar;
-        } else if (vista.getCbDescuento().getSelectedItem().equals("10%")) {
-            cbDescuento = "10%";
-            vista.getTxtDescuento().setText("10");
-            descuento = tpagar - (tpagar * 0.10);
-        } else if (vista.getCbDescuento().getSelectedItem().equals("20%")) {
-            cbDescuento = "20%";
-            vista.getTxtDescuento().setText("20");
-            descuento = tpagar - (tpagar * 0.20);
-        } else if (vista.getCbDescuento().getSelectedItem().equals("30%")) {
-            cbDescuento = "30%";
-            vista.getTxtDescuento().setText("30");
-            descuento = tpagar - (tpagar * 0.30);
+        } else {
+            spiDescuento = vista.getSpiDesc().getValue().toString();
         }
+        porcentaje = Double.parseDouble(vista.getSpiDesc().getValue().toString()) / 100;
+        vista.getTxtDescuento().setText(spiDescuento);
+        descuento = tpagar - (tpagar * porcentaje);
+        iva = descuento + (descuento * 0.12);
+
     }
 
     public void nuevo() {
-//        vista.getTxtNombreFac().setText("");
         vista.getTxtPrecio().setText("");
         vista.getTxtTratamientoFac().setText("");
     }

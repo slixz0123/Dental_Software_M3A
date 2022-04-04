@@ -37,10 +37,10 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setBackground(new java.awt.Color(166, 104, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
