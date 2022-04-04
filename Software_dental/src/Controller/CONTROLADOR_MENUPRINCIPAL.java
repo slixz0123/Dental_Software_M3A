@@ -467,11 +467,11 @@ Model_Receta modelrec = new Model_Receta();
         Controller.Controller_Rep_Citas controlRepCitas = new Controller_Rep_Citas(modelRepCitas, vistaRepCits, vista);
     
        
-//        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
-//        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
-//        reportes.getPnHistOdonto().add(vistaHistorialrepmed);
-//        vistaHistorialrepmed.setBorder(null);
-//        Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
+  Model_HistorialMedico modHistor = new Model_HistorialMedico();
+        Vista_Rep_HistorialOdontologico vistaHistorialod = new Vista_Rep_HistorialOdontologico ();
+        reportes.getPnHistOdonto().add(vistaHistorialod);
+        vistaHistorialod.setBorder(null);
+        Controller.Controller_Rep_His_Med controllerHist_od = new Controller_Rep_His_Med (modHistor, vistaHistorialod , vista);
 
         Model_Hist_clinico modelreporteHistClinica = new Model_Hist_clinico();
         View_Rep_HistoriaClinica vistaReporteHistoClinica = new View_Rep_HistoriaClinica();
