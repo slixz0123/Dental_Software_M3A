@@ -4,6 +4,11 @@
  */
 package View;
 
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+import jtextfieldround.JTextFieldRound;
+
 /**
  *
  * @author slix0
@@ -30,12 +35,12 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtbuscar = new jtextfieldround.JTextFieldRound();
-        jButton1 = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        radiobnespecifico = new javax.swing.JRadioButton();
+        radiobtngeneral = new javax.swing.JRadioButton();
+        btnrepcitas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -54,8 +59,8 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 180, -1));
         panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 830, 30));
 
-        jButton1.setText("Imprimir");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
+        btnimprimir.setText("Imprimir");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
 
         jtbllistadopac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,16 +82,16 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
 
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Especifico");
-        panelNice2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        radiobnespecifico.setForeground(new java.awt.Color(255, 255, 255));
+        radiobnespecifico.setText("Especifico");
+        panelNice2.add(radiobnespecifico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("General");
-        panelNice2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
+        radiobtngeneral.setForeground(new java.awt.Color(255, 255, 255));
+        radiobtngeneral.setText("General");
+        panelNice2.add(radiobtngeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
-        jButton2.setText("Consultar");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
+        btnrepcitas.setText("Consultar");
+        panelNice2.add(btnrepcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,15 +115,64 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnimprimir;
+    private javax.swing.JButton btnrepcitas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtbllistadopac;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JRadioButton radiobnespecifico;
+    private javax.swing.JRadioButton radiobtngeneral;
     private jtextfieldround.JTextFieldRound txtbuscar;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnrepcitas() {
+        return btnrepcitas;
+    }
+
+    public void setBtnrepcitas(JButton btnrepcitas) {
+        this.btnrepcitas = btnrepcitas;
+    }
+
+    public JTable getJtbllistadopac() {
+        return jtbllistadopac;
+    }
+
+    public void setJtbllistadopac(JTable jtbllistadopac) {
+        this.jtbllistadopac = jtbllistadopac;
+    }
+
+    public JRadioButton getRadiobnespecifico() {
+        return radiobnespecifico;
+    }
+
+    public void setRadiobnespecifico(JRadioButton radiobnespecifico) {
+        this.radiobnespecifico = radiobnespecifico;
+    }
+
+    public JRadioButton getRadiobtngeneral() {
+        return radiobtngeneral;
+    }
+
+    public void setRadiobtngeneral(JRadioButton radiobtngeneral) {
+        this.radiobtngeneral = radiobtngeneral;
+    }
+
+    public JTextFieldRound getTxtbuscar() {
+        return txtbuscar;
+    }
+
+    public void setTxtbuscar(JTextFieldRound txtbuscar) {
+        this.txtbuscar = txtbuscar;
+    }
+
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
 }
