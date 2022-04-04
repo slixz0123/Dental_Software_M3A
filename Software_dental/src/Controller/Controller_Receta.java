@@ -25,6 +25,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
@@ -633,17 +635,17 @@ public class Controller_Receta {
          Icon advert;
           void Validarreceta(){
     //validaciones
-        if (vista.txtnombre.getText().equals("")&& vista.txtApellido.getText().equals("")) {
+        if (vista.getTxtnombre().equals("")&& vista.getTxtApellido().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtcedula.getText().equals("")) {
+        } else if (vista.getTxtcedula().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la cedula del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtsexo.getText().equals("")) {
+        } else if (vista.getTxtsexo().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el genero del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtedad.getText().equals("")) {
+        } else if (vista.getTxtedad().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la edad del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtIDreceta.getText().equals("")) {
+        } else if (vista.getTxtIDreceta().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el id de Receta","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        }else if (vista.lblfecha.getText().equals("")) {
+        }else if (vista.getLblfecha().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la fecha actual","Error", JOptionPane.PLAIN_MESSAGE, advert);
         } else{crearRecetas();}
         

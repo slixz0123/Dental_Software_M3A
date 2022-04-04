@@ -115,9 +115,6 @@ public class Controller_CrudEspecialista {
      String id_usuario=vista.getTxtIdUsuario().getText();
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
      
      Model_Especialista mEsp= new Model_Especialista();
      
@@ -141,56 +138,27 @@ public class Controller_CrudEspecialista {
      mEsp.setCiudad(ciudad);
      if(genero.equals("Masculino")){
            mEsp.setGenero("M");
-=======
->>>>>>> Stashed changes
-     Model_Especialista doc= new Model_Especialista();
-     doc.setCedula(cedula);
-           doc.setNombres(nombres);
-           doc.setApellidos(apellido);
-           doc.setCelular(celular);
-           doc.setTelefono(telefono);
-           doc.setDireccion(direccion);
-            if(correo.isEmpty()){
-           doc.setCorreo(correo);
-           } else {
-           if(validarCorreo(correo)){
-           doc.setCorreo(correo);
-           } else {
-           JOptionPane.showMessageDialog(null, "Correo Electronico no valido");
-           doc.setCorreo("");
-            }
-           }
-           doc.setProvincia(provincia);
-           doc.setCiudad(ciudad);
-           if(genero.equals("Masculino")){
-           doc.setGenero("M");
-<<<<<<< Updated upstream
-=======
->>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
->>>>>>> Stashed changes
            } else if(genero.equals("Femenino")){
-           doc.setGenero("F");
+           mEsp.setGenero("F");
            }
-             try{
-             if(vista.getTxtruta().getText().trim().length()!=0){ 
+     try{
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
-           doc.setFoto(icono);}
+           mEsp.setFoto(icono);
 
-            }catch(IOException ex){
-           doc.setFoto(null);
+            }catch(Exception ex){
+                 System.out.println(ex);
+           mEsp.setFoto(null);
         }
-            doc.setId_doctor(id_doctor);
-            doc.setCedula_doc(cedula);
-     doc.setId_usuario("1");
-     doc.setEspecialidad(especialidad);
-     doc.setCargo(cargo);  
+     mEsp.setId_doctor(id_doctor);
+     mEsp.setId_usuario("2");
+     mEsp.setEspecialidad(especialidad);
+     mEsp.setCargo(cargo);
+     mEsp.setCedula_doc(cedula);
+    
+    
      
-<<<<<<< Updated upstream
-     if(doc.crearPersonasByte()){
-=======
-<<<<<<< HEAD
      
 //     if(mEsp.crearPersonasByte()){
 //
@@ -201,10 +169,6 @@ public class Controller_CrudEspecialista {
 //           limpiartxt();} else {
 //     JOptionPane.showMessageDialog(vista, "No se pudo crear");
 //     }
-=======
-     if(doc.crearPersonasByte()){
->>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
->>>>>>> Stashed changes
 
         if(ValidarCedula.validarcedula(cedula)){
              if(vista.getCboxGeneroEsp().getSelectedIndex()!=0){
@@ -222,31 +186,7 @@ public class Controller_CrudEspecialista {
              }
         }
     
-<<<<<<< HEAD
     public void editarDoctor2(){
-=======
-    
-    private boolean validarCorreo(String email){
-      if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
-          || email.endsWith(".edu.ec")|| email.endsWith(".net"))){
-        return true;
-      } else{
-        return false;
-        }
-      }
-    
-    
-    private boolean validarCorreo(String email){
-      if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
-          || email.endsWith(".edu.ec")|| email.endsWith(".net"))){
-        return true;
-      } else{
-        return false;
-        }
-      }
-    
-    public void editarDoctor(){
->>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
         File ruta = new File(vista.getTxtruta().getText());
      String cedula = vista.getTxtcedulaesp().getText();//txtcedulaesp
      String nombres=vista.getTxtnombreesp().getText();//txtnombreesp
@@ -300,15 +240,12 @@ public class Controller_CrudEspecialista {
            mEsp.setFoto(null);
         }
      mEsp.setId_doctor(id_doctor);
-     mEsp.setId_usuario("1");
+     mEsp.setId_usuario("2");
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
     
     
      
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
      
 //     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
 //
@@ -319,11 +256,6 @@ public class Controller_CrudEspecialista {
 //            limpiartxt();} else {
 //     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
 //     }
-=======
->>>>>>> Stashed changes
-     if(vista.getTxtruta().getText().trim().length()!=0){ 
-     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
->>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
 
         if(vista.getTxtruta().getText().trim().length()!=0){ 
             if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
@@ -332,7 +264,6 @@ public class Controller_CrudEspecialista {
             accion="guardar";
             vista.getBtnguardarEsp().setText("Guardar");
             generarSerie();
-<<<<<<< HEAD
             cargarPersonas();
             limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
             } else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
@@ -344,31 +275,11 @@ public class Controller_CrudEspecialista {
             accion="guardar";
             vista.getBtnguardarEsp().setText("Guardar");
             generarSerie();
-<<<<<<< Updated upstream
-=======
             cargarPersonas();
             limpiartxt();} else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
             }else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
             }
 
-=======
->>>>>>> Stashed changes
-             JOptionPane.showMessageDialog(vista, "Modificado con exito");
-            accion="guardar";
-            vista.getBtnguardarEsp().setText("Guardar");
-            limpiartxt();} else {
-     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
-     }} else if(mEsp.modificarPersonasinfoto() && mEsp.modificarEspecialista()){}
-            cargarPersonas();
-            generarSerie();
-             JOptionPane.showMessageDialog(vista, "Modificado con exito");
-            accion="guardar";
-            vista.getBtnguardarEsp().setText("Guardar");
-            limpiartxt();
-<<<<<<< Updated upstream
-=======
->>>>>>> 105b8edc80dcedd94e384a3911d2fa20c0fbc1a2
->>>>>>> Stashed changes
     }
     
 //    public void editarDoctor(){
@@ -695,7 +606,11 @@ public class Controller_CrudEspecialista {
             vista.getTxtprovinciaesp().setText(milistapaci.get(i).getProvincia()) ;
             vista.getTxtIdUsuario().setText(milistapaci.get(i).getId_usuario()) ;
             vista.getTxtCargoesp().setText(milistapaci.get(i).getCargo()) ;
-
+            System.out.println(esp.getTelefono());
+            System.out.println(esp.getCorreo());
+            System.out.println(esp.getProvincia());
+            System.out.println(esp.getId_usuario());
+            System.out.println(esp.getCargo());
             }          
     } 
     
@@ -785,21 +700,21 @@ public class Controller_CrudEspecialista {
     Icon advert;
           void ValidarDoctor(){
     //validaciones
-        if (vista.txtnombreesp.getText().equals("")&& vista.txtapellidoesp.getText().equals("")) {
+        if (vista.getTxtnombreesp().equals("")&& vista.getTxtapellidoesp().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtcedulaesp.getText().equals("")) {
+        } else if (vista.getTxtcedulaesp().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la cedula del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtdirecesp.getText().equals("")) {
+        } else if (vista.getTxtdirecesp().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la direccion del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtprovinciaesp.getText().equals("")&& vista.txtciudadesp.getText().equals("")) {
+        } else if (vista.getTxtprovinciaesp().equals("")&& vista.getTxtciudadesp().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese la provincia y ciudad del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        }  else if (vista.cboxGeneroEsp.getSelectedItem().toString().equals("Seleccione genero")) {
+        }  else if (vista.getCboxGeneroEsp().getSelectedItem().toString().equals("Seleccione genero")) {
             JOptionPane.showMessageDialog(null, "Seleccione el genero valida","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.cBoxespecialidad.getSelectedItem().toString().equals("Seleccione la especialidad")) {
+        } else if (vista.getcBoxespecialidad().getSelectedItem().toString().equals("Seleccione la especialidad")) {
             JOptionPane.showMessageDialog(null, "Seleccione la especialidad","error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtIdDoctor.getText().equals("")) {
+        } else if (vista.getTxtIdDoctor().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese el id del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.txtIdUsuario.getText().equals("")) {
+        } else if (vista.getTxtIdUsuario().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese id del Usuario","Error", JOptionPane.PLAIN_MESSAGE, advert);
         } else{crearDoctor();}
          }

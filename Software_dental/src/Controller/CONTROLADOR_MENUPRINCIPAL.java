@@ -218,7 +218,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         Model_Especialista modelesp = new Model_Especialista();
         Vista_crud_especalista vistaesp = new Vista_crud_especalista();
         vista.getDkpPrincipal().add(vistaesp);
-        vistaesp.setBorder(null);
+        //vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
 
     }
