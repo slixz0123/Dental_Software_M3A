@@ -136,7 +136,7 @@ public class Controller_Rep_His_Med {
            vista.getTxtfumbebe().setText(list_h.get(a).getFum_b());
            vista.getTxtproblemascar().setText(list_h.get(a).getPro_card());
            vista.getTxtulcera().setText(list_h.get(a).getUlc_gas());
-           vista.getTxtpresion().setText(list_h.get(a).getPre_art());
+           vista.getTxtpresion().setText(list_h.get(a).getPresion());
            vista.getTxthepatitis().setText(list_h.get(a).getHepat());
            vista.getTxtdiabetes().setText(list_h.get(a).getDiabetes());
            vista.getTxtepilepsia().setText(list_h.get(a).getEpilepsia());
