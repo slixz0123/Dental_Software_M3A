@@ -20,6 +20,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -50,6 +52,7 @@ public class Controller_CrudEspecialista {
     
     public void iniciar(){
         generarSerie();
+        eventos();
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->ValidarDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
@@ -88,6 +91,152 @@ public class Controller_CrudEspecialista {
         }
     }
     
+    //EVENTOS
+ private void eventos(){
+    KeyListener cedula=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtcedulaesp().getText().length()>9) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    KeyListener nombre=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getTxtnombreesp().getText();
+      StringBuffer strbf = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(strbf, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtnombreesp().setText(match.appendTail(strbf).toString()); 
+        }
+    };
+    KeyListener apellido=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String str = vista.getTxtapellidoesp().getText();
+      StringBuffer capital = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(str);
+      while(match.find()) {
+         match.appendReplacement(capital, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtapellidoesp().setText(match.appendTail(capital).toString()); 
+        }
+    };
+    KeyListener direccion=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE) && (car<'0' || car>'9')){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String dirmay = vista.getTxtdirecesp().getText();
+      StringBuffer dir = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(dirmay);
+      while(match.find()) {
+         match.appendReplacement(dir, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtdirecesp().setText(match.appendTail(dir).toString()); 
+        }
+    };
+    KeyListener provincia=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cad = vista.getTxtprovinciaesp().getText();
+      StringBuffer may = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cad);
+      while(match.find()) {
+         match.appendReplacement(may, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtprovinciaesp().setText(match.appendTail(may).toString()); 
+        }
+    };
+    KeyListener ciudad=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            char car = e.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+            e.consume();
+            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {
+      String cadena = vista.getTxtciudadesp().getText();
+      StringBuffer mayciu = new StringBuffer();
+      Matcher match = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(cadena);
+      while(match.find()) {
+         match.appendReplacement(mayciu, match.group(1).toUpperCase() + match.group(2).toLowerCase());
+      }
+      vista.getTxtciudadesp().setText(match.appendTail(mayciu).toString()); 
+        }
+    };
+    KeyListener telcel = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();   
+        if(c>= '0' && c<='9' && vista.getTxttelfesp().getText().length()<=9){
+
+       }else{
+        e.consume();
+       }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {} 
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+  
+    vista.getTxtcedulaesp().addKeyListener(cedula);
+    vista.getTxtnombreesp().addKeyListener(nombre);
+    vista.getTxtapellidoesp().addKeyListener(apellido);
+    vista.getTxttelfesp().addKeyListener(telcel);
+    vista.getTxtCelularesp().addKeyListener(telcel);
+    vista.getTxtdirecesp().addKeyListener(direccion);
+    vista.getTxtprovinciaesp().addKeyListener(provincia);
+    vista.getTxtciudadesp().addKeyListener(ciudad);
+    vista.getTxtCargoesp().addKeyListener(ciudad);
+    }
+ 
     private boolean validarCorreo(String email){
       if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
           || email.endsWith(".edu.ec")|| email.endsWith(".net"))){

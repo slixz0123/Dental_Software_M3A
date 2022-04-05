@@ -422,7 +422,7 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText(".....");
+        jLabel41.setText("0101010101");
         panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 140, 20));
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -432,13 +432,13 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText(".....");
-        panelNice1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 140, 20));
+        jLabel43.setText("Daniela");
+        panelNice1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 50, 20));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setText("......");
-        panelNice1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 130, 20));
+        jLabel44.setText("San  Martín");
+        panelNice1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 130, 20));
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
