@@ -37,7 +37,7 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         txtbuscar = new jtextfieldround.JTextFieldRound();
         btnimprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtbllistadopac = new javax.swing.JTable();
+        jtbllistadocitas = new javax.swing.JTable();
         radiobnespecifico = new javax.swing.JRadioButton();
         radiobtngeneral = new javax.swing.JRadioButton();
         btnrepcitas = new javax.swing.JButton();
@@ -50,8 +50,8 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("BUSCAR POR NOMBRE O CEDULA");
-        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
+        jLabel2.setText("BUSCAR POR NOMBRE O CEDULA:");
+        panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,23 +62,23 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         btnimprimir.setText("Imprimir");
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
 
-        jtbllistadopac.setModel(new javax.swing.table.DefaultTableModel(
+        jtbllistadocitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Cedula", "Nombres", "Apellidos", "Celular", "Direccion", "Ciudad", "Genero", "Foto", "Fecha Nac", "Tipo sangre"
+                "Cedula", "Nombres", "Apellidos", "Fecha", "Hora", "Motivo", "Medico Tratante"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jtbllistadopac);
+        jScrollPane2.setViewportView(jtbllistadocitas);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
 
@@ -120,7 +120,7 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jtbllistadopac;
+    private javax.swing.JTable jtbllistadocitas;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JRadioButton radiobnespecifico;
     private javax.swing.JRadioButton radiobtngeneral;
@@ -136,11 +136,11 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
     }
 
     public JTable getJtbllistadopac() {
-        return jtbllistadopac;
+        return jtbllistadocitas;
     }
 
     public void setJtbllistadopac(JTable jtbllistadopac) {
-        this.jtbllistadopac = jtbllistadopac;
+        this.jtbllistadocitas = jtbllistadopac;
     }
 
     public JRadioButton getRadiobnespecifico() {
@@ -173,6 +173,14 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
     public void setBtnimprimir(JButton btnimprimir) {
         this.btnimprimir = btnimprimir;
+    }
+
+    public JTable getJtbllistadocitas() {
+        return jtbllistadocitas;
+    }
+
+    public void setJtbllistadocitas(JTable jtbllistadocitas) {
+        this.jtbllistadocitas = jtbllistadocitas;
     }
 
 }
