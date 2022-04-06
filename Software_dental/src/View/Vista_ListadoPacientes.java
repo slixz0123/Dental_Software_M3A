@@ -1,5 +1,6 @@
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JTable;
 import jtextfieldround.JTextFieldRound;
 
@@ -37,6 +38,14 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         this.txtbuscar = txtbuscar;
     }
 
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
     
     
     
@@ -56,7 +65,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtbuscar = new jtextfieldround.JTextFieldRound();
-        jButton1 = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
 
@@ -80,8 +89,8 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
         panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
 
-        jButton1.setText("Imprimir");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
+        btnimprimir.setText("Imprimir");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
 
         jtbllistadopac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,7 +136,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnimprimir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
