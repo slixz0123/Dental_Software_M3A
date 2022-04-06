@@ -258,7 +258,7 @@ CrudReporteHistClinica(e);
         vista.getDkpPrincipal().add(vistatrat);
         vistatrat.setBorder(null);
         Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
-        contTrat.iniciaControl();
+//        contTrat.iniciaControl();
     }
 
     private void CrudCie10(java.awt.event.MouseEvent evt) {
@@ -335,7 +335,7 @@ CrudReporteHistClinica(e);
         vista.getDkpPrincipal().add(vistafarma);
         vistafarma.setBorder(null);
         Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
-        controlfarma.iniciaControl();
+//        controlfarma.iniciaControl();
     }
         
         
@@ -418,7 +418,7 @@ Model_Receta modelrec = new Model_Receta();
         vista_InicioProceso.getPnFacturacion().add(vistafac);
         vistafac.setBorder(null);
         Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac,vista);
-        controlfac.iniciarControl();
+//        controlfac.iniciarControl();
      
         
     }

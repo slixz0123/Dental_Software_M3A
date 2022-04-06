@@ -8,6 +8,7 @@ import Model.Paciente;
 import Model.Tratamiento;
 import View.MenuPrincipal;
 import View.Vista_crud_Factura;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,6 +48,7 @@ public class Controller_Factura {
         modelo = (DefaultTableModel) vista.getTblFactura().getModel();
         fecha();
         generarSerie();
+        iniciarControl();
 
     }
 
@@ -57,6 +59,38 @@ public class Controller_Factura {
         vista.getBtnCalculadora().addActionListener(l -> iniciarCalculadora());
         vista.getBtnBuscarTrat().addActionListener(l -> abrir_dialog());
         vista.getBtnEliminar().addActionListener(l -> eliminarFila());
+        vista.getTblFactura().addKeyListener(new java.awt.event.KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                int fila = vista.getTblFactura().getSelectedRow();
+                if (fila < 0) {
+                    JOptionPane.showMessageDialog(vista, "Seleccione una fila");
+                } else {
+                    if (fila >= 0) {
+                        switch (e.getKeyCode()) {
+                            case KeyEvent.VK_BACK_SPACE:
+                                eliminarFila();
+                                break;
+                            case KeyEvent.VK_DELETE:
+                                eliminarFila();
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                }
+
+            }
+        });
         vista.getTblDialTratamiento().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -133,19 +167,60 @@ public class Controller_Factura {
 //            generarSerie();
 //        }
 //    }
-    
-    public void generarVentas(){
-        double precio = Double.parseDouble(vista.getTxtTotal().getText());
-        String idfact = vista.getTxtNumSerie().getText();
-        model.Actualizarprecio(precio, idfact);
+    public void generarVentas() {
+        if (vista.getTxtTotal().getText().equals("")) {
+            JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
+        } else {
+            int confirmacion = JOptionPane.showConfirmDialog(vista, "Desea imprimir?");
+            if (confirmacion == 0) {
+
+                System.out.println("PROCESANDO FACTURA....");
+                double precio = Double.parseDouble(vista.getTxtTotal().getText());
+                String idfact = vista.getTxtNumSerie().getText();
+                model.Actualizarprecio(precio, idfact);
+                JOptionPane.showMessageDialog(vistamenu, "Factura Gurdada");
+                limpiarTabla();
+                nuevo();
+                generarSerie();
+                vista.getTxtSubtotal().setText("");
+                vista.getTxtDescuento().setText("");
+                vista.getTxtIva().setText("");
+                vista.getTxtTotal().setText("");
+            } else {
+                double precio = Double.parseDouble(vista.getTxtTotal().getText());
+                String idfact = vista.getTxtNumSerie().getText();
+                model.Actualizarprecio(precio, idfact);
+                JOptionPane.showMessageDialog(vistamenu, "Factura Gurdada");
+                limpiarTabla();
+                nuevo();
+                generarSerie();
+                vista.getTxtSubtotal().setText("");
+                vista.getTxtDescuento().setText("");
+                vista.getTxtIva().setText("");
+                vista.getTxtTotal().setText("");
+            }
+
+        }
     }
 
     public void eliminarFila() {
+        int seleccion = vista.getTblFactura().getSelectedRow();
         DefaultTableModel temp = (DefaultTableModel) vista.getTblFactura().getModel();
-        temp.removeRow(vista.getTblFactura().getSelectedRow());
-        fila--;
-        calcularTotal();
-        vista.getTxtTratamientoFac().requestFocusInWindow();
+        if (seleccion < 0) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila");
+        } else {
+            int confirmacion = JOptionPane.showConfirmDialog(vista, "Esta seguro que desea eliminar");
+            if (confirmacion == 0) {
+                String nomtrat = (String) vista.getTblFactura().getModel().getValueAt(seleccion, 1);
+                String idfact = vista.getTxtNumSerie().getText();
+                model.eliminarTratamiento(nomtrat, idfact);
+                temp.removeRow(vista.getTblFactura().getSelectedRow());
+                fila--;
+                calcularTotal();
+                vista.getTxtTratamientoFac().requestFocusInWindow();
+            }
+        }
+
     }
 
     public void guardarFactura() {
@@ -177,26 +252,24 @@ public class Controller_Factura {
     }
 
     public void guardarDetalleFactura() {
-
-        String serie = (vista.getTxtNumSerie().getText());
-        int factura = model.IdFactura();
         for (int i = 0; i < vista.getTblFactura().getRowCount(); i++) {
-            int cantidad = Integer.parseInt(vista.getTblFactura().getValueAt(i, 0).toString());
-            String trat = vista.getTblFactura().getValueAt(i, 1).toString();
-            double preciounit = Double.parseDouble(vista.getTblFactura().getValueAt(i, 2).toString());            
-            double precio = Double.parseDouble(vista.getTblFactura().getValueAt(i, 3).toString());
-
-            fac.setIdDetalle(factura);
-            fac.setSerieFac(serie);
-            fac.setTratamiento(trat);
+            int detfactura = model.IdFactura();
+            String seriedet = vista.getTxtNumSerie().getText();
+            int cantidaddet = Integer.parseInt(vista.getTblFactura().getValueAt(i, 0).toString());
+            String tratadet = vista.getTblFactura().getValueAt(i, 1).toString();
+            double preciounit = Double.parseDouble(vista.getTblFactura().getValueAt(i, 2).toString());
+            double preciodet = Double.parseDouble(vista.getTblFactura().getValueAt(i, 3).toString());
+            fac.setIdDetalle(detfactura);
+            fac.setSerieFac(seriedet);
+            fac.setCantidad(cantidaddet);
+            fac.setTratamiento(tratadet);
             fac.setPreciounit(preciounit);
-            fac.setTotalprod(precio);
-            fac.setCantidad(cantidad);
-
-            model.GuardarDetalleFactura(fac);
-            System.out.println("GUARDAR DETALLE FACTURA OK ");
+            fac.setTotalprod(preciodet);
 
         }
+        model.GuardarDetalleFactura(fac);
+        System.out.println("GUARDAR DETALLE FACTURA OK ");
+
     }
 
     public void cargardatosexternosconcedula() {
@@ -210,7 +283,7 @@ public class Controller_Factura {
             vista.getLblDireccion().setText(milistapa.get(i).getDireccion());
             vista.getLblid().setText(id12);
             guardarFactura();
-            generarSerie();
+//            generarSerie();
         }
 
     }
@@ -248,13 +321,13 @@ public class Controller_Factura {
     }
 
     public void agrgarTratamiento() {
+
         double total;
         String nomtrat = vista.getTxtTratamientoFac().getText();
         cant = Integer.parseInt(vista.getSpiCantidad().getValue().toString());
         pre = Double.parseDouble(vista.getTxtPrecio().getText());
         total = cant * pre;
         ArrayList lista = new ArrayList();
-
         lista.add(cant);
         lista.add(nomtrat);
         lista.add(pre);
@@ -265,10 +338,10 @@ public class Controller_Factura {
         ob[2] = lista.get(2);
         ob[3] = lista.get(3);
         modelo.addRow(ob);
+        guardarDetalleFactura();
         vista.getTblFactura().setModel(modelo);
         calcularTotal();
         nuevo();
-        guardarDetalleFactura();
 
     }
 

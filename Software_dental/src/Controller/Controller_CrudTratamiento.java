@@ -21,6 +21,7 @@ public class Controller_CrudTratamiento {
         vista.setVisible(true);
         generarId();
         llenarTabla("");
+        iniciaControl();
     }
 
     public void iniciaControl() {

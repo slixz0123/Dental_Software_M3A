@@ -19,10 +19,6 @@ public class Model_Factura extends Factura {
         super(idDetalle, totalprod, preciounit, serieFac, nombres, direccion, tratamiento, fecha, cantidad, total);
     }
 
-  
-    
-
-
     public String NumSerie() {
         String sql = "SELECT MAX(serie) FROM factura";
         String serie = "";
@@ -53,11 +49,16 @@ public class Model_Factura extends Factura {
         return idf;
 
     }
-    
-    public boolean Actualizarprecio(double precio, String serie){
-        String sql = "UPDATE factura SET total ='"+precio+"' WHERE serie ='"+serie+"'";
+
+    public boolean Actualizarprecio(double precio, String serie) {
+        String sql = "UPDATE factura SET total ='" + precio + "' WHERE serie ='" + serie + "'";
         return conVentas.accion(sql);
-        
+
+    }
+
+    public boolean eliminarTratamiento(String nomtrat, String idfact) {
+        String sqle = "DELETE FROM detalle_factura WHERE tratamiento='" + nomtrat + "' AND idfactura = '"+idfact+"'";
+        return conVentas.accion(sqle);
     }
 
     public boolean GuardarFactura(Factura fac) {
@@ -84,13 +85,11 @@ public class Model_Factura extends Factura {
 
         }
     }
-    
-        public boolean GuardarDetalleFactura(Factura fac) {
+
+    public boolean GuardarDetalleFactura(Factura fac) {
         try {
             System.out.println("INGRESA GUARDAR FACTURA");
-            String sql = "INSERT INTO detalle_factura(iddetalle,idfactura,tratamiento,cantidad,preciounit,total) ";
-            sql += " VALUES(?,?,?,?,?,?) ";
-
+            String sql = "INSERT INTO detalle_factura(iddetalle,idfactura,tratamiento,cantidad,preciounit,total) VALUES(?,?,?,?,?,?) ";
             PreparedStatement ps = conVentas.GetCon().prepareStatement(sql);
             ps.setInt(1, fac.getIdDetalle());
             ps.setString(2, fac.getSerieFac());

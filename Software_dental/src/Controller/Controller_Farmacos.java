@@ -31,6 +31,7 @@ public class Controller_Farmacos {
         vista.setVisible(true);
         generarId();
         LlenarTabla("");
+        iniciaControl();
     }
 
     public void iniciaControl() {

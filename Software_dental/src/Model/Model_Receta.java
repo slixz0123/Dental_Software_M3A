@@ -38,7 +38,7 @@ public class Model_Receta extends receta{
     }
     
     public String id_receta(){
-        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM recetas ";
+        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM receta ";
         String serie = "";
         try {
             ResultSet rs = con.consulta(sql);
@@ -292,7 +292,7 @@ public class Model_Receta extends receta{
         try{
         String sql;
         
-        sql="INSERT INTO recetas (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
+        sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
     sql+="VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement ps= con.Con().prepareStatement(sql);
         ps.setString(1, getId_receta());

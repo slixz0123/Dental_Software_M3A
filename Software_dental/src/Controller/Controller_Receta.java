@@ -64,7 +64,7 @@ public class Controller_Receta {
         this.vista = vista;
         this.vistamenu = vistamenu;
         vista.setVisible(true);
-        iniciarcontrol();
+//        iniciarcontrol();
     }
     DefaultTableModel dtmreceta= new DefaultTableModel();
     ArrayList<receta> listareceta = new ArrayList<>();
