@@ -19,22 +19,20 @@ import java.util.logging.Logger;
  */
 public class ConexionPg {
      Connection con ;
-<<<<<<< HEAD
-    String cadenaConexion = "jdbc:postgresql://localhost:5433/Dental";
-    String usuario = "postgres";
-//    String contrasena = "159753";
-=======
+
     String cadenaConexion = "jdbc:postgresql://localhost:5432/abc";
     String usuario = "postgres";
+//    String contrasena = "159753";
 
+  
 
     String contrasena = "159753";
 
 
->>>>>>> f021f739857ea0b447af43a2bdf2904ed24c31e9
+
    // String contrasena = "17112002Diana";
 
-    //String contrasena = "1234";
+   // String contrasena = "1234";
 
 
 
@@ -73,6 +71,7 @@ public class ConexionPg {
              return  st.executeQuery(sql);
          } catch (SQLException ex) {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
+             
              return null ; 
          }
       

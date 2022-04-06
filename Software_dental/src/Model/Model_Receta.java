@@ -5,8 +5,7 @@
  */
 package Model;
 
-import static View.Vista_Receta.tblcie10;
-import static View.Vista_Receta.tblreceta;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

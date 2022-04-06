@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.Cie_10;
+import Model.ConexionPg;
 import Model.Model_Cie10;
 import View.Vista_Crud_Cie10;
 import static View.Vista_Crud_Cie10.tblListacie;
@@ -21,6 +22,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author slix0
@@ -41,9 +48,25 @@ public class Controller_CrudCie10 {
         vista.getBtnguardar().addActionListener(l->crearcrudcie10());
         vista.getBtneditar().addActionListener(l->editarcrudcie10());
         vista.getBtneliminar().addActionListener(l->eliminarcrudcie10());
+        vista.getBtnimprimircie().addActionListener(l->imprimirlistacie());
         setEventoMouseClicked(vista.getTblListacie());
         setEventoKeytyped(vista.getTxtbusquedacie());
     }
+       
+    
+     private void imprimirlistacie(){
+        ConexionPg con =new ConexionPg();
+          try {
+              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/repocie10.jasper"));
+            
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());//cargando el reporte con los datos de la base
+          
+              JasperViewer jv = new JasperViewer(jp,false);
+              jv.setVisible(true);
+          } catch (JRException ex) {
+              Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    } 
     
     public void crearcrudcie10(){
     System.out.println("creando crud");

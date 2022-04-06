@@ -43,6 +43,7 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         btneditar = new javax.swing.JButton();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         cbcate = new javax.swing.JComboBox<>();
+        btnimprimircie = new javax.swing.JButton();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblListacie = new javax.swing.JTable();
@@ -76,13 +77,13 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         panelNice1.add(txtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 410, 40));
 
         btneliminar.setText("ELIMINAR");
-        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 160, 40));
+        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 160, 40));
 
         btnguardar.setText("GUARDAR");
-        panelNice1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 160, 40));
+        panelNice1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 160, 40));
 
         btneditar.setText("EDITAR");
-        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, 40));
+        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 160, 40));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
@@ -91,6 +92,9 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         cbcate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbcate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Prevención", "Operativo", "Endodoncia", "Periodoncia", "Cirugía" }));
         panelNice1.add(cbcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 410, 40));
+
+        btnimprimircie.setText("IMPRIMIR");
+        panelNice1.add(btnimprimircie, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 190, 140, 40));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1070, 260));
 
@@ -145,6 +149,7 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnimprimircie;
     private javax.swing.JComboBox<String> cbcate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -239,6 +244,14 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
 
     public void setTxtitulo(JTextFieldRound txtitulo) {
         this.txtitulo = txtitulo;
+    }
+
+    public JButton getBtnimprimircie() {
+        return btnimprimircie;
+    }
+
+    public void setBtnimprimircie(JButton btnimprimircie) {
+        this.btnimprimircie = btnimprimircie;
     }
 
 

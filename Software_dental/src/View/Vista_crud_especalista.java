@@ -146,13 +146,17 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         this.txtCelularesp = txtCelularesp;
     }
 
-    public JTextFieldRound getTxtIdDoctor() {
-        return txtIdDoctor;
+    public JLabel getTxtIdDoctor() {
+        return TxtIdDoctor;
     }
 
-    public void setTxtIdDoctor(JTextFieldRound txtIdDoctor) {
-        this.txtIdDoctor = txtIdDoctor;
+    public void setTxtIdDoctor(JLabel TxtIdDoctor) {
+        this.TxtIdDoctor = TxtIdDoctor;
     }
+
+    
+
+    
 
     public JTextFieldRound getTxtIdUsuario() {
         return txtIdUsuario;
@@ -257,10 +261,10 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btneliminar = new org.edisoncor.gui.button.ButtonRound();
         btneditar = new org.edisoncor.gui.button.ButtonRound();
         btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
-        txtIdDoctor = new jtextfieldround.JTextFieldRound();
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtIdUsuario = new jtextfieldround.JTextFieldRound();
+        TxtIdDoctor = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -442,7 +446,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("Cerrar");
         jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        jPanel1.add(txtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 11, 80, 20));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel15.setText("ID DOCTOR:");
@@ -454,6 +457,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         txtIdUsuario.setText("2");
         jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 11, 70, 20));
+        jPanel1.add(TxtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -471,6 +475,7 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel TxtIdDoctor;
     private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btnExaminar;
     private org.edisoncor.gui.button.ButtonRound btneditar;
@@ -503,7 +508,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtBuscarEsp;
     private jtextfieldround.JTextFieldRound txtCargoesp;
     private jtextfieldround.JTextFieldRound txtCelularesp;
-    private jtextfieldround.JTextFieldRound txtIdDoctor;
     private jtextfieldround.JTextFieldRound txtIdUsuario;
     private jtextfieldround.JTextFieldRound txtapellidoesp;
     private jtextfieldround.JTextFieldRound txtcedulaesp;

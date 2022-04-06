@@ -19,9 +19,6 @@ import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.Model_Hist_clinico;
 import Model.Model_Receta;
-import Model.Model_Rep_Citas;
-import Model.Model_Rep_HistoriaClinica;
-import Model.Model_Rep_HistorialOdontologico;
 import Model.Persona;
 import Model.model_Odontograma;
 import View.Crud_Paciente;
@@ -38,29 +35,22 @@ import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
 import View.Vista_ListadoPacientes;
 import View.Vista_crud_Factura;
-
 import View.Vista_Receta;
 import View.Vista_Rep_Citas;
 import View.Vista_Rep_HistorialOdontologico;
-
-
+import View.Vista_Rep_ListEspe;
+import View.Vista_Rep_ListFarm;
+import View.Vista_Rep_ListTrat;
+import View.Vista_Reportes;
 import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
-import View.vista_Odontograma;
 //import View.vista_Odontograma;
-
 import desplazable.Desface;
-
 import java.awt.Frame;
-
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JLabel;
 
 
@@ -88,13 +78,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickede(vista.getLbl_CrudTratamiento());
         setEventoMouseClickeCie10(vista.getLbl_CrudCie());
 
-        reportehistclinica(vista.getLbl_Diagnostico());
+      
         
 
   
         
         setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
-      HistorialReporteOdontologico(vista.getLbl_historialCliniico());
+   
         setEventoMouseClickProgreso(vista.getLabelini());
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
@@ -167,34 +157,15 @@ public class CONTROLADOR_MENUPRINCIPAL {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                CitasTratamiento(e);
+                Reportes(e);
 
             }
         });
     }
 
-    private void HistorialReporteOdontologico(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
+  
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                HistorialReporteOdontologico(e);
-
-            }
-        });
-    }
-
-    private void reportehistclinica(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-CrudReporteHistClinica(e);
-
-            }
-        });
-    }
+    
 
     private void setEventoMouseClickFarmacos(JLabel laba) {
         laba.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,7 +218,7 @@ CrudReporteHistClinica(e);
         Model_Especialista modelesp = new Model_Especialista();
         Vista_crud_especalista vistaesp = new Vista_crud_especalista();
         vista.getDkpPrincipal().add(vistaesp);
-        vistaesp.setBorder(null);
+        //vistaesp.setBorder(null);
         Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
 
     }
@@ -291,15 +262,23 @@ CrudReporteHistClinica(e);
         Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
     }
 
+
     private void HistorialReporteOdontologico(java.awt.event.MouseEvent evt) {
-        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
-        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
-        vista.getDkpPrincipal().add(vistaHistorialrepmed);
-        vistaHistorialrepmed.setBorder(null);
-
-          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
-
+        //Controller historial medico
+        Model_HistorialMedico modHistor = new Model_HistorialMedico();
+        Vista_Rep_HistorialOdontologico vistaHistorialod = new Vista_Rep_HistorialOdontologico ();
+        vista.getDkpPrincipal().add(vistaHistorialod);
+        vistaHistorialod.setBorder(null);
+        Controller.Controller_Rep_His_Med controllerHist_od = new Controller_Rep_His_Med (modHistor, vistaHistorialod , vista);
     }
+//        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
+//        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
+//        vista.getDkpPrincipal().add(vistaHistorialrepmed);
+//        vistaHistorialrepmed.setBorder(null);
+//
+//          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
+
+
 
     private void ListadoPacbtn() {
     
@@ -314,20 +293,14 @@ CrudReporteHistClinica(e);
    
 
     private void CitasTratamiento(java.awt.event.MouseEvent evt) {
-        Model_Rep_Citas modelRepCitas = new Model_Rep_Citas();
+        Model_Citas modelRepCitas = new Model_Citas();
         Vista_Rep_Citas vistaRepCits = new Vista_Rep_Citas();
         vista.getDkpPrincipal().add(vistaRepCits);
         vistaRepCits.setBorder(null);
         Controller.Controller_Rep_Citas controlRepCitas = new Controller_Rep_Citas(modelRepCitas, vistaRepCits, vista);
     }
 
-    private void CrudReporteHistClinica(java.awt.event.MouseEvent evt) {
-        Model_Rep_HistoriaClinica modelreporteHistClinica = new Model_Rep_HistoriaClinica();
-        View_Rep_HistoriaClinica vistaReporteHistoClinica = new View_Rep_HistoriaClinica();
-        vista.getDkpPrincipal().add(vistaReporteHistoClinica);
-        vistaReporteHistoClinica.setBorder(null);
-        Controller.Controller_Rep_HistoriaClinica controllerRepHistCli = new Controller_Rep_HistoriaClinica(modelreporteHistClinica, vistaReporteHistoClinica,vista);
-    }
+   
 
     private void CrudFarmacos(java.awt.event.MouseEvent evt) {
         Model_Farmacos modelfarma = new Model_Farmacos();
@@ -350,6 +323,7 @@ CrudReporteHistClinica(e);
         vista.getDkpPrincipal().add(vista_InicioProceso);
         vista_InicioProceso.setVisible(true);
         vista_InicioProceso.setBorder(null);
+        
         //historial medico
         Model_HistorialMedico modHisto = new Model_HistorialMedico();
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
@@ -357,12 +331,6 @@ CrudReporteHistClinica(e);
         vistaHistorialMedico.setBorder(null);
 
         Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico (modHisto, vistaHistorialMedico, vista);
-
-
-      
-
-        // listado
-        //listado de pacientes
 
 
         
@@ -422,48 +390,7 @@ Model_Receta modelrec = new Model_Receta();
      
         
     }
-        
-
-    /*private void crudcie10(){
-
-
-        
-//RECETAS
-
-        Model_Receta modelrec = new Model_Receta();
-        Vista_Receta vistarec = new Vista_Receta();
-        vista_InicioProceso.getPnreceta().add(vistarec);
-        vistarec.setBorder(null);
-        Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec); 
-          
-        // odonto
-//        model_Odontograma modelro = new model_Odontograma();
-//        vista_Odontograma vistao = new vista_Odontograma();
-//        vista_InicioProceso.getPnOdontograma().add(vistao);
-//        vistao.setBorder(null);
-//        Controller.Controller_odonto controlod = new Controller_odonto(modelro, vistao); 
-          
-        
-        }
-        
-        
-        
-        /*private void crudcie10(){
-
-         Model_Cie10 modelocrud = new Model_Cie10();
-        Vista_Crud_Cie10 vistacrud = new Vista_Crud_Cie10();
-        //agregar Vista Persona al Desktop Pane.
-        vista.getDkpPrincipal().add(vistacrud);
-                
-        Controller_CrudCie10 controladorcrudPersonas = new Controller_CrudCie10(modelocrud, vistacrud); 
-        controladorcrudPersonas.iniciar();  
-          
-    }*/
-
-     
-        
-       
-        
+    
         private void cargarcboxMedico(){
            
            Model_Especialista modelesp = new Model_Especialista();
@@ -501,7 +428,60 @@ Model_Receta modelrec = new Model_Receta();
 
     }
         
+        private void Reportes(java.awt.event.MouseEvent evt) {
        
+          Vista_Reportes reportes = new Vista_Reportes();
+
+        vista.getDkpPrincipal().add(reportes);
+        reportes.setVisible(true);
+        reportes.setBorder(null);
+        //historial medico
+        Model_ListadoPacientes modellisttPac = new Model_ListadoPacientes();
+        Vista_ListadoPacientes vistaListPac= new Vista_ListadoPacientes();
+       reportes.getPnListPac().add(vistaListPac);
+        vistaListPac.setBorder(null);
+        Controller.Contoller_ListadoPaciente controlListpac = new Contoller_ListadoPaciente(modellisttPac, vistaListPac, vista);
+        
+       Model_Especialista modelisEspe = new Model_Especialista();
+       Vista_Rep_ListEspe vistaListEspe= new Vista_Rep_ListEspe();
+       reportes.getPnListEsp().add(vistaListEspe);
+       vistaListEspe.setBorder(null);
+       Controller.Controller_Rep_ListEspe controlListEsp = new Controller_Rep_ListEspe(modelisEspe, vistaListEspe, vista);
+        
+       Model_Farmacos modelisFarm = new Model_Farmacos();
+       Vista_Rep_ListFarm vistaFarm= new Vista_Rep_ListFarm();
+       reportes.getPnListfarm().add(vistaFarm);
+       vistaFarm.setBorder(null);
+       Controller.Controller_Rep_ListFarm controlListFamr = new Controller_Rep_ListFarm(modelisFarm, vistaFarm, vista);
+        
+        Model_Tratamiento modelTrat = new Model_Tratamiento();
+       Vista_Rep_ListTrat vistaRepTrata= new Vista_Rep_ListTrat();
+       reportes.getPnListTrat().add(vistaRepTrata);
+       vistaRepTrata.setBorder(null);
+       Controller.Controller_Rep_ListTrat controlListTrat = new Controller_Rep_ListTrat(modelTrat, vistaRepTrata, vista);
+        
+        Model_Citas modelRepCitas = new Model_Citas();
+        Vista_Rep_Citas vistaRepCits = new Vista_Rep_Citas();
+        reportes.getOnCitas().add(vistaRepCits);
+        vistaRepCits.setBorder(null);
+        Controller.Controller_Rep_Citas controlRepCitas = new Controller_Rep_Citas(modelRepCitas, vistaRepCits, vista);
+    
+       
+  Model_HistorialMedico modHistor = new Model_HistorialMedico();
+        Vista_Rep_HistorialOdontologico vistaHistorialod = new Vista_Rep_HistorialOdontologico ();
+        reportes.getPnHistOdonto().add(vistaHistorialod);
+        vistaHistorialod.setBorder(null);
+        Controller.Controller_Rep_His_Med controllerHist_od = new Controller_Rep_His_Med (modHistor, vistaHistorialod , vista);
+
+        Model_Hist_clinico modelreporteHistClinica = new Model_Hist_clinico();
+        View_Rep_HistoriaClinica vistaReporteHistoClinica = new View_Rep_HistoriaClinica();
+        reportes.getPnHistClinica().add(vistaReporteHistoClinica);
+        vistaReporteHistoClinica.setBorder(null);
+        Controller.Controller_Rep_HistoriaClinica controllerRepHistCli = new Controller_Rep_HistoriaClinica(modelreporteHistClinica, vistaReporteHistoClinica,vista);
+       
+        
+      
+        }
          
         
             

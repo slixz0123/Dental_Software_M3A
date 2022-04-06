@@ -1,5 +1,6 @@
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JTable;
 import jtextfieldround.JTextFieldRound;
 
@@ -37,6 +38,14 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         this.txtbuscar = txtbuscar;
     }
 
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
     
     
     
@@ -56,15 +65,17 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtbuscar = new jtextfieldround.JTextFieldRound();
-        jButton1 = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
+        panelNice2.setBackground(new java.awt.Color(166, 104, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
@@ -78,8 +89,8 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
         panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
 
-        jButton1.setText("Imprimir");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
+        btnimprimir.setText("Imprimir");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
 
         jtbllistadopac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,8 +117,9 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,18 +128,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 0, 1140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,7 +136,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnimprimir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

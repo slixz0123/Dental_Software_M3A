@@ -199,27 +199,73 @@ public class Model_Especialista extends Doctor{
         return serie;
     }
     
+//    public boolean modificarPersonasbyte(){
+//        String sql2 = "UPDATE persona SET\n"
+//                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"'"+"WHERE cedula= '"+getCedula()+"'";
+//        JOptionPane.showMessageDialog(null, "Especialista modificado correctamente");        
+//        return cpg.accion(sql2);
+//    }
+//    
+//
+//    public boolean modificarEspecialista(){
+//        String sql2 = "UPDATE doctor SET\n"
+//                +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
+//        JOptionPane.showMessageDialog(null, "Especialista modificado especialidad"); 
+//        return cpg.accion(sql2);
+//    }
+
     public boolean modificarPersonasbyte(){
-        String sql2 = "UPDATE persona SET\n"
-                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"'"+"WHERE cedula= '"+getCedula()+"'";
-        JOptionPane.showMessageDialog(null, "Especialista modificado correctamente");        
-        return cpg.accion(sql2);
+        try {
+    String sql;
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
+    PreparedStatement actp= cpg.Con().prepareStatement(sql);
+    actp.setString(1, getNombres());
+    actp.setString(2, getApellidos());
+    actp.setString(3, getCelular());
+    actp.setString(4, getTelefono());
+    actp.setString(5, getDireccion());
+    actp.setString(6, getCorreo());
+    actp.setString(7, getProvincia());
+    actp.setString(8, getCiudad());
+    actp.setString(9, getGenero());
+    actp.setBytes(10, getFoto());
+    actp.setString(11, getCedula());
+    actp.executeUpdate();
+    
+    String sql2;
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+
+            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            
+            ps2.setString(1, getEspecialidad());
+            ps2.setString(2, getCargo());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
     }
     
 
     public boolean modificarEspecialista(){
-        String sql2 = "UPDATE doctor SET\n"
-                +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
-        JOptionPane.showMessageDialog(null, "Especialista modificado especialidad"); 
-        return cpg.accion(sql2);
+        try {
+    String sql2;
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+
+            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            
+            ps2.setString(1, getEspecialidad());
+            ps2.setString(2, getCargo());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
     }
-//    public boolean modificarPersonasByte(){
-////        try{
-//        String sql2 = "UPDATE persona SET\n"
-//                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"', foto= '"+getFoto()+"'"+"WHERE cedula= '"+getCedula()+"'";
-//
-//        return cpg.accion(sql2);
-//    }
 
     
     

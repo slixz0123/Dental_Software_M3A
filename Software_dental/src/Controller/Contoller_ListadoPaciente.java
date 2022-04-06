@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.ConexionPg;
 import Model.Model_ListadoPacientes;
 import Model.Paciente;
 import View.MenuPrincipal;
@@ -25,6 +26,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -65,6 +72,8 @@ public class Contoller_ListadoPaciente {
          
           vista.getTxtbuscar().addKeyListener(kl);
            toquetabla();
+           
+           vista.getBtnimprimir().addActionListener(l-> imprimirlistaPacientes());
           
      }
      
@@ -233,5 +242,24 @@ public class Contoller_ListadoPaciente {
 
 }
 
+      
+       private void imprimirlistaPacientes(){
+        ConexionPg con =new ConexionPg();
+          try {
+              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Listado Pac.jasper"));
+            
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());//cargando el reporte con los datos de la base
+          
+              JasperViewer jv = new JasperViewer(jp,false);
+              jv.setVisible(true);
+          } catch (JRException ex) {
+              Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    } 
+    
+      
+      
+      
+      
 }
 

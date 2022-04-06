@@ -390,13 +390,17 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
         panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 210, 50));
 
         txproblema.setColumns(20);
+        txproblema.setLineWrap(true);
         txproblema.setRows(5);
+        txproblema.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txproblema);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 320, 130));
 
         txtconsulta.setColumns(20);
+        txtconsulta.setLineWrap(true);
         txtconsulta.setRows(5);
+        txtconsulta.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtconsulta);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 320, 130));

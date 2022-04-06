@@ -5,7 +5,7 @@ import Model.Citas;
 import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Citas;
-import Model.Model_CitasTratamiento;
+
 import Model.Paciente;
 import Model.Persona;
 import View.MenuPrincipal;
