@@ -456,7 +456,10 @@ public String idMed(String ced){
         }
     return id;
  }
-   
+   /*Select doc.nombres as nomdoc, doc.apellidos as apdoc, p.nombres, p.apellidos, 
+ c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d 
+ where c.id_doctor_c=d.id_doctor 
+ and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente*/
      
 }
 
