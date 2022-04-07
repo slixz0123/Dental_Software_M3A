@@ -218,7 +218,7 @@ public class Model_Especialista extends Doctor{
         try {
     String sql;
     sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
-    PreparedStatement actp= cpg.Con().prepareStatement(sql);
+    PreparedStatement actp= cpg.GetCon().prepareStatement(sql);
     actp.setString(1, getNombres());
     actp.setString(2, getApellidos());
     actp.setString(3, getCelular());
