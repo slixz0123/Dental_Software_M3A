@@ -36,3 +36,7 @@ Software_dental/build/classes/View/MenuPrincipal.class
 =======
 >>>>>>> Stashed changes
 *.class
+Software_dental/build/classes/Model/Model_Paciente.class
+Software_dental/build/classes/View/Crud_Paciente.class
+Software_dental/nbproject/private/private.properties
+Software_dental/nbproject/project.properties
