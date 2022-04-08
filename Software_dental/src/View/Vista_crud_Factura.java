@@ -196,14 +196,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         this.txtDescuento = txtDescuento;
     }
 
-    public JTextField getTxtIva() {
-        return txtIva;
-    }
-
-    public void setTxtIva(JTextField txtIva) {
-        this.txtIva = txtIva;
-    }
-
     public JTextField getTxtNumSerie() {
         return txtNumSerie;
     }
@@ -292,8 +284,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         txtSubtotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtDescuento = new javax.swing.JTextField();
-        txtIva = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
@@ -510,20 +500,14 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("SUBTOTAL $:");
-        panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
-        panelNice2.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 100, -1));
+        panelNice2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, -1, -1));
+        panelNice2.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 330, 100, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("DESCUENTO $:");
-        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, -1, -1));
-        panelNice2.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 100, -1));
-        panelNice2.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 100, -1));
-
-        jLabel11.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("I.V.A. $:");
-        panelNice2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
+        panelNice2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 380, -1, -1));
+        panelNice2.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 100, -1));
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -568,7 +552,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JDialog dlTratamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -600,7 +583,6 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtDlgTratamiento;
     private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtNumSerie;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtSubtotal;

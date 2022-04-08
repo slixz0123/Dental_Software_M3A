@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.ConexionPg;
 import Model.Model_ListadoPacientes;
 import Model.Model_Paciente;
 import Model.Model_Proforma;
@@ -13,13 +14,27 @@ import Model.Proforma;
 import Model.Tratamiento;
 import View.VISTA_PROFORMA;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -35,10 +50,12 @@ public final class Controller_Proforma {
     Proforma pro = new Proforma();
     DefaultTableModel modelotbl;
     String spiDescuento, serie;
+    String nombre, apellido, direccion, telefono;
+    Date fechanac;
     int fila;
     int cant;
     double pre;
-    double tpagar, descuento, porcentaje, iva;
+    double tpagar, descuento, porcentaje;
 
     public Controller_Proforma(Model_Proforma modelo, VISTA_PROFORMA vista) {
         this.modelo = modelo;
@@ -196,20 +213,23 @@ public final class Controller_Proforma {
         tblModel = (DefaultTableModel) vista.getTblDialog().getModel();
         tblModel.setNumRows(0);
         tblModel.setColumnCount(0);
-        List<Paciente> listap = modelpac.listarpacbuscar(vista.getTxtBuscarDl().getText());
+        List<Paciente> listap = modelpac.listarpac();
         tblModel.addColumn("Cedula");
         tblModel.addColumn("Nombre");
         tblModel.addColumn("Apellido");
         tblModel.addColumn("Direccion");
+        tblModel.addColumn("Telefono");
+        tblModel.addColumn("Fecha Nacimiento");
         Holder<Integer> i = new Holder<>(0);
 
         listap.stream().forEach(pe -> {
-            tblModel.addRow(new Object[4]);
+            tblModel.addRow(new Object[5]);
             vista.getTblDialog().setValueAt(pe.getCedula(), i.value, 0);//Fila 1 para que inicie despues de los titulos
             vista.getTblDialog().setValueAt(pe.getNombres(), i.value, 1);
             vista.getTblDialog().setValueAt(pe.getApellidos(), i.value, 2);
             vista.getTblDialog().setValueAt(pe.getDireccion(), i.value, 3);
-
+            vista.getTblDialog().setValueAt(pe.getCelular(), i.value, 4);
+            vista.getTblDialog().setValueAt(pe.getFecha_nac(), i.value, 5);
             i.value++;
         });
     }
@@ -276,13 +296,13 @@ public final class Controller_Proforma {
                 String idfact = vista.getTxtNumSerie().getText();
                 modelo.Actualizarprecio(precio, idfact);
                 JOptionPane.showMessageDialog(vista, "Proforma Guardada");
+                imprimirProforma();
                 limpiarTabla();
                 nuevo();
                 generarSerie();
                 vista.getTxtPaciente().setText("");
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtIva().setText("");
                 vista.getTxtValorTotal().setText("");
             } else {
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
@@ -295,7 +315,6 @@ public final class Controller_Proforma {
                 vista.getTxtPaciente().setText("");
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtIva().setText("");
                 vista.getTxtValorTotal().setText("");
             }
 
@@ -337,9 +356,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.263 + vtotal) / 3;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 3;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
                 vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("4")) {
                 double vtotal = Double.parseDouble(vista.getTxtValorTotal().getText());
@@ -434,6 +453,30 @@ public final class Controller_Proforma {
         }
     }
 
+    public void imprimirProforma() {
+        ConexionPg connection = new ConexionPg();
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/proforma.jasper"));
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("NOMBRE_PROF", nombre);
+            parametros.put("APELLIDO_PROF", apellido);
+            parametros.put("DIRECCION_PROF", direccion);
+            parametros.put("TELEFONO_PROF", telefono);
+            parametros.put("CEDULA_PROF", vista.getTxtPaciente().getText());
+            parametros.put("SERIE_PROF", vista.getTxtNumSerie().getText());
+            parametros.put("EDAD_PROF", calcularEdad());
+            parametros.put("SUBTOTAL_PROF", Double.parseDouble(vista.getTxtSubtotal().getText()));
+            parametros.put("DESCUENTO_PROF", Double.parseDouble(vista.getTxtDescuento().getText()));
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.GetCon());
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+
+        } catch (JRException ex) {
+            Logger.getLogger(Controller_Proforma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public void generarSerie() {
 
         serie = modelo.NumSerie();
@@ -471,9 +514,30 @@ public final class Controller_Proforma {
         } else {
             if (fila >= 0) {
                 vista.getTxtPaciente().setText(tblTrat.getValueAt(fila, 0).toString());
+                nombre = tblTrat.getValueAt(fila, 1).toString();
+                apellido = tblTrat.getValueAt(fila, 2).toString();
+                direccion = tblTrat.getValueAt(fila, 3).toString();
+                telefono = tblTrat.getValueAt(fila, 4).toString();
+                fechanac = (Date) tblTrat.getValueAt(fila, 5);
 
             }
         }
+    }
+
+    private int calcularEdad() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date dato = vista.getJdtfechanac().getDate();
+        String fechael = dateFormat.format(fechanac);
+        LocalDate hoy = LocalDate.now();
+        System.out.println(fechael);
+        LocalDate fechanac = LocalDate.parse(fechael);
+        Period p = Period.between(fechanac, hoy);
+        int Anio = p.getYears();
+        int fecha = Anio;
+
+//        vista.getTxtedad().setText("" + Anio + " años");
+        return fecha;
+
     }
 
     public void eliminarFila() {
@@ -531,8 +595,7 @@ public final class Controller_Proforma {
             calculardesc();
         }
         vista.getTxtSubtotal().setText("" + tpagar);
-        vista.getTxtIva().setText("12");
-        vista.getTxtValorTotal().setText("" + iva);
+        vista.getTxtValorTotal().setText("" + descuento);
     }
 
     public void calculardesc() {
@@ -546,7 +609,7 @@ public final class Controller_Proforma {
         porcentaje = Double.parseDouble(vista.getSpiDesc().getValue().toString()) / 100;
         vista.getTxtDescuento().setText(spiDescuento);
         descuento = tpagar - (tpagar * porcentaje);
-        iva = descuento + (descuento * 0.12);
+//        iva = descuento + (descuento * 0.12);
 
     }
 

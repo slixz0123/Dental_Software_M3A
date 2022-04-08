@@ -44,14 +44,12 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnValidProforma = new javax.swing.JButton();
         txtValorTotal = new jtextfieldround.JTextFieldRound();
         txtSubtotal = new jtextfieldround.JTextFieldRound();
         txtDescuento = new jtextfieldround.JTextFieldRound();
-        txtIva = new jtextfieldround.JTextFieldRound();
         txtValorCouotaM = new jtextfieldround.JTextFieldRound();
         txtSaldo = new jtextfieldround.JTextFieldRound();
         txtCuotaInicial = new jtextfieldround.JTextFieldRound();
@@ -197,27 +195,21 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel14.setText("Valor total final:");
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 20));
 
-        jLabel13.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("IVA:");
-        panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
-
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Descuento:");
-        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
+        panelNice1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Subtotal:");
-        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 30));
+        panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 30));
 
         btnValidProforma.setText("Validar Proforma");
         panelNice1.add(btnValidProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 260, 40));
         panelNice1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 80, 20));
-        panelNice1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 80, 20));
-        panelNice1.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 80, 20));
-        panelNice1.add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 80, 20));
+        panelNice1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 80, 20));
+        panelNice1.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 80, 20));
         panelNice1.add(txtValorCouotaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 90, 20));
         panelNice1.add(txtSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 90, 20));
         panelNice1.add(txtCuotaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 90, 20));
@@ -319,7 +311,7 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel15.setText("Meses de credito:");
         panelNice3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, 140, 20));
 
-        spiMesesCred.setModel(new javax.swing.SpinnerNumberModel(3, 0, 36, 3));
+        spiMesesCred.setModel(new javax.swing.SpinnerNumberModel(0, 0, 36, 3));
         panelNice3.add(spiMesesCred, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 340, 130, -1));
 
         jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 650));
@@ -462,14 +454,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         this.txtFecha = txtFecha;
     }
 
-    public JTextFieldRound getTxtIva() {
-        return txtIva;
-    }
-
-    public void setTxtIva(JTextFieldRound txtIva) {
-        this.txtIva = txtIva;
-    }
-
     public JTextField getTxtNumSerie() {
         return txtNumSerie;
     }
@@ -552,7 +536,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -585,7 +568,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtCuotaInicial;
     private jtextfieldround.JTextFieldRound txtDescuento;
     private javax.swing.JTextField txtFecha;
-    private jtextfieldround.JTextFieldRound txtIva;
     private javax.swing.JTextField txtNumSerie;
     private javax.swing.JTextArea txtObservaciones;
     private javax.swing.JTextField txtPaciente;

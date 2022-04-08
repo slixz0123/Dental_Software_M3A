@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ConexionPg;
 import Model.Factura;
 import Model.Model_Factura;
 import Model.Model_ListadoPacientes;
@@ -13,10 +14,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Controller_Factura {
 
@@ -36,7 +47,6 @@ public class Controller_Factura {
     double tpagar;
     double descuento;
     double porcentaje;
-    double iva;
     int fila;
 
     public Controller_Factura(Model_Factura model, Vista_crud_Factura vista, MenuPrincipal vistamenu) {
@@ -179,12 +189,13 @@ public class Controller_Factura {
                 String idfact = vista.getTxtNumSerie().getText();
                 model.Actualizarprecio(precio, idfact);
                 JOptionPane.showMessageDialog(vistamenu, "Factura Gurdada");
+                imprimirFactura();
                 limpiarTabla();
                 nuevo();
                 generarSerie();
+                
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtIva().setText("");
                 vista.getTxtTotal().setText("");
             } else {
                 double precio = Double.parseDouble(vista.getTxtTotal().getText());
@@ -196,7 +207,6 @@ public class Controller_Factura {
                 generarSerie();
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtIva().setText("");
                 vista.getTxtTotal().setText("");
             }
 
@@ -230,7 +240,7 @@ public class Controller_Factura {
         } else {
             Paciente pacien = modelpac.listarpaciente(idpacien);
             String serie = vista.getTxtNumSerie().getText();
-            String paciente = vista.getLblNombre().getText();
+            String paciente = vista.getLblid().getText();
             String direccion = vista.getLblDireccion().getText();
             String fecha = vista.getTxtFecha().getText();
 
@@ -344,6 +354,29 @@ public class Controller_Factura {
         nuevo();
 
     }
+    
+       
+    public void imprimirFactura(){
+        ConexionPg connection = new ConexionPg();
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/factura.jasper"));
+            Map<String, Object> parametros = new HashMap<String, Object>(); 
+            parametros.put("CEDULA_PACIENTE", vista.getLblid().getText());
+            parametros.put("NOMBRE_PACIENTE", vista.getLblNombre().getText());
+            parametros.put("APELLIDO_PACIENTE", vista.getLblApellido().getText());
+            parametros.put("TELEFONO_PACIENTE", "0999968535");
+            parametros.put("SUBTOTAL_PACIENTE", Double.parseDouble(vista.getTxtSubtotal().getText()));
+            parametros.put("DESCUENTO_PACIENTE", Double.parseDouble(vista.getTxtDescuento().getText()));
+            parametros.put("FACTURA_SERIE", vista.getTxtNumSerie().getText());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.GetCon());
+            JasperViewer jv = new  JasperViewer(jp,false);
+            jv.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Controller_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
     private void fecha() {
         Calendar calendar = new GregorianCalendar();
@@ -381,8 +414,7 @@ public class Controller_Factura {
             calculardesc();
         }
         vista.getTxtSubtotal().setText("" + tpagar);
-        vista.getTxtIva().setText("12");
-        vista.getTxtTotal().setText("" + iva);
+        vista.getTxtTotal().setText("" + descuento);
     }
 
     public void calculardesc() {
@@ -396,7 +428,7 @@ public class Controller_Factura {
         porcentaje = Double.parseDouble(vista.getSpiDesc().getValue().toString()) / 100;
         vista.getTxtDescuento().setText(spiDescuento);
         descuento = tpagar - (tpagar * porcentaje);
-        iva = descuento + (descuento * 0.12);
+//        iva = descuento + (descuento * 0.12);
 
     }
 
