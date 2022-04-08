@@ -206,7 +206,7 @@ public class Controller_Rep_His_Med {
             
             Map parametros = new HashMap();
             parametros.put("reporteid", num);
-            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.Con());
+            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.getConnection());
             JasperViewer ver= new JasperViewer(impr,false);
             ver.setVisible(true);
         } catch (JRException ex) {

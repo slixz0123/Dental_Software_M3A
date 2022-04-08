@@ -67,7 +67,7 @@ public class Model_Citas extends Citas{
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -114,7 +114,7 @@ public class Model_Citas extends Citas{
     sql="Insert into citas (id_cita, id_paciente, fecha_cita, hora_cita, motivo,id_doctor_c)";
     sql+="values(?,?,?,?,?,?)";
         
-    PreparedStatement ps= con.Con().prepareStatement(sql);
+    PreparedStatement ps= con.getConnection().prepareStatement(sql);
     ps.setString(1, getId_cita());
     ps.setString(2, getId_paciente());
     ps.setDate(3, getFecha_cita());
@@ -137,7 +137,7 @@ public boolean actualizarCitas(){
     sql3="UPDATE citas SET " ;
         sql3 +=  "id_paciente=?, fecha_cita= ?,hora_cita=?,motivo=?,id_doctor_c=? WHERE id_cita=?";
         
-    PreparedStatement ps= con.Con().prepareStatement(sql3);
+    PreparedStatement ps= con.getConnection().prepareStatement(sql3);
     
     ps.setString(1, getId_paciente());
     ps.setDate(2, getFecha_cita());
@@ -333,7 +333,7 @@ public String idPaci(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -351,7 +351,7 @@ public String idMed(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -429,7 +429,7 @@ public String idMed(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -446,7 +446,7 @@ public String idMed(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -456,7 +456,10 @@ public String idMed(String ced){
         }
     return id;
  }
-   
+   /*Select doc.nombres as nomdoc, doc.apellidos as apdoc, p.nombres, p.apellidos, 
+ c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d 
+ where c.id_doctor_c=d.id_doctor 
+ and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente*/
      
 }
 

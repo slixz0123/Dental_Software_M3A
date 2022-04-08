@@ -54,6 +54,7 @@ public class Controller_CitasTratamiento {
         vista.getBtncargar().addActionListener(l->cargardatosexternosconcedula());
     
     }
+   
     
      public void cargardatosexternosconcedula(){
        

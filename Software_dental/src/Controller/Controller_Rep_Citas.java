@@ -5,7 +5,9 @@ import Model.ConexionPg;
 import Model.Model_Citas;
 import View.MenuPrincipal;
 import View.Vista_Rep_Citas;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -32,12 +34,16 @@ public class Controller_Rep_Citas {
         this.vista = vista;
          this.vistamenu = vistamenu;
         vista.setVisible(true);
+        
         iniciaControl ();
+        
         
     }
     public void iniciaControl () {
          vista.getBtnrepcitas().addActionListener( l->cargarcitas());
-         vista.getBtnimprimir().addActionListener( l->imprimirlistacitas());
+         vista.getBtnrepgeneral().addActionListener( l->imprimirlistacitas());
+         vista.getBtnrepespe().addActionListener( l->imprimirlistacitasespe());
+        // radiobuttons();
     }
     
     private void imprimirlistacitas(){
@@ -45,7 +51,7 @@ public class Controller_Rep_Citas {
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/REPROCITASS.jasper"));
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());//cargando el reporte con los datos de la base
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);
@@ -53,7 +59,20 @@ public class Controller_Rep_Citas {
               Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
           }
     } 
-    
+     private void imprimirlistacitasespe(){
+        ConexionPg con =new ConexionPg();
+          try {
+              JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/Reportes/recitascednom.jasper"));
+              Map<String,Object>parametros = new HashMap<String,Object>();
+             // parametros.put("numcedula", );
+              JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getConnection());//cargando el reporte con los datos de la base
+          
+              JasperViewer jv = new JasperViewer(jp,false);
+              jv.setVisible(true);
+          } catch (JRException ex) {
+              Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    }  
     private void  cargarcitas(){
         
         vista.getJtbllistadocitas().setDefaultRenderer(Object.class, new ImageTabla());//La manera de renderizar la tabla
@@ -90,4 +109,13 @@ public class Controller_Rep_Citas {
         });
                 
     }
+   /*  public void radiobuttons(){
+    vista.getBtgrepocitas().add(vista.getRadiobtngeneral());
+     vista.getBtgrepocitas().add(vista.getRadiobnespecifico());
+    if(vista.getRadiobtngeneral().isSelected()==true){
+        cargarcitas();
+    }else if(vista.getRadiobnespecifico().isSelected()==true){
+         
+     }
+    }*/
 }
