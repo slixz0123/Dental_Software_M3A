@@ -263,7 +263,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -280,7 +280,7 @@ public String cedulaPac(String id){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     ced = rs.getString(1);
@@ -297,7 +297,7 @@ public String cedulaMed(String id){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     ced = rs.getString(1);
@@ -314,7 +314,7 @@ public String idMed(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.Con().prepareStatement(sql);
+                ps = con.getConnection().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -332,7 +332,7 @@ public String idMed(String ced){
     sql="Insert into historial_medico (id_his_med, id_medico_his, id_paciente_his, enfermedad_act, ant_fam, trat_med, aler_med, med_hab,"
             + "fum_b, pro_card, ulc_gas, presion, epat, diabetes, epilepsia, do_cab, al_endo, vih, pro_coagu, fre_res, fre_car, pre_art,"
             + "tem, oxim, fecha_his, hora_his) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";    
-        PreparedStatement ps= con.Con().prepareStatement(sql);
+        PreparedStatement ps= con.getConnection().prepareStatement(sql);
         ps.setString(1, getId_his_med());
         ps.setString(2, getId_medico_his());
         ps.setString(3, getId_paciente_his());
@@ -372,7 +372,7 @@ public String idMed(String ced){
     String sql="Update historial_medico SET id_medico_his=?, id_paciente_his=?, enfermedad_act=?, ant_fam=?, trat_med=?, aler_med=?,"
             + "med_hab=?, fum_b=?, pro_card=?, ulc_gas=?, presion=?, epat=?, diabetes=?, epilepsia=?, do_cab=?, al_endo=?, vih=?, "
             + "pro_coagu=?, fre_res=?, fre_car=?, pre_art=?, tem=?, oxim=?, fecha_his=?, hora_his=? where id_his_med=?"; 
-    PreparedStatement act_his= con.Con().prepareStatement(sql);
+    PreparedStatement act_his= con.getConnection().prepareStatement(sql);
         
         act_his.setString(1, getId_medico_his());
         act_his.setString(2, getId_paciente_his());

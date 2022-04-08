@@ -63,7 +63,7 @@ public class Model_Proforma extends Proforma {
             String sql = "INSERT INTO proforma(id,cedulapac,total,fecha,observaciones,formapago,cuotainicial,saldo,mesescred,valorcuotamensual) ";
             sql += " VALUES(?,?,?,?,?,?,?,?,?,?) ";
 
-            PreparedStatement ps = conProf.GetCon().prepareStatement(sql);
+            PreparedStatement ps = conProf.getConnection().prepareStatement(sql);
             ps.setString(1, pro.getSerieProf());
             ps.setString(2, pro.getCedula());
             ps.setDouble(3, pro.getTotal());
@@ -89,7 +89,7 @@ public class Model_Proforma extends Proforma {
         try {
             System.out.println("INGRESA GUARDAR DETALLEPROFORMA");
             String sql = "INSERT INTO detalle_proforma(iddetalle,idproforma,tratamiento,cantidad,preciounit,preciototal) VALUES(?,?,?,?,?,?) ";
-            PreparedStatement ps = conProf.GetCon().prepareStatement(sql);
+            PreparedStatement ps = conProf.getConnection().prepareStatement(sql);
             ps.setInt(1, pro.getIdDetProf());
             ps.setString(2, pro.getSerieProf());
             ps.setString(3, pro.getTratamiento());

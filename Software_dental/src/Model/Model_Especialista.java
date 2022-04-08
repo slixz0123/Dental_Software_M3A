@@ -145,7 +145,7 @@ public class Model_Especialista extends Doctor{
         
         sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
             sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps=cpg.GetCon().prepareStatement(sql);
+            PreparedStatement ps=cpg.getConnection().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
             ps.setString(3,getApellidos());
@@ -163,7 +163,7 @@ public class Model_Especialista extends Doctor{
         String sql2;    
         sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
         sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
-        PreparedStatement ps2  =cpg.GetCon().prepareStatement(sql2);
+        PreparedStatement ps2  =cpg.getConnection().prepareStatement(sql2);
         ps2.setString(1, getId_doctor());
          ps2.setString(2, getId_usuario());
          ps2.setString(3,getEspecialidad());
@@ -218,7 +218,7 @@ public class Model_Especialista extends Doctor{
         try {
     String sql;
     sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
-    PreparedStatement actp= cpg.GetCon().prepareStatement(sql);
+    PreparedStatement actp= cpg.getConnection().prepareStatement(sql);
     actp.setString(1, getNombres());
     actp.setString(2, getApellidos());
     actp.setString(3, getCelular());
@@ -235,7 +235,7 @@ public class Model_Especialista extends Doctor{
     String sql2;
             sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
-            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            PreparedStatement ps2=cpg.getConnection().prepareStatement(sql2);
             
             ps2.setString(1, getEspecialidad());
             ps2.setString(2, getCargo());
@@ -254,7 +254,7 @@ public class Model_Especialista extends Doctor{
     String sql2;
             sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
-            PreparedStatement ps2=cpg.GetCon().prepareStatement(sql2);
+            PreparedStatement ps2=cpg.getConnection().prepareStatement(sql2);
             
             ps2.setString(1, getEspecialidad());
             ps2.setString(2, getCargo());

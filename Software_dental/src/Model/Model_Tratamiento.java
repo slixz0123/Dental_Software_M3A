@@ -72,7 +72,7 @@ public class Model_Tratamiento extends Tratamiento {
             sql = "INSERT INTO tratamiento(id_tratamiento,nombre_trat,descripcion_trat,precio_trat,tipo_materia) ";
             sql += " VALUES(?,?,?,?,?)";
 
-            PreparedStatement ps = con.GetCon().prepareStatement(sql);
+            PreparedStatement ps = con.getConnection().prepareStatement(sql);
             ps.setString(1, getId_tratamiento());
             ps.setString(2, getNombre_trat());
             ps.setString(3, getDescripcion_trat());
@@ -93,7 +93,7 @@ public class Model_Tratamiento extends Tratamiento {
         try {
             String sqla = "UPDATE tratamiento SET id_tratamiento=? ,nombre_trat=? ,descripcion_trat=? ,precio_trat=? ,tipo_materia=? WHERE id_tratamiento ='" + getId_tratamiento() + "'";
 
-            PreparedStatement psm = con.GetCon().prepareStatement(sqla);
+            PreparedStatement psm = con.getConnection().prepareStatement(sqla);
             psm.setString(1, getId_tratamiento());
             psm.setString(2, getNombre_trat());
             psm.setString(3, getDescripcion_trat());

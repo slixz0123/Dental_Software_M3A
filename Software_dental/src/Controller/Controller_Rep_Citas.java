@@ -51,7 +51,7 @@ public class Controller_Rep_Citas {
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/REPROCITASS.jasper"));
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());//cargando el reporte con los datos de la base
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);
@@ -65,7 +65,7 @@ public class Controller_Rep_Citas {
               JasperReport jr = (JasperReport)JRLoader.loadObject(getClass().getResource("/Reportes/recitascednom.jasper"));
               Map<String,Object>parametros = new HashMap<String,Object>();
              // parametros.put("numcedula", );
-              JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.Con());//cargando el reporte con los datos de la base
+              JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getConnection());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

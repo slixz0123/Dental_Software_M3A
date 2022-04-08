@@ -293,7 +293,7 @@ public class Model_Receta extends receta{
         
         sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
     sql+="VALUES(?,?,?,?,?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql);
         ps.setString(1, getId_receta());
         ps.setString(2, getCedula_pac());
         ps.setString(3, getNombre());
@@ -378,7 +378,7 @@ public class Model_Receta extends receta{
         
         sql2="INSERT INTO receta_cie (id_receta_cie,id_receta,titulo_cie,categoria_cie)";
         sql2+="VALUES(?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql2);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql2);
         ps.setString(1, getId_rec_cie());
         ps.setString(2, getId_receta());
         ps.setString(3, getId_titulo());
@@ -402,7 +402,7 @@ public class Model_Receta extends receta{
         
         sql="INSERT INTO receta_far (receta_far_id, id_receta, detalle_far, dosis_far,cantidad,frecuencia)";
     sql+="VALUES(?,?,?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql);
         ps.setString(1, getId_rec_far());
         ps.setString(2, getId_receta());
         ps.setString(3, getFarmaco());

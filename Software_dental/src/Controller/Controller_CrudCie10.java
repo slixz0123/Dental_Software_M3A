@@ -59,7 +59,7 @@ public class Controller_CrudCie10 {
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/repocie10.jasper"));
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());//cargando el reporte con los datos de la base
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

@@ -59,7 +59,7 @@ public class Model_Articulos extends Articulos {
     String sql;
     sql="Insert into articulos (id_articulo, id_usuario,nombre_arti,marca_arti,cantidad_arti,precio_arti)";
     sql+="values(?,?,?,?,?,?)";   
-    PreparedStatement ps= con.Con().prepareStatement(sql);
+    PreparedStatement ps= con.getConnection().prepareStatement(sql);
     ps.setString(1, getId_articulo());
     ps.setString(2, getId_usuario());
     ps.setString(3, getNombre_art());
@@ -78,7 +78,7 @@ public class Model_Articulos extends Articulos {
     try {
     String sql;
     sql="Update articulo SET id_usuario=?, nombre_arti=?, marca_arti=?, cantidad_arti=?, precio_arti=? WHERE id_articulo=?";
-    PreparedStatement arti= con.Con().prepareStatement(sql);
+    PreparedStatement arti= con.getConnection().prepareStatement(sql);
     arti.setString(1, getId_usuario());
     arti.setString(2, getNombre_art());
     arti.setString(3, getMarca_art());

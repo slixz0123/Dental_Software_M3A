@@ -58,7 +58,7 @@ public class Model_Consentimiento extends Consentimiento {
     String sql;
     sql="Insert into consentimiento (id_consent, id_historia_cli_con,id_paciente_cons,nom_paci_cons,nom_doc_cons)";
     sql+="values(?,?,?,?,?)";   
-    PreparedStatement ps= con.Con().prepareStatement(sql);
+    PreparedStatement ps= con.getConnection().prepareStatement(sql);
     ps.setString(1, getId_consentimiento());
     ps.setString(2, getId_historia());
     ps.setString(3, getId_pac());
@@ -76,7 +76,7 @@ public class Model_Consentimiento extends Consentimiento {
     try {
     String sql;
     sql="Update consentimiento SET id_historia_cli_con=?, id_paciente_cons=?, nom_paci_cons=?, nom_doc_cons=? WHERE id_consent=?";
-    PreparedStatement act_an= con.Con().prepareStatement(sql);
+    PreparedStatement act_an= con.getConnection().prepareStatement(sql);
     act_an.setString(1, getId_historia());
     act_an.setString(2, getId_pac());
     act_an.setString(3, getNombre_pac());
