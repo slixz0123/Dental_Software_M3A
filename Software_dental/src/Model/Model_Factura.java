@@ -18,6 +18,7 @@ public class Model_Factura extends Factura {
     public Model_Factura(int idDetalle, double totalprod, double preciounit, String serieFac, String nombres, String direccion, String tratamiento, String fecha, int cantidad, double total) {
         super(idDetalle, totalprod, preciounit, serieFac, nombres, direccion, tratamiento, fecha, cantidad, total);
     }
+    
 
     public String NumSerie() {
         String sql = "SELECT MAX(serie) FROM factura";
@@ -64,17 +65,15 @@ public class Model_Factura extends Factura {
     public boolean GuardarFactura(Factura fac) {
         try {
             System.out.println("INGRESA GUARDAR FACTURA");
-            String sql = "INSERT INTO factura(serie,paciente,direccion,tratamiento,fecha,cantidad,total) ";
-            sql += " VALUES(?,?,?,?,?,?,?) ";
+            String sql = "INSERT INTO factura(serie,paciente,direccion,fecha,total) ";
+            sql += " VALUES(?,?,?,?,?) ";
 
             PreparedStatement ps = conVentas.GetCon().prepareStatement(sql);
             ps.setString(1, fac.getSerieFac());
             ps.setString(2, fac.getNombres());
             ps.setString(3, fac.getDireccion());
-            ps.setString(4, fac.getTratamiento());
-            ps.setString(5, fac.getFecha());
-            ps.setInt(6, fac.getCantidad());
-            ps.setDouble(7, fac.getTotal());
+            ps.setString(4, fac.getFecha());
+            ps.setDouble(5, fac.getTotal());
             ps.executeUpdate();
             System.out.println("EJECUTA GUARDAR FACTURA");
             return true;
@@ -96,7 +95,7 @@ public class Model_Factura extends Factura {
             ps.setString(3, fac.getTratamiento());
             ps.setInt(4, fac.getCantidad());
             ps.setDouble(5, fac.getPreciounit());
-            ps.setDouble(6, fac.getTotal());
+            ps.setDouble(6, fac.getTotalprod());
             ps.executeUpdate();
             System.out.println("EJECUTA GUARDAR DETALLEFACTURA");
             return true;
@@ -113,7 +112,7 @@ public class Model_Factura extends Factura {
         String sql3;
 
         try {
-            sql3 = "select p.nombres , p.apellidos , p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
+            sql3 = "select p.nombres , p.apellidos, p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
             ResultSet rs = conVentas.consulta(sql3);
 
             // barremos el resulset
