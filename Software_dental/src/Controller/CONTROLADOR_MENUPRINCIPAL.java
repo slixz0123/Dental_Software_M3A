@@ -23,6 +23,7 @@ import Model.Persona;
 import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Odontograma;
 import View.VISTA_PROFORMA;
 import View.View_Rep_HistoriaClinica;
 import View.Vista_AgendaCitas;
@@ -88,6 +89,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickProgreso(vista.getLabelini());
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
+        vista.getBtnOdontograma().addActionListener(l->Odontograma());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         
@@ -101,6 +103,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
+    private void Odontograma(){
+        model_Odontograma model= new model_Odontograma();
+        Odontograma vistaod= new Odontograma();
+        vista.getDkpPrincipal().add(vistaod);
+        Controller_odonto cont=new Controller_odonto(model, vistaod, vista);
+    }
+    
     private void setEventoMouseClicked2(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 

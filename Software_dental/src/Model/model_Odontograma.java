@@ -6,8 +6,8 @@ package Model;
 
 /**
  *
- * @author slix0
+ * @author Saul
  */
-public class model_Odontograma {
+public class model_Odontograma extends odontograma {
     
 }
