@@ -175,6 +175,59 @@ public class Model_Hist_clinico extends Hist_clinico{
     
     
 }
+       
+      public List<Hist_clinico> cargarRepHisclini( String cedula){
+    List<Hist_clinico> milistaHis = new ArrayList<Hist_clinico>();
+    String sql3;
+    
+        try {
+            sql3 = "SELECT " +
+
+"	historia_clinica.observaciones_his,\n" +
+"	historia_clinica.enfermedades_his,\n" +
+"	historia_clinica.medicacion_his,\n" +
+"	historia_clinica.alergias_his,\n" +
+"	historia_clinica.motivo_his\n" +
+"	\n" +
+"      FROM historia_clinica\n" +
+"	INNER JOIN paciente ON \n" +
+"	 historia_clinica.id_pac_his = paciente.id_paciente \n" +
+"	INNER JOIN persona ON \n" +
+"	 paciente.cedula_pac = persona.cedula\n" +
+"	 WHERE paciente.cedula_pac =   '"+cedula+"'   " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Hist_clinico pac = new Hist_clinico();
+               
+                pac.setObservacion(rs.getString("observaciones_his"));
+                pac.setEnfermedad(rs.getString("enfermedades_his"));
+                pac.setMedicacion(rs.getString("medicacion_his"));
+                pac.setAlergia(rs.getString("alergias_his"));
+                pac.setMotivo(rs.getString("motivo_his"));
+                
+                
+                milistaHis.add(pac);
+       
+                
+                
+            }
+            return milistaHis;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    
+    
+    
+    
+    
+}
+          
+       
+       
         public List<Doctor> cargaridDoc ( String cedula){
     List<Doctor> milistado = new ArrayList<Doctor>();
     String sql3;

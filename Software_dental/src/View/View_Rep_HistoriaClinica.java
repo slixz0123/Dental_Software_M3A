@@ -4,6 +4,11 @@
  */
 package View;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import jtextfieldround.JTextFieldRound;
+
 /**
  *
  * @author slix0
@@ -17,6 +22,118 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JTextFieldRound getTxtgeneropac() {
+        return Txtgeneropac;
+    }
+
+    public void setTxtgeneropac(JTextFieldRound Txtgeneropac) {
+        this.Txtgeneropac = Txtgeneropac;
+    }
+
+    public JButton getBtncargardts() {
+        return btncargardts;
+    }
+
+    public void setBtncargardts(JButton btncargardts) {
+        this.btncargardts = btncargardts;
+    }
+
+    public JDateChooser getJdtfechanac() {
+        return jdtfechanac;
+    }
+
+    public void setJdtfechanac(JDateChooser jdtfechanac) {
+        this.jdtfechanac = jdtfechanac;
+    }
+
+    public JTextArea getTxtAalergias() {
+        return txtAalergias;
+    }
+
+    public void setTxtAalergias(JTextArea txtAalergias) {
+        this.txtAalergias = txtAalergias;
+    }
+
+    public JTextArea getTxtAmedicacion() {
+        return txtAmedicacion;
+    }
+
+    public void setTxtAmedicacion(JTextArea txtAmedicacion) {
+        this.txtAmedicacion = txtAmedicacion;
+    }
+
+    public JTextArea getTxtAmotivoocnsul() {
+        return txtAmotivoocnsul;
+    }
+
+    public void setTxtAmotivoocnsul(JTextArea txtAmotivoocnsul) {
+        this.txtAmotivoocnsul = txtAmotivoocnsul;
+    }
+
+    public JTextArea getTxtAobservaciones() {
+        return txtAobservaciones;
+    }
+
+    public void setTxtAobservaciones(JTextArea txtAobservaciones) {
+        this.txtAobservaciones = txtAobservaciones;
+    }
+
+    public JTextArea getTxtApatologiass() {
+        return txtApatologiass;
+    }
+
+    public void setTxtApatologiass(JTextArea txtApatologiass) {
+        this.txtApatologiass = txtApatologiass;
+    }
+
+    public JTextFieldRound getTxtapellidospac() {
+        return txtapellidospac;
+    }
+
+    public void setTxtapellidospac(JTextFieldRound txtapellidospac) {
+        this.txtapellidospac = txtapellidospac;
+    }
+
+    public JTextFieldRound getTxtdomicilio() {
+        return txtdomicilio;
+    }
+
+    public void setTxtdomicilio(JTextFieldRound txtdomicilio) {
+        this.txtdomicilio = txtdomicilio;
+    }
+
+    public JTextFieldRound getTxtedad() {
+        return txtedad;
+    }
+
+    public void setTxtedad(JTextFieldRound txtedad) {
+        this.txtedad = txtedad;
+    }
+
+    public JTextFieldRound getTxtnombrespac() {
+        return txtnombrespac;
+    }
+
+    public void setTxtnombrespac(JTextFieldRound txtnombrespac) {
+        this.txtnombrespac = txtnombrespac;
+    }
+
+    public JTextFieldRound getTxttelefono() {
+        return txttelefono;
+    }
+
+    public void setTxttelefono(JTextFieldRound txttelefono) {
+        this.txttelefono = txttelefono;
+    }
+
+    public JButton getBtnimprimir() {
+        return btnimprimir;
+    }
+
+    public void setBtnimprimir(JButton btnimprimir) {
+        this.btnimprimir = btnimprimir;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,8 +145,8 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
 
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
+        btncargardts = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtnombrespac = new jtextfieldround.JTextFieldRound();
         jLabel5 = new javax.swing.JLabel();
@@ -64,7 +181,7 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         panelNice2.setBackground(new java.awt.Color(103, 58, 137));
@@ -75,11 +192,11 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jLabel3.setText("Reporte Historia Clinica");
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
-        jButton1.setText("Imprimir");
-        panelNice2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 570, 50));
+        btnimprimir.setText("Imprimir");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 570, 50));
 
-        jButton2.setText("Cargar Datos");
-        panelNice2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        btncargardts.setText("Cargar Datos");
+        panelNice2.add(btncargardts, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,8 +343,8 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jtextfieldround.JTextFieldRound Txtgeneropac;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btncargardts;
+    private javax.swing.JButton btnimprimir;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
