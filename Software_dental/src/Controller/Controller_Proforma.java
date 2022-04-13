@@ -467,7 +467,7 @@ public final class Controller_Proforma {
             parametros.put("EDAD_PROF", calcularEdad());
             parametros.put("SUBTOTAL_PROF", Double.parseDouble(vista.getTxtSubtotal().getText()));
             parametros.put("DESCUENTO_PROF", Double.parseDouble(vista.getTxtDescuento().getText()));
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getConnection());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.Con());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
 

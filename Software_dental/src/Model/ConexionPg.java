@@ -143,9 +143,9 @@ public class ConexionPg {
   
 
 
-    String contrasena = "159753";
+ //   String contrasena = "159753";
 
-    String contrasena = "1234s";
+    String contrasena = "1234";
 
 
 
@@ -155,8 +155,7 @@ public class ConexionPg {
 
 
 
-    public Connection getConnection() {
-
+   
     public Connection Con() {
 
         return con;
@@ -223,13 +222,7 @@ public class ConexionPg {
 
     
 
-    public Connection GetCon(){
-
-    public Connection getConnection(){
-
-        return con;
-    }
-        
+ 
     
     
     
