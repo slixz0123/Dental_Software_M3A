@@ -60,7 +60,80 @@ public class Model_Citas extends Citas{
         return null;
         }
     }
-    
+     public  List<Citas> listarcitastodo (){
+        List<Citas> milista = new ArrayList<Citas>();
+        try {
+            String sql = "Select doc.nombres as nomdoc, doc.apellidos as apdoc ,doc.cedula as ceddoc, p.nombres, p.apellidos, \n" +
+"p.cedula,\n" +
+" c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
+" where c.id_doctor_c=d.id_doctor \n" +
+" and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente " ;
+           ResultSet rs = con.consulta(sql) ;
+          
+            // barremos el resulset
+           while(rs.next()){
+               
+            Citas micita=new Citas();
+                micita.setId_cita(rs.getString("id_cita"));
+                micita.setId_paciente(rs.getString("id_paciente"));
+                micita.setFecha_cita(rs.getDate("fecha_cita"));
+                micita.setHora_cita(rs.getString("hora_cita"));
+                micita.setMotivo(rs.getString("motivo"));
+                micita.setId_doctor(rs.getString("id_doctor_c"));
+                milista.add(micita); 
+                   
+           }
+            rs.close();
+            return milista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+     
+     
+     public  List<Citas> listarCitascedula (String id){
+         String sql ;
+        List<Citas> milista = new ArrayList<Citas>();
+        try {
+         /*   if(id.equals("")){
+            sql = "Select doc.nombres as nomdoc, doc.apellidos as apdoc ,doc.cedula as ceddoc, p.nombres, p.apellidos, \n" +
+    "p.cedula,\n" +
+    " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
+    " where c.id_doctor_c=d.id_doctor \n" +
+    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente" ;
+          
+            }*/
+            //else{
+            sql = "Select doc.nombres as nomdoc, doc.apellidos as apdoc ,doc.cedula as ceddoc, p.nombres, p.apellidos, \n" +
+    "p.cedula,\n" +
+    " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
+    " where c.id_doctor_c=d.id_doctor \n" +
+    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente and p.cedula='"+id+"'" ;
+     //} 
+            ResultSet rs = con.consulta(sql) ;
+        
+           
+            // barremos el resulset
+           while(rs.next()){
+               
+              Citas micita=new Citas();
+               // micita.setId_cita(rs.getString("id_cita"));
+               // micita.setId_paciente(rs.getString("id_paciente"));
+                micita.setFecha_cita(rs.getDate("fecha_cita"));
+                micita.setHora_cita(rs.getString("hora_cita"));
+                micita.setMotivo(rs.getString("motivo"));
+               // micita.setId_doctor(rs.getString("id_doctor_c"));
+                milista.add(micita); 
+           }
+            rs.close();
+            return milista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+     
     public String idPac(String ced){
     String id ="";
         String sql="Select id_paciente from paciente where cedula_pac ='"+ced+"'";
@@ -456,10 +529,40 @@ public String idMed(String ced){
         }
     return id;
  }
-   /*Select doc.nombres as nomdoc, doc.apellidos as apdoc, p.nombres, p.apellidos, 
- c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d 
- where c.id_doctor_c=d.id_doctor 
- and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente*/
+
+      public List<Paciente> listarpacbuscar(String buscar) {
+        List<Paciente> milistapac = new ArrayList<Paciente>();
+        String sql3;
+        if (buscar.equals(null)) {
+            sql3 = "select p.cedula , p.nombres ,p. apellidos   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  ";
+        } else {
+            sql3 = "select p.cedula , p.nombres ,p. apellidos   from  persona p , paciente pac "
+                    + " WHERE p.cedula = pac.cedula_pac OR ";
+            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
+            sql3 += " p.cedula = pac.cedula_pac";
+            try {
+                ResultSet rs = con.consulta(sql3);
+
+                // barremos el resulset
+                while (rs.next()) {
+                    Paciente pac = new Paciente();
+                    pac.setCedula(rs.getString(1));
+                    pac.setNombres(rs.getString(2));
+                    pac.setApellidos(rs.getString(3));
+
+                    milistapac.add(pac);
+
+                }
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+
+        }
+        return milistapac;
+    }
      
 }
 
