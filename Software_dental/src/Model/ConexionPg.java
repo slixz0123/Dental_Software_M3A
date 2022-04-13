@@ -5,7 +5,6 @@
  */
 package Model;
 
-import com.zaxxer.hikari.HikariDataSource;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -143,7 +142,11 @@ public class ConexionPg {
 
   
 
+
     String contrasena = "159753";
+
+    String contrasena = "1234s";
+
 
 
 
@@ -151,7 +154,11 @@ public class ConexionPg {
   
 
 
+
     public Connection getConnection() {
+
+    public Connection Con() {
+
         return con;
     }
     
@@ -215,7 +222,11 @@ public class ConexionPg {
     
 
     
+
     public Connection GetCon(){
+
+    public Connection getConnection(){
+
         return con;
     }
         
