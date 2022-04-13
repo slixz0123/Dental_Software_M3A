@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.Cie_10;
+import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Especialista;
 import Model.Model_Receta;
@@ -16,6 +17,7 @@ import Model.receta;
 import View.MenuPrincipal;
 import View.Vista_Receta;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -34,8 +36,10 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -48,6 +52,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -64,31 +74,35 @@ public class Controller_Receta {
         this.vista = vista;
         this.vistamenu = vistamenu;
         vista.setVisible(true);
-//        iniciarcontrol();
+        iniciarcontrol();
     }
     DefaultTableModel dtmreceta= new DefaultTableModel();
     ArrayList<receta> listareceta = new ArrayList<>();
     DefaultTableModel dtmcie10= new DefaultTableModel();
     ArrayList<Cie_10> listacie10 = new ArrayList<>();
     DefaultTableModel dtm, dtm2;
+    
+    
     public void iniciarcontrol (){
          generarSerie();
-        Fechaactual();
-        generarIdFar();
-        generarIdCie();
+         Fechaactual();
+         generarIdFar();
+         generarIdCie();
         vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
         
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
-      vista.getBtnagregardatos().addActionListener(l->crearRecFar());
-       vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
+        vista.getBtnagregardatos().addActionListener(l->crearRecFar());
+//        vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
       
-       vista.getBtnagregarcie().addActionListener(l->crearRecCie());
-        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
-        vista.getBtnCrearRec().addActionListener(l->crearRecetas());
-        //cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
+        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
+//        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
+        vista.getBtnCrearRec().addActionListener(l->generaRecetaImprimir());
+        
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
-        setEventoMouseClicked(vista.getTblbuscarcie10());
+        setEventoMouseClicked2(vista.getTblbuscarcie10());
+        vista.getBtnEliminarrec().addActionListener(l->eliminarFarmaco());
+        vista.getBtnEliminarrec().addActionListener(l->eliminarCie());
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -97,27 +111,21 @@ public class Controller_Receta {
 
             @Override
             public void keyPressed(KeyEvent e) {
+//                vista.getBtnagregarcie().addActionListener(l->cargarCIE10Rec(vista.getTxtIDreceta().getText()));
+//                vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
                
             }
+            
         };
-//        vista.getTxtbuscarcie10().addKeyListener(kl);
-//        vista.getTxtbuscarfar().addKeyListener(kl);
-//        vista.getTxtIDreceta().addKeyListener(kl);
-//        vista.getTxtIDreceta().addKeyListener(kl);
+            
+            cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
+            cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());  
         
-        
-         cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
-                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
-                //--
-//                cargarCIE10Rec(vista.getTxtIDreceta().getText());
-               // vista.getBtncargarTabFarm().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
-        
-        
-        
+        vista.getBtncerrar().addActionListener(l->imprimirReceta());
        
     }
     
@@ -134,34 +142,6 @@ public class Controller_Receta {
         }
     }
     
-//    public void crearReceta(){
-//        
-//        
-//    String id_receta = vista.getTxtIDreceta().getText();
-//    String nombre = vista.getTxtnombre().getText();
-//    String apellido = vista.getTxtApellido().getText();
-//    String cedula = vista.getTxtcedula().getText();
-//    String sexo = vista.getTxtApellido().getText();
-//    Date fecha = (Date) vista.getJdcFechareceta().getDate();
-//    String id_farmaco = vista.getTxtIdfamaco().getText();
-//    String indicaciones = vista.getTxtIndicaciones().getText();
-//     
-//          Model_Receta rec = new Model_Receta();
-//           rec.setId_receta(id_receta);
-//           rec.setFecha_receta(fecha);
-//           rec.setId_farmaco_rec(id_farmaco);
-//           rec.setIndicaciones(indicaciones);
-//           
-//            rec.crearReceta();
-//            generarSerie();
-//            fecha();
-////            cargarPersonas ();
-////            limpiartxt();
-//          
-//      }
-    
-    
-    
     public void limpiartxt(){
     vista.getTxtnombre().setText("");
     vista.getTxtApellido().setText("");
@@ -171,24 +151,14 @@ public class Controller_Receta {
     vista.getJdcFechanaciento().setCalendar(null);
     vista.getTxtobservaciones().setText("");
     vista.getTxtalergias().setText("");
-   // LimpiarTablafar();
-   // LimpiarTablacie();
-    generarSerie();
-    }
-//    private void LimpiarTablafar(){
-//            dtm2.getDataVector().removeAllElements();
-//            vista.tblreceta.updateUI();
-//    }
     
-//    private void LimpiarTablacie(){
-//            dtm.getDataVector().removeAllElements();
-//            vista.tblcie10.updateUI();
-//    }
+    }
+
     public void cargardatosexternosconcedula(){
        
         
          String id2 = vistamenu.getLblCedulapac().getText();
-           // pac.cargartxtsobrantes(id2);
+           
            System.out.println(id2+"-----");
  
             List<Paciente> milistapa =  modelo.cargartxtsobrantes(id2);
@@ -202,6 +172,7 @@ public class Controller_Receta {
             vista.getJdcFechanaciento().setDate(milistapa.get(i).getFecha_nac()) ;
               calcu_edad();
               cargarAlergia();
+              
             }        
         
     }
@@ -214,19 +185,6 @@ public class Controller_Receta {
             vista.getTxtalergias().setText(milista);
               
     }
-    
-//    public void cargarDatosReceta(){
-//        String idpac =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-//       // vistamenu.getLblIdpac().setText(id); 
-//           // pac.cargartxtsobrantes(id2);
-//           System.out.println("holas"+iddoc);
-// 
-//            List<Doctor> milistapaci =  model.cargaridDoc(iddoc);
-//         for(int i = 0 ; i < milistapaci.size() ; i++){
-//              
-//            vista.getLabelIddoc().setText(milistapaci.get(i).getId_doctor());
-//        }
-//    }
     
          private void calcu_edad(){
         SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
@@ -278,7 +236,6 @@ public class Controller_Receta {
 
       tbmodel.addRow( new Object[3]);// creo una fila vacia
        //dibujar elementos de la tabla 
-//       vista.getTblbuscarFarmacos().setValueAt(pe.getId_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getNombre_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getMiligramos(), i.value, 1);
        
@@ -330,7 +287,6 @@ public class Controller_Receta {
 
       tbmodel.addRow( new Object[2]);// creo una fila vacia
        //dibujar elementos de la tabla 
-//       vista.getTblbuscarFarmacos().setValueAt(pe.getId_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getNombre_farmaco(), i.value, 0);
        vista.getTblbuscarFarmacos().setValueAt(pe.getMiligramos(), i.value, 1);
        
@@ -373,10 +329,29 @@ public class Controller_Receta {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
+//                vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
                 cargardatosTxtFarmaco(e);
+                vista.getDialogFarmaco().dispose();
+//                cargarFARRec(vista.getTxtIDreceta().getText());
+            
+            } catch (IOException ex) {
+                Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        });
+    }
+    
+         private void setEventoMouseClicked2(JTable tbl)
+    {
+        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+//                vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
                 cargardatosTxtCIE10(e);
-                
-                
+                vista.getDialogCIE().dispose();
+//                cargarCIE10Rec(vista.getTxtIDreceta().getText());
             
             } catch (IOException ex) {
                 Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
@@ -396,7 +371,6 @@ public class Controller_Receta {
             vista.getTxtmiligramos().setText(mg);
             
             }
-        vista.getDialogCIE().dispose();
        }
          
          private void cargardatosTxtCIE10 (java.awt.event.MouseEvent evt) throws IOException{
@@ -424,39 +398,6 @@ public class Controller_Receta {
         vista.getLblfecha().setText(+ dia + "-" + (mes+1) + "-" + año);
 
         }
-//         public static LinkedList modelot2 = new LinkedList();
-         
-//         private void setModelo(){
-//             String [] cabecera={"DETALLE", "DOSIS", "CANTIDAD", "FRECUENCIA"};
-//             dtmreceta.setColumnIdentifiers(cabecera);
-//             vista.tblreceta.setModel(dtmreceta);
-//         }
-//         
-//         private void llenarLista(){
-//             String nombre = vista.getTxtIdfamaco().getText();
-//             String mg = vista.getTxtmiligramos().getText();
-//             String cantidad = vista.getSpcantidad().getValue().toString();
-////             String dosis = vista.getTxtdosis().getText();
-//             String frecuencia = vista.getTxtfrecuencia().getText();
-//             receta mireceta = new receta(nombre,mg,cantidad,frecuencia);
-//             listareceta.add(mireceta);
-//             setDatos();
-//         }   
-//         private void setDatos(){
-//             Object[] datos = new Object[dtmreceta.getColumnCount()];
-//             int i = 0;
-//             dtmreceta.setRowCount(0);
-//             for (receta mireceta : listareceta) {
-//                 datos[0] = mireceta.getFarmaco();
-//                 datos[1] = mireceta.getMiligramos()+"mg";
-//                 datos[2] = mireceta.getCantidad();
-//                 datos[3] = mireceta.getFrecuencia();
-//                 i++;
-//                 dtmreceta.addRow(datos);
-//             }
-//             vista.tblreceta.setModel(dtmreceta);
-//             limpiartxtReceta();
-//         }
          
          private void limpiartxtReceta(){
              vista.txtIdfamaco.setText("");
@@ -528,7 +469,6 @@ public class Controller_Receta {
 //     mEsp.crearPersonas2();
         System.out.println("despues del metodo");
                 limpiartxt();
-                generarSerie();
 
     }
          
@@ -555,8 +495,7 @@ public class Controller_Receta {
         System.out.println("despues del metodo");
                 generarIdFar();
                 limpiartxtReceta();
-//                cargarFARRec();
-//                LimpiarTablafar();
+                cargarFARRec(vista.getTxtIDreceta().getText());
                 
     }
          
@@ -576,12 +515,11 @@ public class Controller_Receta {
      mEsp.setCategoria(categoria);    
      
      mEsp.crearRecCie();
-//     mEsp.crearPersonas2();
+
         System.out.println("despues del metodo");
                 generarIdCie();
                 limpiartxtcie10();
-//                cargarCIE10Rec(vista.getTxtIDreceta().getText());//vista.getTxtIDreceta().getText()
-              ///  LimpiarTablacie();
+                cargarCIE10Rec(vista.getTxtIDreceta().getText());
                 
     }
          
@@ -636,4 +574,107 @@ public class Controller_Receta {
         });
         
          }
+         
+         Icon advert;
+          void Validarreceta(){
+    //validaciones
+        if (vista.getTxtnombre().equals("")&& vista.getTxtApellido().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.getTxtcedula().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la cedula del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.getTxtsexo().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el genero del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.getTxtedad().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la edad del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else if (vista.getTxtIDreceta().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese el id de Receta","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        }else if (vista.getLblfecha().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese la fecha actual","Error", JOptionPane.PLAIN_MESSAGE, advert);
+        } else{crearRecetas();}
+
+         }
+          
+          public void eliminarFarmaco(){
+        int seleccion = vista.getTblreceta().getSelectedRow();
+        int resp=0;
+        Component rootPane = null;
+        Model_Receta  eliminado = new Model_Receta();
+        if(seleccion != -1){
+            String id = vista.getTblreceta().getValueAt(seleccion, 0).toString();
+            JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
+            if(resp==0){
+                if(eliminado.removerFarmacos(id)){
+                    JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
+                    System.out.println("farmaco eliminado");
+                    
+                    cargarCIE10Rec(vista.getTxtIDreceta().getText());
+                    cargarFARRec(vista.getTxtIDreceta().getText());
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
+                }
+                
+            }
+        }
+    }
+          
+          public void eliminarCie(){
+        int seleccion = vista.getTblcie10().getSelectedRow();
+        int resp=0;
+        Component rootPane = null;
+        Model_Receta  eliminado = new Model_Receta();
+        if(seleccion != -1){
+            String id = vista.getTblcie10().getValueAt(seleccion, 0).toString();
+            JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
+            if(resp==0){
+                if(eliminado.removerCie(id)){
+                    JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
+                    System.out.println("cie eliminado");
+                    
+                    cargarCIE10Rec(vista.getTxtIDreceta().getText());
+                    cargarFARRec(vista.getTxtIDreceta().getText());
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
+                }
+                
+            }
+        }
+    }
+          private void imprimirReceta(){
+        ConexionPg con =new ConexionPg();
+          try {
+              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"));
+              Map<String,Object> parametros =new HashMap<String,Object>();
+              System.out.println("impresion");
+              System.out.println(vista.getTxtIDreceta().getText());
+            parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
+            
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());
+          
+              JasperViewer jv = new JasperViewer(jp,false);
+              jv.setVisible(true);
+              
+          } catch (JRException ex) {
+              Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    }
+          
+          public void generaRecetaImprimir() {
+        
+            int confirmacion = JOptionPane.showConfirmDialog(vista, "¿Desea imprimir?");
+            if (confirmacion == 0) {
+                
+                Validarreceta();
+                imprimirReceta();
+                generarSerie();
+                cargarCIE10Rec(vista.getTxtIDreceta().getText());
+                cargarFARRec(vista.getTxtIDreceta().getText());
+            } else {
+                Validarreceta();
+                generarSerie();
+                cargarCIE10Rec(vista.getTxtIDreceta().getText());
+                cargarFARRec(vista.getTxtIDreceta().getText());
+        }
+    }
 }
