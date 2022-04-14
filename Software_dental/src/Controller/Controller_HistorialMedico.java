@@ -80,7 +80,7 @@ public class Controller_HistorialMedico {
         pintarbtnmed(vista.getBtnbuscarmed());
         pintarbtnpac(vista.getBtnbuscarpac());
         pintarbtnnuevo(vista.getBtnlimpiar());
-//        eventotexto(vista.getTxtoxi());
+
     }
     //
     private void pintarbtnpac(JButton bt){
@@ -157,40 +157,7 @@ public class Controller_HistorialMedico {
     }
     });
     }
-//
-  //
-//    private void eventotexto(JTextFieldRound txt){
-//    txt.addKeyListener(new KeyAdapter() {
-//        @Override
-//        public void keyTyped(KeyEvent e) {
-//        autocompletar(e);
-//        }
-//
-//    });
-//    }
-    //
-//    private void autocompletar(java.awt.event.KeyEvent evt){
-//        if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getKeyCode()==KeyEvent.VK_DELETE){} else {
-//        Set <String> texto= new TreeSet<String>();
-//        texto.add("PR");
-//        texto.add("SpO2");
-//        String cad= vista.getTxtoxi().getText();
-//        int tamcad=cad.length();
-//        for(String datos: texto){
-//        String ver="";
-//        for(int i=0; i<tamcad; i++){
-//        if(tamcad<=datos.length()){
-//        ver=ver+datos.charAt(i);
-//        }
-//    }
-//        if(ver.equals(cad)){
-//        vista.getTxtoxi().setText(datos);
-//        vista.getTxtoxi().setSelectionStart(tamcad);
-//        vista.getTxtoxi().setSelectionEnd(datos.length());
-//        break;
-//            }}
-//        }
-//    }
+
     //
     private void evtcalendario(Container container){
 
