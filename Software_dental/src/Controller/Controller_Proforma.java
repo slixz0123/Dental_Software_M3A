@@ -304,6 +304,10 @@ public final class Controller_Proforma {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtValorTotal().setText("");
+                vista.getTxtCuotaInicial().setText("");
+                vista.getTxtSaldo().setText("");
+                vista.getTxtValorCouotaM().setText("");
+                vista.getTxtObservaciones().setText("");
             } else {
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
@@ -316,6 +320,10 @@ public final class Controller_Proforma {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtValorTotal().setText("");
+                vista.getTxtCuotaInicial().setText("");
+                vista.getTxtSaldo().setText("");
+                vista.getTxtValorCouotaM().setText("");
+                vista.getTxtObservaciones().setText("");
             }
 
         }

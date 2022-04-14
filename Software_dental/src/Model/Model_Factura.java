@@ -112,17 +112,17 @@ public class Model_Factura extends Factura {
         String sql3;
 
         try {
-            sql3 = "select p.nombres , p.apellidos, p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
+            sql3 = "select p.nombres , p.apellidos, p.direccion , p.celular, pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
             ResultSet rs = conVentas.consulta(sql3);
 
             // barremos el resulset
             while (rs.next()) {
                 Paciente pac = new Paciente();
-
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
                 pac.setDireccion(rs.getString("direccion"));
                 pac.setId_paciente(rs.getString("id_paciente"));
+                pac.setCelular(rs.getString("celular"));
                 milistapaci.add(pac);
 
             }
