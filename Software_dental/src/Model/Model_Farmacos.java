@@ -98,7 +98,7 @@ public class Model_Farmacos extends farmaco {
             sql = "INSERT INTO farmaco(id_farmaco,nombre_farmaco,descripcion_far,material,mg) ";
             sql += " VALUES(?,?,?,?,?)";
 
-            PreparedStatement ps = con.getConnection().prepareStatement(sql);
+            PreparedStatement ps = con.Con().prepareStatement(sql);
             ps.setString(1, getId_farmaco());
             ps.setString(2, getNombre_farmaco());
             ps.setString(3, getDescripcion_far());
@@ -126,7 +126,7 @@ public class Model_Farmacos extends farmaco {
         try {
             String sqla = "UPDATE farmaco SET id_farmaco=? ,nombre_farmaco=? ,descripcion_far=? ,material=? ,mg=? WHERE id_farmaco ='" + getId_farmaco() + "'";
 
-            PreparedStatement psm = con.getConnection().prepareStatement(sqla);
+            PreparedStatement psm = con.Con().prepareStatement(sqla);
             psm.setString(1, getId_farmaco());
             psm.setString(2, getNombre_farmaco());
             psm.setString(3, getDescripcion_far());

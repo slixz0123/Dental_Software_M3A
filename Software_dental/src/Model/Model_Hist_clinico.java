@@ -89,7 +89,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     sql="Insert into historia_clinica (id_historia_cli, fecha_his, id_pac_his, alergias_his, motivo_his,"
             + "observaciones_his, enfermedades_his, medicacion_his, id_doc)";
     sql+="values(?,?,?,?,?,?,?,?,?)";   
-    PreparedStatement ps= con.getConnection().prepareStatement(sql);
+    PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_historia());
     ps.setDate(2, getFecha_his());
     ps.setString(3, getId_pac());
@@ -114,7 +114,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     String sql;
     sql="Update historia_clinica SET fecha_his=?, id_pac_his=?, alergias_his=?, motivo_his=?,"
             + "observaciones_his=?, enfermedades_his=?, medicacion_his=?, id_odoto=? WHERE id_historia_cli=?";
-    PreparedStatement his_cli= con.getConnection().prepareStatement(sql);
+    PreparedStatement his_cli= con.Con().prepareStatement(sql);
     his_cli.setDate(1, getFecha_his());
     his_cli.setString(2, getId_pac());
     his_cli.setString(3, getAlergia());
@@ -175,6 +175,59 @@ public class Model_Hist_clinico extends Hist_clinico{
     
     
 }
+       
+      public List<Hist_clinico> cargarRepHisclini( String cedula){
+    List<Hist_clinico> milistaHis = new ArrayList<Hist_clinico>();
+    String sql3;
+    
+        try {
+            sql3 = "SELECT " +
+
+"	historia_clinica.observaciones_his,\n" +
+"	historia_clinica.enfermedades_his,\n" +
+"	historia_clinica.medicacion_his,\n" +
+"	historia_clinica.alergias_his,\n" +
+"	historia_clinica.motivo_his\n" +
+"	\n" +
+"      FROM historia_clinica\n" +
+"	INNER JOIN paciente ON \n" +
+"	 historia_clinica.id_pac_his = paciente.id_paciente \n" +
+"	INNER JOIN persona ON \n" +
+"	 paciente.cedula_pac = persona.cedula\n" +
+"	 WHERE paciente.cedula_pac =   '"+cedula+"'   " ;
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Hist_clinico pac = new Hist_clinico();
+               
+                pac.setObservacion(rs.getString("observaciones_his"));
+                pac.setEnfermedad(rs.getString("enfermedades_his"));
+                pac.setMedicacion(rs.getString("medicacion_his"));
+                pac.setAlergia(rs.getString("alergias_his"));
+                pac.setMotivo(rs.getString("motivo_his"));
+                
+                
+                milistaHis.add(pac);
+       
+                
+                
+            }
+            return milistaHis;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    
+    
+    
+    
+    
+}
+          
+       
+       
         public List<Doctor> cargaridDoc ( String cedula){
     List<Doctor> milistado = new ArrayList<Doctor>();
     String sql3;

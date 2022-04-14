@@ -553,7 +553,7 @@ public class Controller_Anamnesis {
             
             Map parametros = new HashMap();
             parametros.put("anamnesisid", num);
-            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.getConnection());
+            JasperPrint impr= JasperFillManager.fillReport(listado, parametros, con.Con());
             JasperViewer ver= new JasperViewer(impr,false);
             ver.setVisible(true);
             

@@ -42,7 +42,7 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jtbllistadocitas = new javax.swing.JTable();
         radiobnespecifico = new javax.swing.JRadioButton();
         radiobtngeneral = new javax.swing.JRadioButton();
-        btnrepcitas = new javax.swing.JButton();
+        btnconsultar = new javax.swing.JButton();
         btnrepgeneral = new javax.swing.JButton();
         btnrepespe = new javax.swing.JButton();
 
@@ -86,16 +86,19 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
 
+        btgrepocitas.add(radiobnespecifico);
         radiobnespecifico.setForeground(new java.awt.Color(255, 255, 255));
         radiobnespecifico.setText("Especifico");
         panelNice2.add(radiobnespecifico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
+        btgrepocitas.add(radiobtngeneral);
         radiobtngeneral.setForeground(new java.awt.Color(255, 255, 255));
+        radiobtngeneral.setSelected(true);
         radiobtngeneral.setText("General");
         panelNice2.add(radiobtngeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
-        btnrepcitas.setText("Consultar");
-        panelNice2.add(btnrepcitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
+        btnconsultar.setText("Consultar");
+        panelNice2.add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
         btnrepgeneral.setText("Reporte General");
         panelNice2.add(btnrepgeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
@@ -126,8 +129,8 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgrepocitas;
+    private javax.swing.JButton btnconsultar;
     private javax.swing.JButton btnimprimir;
-    private javax.swing.JButton btnrepcitas;
     private javax.swing.JButton btnrepespe;
     private javax.swing.JButton btnrepgeneral;
     private javax.swing.JLabel jLabel2;
@@ -141,11 +144,11 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnrepcitas() {
-        return btnrepcitas;
+        return btnconsultar;
     }
 
     public void setBtnrepcitas(JButton btnrepcitas) {
-        this.btnrepcitas = btnrepcitas;
+        this.btnconsultar = btnrepcitas;
     }
 
     public JTable getJtbllistadopac() {
@@ -218,6 +221,14 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
     public void setBtnrepgeneral(JButton btnrepgeneral) {
         this.btnrepgeneral = btnrepgeneral;
+    }
+
+    public JButton getBtnconsultar() {
+        return btnconsultar;
+    }
+
+    public void setBtnconsultar(JButton btnconsultar) {
+        this.btnconsultar = btnconsultar;
     }
 
     

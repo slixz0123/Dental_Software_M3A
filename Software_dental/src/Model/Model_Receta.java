@@ -37,7 +37,7 @@ public class Model_Receta extends receta{
     }
     
     public String id_receta(){
-        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM receta ";
+        String sql = "SELECT MAX (CAST (id_receta AS INTEGER)) FROM recetas ";
         String serie = "";
         try {
             ResultSet rs = con.consulta(sql);
@@ -291,9 +291,9 @@ public class Model_Receta extends receta{
         try{
         String sql;
         
-        sql="INSERT INTO receta (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
+        sql="INSERT INTO recetas (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
     sql+="VALUES(?,?,?,?,?,?,?,?)";
-            PreparedStatement ps= con.getConnection().prepareStatement(sql);
+            PreparedStatement ps= con.Con().prepareStatement(sql);
         ps.setString(1, getId_receta());
         ps.setString(2, getCedula_pac());
         ps.setString(3, getNombre());
@@ -378,7 +378,7 @@ public class Model_Receta extends receta{
         
         sql2="INSERT INTO receta_cie (id_receta_cie,id_receta,titulo_cie,categoria_cie)";
         sql2+="VALUES(?,?,?,?)";
-            PreparedStatement ps= con.getConnection().prepareStatement(sql2);
+            PreparedStatement ps= con.Con().prepareStatement(sql2);
         ps.setString(1, getId_rec_cie());
         ps.setString(2, getId_receta());
         ps.setString(3, getId_titulo());
@@ -402,7 +402,7 @@ public class Model_Receta extends receta{
         
         sql="INSERT INTO receta_far (receta_far_id, id_receta, detalle_far, dosis_far,cantidad,frecuencia)";
     sql+="VALUES(?,?,?,?,?,?)";
-            PreparedStatement ps= con.getConnection().prepareStatement(sql);
+            PreparedStatement ps= con.Con().prepareStatement(sql);
         ps.setString(1, getId_rec_far());
         ps.setString(2, getId_receta());
         ps.setString(3, getFarmaco());
@@ -477,4 +477,17 @@ public class Model_Receta extends receta{
 
    
     }
+    
+    
+    public boolean removerFarmacos( String borrarf)  {
+        String Sql ;
+        Sql="DELETE FROM receta_far WHERE id_receta ='" +borrarf+ "'";
+        return con.accion(Sql);
+  }
+    
+    public boolean removerCie( String borrarc)  {
+        String Sql ;
+        Sql="DELETE FROM receta_cie WHERE id_receta ='" +borrarc+ "'";
+        return con.accion(Sql);
+  }
 }

@@ -18,11 +18,13 @@ import Model.Model_Paciente;
 import Model.Model_Proforma;
 import Model.Model_Tratamiento;
 import Model.Model_Hist_clinico;
+import Model.Model_ListadoEspecialistas;
 import Model.Model_Receta;
 import Model.Persona;
 import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
+import View.Odontograma;
 import View.VISTA_PROFORMA;
 import View.View_Rep_HistoriaClinica;
 import View.Vista_AgendaCitas;
@@ -33,6 +35,7 @@ import View.Vista_Crud_HistorialMedico;
 import View.Vista_Farmacos;
 import View.Vista_HistorialClinico;
 import View.Vista_InicioProceso;
+import View.Vista_ListadoEspecialista;
 import View.Vista_ListadoPacientes;
 import View.Vista_crud_Factura;
 import View.Vista_Receta;
@@ -88,6 +91,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         setEventoMouseClickProgreso(vista.getLabelini());
         setEventoMouseClickProforma(vista.getLbl_Cotizacion());
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
+        vista.getBtnOdontograma().addActionListener(l->Odontograma());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
         
@@ -101,6 +105,13 @@ public class CONTROLADOR_MENUPRINCIPAL {
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
+    private void Odontograma(){
+        model_Odontograma model= new model_Odontograma();
+        Odontograma vistaod= new Odontograma();
+        vista.getDkpPrincipal().add(vistaod);
+        Controller_odonto cont=new Controller_odonto(model, vistaod, vista);
+    }
+    
     private void setEventoMouseClicked2(JLabel lab) {
         lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
@@ -442,11 +453,11 @@ Model_Receta modelrec = new Model_Receta();
         vistaListPac.setBorder(null);
         Controller.Contoller_ListadoPaciente controlListpac = new Contoller_ListadoPaciente(modellisttPac, vistaListPac, vista);
         
-       Model_Especialista modelisEspe = new Model_Especialista();
-       Vista_Rep_ListEspe vistaListEspe= new Vista_Rep_ListEspe();
+       Model_ListadoEspecialistas modelisEspe = new Model_ListadoEspecialistas();
+       Vista_ListadoEspecialista vistaListEspe= new Vista_ListadoEspecialista();
        reportes.getPnListEsp().add(vistaListEspe);
        vistaListEspe.setBorder(null);
-       Controller.Controller_Rep_ListEspe controlListEsp = new Controller_Rep_ListEspe(modelisEspe, vistaListEspe, vista);
+       Controller.Contoller_ListadoEspecialista controlListEsp = new Contoller_ListadoEspecialista(modelisEspe, vistaListEspe, vista);
         
        Model_Farmacos modelisFarm = new Model_Farmacos();
        Vista_Rep_ListFarm vistaFarm= new Vista_Rep_ListFarm();

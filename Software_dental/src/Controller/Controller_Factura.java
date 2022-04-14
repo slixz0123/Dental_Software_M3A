@@ -376,7 +376,7 @@ public class Controller_Factura {
             parametros.put("SUBTOTAL_PACIENTE", Double.parseDouble(vista.getTxtSubtotal().getText()));
             parametros.put("DESCUENTO_PACIENTE", Double.parseDouble(vista.getTxtDescuento().getText()));
             parametros.put("FACTURA_SERIE", vista.getTxtNumSerie().getText());
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.getConnection());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.Con());
             JasperViewer jv = new  JasperViewer(jp,false);
             jv.setVisible(true);
             

@@ -68,7 +68,7 @@ public class Model_Factura extends Factura {
             String sql = "INSERT INTO factura(serie,paciente,direccion,fecha,total) ";
             sql += " VALUES(?,?,?,?,?) ";
 
-            PreparedStatement ps = conVentas.getConnection().prepareStatement(sql);
+            PreparedStatement ps = conVentas.Con().prepareStatement(sql);
             ps.setString(1, fac.getSerieFac());
             ps.setString(2, fac.getNombres());
             ps.setString(3, fac.getDireccion());
@@ -89,7 +89,7 @@ public class Model_Factura extends Factura {
         try {
             System.out.println("INGRESA GUARDAR FACTURA");
             String sql = "INSERT INTO detalle_factura(iddetalle,idfactura,tratamiento,cantidad,preciounit,total) VALUES(?,?,?,?,?,?) ";
-            PreparedStatement ps = conVentas.getConnection().prepareStatement(sql);
+            PreparedStatement ps = conVentas.Con().prepareStatement(sql);
             ps.setInt(1, fac.getIdDetalle());
             ps.setString(2, fac.getSerieFac());
             ps.setString(3, fac.getTratamiento());
