@@ -35,7 +35,7 @@ public class Model_Anamnesis extends Anamnesis{
      try {
          PreparedStatement ps = null;
         ResultSet rs = null;
-         ps = con.getConnection().prepareStatement(sql);
+         ps = con.Con().prepareStatement(sql);
          rs = ps.executeQuery();
         while(rs.next()){
           Anamnesis anam=new Anamnesis();
@@ -118,7 +118,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.getConnection().prepareStatement(sql);
+                ps = con.Con().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -135,7 +135,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-            ps = con.getConnection().prepareStatement(sql);
+            ps = con.Con().prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
              cedula = rs.getString(1);
@@ -152,7 +152,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.getConnection().prepareStatement(sql);
+                ps = con.Con().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     id = rs.getString(1);
@@ -169,7 +169,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-                ps = con.getConnection().prepareStatement(sql);
+                ps = con.Con().prepareStatement(sql);
                 rs = ps.executeQuery();
                 while(rs.next()){
                     cedmed = rs.getString(1);
@@ -214,7 +214,7 @@ public String idPac(String ced){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{    
-            ps = con.getConnection().prepareStatement(sql);
+            ps = con.Con().prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
               espec = rs.getString(1);
@@ -261,7 +261,7 @@ public String idPac(String ced){
     String sql;
     sql="Insert into anamnesis (id_anamnesis, id_paciente_ana, embarazo, motiv_consul, pro_actual, id_doctor_an)";
     sql+="values(?,?,?,?,?,?)";    
-        PreparedStatement ps= con.getConnection().prepareStatement(sql);
+        PreparedStatement ps= con.Con().prepareStatement(sql);
         ps.setString(1, getId_anamnesis());
         ps.setString(2, getId_paciente());
         ps.setString(3, getEmbarazo());
@@ -280,7 +280,7 @@ public String idPac(String ced){
     try {
     String sql;
     sql="Update anamnesis SET id_paciente_ana=?, embarazo=?, motiv_consul=?,pro_actual=?, id_doctor_an=? WHERE id_anamnesis=?";
-    PreparedStatement act_an= con.getConnection().prepareStatement(sql);
+    PreparedStatement act_an= con.Con().prepareStatement(sql);
     act_an.setString(1, getId_paciente());
     act_an.setString(2, getEmbarazo());
     act_an.setString(3, getMotiv_consul());

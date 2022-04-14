@@ -116,7 +116,7 @@ public class Controller_Rep_HistoriaClinica {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/HistoriaClinica.jasper"));
                Map<String, Object> parametros = new HashMap<String, Object>();
             parametros.put("cedula", vistamenu.getLblCedulapac().getText());
-              JasperPrint jp = JasperFillManager.fillReport(listado, parametros, con.getConnection());//cargando el reporte con los datos de la base
+              JasperPrint jp = JasperFillManager.fillReport(listado, parametros, con.Con());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

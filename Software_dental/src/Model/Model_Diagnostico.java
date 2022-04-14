@@ -61,7 +61,7 @@ public class Model_Diagnostico extends Diagnostico{
     String sql;
     sql="Insert into diagnostico (id_diagnostico, protesis_sup,protesis_infe,diag_descrip,id_tratamiento_diag,precio_final)";
     sql+="values(?,?,?,?,?,?)";   
-    PreparedStatement ps= con.getConnection().prepareStatement(sql);
+    PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_diagnostico());
     ps.setString(2, getProtesis_sup());
     ps.setString(3, getProtesis_inf());
@@ -81,7 +81,7 @@ public class Model_Diagnostico extends Diagnostico{
     try {
     String sql;
     sql="Update diagnostico SET protesis_sup=?, protesis_infe=?, diag_descrip=?, id_tratamiento_diag=?, precio_final=? WHERE id_diagnostico=?";
-    PreparedStatement arti= con.getConnection().prepareStatement(sql);
+    PreparedStatement arti= con.Con().prepareStatement(sql);
     arti.setString(1, getProtesis_sup());
     arti.setString(2, getProtesis_inf());
     arti.setString(3, getDiagnostico());

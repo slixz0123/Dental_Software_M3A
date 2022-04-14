@@ -304,6 +304,10 @@ public final class Controller_Proforma {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtValorTotal().setText("");
+                vista.getTxtCuotaInicial().setText("");
+                vista.getTxtSaldo().setText("");
+                vista.getTxtValorCouotaM().setText("");
+                vista.getTxtObservaciones().setText("");
             } else {
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
@@ -316,6 +320,10 @@ public final class Controller_Proforma {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtValorTotal().setText("");
+                vista.getTxtCuotaInicial().setText("");
+                vista.getTxtSaldo().setText("");
+                vista.getTxtValorCouotaM().setText("");
+                vista.getTxtObservaciones().setText("");
             }
 
         }
@@ -467,7 +475,7 @@ public final class Controller_Proforma {
             parametros.put("EDAD_PROF", calcularEdad());
             parametros.put("SUBTOTAL_PROF", Double.parseDouble(vista.getTxtSubtotal().getText()));
             parametros.put("DESCUENTO_PROF", Double.parseDouble(vista.getTxtDescuento().getText()));
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.getConnection());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.Con());
             JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
 

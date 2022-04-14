@@ -89,7 +89,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     sql="Insert into historia_clinica (id_historia_cli, fecha_his, id_pac_his, alergias_his, motivo_his,"
             + "observaciones_his, enfermedades_his, medicacion_his, id_doc)";
     sql+="values(?,?,?,?,?,?,?,?,?)";   
-    PreparedStatement ps= con.getConnection().prepareStatement(sql);
+    PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_historia());
     ps.setDate(2, getFecha_his());
     ps.setString(3, getId_pac());
@@ -114,7 +114,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     String sql;
     sql="Update historia_clinica SET fecha_his=?, id_pac_his=?, alergias_his=?, motivo_his=?,"
             + "observaciones_his=?, enfermedades_his=?, medicacion_his=?, id_odoto=? WHERE id_historia_cli=?";
-    PreparedStatement his_cli= con.getConnection().prepareStatement(sql);
+    PreparedStatement his_cli= con.Con().prepareStatement(sql);
     his_cli.setDate(1, getFecha_his());
     his_cli.setString(2, getId_pac());
     his_cli.setString(3, getAlergia());

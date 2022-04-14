@@ -46,7 +46,7 @@ public class Model_Paciente extends Paciente {
             String sql;
             sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
             sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = con.getConnection().prepareStatement(sql);
+            PreparedStatement ps = con.Con().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
             ps.setString(3, getApellidos());
@@ -63,7 +63,7 @@ public class Model_Paciente extends Paciente {
             String sql2;
             sql2 = "INSERT INTO paciente (id_paciente,cedula_pac,fecha_nac,tipo_sang)";
             sql2 += "VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?)";
-            PreparedStatement ps2 = con.getConnection().prepareStatement(sql2);
+            PreparedStatement ps2 = con.Con().prepareStatement(sql2);
             ps2.setString(1, getId_paciente());
             ps2.setString(2, getCedula_pac());
             ps2.setDate(3, getFecha_nac());
@@ -200,7 +200,7 @@ public class Model_Paciente extends Paciente {
         try {
             String sql;
             sql = "Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
-            PreparedStatement actp = con.getConnection().prepareStatement(sql);
+            PreparedStatement actp = con.Con().prepareStatement(sql);
             actp.setString(1, getNombres());
             actp.setString(2, getApellidos());
             actp.setString(3, getCelular());
@@ -228,7 +228,7 @@ public class Model_Paciente extends Paciente {
             String sql2;
             sql2 = "Update paciente SET fecha_nac=?, tipo_sang=? where cedula_pac=?";
 
-            PreparedStatement ps2 = con.getConnection().prepareStatement(sql2);
+            PreparedStatement ps2 = con.Con().prepareStatement(sql2);
             ps2.setDate(1, getFecha_nac());
             ps2.setString(2, getTipo_sang());
             ps2.setString(3, getCedula());
@@ -245,7 +245,7 @@ public class Model_Paciente extends Paciente {
         try {
             String sql;
             sql = "Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=? WHERE cedula=?";
-            PreparedStatement actp = con.getConnection().prepareStatement(sql);
+            PreparedStatement actp = con.Con().prepareStatement(sql);
             actp.setString(1, getNombres());
             actp.setString(2, getApellidos());
             actp.setString(3, getCelular());

@@ -79,7 +79,7 @@ public class Model_Cie10 extends Cie_10{
     sql="Insert into cie_10 (id_cie, categoria,titulo)";
     sql+="values(?,?,?)";
         
-    PreparedStatement ps= con.getConnection().prepareStatement(sql);
+    PreparedStatement ps= con.Con().prepareStatement(sql);
     ps.setString(1, getId_cie());
     ps.setString(2, getCategoria());
     ps.setString(3, getTitulo());
@@ -101,7 +101,7 @@ public class Model_Cie10 extends Cie_10{
     sql3="UPDATE cie_10 SET " ;
         sql3 +=  "categoria=?, titulo= ? WHERE id_cie=?";
         
-    PreparedStatement ps= con.getConnection().prepareStatement(sql3);
+    PreparedStatement ps= con.Con().prepareStatement(sql3);
     
     ps.setString(1, getCategoria());
     ps.setString(2, getTitulo());

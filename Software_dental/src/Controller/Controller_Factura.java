@@ -183,7 +183,6 @@ public class Controller_Factura {
         } else {
             int confirmacion = JOptionPane.showConfirmDialog(vista, "Desea imprimir?");
             if (confirmacion == 0) {
-
                 System.out.println("PROCESANDO FACTURA....");
                 double precio = Double.parseDouble(vista.getTxtTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
@@ -197,6 +196,10 @@ public class Controller_Factura {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtTotal().setText("");
+                vista.getLblNombre().setText("");
+                vista.getLblApellido().setText("");
+                vista.getLblDireccion().setText("");
+                vista.getLblid().setText("");
             } else {
                 double precio = Double.parseDouble(vista.getTxtTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
@@ -208,6 +211,10 @@ public class Controller_Factura {
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtTotal().setText("");
+                vista.getLblNombre().setText("");
+                vista.getLblApellido().setText("");
+                vista.getLblDireccion().setText("");
+                vista.getLblid().setText("");
             }
 
         }
@@ -291,6 +298,7 @@ public class Controller_Factura {
             vista.getLblNombre().setText(milistapa.get(i).getNombres());
             vista.getLblApellido().setText(milistapa.get(i).getApellidos());
             vista.getLblDireccion().setText(milistapa.get(i).getDireccion());
+            vista.getLblCelular().setText(milistapa.get(i).getCelular());
             vista.getLblid().setText(id12);
             guardarFactura();
 //            generarSerie();
@@ -364,11 +372,11 @@ public class Controller_Factura {
             parametros.put("CEDULA_PACIENTE", vista.getLblid().getText());
             parametros.put("NOMBRE_PACIENTE", vista.getLblNombre().getText());
             parametros.put("APELLIDO_PACIENTE", vista.getLblApellido().getText());
-            parametros.put("TELEFONO_PACIENTE", "0999968535");
+            parametros.put("TELEFONO_PACIENTE", vista.getLblCelular().getText());
             parametros.put("SUBTOTAL_PACIENTE", Double.parseDouble(vista.getTxtSubtotal().getText()));
             parametros.put("DESCUENTO_PACIENTE", Double.parseDouble(vista.getTxtDescuento().getText()));
             parametros.put("FACTURA_SERIE", vista.getTxtNumSerie().getText());
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.getConnection());
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.Con());
             JasperViewer jv = new  JasperViewer(jp,false);
             jv.setVisible(true);
             

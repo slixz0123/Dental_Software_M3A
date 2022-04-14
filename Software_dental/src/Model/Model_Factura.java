@@ -68,7 +68,7 @@ public class Model_Factura extends Factura {
             String sql = "INSERT INTO factura(serie,paciente,direccion,fecha,total) ";
             sql += " VALUES(?,?,?,?,?) ";
 
-            PreparedStatement ps = conVentas.getConnection().prepareStatement(sql);
+            PreparedStatement ps = conVentas.Con().prepareStatement(sql);
             ps.setString(1, fac.getSerieFac());
             ps.setString(2, fac.getNombres());
             ps.setString(3, fac.getDireccion());
@@ -89,7 +89,7 @@ public class Model_Factura extends Factura {
         try {
             System.out.println("INGRESA GUARDAR FACTURA");
             String sql = "INSERT INTO detalle_factura(iddetalle,idfactura,tratamiento,cantidad,preciounit,total) VALUES(?,?,?,?,?,?) ";
-            PreparedStatement ps = conVentas.getConnection().prepareStatement(sql);
+            PreparedStatement ps = conVentas.Con().prepareStatement(sql);
             ps.setInt(1, fac.getIdDetalle());
             ps.setString(2, fac.getSerieFac());
             ps.setString(3, fac.getTratamiento());
@@ -112,17 +112,17 @@ public class Model_Factura extends Factura {
         String sql3;
 
         try {
-            sql3 = "select p.nombres , p.apellidos, p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
+            sql3 = "select p.nombres , p.apellidos, p.direccion , p.celular, pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
             ResultSet rs = conVentas.consulta(sql3);
 
             // barremos el resulset
             while (rs.next()) {
                 Paciente pac = new Paciente();
-
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
                 pac.setDireccion(rs.getString("direccion"));
                 pac.setId_paciente(rs.getString("id_paciente"));
+                pac.setCelular(rs.getString("celular"));
                 milistapaci.add(pac);
 
             }
