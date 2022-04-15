@@ -249,7 +249,7 @@ public class Contoller_ListadoEspecialista {
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Especialistas.jasper"));
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

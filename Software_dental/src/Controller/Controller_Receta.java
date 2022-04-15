@@ -650,7 +650,7 @@ public class Controller_Receta {
               System.out.println(vista.getTxtIDreceta().getText());
             parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

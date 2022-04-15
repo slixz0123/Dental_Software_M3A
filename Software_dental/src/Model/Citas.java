@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author Saul
  */
-public class Citas {
+public class Citas extends Persona{
     private String id_cita;
     private String id_paciente;
     private Date fecha_cita;

@@ -20,7 +20,6 @@ import Model.Model_Tratamiento;
 import Model.Model_Hist_clinico;
 import Model.Model_ListadoEspecialistas;
 import Model.Model_Receta;
-import Model.Persona;
 import Model.model_Odontograma;
 import View.Crud_Paciente;
 import View.MenuPrincipal;
@@ -41,7 +40,6 @@ import View.Vista_crud_Factura;
 import View.Vista_Receta;
 import View.Vista_Rep_Citas;
 import View.Vista_Rep_HistorialOdontologico;
-import View.Vista_Rep_ListEspe;
 import View.Vista_Rep_ListFarm;
 import View.Vista_Rep_ListTrat;
 import View.Vista_Reportes;
@@ -106,7 +104,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
     private void Odontograma(){
-        model_Odontograma model= new model_Odontograma();
+        model_Odontograma model = new model_Odontograma();
         Odontograma vistaod= new Odontograma();
         vista.getDkpPrincipal().add(vistaod);
         Controller_odonto cont=new Controller_odonto(model, vistaod, vista);
