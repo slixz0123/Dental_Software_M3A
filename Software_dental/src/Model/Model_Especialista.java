@@ -127,7 +127,7 @@ public class Model_Especialista extends Doctor{
                 milistadoc.add(esp);
 
             }
-           
+           rs.close();
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,7 +175,9 @@ public class Model_Especialista extends Doctor{
         JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
         return true;
             
-        } catch (SQLException ex) {
+        }
+        
+        catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "No se ha podido crear el especialista");
@@ -192,6 +194,7 @@ public class Model_Especialista extends Doctor{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
           JOptionPane.showMessageDialog(null,"ERROR GENERAR ID");
 
@@ -330,6 +333,7 @@ public class Model_Especialista extends Doctor{
               
                 
             }
+            rs.close();
             return  milistaespc;
             
         } catch (SQLException ex) {

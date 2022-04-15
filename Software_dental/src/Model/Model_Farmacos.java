@@ -34,6 +34,7 @@ public class Model_Farmacos extends farmaco {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR ID");
 

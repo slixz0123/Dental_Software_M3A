@@ -249,6 +249,7 @@ public class Model_HistorialMedico extends Hist_Medico {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -268,6 +269,7 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -285,6 +287,7 @@ public String cedulaPac(String id){
                 while(rs.next()){
                     ced = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             ced = "";
         }
@@ -302,6 +305,7 @@ public String cedulaMed(String id){
                 while(rs.next()){
                     ced = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             ced = "";
         }
@@ -319,6 +323,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }

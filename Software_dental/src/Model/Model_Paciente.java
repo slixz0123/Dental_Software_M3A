@@ -34,6 +34,7 @@ public class Model_Paciente extends Paciente {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -109,6 +110,7 @@ public class Model_Paciente extends Paciente {
                     return milista;
 
                 }
+                rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,6 +146,7 @@ public class Model_Paciente extends Paciente {
                 milistapac.add(pac);
 
             }
+            rs.close();
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -184,7 +187,7 @@ public class Model_Paciente extends Paciente {
                     milistapac.add(pac);
 
                 }
-
+           rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -290,6 +293,7 @@ public class Model_Paciente extends Paciente {
                 milistapaci.add(pac);
 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
