@@ -23,6 +23,7 @@ public class Model_Proforma extends Proforma {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -38,10 +39,12 @@ public class Model_Proforma extends Proforma {
             while (rs.next()) {
                 idf = rs.getInt(1) + 1;
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error idproforma " + e);
 
         }
+ 
         return idf;
 
     }

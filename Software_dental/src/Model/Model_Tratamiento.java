@@ -123,6 +123,7 @@ public class Model_Tratamiento extends Tratamiento {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR ID");
 

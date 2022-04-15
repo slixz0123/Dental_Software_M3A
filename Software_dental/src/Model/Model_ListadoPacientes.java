@@ -54,6 +54,7 @@ public class Model_ListadoPacientes extends Paciente {
                 
 
             }
+            rs.close();
             return pac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -89,6 +90,7 @@ public class Model_ListadoPacientes extends Paciente {
                 milistapac.add(pac);
 
             }
+            rs.close();
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -129,6 +131,7 @@ public class Model_ListadoPacientes extends Paciente {
                     milistapac.add(pac);
 
                 }
+                rs.close();
 
             } catch (SQLException ex) {
                 System.out.println(ex);

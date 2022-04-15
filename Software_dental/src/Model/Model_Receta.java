@@ -44,6 +44,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -77,6 +78,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -93,6 +95,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -122,6 +125,7 @@ public class Model_Receta extends receta{
                 System.out.println(rs.getString("alergias_his")+"");
                 
             }
+            rs.close();
             return alergia;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -147,6 +151,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistafar;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -176,6 +181,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistacie;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -205,7 +211,7 @@ public class Model_Receta extends receta{
                 milistafar.add(far);
 
             }
-           
+           rs.close();
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
@@ -241,6 +247,7 @@ public class Model_Receta extends receta{
                 milistacie.add(cie);
 
             }
+            rs.close();
            
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -264,6 +271,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR ID");
 
@@ -279,6 +287,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
           
             System.out.println(e);
@@ -439,6 +448,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistareccie;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -468,6 +478,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistarecfar;
         } catch (SQLException ex) {
             System.out.println(ex);

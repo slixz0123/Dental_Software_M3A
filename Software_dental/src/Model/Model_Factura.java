@@ -28,6 +28,7 @@ public class Model_Factura extends Factura {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -43,6 +44,7 @@ public class Model_Factura extends Factura {
             while (rs.next()) {
                 idf = rs.getInt(1) + 1;
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error idfactura " + e);
 
@@ -126,6 +128,7 @@ public class Model_Factura extends Factura {
                 milistapaci.add(pac);
 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);

@@ -194,6 +194,7 @@ public class Model_Citas extends Citas{
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -327,6 +328,7 @@ public String NumSerie() {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -356,6 +358,7 @@ public String NumSerie() {
                 System.out.println(rs.getString("apellidos"));
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -382,6 +385,7 @@ public String NumSerie() {
                 milista.add(pa);
        
             }
+            rs.close();
             return milista;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -415,6 +419,7 @@ public String NumSerie() {
                 System.out.println(rs.getString("apellidos"));
                 
             }
+            rs.close();
             return milistadoc;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -440,6 +445,7 @@ public String NumSerie() {
                 milistado.add(doc);
        
             }
+            rs.close();
             return milistado;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -460,6 +466,7 @@ public String idPaci(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -478,6 +485,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -505,6 +513,7 @@ public String idMed(String ced){
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -536,6 +545,7 @@ public String idMed(String ced){
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -556,6 +566,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -573,6 +584,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -602,7 +614,7 @@ public String idMed(String ced){
                     milistapac.add(pac);
 
                 }
-
+                 rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
