@@ -34,8 +34,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import static View.Odontograma.btnnuevo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -58,7 +63,7 @@ public class Controller_odonto {
     public Controller_odonto(model_Odontograma modelo , Odontograma vista , MenuPrincipal vistaMenu) {
         this.modelo = modelo;
         this.vista = vista;
-       this.vistaMenu = vistaMenu;
+        this.vistaMenu = vistaMenu;
         iniciar ();
         vista.setVisible(true); 
     }
@@ -67,11 +72,14 @@ public class Controller_odonto {
         agregarimagen();
         eventocombo(vista.getSelecOpcion());
         vista.getBtnguardar().addActionListener(l->guardarImagen());
-        vista.getBtnimprimir().addActionListener(l->imprimir());
+       // vista.getBtnimprimir().addActionListener(l->imprimir());
         btnnuevo.addActionListener(l->nuevo());
        comprobar();
-        vista.getPruebalbl().setVisible(false);
-        eventotabla(vista.getTblOdontograma());
+       popuptabla();
+       vista.getPruebalbl().setVisible(false);
+       eventotabla(vista.getTblOdontograma());
+        pintarbtn(vista.getBtnguardar());
+        pintarbtnuevo(btnnuevo);
     }
     
     
@@ -161,6 +169,7 @@ public class Controller_odonto {
 //                ImageIO.write(miod.createImage(miod), format, saveFile);
                 File outputfile = new File("odontograma.jpg");
                 ImageIO.write(miod.createImage(miod), "jpg", outputfile);
+                
                 String directorioRaiz = System.getProperty("user.dir")+"\\odontograma.jpg";
                 File ruta = new File(directorioRaiz);
                 if(directorioRaiz.trim().length()!=0){ 
@@ -168,7 +177,6 @@ public class Controller_odonto {
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
             odon.setImagenodontograma(icono);
-             System.out.println("Convertido a bytes");
                 }  
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "No se pudo guardar la imagen");
@@ -176,6 +184,7 @@ public class Controller_odonto {
              }
     if(odon.crearOdontograma()){
           JOptionPane.showMessageDialog(vistaMenu, "Odontograma creado");
+          miod.nuevo();
           comprobar();
         } else { JOptionPane.showMessageDialog(vistaMenu, "No se pudo crear el odontograma");}
    }
@@ -242,6 +251,43 @@ public class Controller_odonto {
     }
     });
     }
+    
+    private void popuptabla(){
+    JPopupMenu popmen = new JPopupMenu();
+    JMenuItem eliminar = new JMenuItem ("Eliminar", new ImageIcon(getClass().getResource("/View/icons/eliminar.png")));
+    JMenuItem imprimir = new JMenuItem ("Imprimir", new ImageIcon(getClass().getResource("/View/icons/imprimir.png")));
+    eliminar.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            model_Odontograma od = new model_Odontograma();
+            int filasel = vista.getTblOdontograma().getSelectedRow();
+            if (filasel==-1){
+     JOptionPane.showMessageDialog(null, "Debe elegir una persona para eliminar");
+     } else {
+            int id=(int) vista.getTblOdontograma().getValueAt(filasel, 0);
+            od.setId_odontograma(id);
+           if(od.eliminarodonto()){
+           JOptionPane.showMessageDialog(null, "Se elimino correctamente");
+           cargarOdontograma();
+           vista.getBtnguardar().setEnabled(true);
+           vista.getPruebalbl().setVisible(false);
+           } else{JOptionPane.showMessageDialog(null, "No se pudo eliminar");}
+            
+            }
+                   
+        }
+    });
+    imprimir.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            imprimir();
+        }
+    });
+    popmen.add(imprimir); 
+    popmen.add(eliminar);
+    vista.getTblOdontograma().setComponentPopupMenu(popmen);
+    }
+    
     private void imprimir(){
    ConexionPg con= new ConexionPg();
     int filasel = vista.getTblOdontograma().getSelectedRow();
@@ -262,5 +308,35 @@ public class Controller_odonto {
         } catch (JRException ex) {
             Logger.getLogger(Controller_odonto.class.getName()).log(Level.SEVERE, null, ex);
         }}
+    }
+    
+    private void pintarbtn(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnguardar().setBackground(new Color (90, 10, 160));
+     vista.getBtnguardar().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnguardar().setBackground(new Color (240, 240, 240));
+     vista.getBtnguardar().setForeground(Color.BLACK);
+    }
+    });
+    }
+    
+    private void pintarbtnuevo(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     btnnuevo.setBackground(new Color (90, 10, 160));
+     btnnuevo.setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     btnnuevo.setBackground(new Color (240, 240, 240));
+     btnnuevo.setForeground(Color.BLACK);
+    }
+    });
     }
 }

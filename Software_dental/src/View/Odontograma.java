@@ -170,13 +170,7 @@ public class Odontograma extends javax.swing.JInternalFrame {
         this.pruebalbl = pruebalbl;
     }
 
-    public JButton getBtnimprimir() {
-        return btnimprimir;
-    }
-
-    public void setBtnimprimir(JButton btnimprimir) {
-        this.btnimprimir = btnimprimir;
-    }
+   
 
     
     @SuppressWarnings("unchecked")
@@ -204,7 +198,6 @@ public class Odontograma extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtobservaciones = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        btnimprimir = new javax.swing.JButton();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         panelod = new javax.swing.JPanel();
         pruebalbl = new javax.swing.JLabel();
@@ -229,44 +222,55 @@ public class Odontograma extends javax.swing.JInternalFrame {
         panelNice2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         btnCirculoAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/circulo_azul.png"))); // NOI18N
+        btnCirculoAzul.setDefaultCapable(false);
         panelNice2.add(btnCirculoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         btnCirculoRojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/circulo_rojo.png"))); // NOI18N
+        btnCirculoRojo.setDefaultCapable(false);
         panelNice2.add(btnCirculoRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
         btnTriangulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/triangulo.png"))); // NOI18N
+        btnTriangulo.setDefaultCapable(false);
         btnTriangulo.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnTriangulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         btnAstericoAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/asterisco_azul.png"))); // NOI18N
+        btnAstericoAzul.setDefaultCapable(false);
         btnAstericoAzul.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnAstericoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         btnlineacontinua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/linea_continua2.png"))); // NOI18N
+        btnlineacontinua.setDefaultCapable(false);
         btnlineacontinua.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnlineacontinua, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
         btnlineaentrecortada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/linea_entrecortada2.png"))); // NOI18N
+        btnlineaentrecortada.setDefaultCapable(false);
         btnlineaentrecortada.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnlineaentrecortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         btnAstericoRojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/asterisco_rojo.png"))); // NOI18N
+        btnAstericoRojo.setDefaultCapable(false);
         btnAstericoRojo.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnAstericoRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         btnS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/S1.png"))); // NOI18N
+        btnS.setDefaultCapable(false);
         btnS.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnS, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         btnXazul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/x_azul.png"))); // NOI18N
+        btnXazul.setDefaultCapable(false);
         btnXazul.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnXazul, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
 
         btnXrojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/iconos_odonto/x_rojo.png"))); // NOI18N
+        btnXrojo.setDefaultCapable(false);
         btnXrojo.setPreferredSize(new java.awt.Dimension(61, 37));
         panelNice2.add(btnXrojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
 
         btnguardar.setText("Guardar");
+        btnguardar.setDefaultCapable(false);
         btnguardar.setPreferredSize(new java.awt.Dimension(85, 30));
         panelNice2.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
@@ -274,6 +278,7 @@ public class Odontograma extends javax.swing.JInternalFrame {
         panelNice2.add(selecOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         btnnuevo.setText("Nuevo");
+        btnnuevo.setDefaultCapable(false);
         btnnuevo.setPreferredSize(new java.awt.Dimension(85, 30));
         panelNice2.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
 
@@ -284,7 +289,15 @@ public class Odontograma extends javax.swing.JInternalFrame {
             new String [] {
                 "#", "Fecha"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblOdontograma);
         if (tblOdontograma.getColumnModel().getColumnCount() > 0) {
             tblOdontograma.getColumnModel().getColumn(0).setMinWidth(30);
@@ -306,10 +319,6 @@ public class Odontograma extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Observaciones:");
         panelNice2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, -1, -1));
-
-        btnimprimir.setText("Imprimir");
-        btnimprimir.setPreferredSize(new java.awt.Dimension(85, 30));
-        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -370,7 +379,6 @@ public class Odontograma extends javax.swing.JInternalFrame {
     public static javax.swing.JButton btnXazul;
     public static javax.swing.JButton btnXrojo;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnimprimir;
     public static javax.swing.JButton btnlineacontinua;
     public static javax.swing.JButton btnlineaentrecortada;
     public static javax.swing.JButton btnnuevo;

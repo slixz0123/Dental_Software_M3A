@@ -391,6 +391,13 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
          } else{    
             getListas().remove(getListas().size()-1);
             repaint();} }
+    // 
+    else if(e.getButton()==3 && opcion.equals("extraccion")){
+        if(getListaex().size()-1<0){
+         repaint();
+         } else{    
+            getListaex().remove(getListaex().size()-1);
+            repaint();} }
     //
     else if(e.getButton()==3 && opcion.equals("fractura")){
         if(getListafrac().size()-1<0){
@@ -594,7 +601,7 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
         }
         return selec;
     }
-    private void nuevo(){
+    public void nuevo(){
     getListaCuadrados().removeAll(getListaCuadrados());
     getListaod().removeAll(getListaod());
     getListacir().removeAll(getListacir());

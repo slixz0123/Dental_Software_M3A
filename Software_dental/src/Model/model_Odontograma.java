@@ -137,7 +137,7 @@ public String idPac(String ced){
     }
     
     //Eliminar
-    public boolean eliminarAnamnesis(){
+    public boolean eliminarodonto(){
     String sql;
     sql="Delete from odontograma where id_odontograma='"+getId_odontograma()+"'";
     return con.accion(sql);
