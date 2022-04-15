@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 public class Persona {
     private String cedula;
     private String nombres;
+    private String nombresdoc;
     private String apellidos;
     private String celular;
     private String telefono;
@@ -182,6 +183,35 @@ public class Persona {
     @Override
     public String toString() {
         return  cedula + " "+"-" + nombres +" "+ apellidos ;
+    }
+
+    public Persona(String cedula, String nombres, String nombresdoc, String apellidos, String celular, String telefono, String direccion, String correo, String provincia, String ciudad, String genero, byte[] foto) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.nombresdoc = nombresdoc;
+        this.apellidos = apellidos;
+        this.celular = celular;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.provincia = provincia;
+        this.ciudad = ciudad;
+        this.genero = genero;
+        this.foto = foto;
+    }
+    
+    
+    
+    
+    
+    
+
+    public String getNombresdoc() {
+        return nombresdoc;
+    }
+
+    public void setNombresdoc(String nombresdoc) {
+        this.nombresdoc = nombresdoc;
     }
     
 
