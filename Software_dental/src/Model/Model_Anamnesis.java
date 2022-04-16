@@ -123,6 +123,7 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                 rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -140,6 +141,7 @@ public String idPac(String ced){
             while(rs.next()){
              cedula = rs.getString(1);
            }
+             rs.close();
         }catch(SQLException ex){
             cedula = "";
         }
@@ -157,6 +159,7 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                 rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -173,10 +176,11 @@ public String idPac(String ced){
                 rs = ps.executeQuery();
                 while(rs.next()){
                     cedmed = rs.getString(1);
-                }
+                } rs.close();
         }catch(SQLException ex){
             cedmed = "";
         }
+       
     return cedmed;
  }   
      //Listar medico
@@ -218,7 +222,7 @@ public String idPac(String ced){
             rs = ps.executeQuery();
             while(rs.next()){
               espec = rs.getString(1);
-            }
+            } rs.close();
         }catch(SQLException ex){
             espec = "";
         }
@@ -233,7 +237,7 @@ public String idPac(String ced){
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
             serie = rs.getString(1);
-            }
+            } rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -248,7 +252,7 @@ public String idPac(String ced){
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
             id = rs.getString(1);
-            }
+            } rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -269,8 +273,11 @@ public String idPac(String ced){
         ps.setString(5, getProble_act());
         ps.setString(6, getId_doctor());
         ps.executeUpdate();
+        
     return true;
-        } catch (SQLException ex) {
+        }
+    
+    catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
         }
     return false;

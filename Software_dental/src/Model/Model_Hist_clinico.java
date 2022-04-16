@@ -68,6 +68,7 @@ public class Model_Hist_clinico extends Hist_clinico{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -163,6 +164,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -213,6 +215,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistaHis;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -248,7 +251,9 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistado;
+
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

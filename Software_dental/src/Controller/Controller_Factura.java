@@ -187,7 +187,7 @@ public class Controller_Factura {
                 double precio = Double.parseDouble(vista.getTxtTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
                 model.Actualizarprecio(precio, idfact);
-                JOptionPane.showMessageDialog(vistamenu, "Factura Gurdada");
+                JOptionPane.showMessageDialog(vistamenu, "Factura Guardada");
                 imprimirFactura();
                 limpiarTabla();
                 nuevo();
@@ -204,7 +204,7 @@ public class Controller_Factura {
                 double precio = Double.parseDouble(vista.getTxtTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
                 model.Actualizarprecio(precio, idfact);
-                JOptionPane.showMessageDialog(vistamenu, "Factura Gurdada");
+                JOptionPane.showMessageDialog(vistamenu, "Factura Guardada");
                 limpiarTabla();
                 nuevo();
                 generarSerie();
@@ -376,6 +376,8 @@ public class Controller_Factura {
             parametros.put("SUBTOTAL_PACIENTE", Double.parseDouble(vista.getTxtSubtotal().getText()));
             parametros.put("DESCUENTO_PACIENTE", Double.parseDouble(vista.getTxtDescuento().getText()));
             parametros.put("FACTURA_SERIE", vista.getTxtNumSerie().getText());
+//            parametros.put("LogoImagen1",Controller_Factura.class.getResource("/icons/logo salud.png"));
+//            parametros.put("LogoImagen2", Controller_Factura.class.getResource("/icons/imgReceta.jpg"));
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.Con());
             JasperViewer jv = new  JasperViewer(jp,false);
             jv.setVisible(true);

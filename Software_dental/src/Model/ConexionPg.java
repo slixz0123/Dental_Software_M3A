@@ -136,17 +136,17 @@ public class ConexionPg {
     
      Connection con ;
 
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
+    String cadenaConexion = "jdbc:postgresql://localhost:5432/abc";
     String usuario = "postgres";
 //    String contrasena = "159753";
 
   
 
 
-    String contrasena = "159753";
+    //String contrasena = "159753";
 
 
-   // String contrasena = "1234s";
+   String contrasena = "17112002Diana";
 
    // String contrasena = "1234";
 
@@ -201,6 +201,9 @@ public class ConexionPg {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
              
              return null ; 
+         }
+         finally{
+             
          }
       
     }
