@@ -234,8 +234,9 @@ public class ConexionPg {
     
     
     
-    public void cerrar(){
+    public void desconectar(){
          try {
+             con.commit();
              con.close();
              System.out.println("conexion cerrada");
          } catch (SQLException ex) {
