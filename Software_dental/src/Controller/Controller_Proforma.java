@@ -315,6 +315,8 @@ public final class Controller_Proforma {
                 vista.getTxtSaldo().setText("");
                 vista.getTxtValorCouotaM().setText("");
                 vista.getTxtObservaciones().setText("");
+                vista.getSpiCantidad().setValue(1);
+                vista.getCbFormaPago().setSelectedIndex(0);
 
             } else {
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
@@ -381,9 +383,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.330 + vtotal) / 4;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 4;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("5")) {
 
@@ -391,9 +393,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.397 + vtotal) / 5;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 5;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("6")) {
 
@@ -401,9 +403,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.465 + vtotal) / 6;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 6;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("9")) {
 
@@ -411,9 +413,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.669 + vtotal) / 9;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 9;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("12")) {
 
@@ -421,9 +423,9 @@ public final class Controller_Proforma {
                 cuotaini = (0.876 + vtotal) / 12;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 12;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("15")) {
 
@@ -431,9 +433,9 @@ public final class Controller_Proforma {
                 cuotaini = (1.085 + vtotal) / 15;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 15;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("18")) {
 
@@ -441,9 +443,9 @@ public final class Controller_Proforma {
                 cuotaini = (1.297 + vtotal) / 18;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 18;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("24")) {
 
@@ -451,18 +453,18 @@ public final class Controller_Proforma {
                 cuotaini = (1.729 + vtotal) / 24;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 24;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
 
             } else if (vista.getSpiMesesCred().getValue().toString().equals("36")) {
                 double vtotal = Double.parseDouble(vista.getTxtValorTotal().getText());
                 cuotaini = (2.623 + vtotal) / 36;
                 cuotamensual = cuotaini;
                 saldo = cuotaini * 36;
-                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 7).toString());
-                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 7).toString());
-                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 7).toString());
+                vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini).subSequence(0, 5).toString());
+                vista.getTxtSaldo().setText(String.valueOf(saldo).subSequence(0, 5).toString());
+                vista.getTxtValorCouotaM().setText(String.valueOf(cuotamensual).subSequence(0, 5).toString());
             }
         } else {
 

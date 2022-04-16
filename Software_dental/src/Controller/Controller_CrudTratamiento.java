@@ -40,6 +40,24 @@ public class Controller_CrudTratamiento {
                 llenarTabla(vista.getTxtBuscar().getText());
             }
         };
+        KeyListener validarnum = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        };
+        vista.getTxtPrecioTrat().addKeyListener(validarnum);
 
         vista.getTblListaTrat().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -54,11 +72,12 @@ public class Controller_CrudTratamiento {
             }
         }
         );
-        
-        vista.getBtnGuardar().addActionListener(l->crearTratamiento());
-        vista.getBtnEliminar().addActionListener(l->eliminar());
-        vista.getBtnEditar().addActionListener(l->editarTratamiento());
+
+        vista.getBtnGuardar().addActionListener(l -> crearTratamiento());
+        vista.getBtnEliminar().addActionListener(l -> eliminar());
+        vista.getBtnEditar().addActionListener(l -> editarTratamiento());
         vista.getTxtBuscar().addKeyListener(kl);
+        vista.getBtnEditar().setEnabled(false);
 
     }
 
@@ -95,11 +114,11 @@ public class Controller_CrudTratamiento {
         trat.setDescripcion_trat(descripcion);
         trat.setPrecio_trat(precio);
         trat.setMaterial(material);
-        if (trat.grabar()== true){
-            JOptionPane.showMessageDialog(null,"Tratamiento guardado");
-        }else {
-                 JOptionPane.showMessageDialog(null,"Error al guardar tratamiento");
-                }
+        if (trat.grabar() == true) {
+            JOptionPane.showMessageDialog(null, "Tratamiento guardado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al guardar tratamiento");
+        }
         llenarTabla("");
         limpiarCampos();
         generarId();
@@ -123,8 +142,14 @@ public class Controller_CrudTratamiento {
             JOptionPane.showMessageDialog(vista, "Tratamiento mosdificado satisfactoriamente");
             limpiarCampos();
             llenarTabla("");
+            vista.getBtnGuardar().setEnabled(true);
+            vista.getBtnEditar().setEnabled(false);
+
         } else {
             JOptionPane.showMessageDialog(vista, "No se pudo modificar el tratamiento");
+            vista.getBtnGuardar().setEnabled(true);
+            vista.getBtnEditar().setEnabled(false);
+
         }
     }
 
@@ -139,6 +164,8 @@ public class Controller_CrudTratamiento {
                 vista.getTxtTipMatTrat().setText(tblTrat.getValueAt(fila, 2).toString());
                 vista.getTxtADescripTrat().setText(tblTrat.getValueAt(fila, 3).toString());
                 vista.getTxtPrecioTrat().setText(tblTrat.getValueAt(fila, 4).toString());
+                vista.getBtnGuardar().setEnabled(false);
+                vista.getBtnEditar().setEnabled(true);
 
             }
         }
@@ -157,8 +184,15 @@ public class Controller_CrudTratamiento {
 
                 JOptionPane.showMessageDialog(vista, "Registro Eliminado");
                 llenarTabla("");
+                limpiarCampos();
+                vista.getBtnGuardar().setEnabled(true);
+                vista.getBtnEditar().setEnabled(false);
+
             } else {
                 JOptionPane.showMessageDialog(vista, "Accion Cancelada");
+                limpiarCampos();
+                vista.getBtnGuardar().setEnabled(true);
+                vista.getBtnEditar().setEnabled(false);
 
             }
 
@@ -170,6 +204,7 @@ public class Controller_CrudTratamiento {
         vista.getTxtADescripTrat().setText("");
         vista.getTxtPrecioTrat().setText("");
         vista.getTxtTipMatTrat().setText("");
+
     }
 
 }

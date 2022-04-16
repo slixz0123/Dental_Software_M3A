@@ -49,6 +49,24 @@ public class Controller_Farmacos {
                 LlenarTabla(vista.getTxtBuscarFarma().getText());
             }
         };
+        KeyListener validarnum = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        };
+        vista.getTxtMgFar().addKeyListener(validarnum);
         vista.getTblListaFarma().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -66,7 +84,8 @@ public class Controller_Farmacos {
         vista.getBtnElimFarma().addActionListener(l -> eliminar());
         vista.getBtnModifFarma().addActionListener(l -> editarFarmaco());
         vista.getTxtBuscarFarma().addKeyListener(kl);
-        vista.getBtnRefrescarFarma().addActionListener(l -> LlenarTabla(""));
+        vista.getBtnModifFarma().setEnabled(false);
+//        vista.getBtnRefrescarFarma().addActionListener(l -> LlenarTabla(""));
     }
 
     public void LlenarTabla(String aguja) {
@@ -95,6 +114,7 @@ public class Controller_Farmacos {
         far.setMaterial(material);
         far.setMiligramos(mg);
         far.grabar();
+        LlenarTabla("");
         limpiarCampos();
         generarId();
 
@@ -117,8 +137,14 @@ public class Controller_Farmacos {
         if (far.modificar()) {
             JOptionPane.showMessageDialog(vista, "Farmaco modificada satisfactoriamente");
             limpiarCampos();
+            LlenarTabla("");
+            vista.getBtnGuardarFarma().setEnabled(true);
+            vista.getBtnModifFarma().setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(vista, "No se pudo modificar el farmaco");
+            vista.getBtnGuardarFarma().setEnabled(true);
+            vista.getBtnModifFarma().setEnabled(false);
+
         }
     }
 
@@ -129,13 +155,16 @@ public class Controller_Farmacos {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
         } else {
             if (fila >= 0) {
+                vista.getBtnModifFarma().setEnabled(true);
                 vista.getTxtNombreFar().setText(tblFar.getValueAt(fila, 1).toString());
                 vista.getCbxMaterial().setSelectedItem(tblFar.getValueAt(fila, 2));
                 vista.getTxtMgFar().setText(tblFar.getValueAt(fila, 3).toString());
                 vista.getTxtADescripcionFarma().setText(tblFar.getValueAt(fila, 4).toString());
+                vista.getBtnGuardarFarma().setEnabled(false);
 
             }
         }
+
     }
 
     private void generarId() {
@@ -163,22 +192,26 @@ public class Controller_Farmacos {
 
                 JOptionPane.showMessageDialog(vista, "Registro Eliminado");
                 LlenarTabla("");
+                limpiarCampos();
+                vista.getBtnGuardarFarma().setEnabled(true);
+                vista.getBtnModifFarma().setEnabled(false);
+
             } else {
                 JOptionPane.showMessageDialog(vista, "Accion Cancelada");
+                limpiarCampos();
+                vista.getBtnGuardarFarma().setEnabled(true);
+                vista.getBtnModifFarma().setEnabled(false);
 
             }
 
         }
     }
-    
 
     private void limpiarCampos() {
         vista.getTxtNombreFar().setText("");
         vista.getTxtADescripcionFarma().setText("");
         vista.getTxtMgFar().setText("");
-        vista.getCbxMaterial().setSelectedItem(null);
+        vista.getCbxMaterial().setSelectedIndex(0);
     }
-
-  
 
 }
