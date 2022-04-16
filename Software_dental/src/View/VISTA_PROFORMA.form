@@ -352,6 +352,9 @@
                   </Constraints>
                 </Component>
                 <Component class="jtextfieldround.JTextFieldRound" name="txtValorTotal">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0.0"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="160" width="80" height="20"/>

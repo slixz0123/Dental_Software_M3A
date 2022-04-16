@@ -207,6 +207,8 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
 
         btnValidProforma.setText("Validar Proforma");
         panelNice1.add(btnValidProforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 260, 40));
+
+        txtValorTotal.setText("0.0");
         panelNice1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 80, 20));
         panelNice1.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 80, 20));
         panelNice1.add(txtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 80, 20));
