@@ -105,8 +105,8 @@ public class Model_Farmacos extends farmaco {
             ps.setString(3, getDescripcion_far());
             ps.setString(4, getMaterial());
             ps.setString(5, getMiligramos());
-
             ps.executeUpdate();
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println("ERROR AL GRABAR" + ex);
@@ -134,8 +134,7 @@ public class Model_Farmacos extends farmaco {
             psm.setString(4, getMaterial());
             psm.setString(5, getMiligramos());
             psm.executeUpdate();
-            
-            
+            con.desconectar();
             System.out.println("Se modifico correctamente");
             return true;
 

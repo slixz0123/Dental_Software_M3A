@@ -46,6 +46,7 @@ public class Model_Consentimiento extends Consentimiento {
                 mostrar.add(cons);
             }
             rs.close();
+            con.desconectar();
             return mostrar;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Consentimiento.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,6 +66,8 @@ public class Model_Consentimiento extends Consentimiento {
     ps.setString(4, getNombre_pac());
     ps.setString(5, getNombre_doc());
     ps.executeUpdate();
+    ps.close();
+    con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Consentimiento.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +86,8 @@ public class Model_Consentimiento extends Consentimiento {
     act_an.setString(4, getNombre_doc());
     act_an.setString(5, getId_consentimiento());
     act_an.executeUpdate();
+    act_an.close();
+    con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Consentimiento.class.getName()).log(Level.SEVERE, null, ex);

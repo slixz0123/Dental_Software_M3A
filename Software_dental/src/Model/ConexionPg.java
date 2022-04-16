@@ -136,17 +136,17 @@ public class ConexionPg {
     
      Connection con ;
 
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/abc";
+    String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental";
     String usuario = "postgres";
 //    String contrasena = "159753";
 
   
 
 
-    //String contrasena = "159753";
+    String contrasena = "159753";
 
 
-   String contrasena = "17112002Diana";
+  // String contrasena = "17112002Diana";
 
    // String contrasena = "1234";
 
@@ -239,15 +239,24 @@ public class ConexionPg {
     
     public void desconectar(){
          try {
-             con.commit();
+//             con.commit();
              con.close();
              System.out.println("conexion cerrada");
          } catch (SQLException ex) {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
          
          }
+         
        
     }
+    protected void finalize() throws Throwable  
+{  
+    try { con.close(); } 
+    catch (SQLException e) { 
+        e.printStackTrace();
+    }
+    super.finalize();  
+}  
  
     
     

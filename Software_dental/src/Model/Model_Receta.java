@@ -315,6 +315,7 @@ public class Model_Receta extends receta{
             
         System.out.println("GUARDADO CON EXITO");
         JOptionPane.showMessageDialog(null, "Receta creada con exito"); 
+        con.desconectar();
         return true;
             
         } catch (SQLException ex) {
@@ -393,7 +394,7 @@ public class Model_Receta extends receta{
         ps.setString(3, getId_titulo());
         ps.setString(4, getCategoria());
             ps.executeUpdate();
-            
+            con.desconectar();
         System.out.println("GUARDADO CON EXITO");
         return true;
             
@@ -419,7 +420,7 @@ public class Model_Receta extends receta{
         ps.setString(5, getCantidad());
         ps.setString(6, getFrecuencia());
             ps.executeUpdate();
-            
+            con.desconectar();
         System.out.println("GUARDADO CON EXITO");
         return true;
             
