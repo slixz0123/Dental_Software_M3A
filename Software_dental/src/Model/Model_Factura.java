@@ -77,7 +77,7 @@ public class Model_Factura extends Factura {
             ps.setString(4, fac.getFecha());
             ps.setDouble(5, fac.getTotal());
             ps.executeUpdate();
-            conVentas.desconectar();
+           // conVentas.desconectar();
             System.out.println("EJECUTA GUARDAR FACTURA");
             return true;
 
@@ -100,7 +100,7 @@ public class Model_Factura extends Factura {
             ps.setDouble(5, fac.getPreciounit());
             ps.setDouble(6, fac.getTotalprod());
             ps.executeUpdate();
-            conVentas.desconectar();
+           // conVentas.desconectar();
             System.out.println("EJECUTA GUARDAR DETALLEFACTURA");
             return true;
 

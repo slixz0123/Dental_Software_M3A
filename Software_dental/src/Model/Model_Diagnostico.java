@@ -48,7 +48,7 @@ public class Model_Diagnostico extends Diagnostico{
                 mostrar.add(diag);
             }
             rs.close();
-            con.desconectar();
+            //con.desconectar();
             return mostrar;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Diagnostico.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,7 +71,8 @@ public class Model_Diagnostico extends Diagnostico{
     ps.setDouble(6, getPrecio_trat());
     ps.executeUpdate();
     ps.close();
-    con.desconectar();
+    
+    //con.desconectar();
     return true;
     
         } catch (SQLException ex) {
@@ -93,7 +94,7 @@ public class Model_Diagnostico extends Diagnostico{
     arti.setString(6, getId_diagnostico());
     arti.executeUpdate();
     arti.close();
-    con.desconectar();
+    //con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Diagnostico.class.getName()).log(Level.SEVERE, null, ex);

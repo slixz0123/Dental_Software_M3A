@@ -135,7 +135,7 @@ public String idPac(String ced){
         ps.setBytes(5, getImagenodontograma());
  
         ps.executeUpdate();
-        con.desconectar();
+      //  con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(model_Odontograma.class.getName()).log(Level.SEVERE, null, ex);

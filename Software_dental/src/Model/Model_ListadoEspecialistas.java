@@ -63,7 +63,7 @@ public class Model_ListadoEspecialistas extends Doctor {
 
             }
             rs.close();
-            con.desconectar();
+           // con.desconectar();
             return esp;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -99,7 +99,7 @@ public class Model_ListadoEspecialistas extends Doctor {
 
             }
             rs.close();
-            con.desconectar();
+           // con.desconectar();
             return milistaesp;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -140,7 +140,7 @@ public class Model_ListadoEspecialistas extends Doctor {
 
                 }
                 rs.close();
-                con.desconectar();
+             //   con.desconectar();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);

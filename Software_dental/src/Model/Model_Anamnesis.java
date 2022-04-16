@@ -285,7 +285,7 @@ public String idPac(String ced){
         ps.setString(6, getId_doctor());
         ps.executeUpdate();
         ps.close();
-        con.desconectar();
+       // con.desconectar();
     return true;
         }
     
@@ -308,7 +308,7 @@ public String idPac(String ced){
     act_an.setString(6, getId_anamnesis());
     act_an.executeUpdate();
     act_an.close();
-    con.desconectar();
+   // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);

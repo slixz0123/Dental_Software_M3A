@@ -102,7 +102,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     ps.setString(8, getMedicacion());
     ps.setString(9, getId_odonto());
     ps.executeUpdate();
-    con.desconectar();
+  //  con.desconectar();
     JOptionPane.showMessageDialog(null,"guardado con exito");
     return true;
     
@@ -128,7 +128,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     his_cli.setString(8, getId_odonto());
     his_cli.setString(9, getId_historia());
     his_cli.executeUpdate();
-    con.desconectar();
+   // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Hist_clinico.class.getName()).log(Level.SEVERE, null, ex);

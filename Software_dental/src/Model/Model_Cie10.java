@@ -83,7 +83,7 @@ public class Model_Cie10 extends Cie_10{
     ps.setString(2, getCategoria());
     ps.setString(3, getTitulo());
     ps.executeUpdate();
-    con.desconectar();
+    //con.desconectar();
     ps.close();
         System.out.println("CIE 10 GUARDADO");
     return true;
@@ -111,7 +111,7 @@ public class Model_Cie10 extends Cie_10{
         System.out.println("CIE 10 GUARDADO");
         
         ps.close();
-        con.desconectar();
+       // con.desconectar();
     return true;
         } catch (SQLException ex) {
             System.out.println(ex);

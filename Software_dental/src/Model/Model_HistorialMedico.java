@@ -378,7 +378,7 @@ public String idMed(String ced){
         ps.setString(26, getHora_his());
         ps.executeUpdate();
         ps.close();
-        con.desconectar();
+       // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -421,7 +421,7 @@ public String idMed(String ced){
         act_his.setString(26, getId_his_med());   
         act_his.executeUpdate();
         act_his.close();
-        con.desconectar();
+      //  con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);

@@ -75,7 +75,7 @@ public class Model_Paciente extends Paciente {
 
             ps2.executeUpdate();
             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
-            con.desconectar();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -221,7 +221,7 @@ public class Model_Paciente extends Paciente {
             actp.setBytes(10, getFoto());
             actp.setString(11, getCedula());
             actp.executeUpdate();
-            con.desconectar();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -241,7 +241,7 @@ public class Model_Paciente extends Paciente {
             ps2.setString(2, getTipo_sang());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
-            con.desconectar();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -266,7 +266,7 @@ public class Model_Paciente extends Paciente {
             actp.setString(9, getGenero());
             actp.setString(10, getCedula());
             actp.executeUpdate();
-            con.desconectar();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

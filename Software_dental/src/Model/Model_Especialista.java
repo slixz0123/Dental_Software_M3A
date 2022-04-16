@@ -87,7 +87,7 @@ public class Model_Especialista extends Doctor{
                  milista.add(esp1);
            }
            rs.close();
-           cpg.desconectar();
+          // cpg.desconectar();
            return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -129,7 +129,7 @@ public class Model_Especialista extends Doctor{
 
             }
            rs.close();
-           cpg.desconectar();
+          // cpg.desconectar();
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,7 +174,7 @@ public class Model_Especialista extends Doctor{
                
         ps2.executeUpdate();
         System.out.println("GUARDADO CON EXITO");
-        cpg.desconectar();
+        //cpg.desconectar();
         JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
         return true;
             
@@ -248,7 +248,7 @@ public class Model_Especialista extends Doctor{
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
             ps2.close();
-            cpg.desconectar();
+           // cpg.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -269,7 +269,7 @@ public class Model_Especialista extends Doctor{
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
             ps2.close();
-            cpg.desconectar();
+           // cpg.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -308,7 +308,7 @@ public class Model_Especialista extends Doctor{
                 
             }
             rs.close();
-            cpg.desconectar();
+           // cpg.desconectar();
             return milistaesp;
         } catch (SQLException ex) {
             System.out.println(ex);
