@@ -70,6 +70,7 @@ public class Model_HistorialMedico extends Hist_Medico {
           mostrar.add(his_m);
          }
         rs.close();
+
         return mostrar;
         } catch (SQLException ex) {
         Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,8 +117,10 @@ public class Model_HistorialMedico extends Hist_Medico {
           his_m.setFecha_his(rs.getDate("fecha_his"));
           his_m.setHora_his(rs.getString("hora_his"));
           mostrar.add(his_m);
+          
          }
         rs.close();
+
         return mostrar;
         } catch (SQLException ex) {
         Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,6 +150,7 @@ public class Model_HistorialMedico extends Hist_Medico {
         lista.add(p);
     }
     rs.close();
+ 
     return lista;
     } catch (SQLException ex) {
       Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,6 +181,7 @@ public class Model_HistorialMedico extends Hist_Medico {
         lista.add(p);
     }
     rs.close();
+
     return lista;
     } catch (SQLException ex) {
       Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -205,6 +210,7 @@ public class Model_HistorialMedico extends Hist_Medico {
             lista.add(p);
             }
             rs.close();
+ 
             return lista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -234,6 +240,7 @@ public class Model_HistorialMedico extends Hist_Medico {
             lista.add(p);
             }
             rs.close();
+
             return lista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -249,6 +256,8 @@ public class Model_HistorialMedico extends Hist_Medico {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
+
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -268,6 +277,8 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -285,6 +296,8 @@ public String cedulaPac(String id){
                 while(rs.next()){
                     ced = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             ced = "";
         }
@@ -302,6 +315,8 @@ public String cedulaMed(String id){
                 while(rs.next()){
                     ced = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             ced = "";
         }
@@ -319,6 +334,8 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -360,6 +377,8 @@ public String idMed(String ced){
         ps.setDate(25, getFecha_his());
         ps.setString(26, getHora_his());
         ps.executeUpdate();
+        ps.close();
+        con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);
@@ -401,6 +420,8 @@ public String idMed(String ced){
         act_his.setString(25, getHora_his());
         act_his.setString(26, getId_his_med());   
         act_his.executeUpdate();
+        act_his.close();
+        con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_HistorialMedico.class.getName()).log(Level.SEVERE, null, ex);

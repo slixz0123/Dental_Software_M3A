@@ -44,6 +44,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -77,6 +78,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -93,6 +95,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -122,6 +125,7 @@ public class Model_Receta extends receta{
                 System.out.println(rs.getString("alergias_his")+"");
                 
             }
+            rs.close();
             return alergia;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -147,6 +151,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistafar;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -176,6 +181,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistacie;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -205,7 +211,7 @@ public class Model_Receta extends receta{
                 milistafar.add(far);
 
             }
-           
+           rs.close();
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
@@ -241,6 +247,7 @@ public class Model_Receta extends receta{
                 milistacie.add(cie);
 
             }
+            rs.close();
            
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -264,6 +271,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR ID");
 
@@ -279,6 +287,7 @@ public class Model_Receta extends receta{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
           
             System.out.println(e);
@@ -293,7 +302,7 @@ public class Model_Receta extends receta{
         
         sql="INSERT INTO recetas (id_receta, cedula, nombres, sexo, edad, fecha, observaciones, alergias)";
     sql+="VALUES(?,?,?,?,?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql);
         ps.setString(1, getId_receta());
         ps.setString(2, getCedula_pac());
         ps.setString(3, getNombre());
@@ -306,6 +315,7 @@ public class Model_Receta extends receta{
             
         System.out.println("GUARDADO CON EXITO");
         JOptionPane.showMessageDialog(null, "Receta creada con exito"); 
+        con.desconectar();
         return true;
             
         } catch (SQLException ex) {
@@ -378,13 +388,13 @@ public class Model_Receta extends receta{
         
         sql2="INSERT INTO receta_cie (id_receta_cie,id_receta,titulo_cie,categoria_cie)";
         sql2+="VALUES(?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql2);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql2);
         ps.setString(1, getId_rec_cie());
         ps.setString(2, getId_receta());
         ps.setString(3, getId_titulo());
         ps.setString(4, getCategoria());
             ps.executeUpdate();
-            
+            con.desconectar();
         System.out.println("GUARDADO CON EXITO");
         return true;
             
@@ -402,7 +412,7 @@ public class Model_Receta extends receta{
         
         sql="INSERT INTO receta_far (receta_far_id, id_receta, detalle_far, dosis_far,cantidad,frecuencia)";
     sql+="VALUES(?,?,?,?,?,?)";
-            PreparedStatement ps= con.Con().prepareStatement(sql);
+            PreparedStatement ps= con.getConnection().prepareStatement(sql);
         ps.setString(1, getId_rec_far());
         ps.setString(2, getId_receta());
         ps.setString(3, getFarmaco());
@@ -410,7 +420,7 @@ public class Model_Receta extends receta{
         ps.setString(5, getCantidad());
         ps.setString(6, getFrecuencia());
             ps.executeUpdate();
-            
+            con.desconectar();
         System.out.println("GUARDADO CON EXITO");
         return true;
             
@@ -439,6 +449,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistareccie;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -468,6 +479,7 @@ public class Model_Receta extends receta{
                 
                 
             }
+            rs.close();
             return milistarecfar;
         } catch (SQLException ex) {
             System.out.println(ex);

@@ -8,11 +8,8 @@ package Controller;
 import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_ListadoEspecialistas;
-import Model.Model_ListadoPacientes;
-import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_ListadoEspecialista;
-import View.Vista_ListadoPacientes;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -249,7 +246,7 @@ public class Contoller_ListadoEspecialista {
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Especialistas.jasper"));
             
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());
+              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.getConnection());
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);

@@ -87,6 +87,7 @@ public class Model_Especialista extends Doctor{
                  milista.add(esp1);
            }
            rs.close();
+           cpg.desconectar();
            return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,7 +128,8 @@ public class Model_Especialista extends Doctor{
                 milistadoc.add(esp);
 
             }
-           
+           rs.close();
+           cpg.desconectar();
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -172,10 +174,13 @@ public class Model_Especialista extends Doctor{
                
         ps2.executeUpdate();
         System.out.println("GUARDADO CON EXITO");
+        cpg.desconectar();
         JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
         return true;
             
-        } catch (SQLException ex) {
+        }
+        
+        catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "No se ha podido crear el especialista");
@@ -192,6 +197,7 @@ public class Model_Especialista extends Doctor{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
           JOptionPane.showMessageDialog(null,"ERROR GENERAR ID");
 
@@ -231,7 +237,7 @@ public class Model_Especialista extends Doctor{
     actp.setBytes(10, getFoto());
     actp.setString(11, getCedula());
     actp.executeUpdate();
-    
+    actp.close();
     String sql2;
             sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
 
@@ -241,6 +247,8 @@ public class Model_Especialista extends Doctor{
             ps2.setString(2, getCargo());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
+            ps2.close();
+            cpg.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -260,6 +268,8 @@ public class Model_Especialista extends Doctor{
             ps2.setString(2, getCargo());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
+            ps2.close();
+            cpg.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
@@ -297,6 +307,8 @@ public class Model_Especialista extends Doctor{
                
                 
             }
+            rs.close();
+            cpg.desconectar();
             return milistaesp;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -322,14 +334,9 @@ public class Model_Especialista extends Doctor{
                 esp.setNombres(rs.getString("nombres"));
                 esp.setApellidos(rs.getString("apellidos"));
                 esp.setId_doctor(rs.getString("id_doctor"));
-                
-               
-                
-                milistaespc.add(esp);
-              
-              
-                
+                milistaespc.add(esp);   
             }
+            rs.close();
             return  milistaespc;
             
         } catch (SQLException ex) {

@@ -335,7 +335,7 @@ public class Controller_CrudEspecialista {
      String ciudad=vista.getTxtciudadesp().getText();
      String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
      String id_doctor=vista.getTxtIdDoctor().getText();
-     String id_usuario=vista.getTxtIdUsuario().getText();
+     
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
      

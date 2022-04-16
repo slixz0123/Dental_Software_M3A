@@ -25,6 +25,15 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JLabel getLblCelular() {
+        return lblCelular;
+    }
+
+    public void setLblCelular(JLabel lblCelular) {
+        this.lblCelular = lblCelular;
+    }
+    
+
     public JButton getBtnCalculadora() {
         return btnCalculadora;
     }
@@ -275,6 +284,7 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
         spiCantidad = new javax.swing.JSpinner();
+        lblCelular = new javax.swing.JLabel();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         btneliminar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
@@ -456,6 +466,10 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
         panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
 
+        lblCelular.setBackground(new java.awt.Color(166, 104, 216));
+        lblCelular.setForeground(new java.awt.Color(166, 104, 216));
+        panelNice1.add(lblCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 10, 10));
+
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 980, 180));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
@@ -571,6 +585,7 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblid;

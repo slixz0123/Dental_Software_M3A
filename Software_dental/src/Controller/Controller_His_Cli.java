@@ -7,17 +7,14 @@ package Controller;
 
 import Model.Doctor;
 import Model.Model_Hist_clinico;
-import Model.Model_HistorialMedico;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_HistorialClinico;
-import View.Vista_InicioProceso;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  *

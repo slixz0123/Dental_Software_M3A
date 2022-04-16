@@ -5,7 +5,6 @@
  */
 package Model;
 
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,11 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -54,6 +48,7 @@ public class Model_Citas extends Citas{
                 milista.add(micita); 
            }
             rs.close();
+            con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,6 +79,7 @@ public class Model_Citas extends Citas{
                    
            }
             rs.close();
+            con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,7 +101,7 @@ public class Model_Citas extends Citas{
           
             }*/
             //else{
-            sql = "Select doc.nombres as nomdoc, doc.apellidos as apdoc ,doc.cedula as ceddoc, p.nombres, p.apellidos, \n" +
+            sql = "Select doc.nombres ||' '||doc.apellidos as nomdoc ,doc.cedula as ceddoc, p.nombres as  nompa, p.apellidos, \n" +
     "p.cedula,\n" +
     " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
     " where c.id_doctor_c=d.id_doctor \n" +
@@ -120,13 +116,64 @@ public class Model_Citas extends Citas{
               Citas micita=new Citas();
                // micita.setId_cita(rs.getString("id_cita"));
                // micita.setId_paciente(rs.getString("id_paciente"));
+               micita.setCedula(rs.getString("cedula"));
+               micita.setNombres(rs.getString("nompa"));
+               micita.setApellidos(rs.getString("apellidos"));
                 micita.setFecha_cita(rs.getDate("fecha_cita"));
                 micita.setHora_cita(rs.getString("hora_cita"));
                 micita.setMotivo(rs.getString("motivo"));
+               micita.setNombresdoc(rs.getString("nomdoc"));
                // micita.setId_doctor(rs.getString("id_doctor_c"));
                 milista.add(micita); 
            }
             rs.close();
+            con.desconectar();
+            return milista;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+      public  List<Citas> listarCitas (){
+         String sql ;
+        List<Citas> milista = new ArrayList<Citas>();
+        try {
+         /*   if(id.equals("")){
+            sql = "Select doc.nombres as nomdoc, doc.apellidos as apdoc ,doc.cedula as ceddoc, p.nombres, p.apellidos, \n" +
+    "p.cedula,\n" +
+    " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
+    " where c.id_doctor_c=d.id_doctor \n" +
+    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente" ;
+          
+            }*/
+            //else{
+            sql = "Select doc.nombres ||' '||doc.apellidos as nomdoc ,doc.cedula as ceddoc, p.nombres as  nompa, p.apellidos, \n" +
+    "p.cedula,\n" +
+    " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
+    " where c.id_doctor_c=d.id_doctor \n" +
+    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente " ;
+     //} 
+            ResultSet rs = con.consulta(sql) ;
+        
+           
+            // barremos el resulset
+           while(rs.next()){
+               
+              Citas micita=new Citas();
+               // micita.setId_cita(rs.getString("id_cita"));
+               // micita.setId_paciente(rs.getString("id_paciente"));
+               micita.setCedula(rs.getString("cedula"));
+               micita.setNombres(rs.getString("nompa"));
+               micita.setApellidos(rs.getString("apellidos"));
+                micita.setFecha_cita(rs.getDate("fecha_cita"));
+                micita.setHora_cita(rs.getString("hora_cita"));
+                micita.setMotivo(rs.getString("motivo"));
+               micita.setNombresdoc(rs.getString("nomdoc"));
+               // micita.setId_doctor(rs.getString("id_doctor_c"));
+                milista.add(micita); 
+           }
+            rs.close();
+            con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,6 +192,8 @@ public class Model_Citas extends Citas{
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -174,6 +223,7 @@ public class Model_Citas extends Citas{
                 mostrar.add(micita);
             }
             rs.close();
+            con.desconectar();
             return mostrar;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -195,6 +245,8 @@ public class Model_Citas extends Citas{
     ps.setString(5, getMotivo());
     ps.setString(6, getId_doctor() );
     ps.executeUpdate();
+    ps.close();
+    con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -219,6 +271,9 @@ public boolean actualizarCitas(){
     ps.setString(5, getId_doctor() );
     ps.setString(6, getId_cita());
     ps.executeUpdate();
+ 
+    ps.close();
+    con.desconectar();
         System.out.println("CITAS  GUARDADO");
     return true;
         } catch (SQLException ex) {
@@ -261,6 +316,7 @@ public List<Persona> listarPersonas(String busc){
         lista.add(p);
     }
     rs.close();
+
     return lista;
     } catch (SQLException ex) {
       Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -278,6 +334,7 @@ public String NumSerie() {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -307,6 +364,7 @@ public String NumSerie() {
                 System.out.println(rs.getString("apellidos"));
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -333,6 +391,7 @@ public String NumSerie() {
                 milista.add(pa);
        
             }
+            rs.close();
             return milista;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -366,6 +425,7 @@ public String NumSerie() {
                 System.out.println(rs.getString("apellidos"));
                 
             }
+            rs.close();
             return milistadoc;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -391,6 +451,7 @@ public String NumSerie() {
                 milistado.add(doc);
        
             }
+            rs.close();
             return milistado;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -411,6 +472,7 @@ public String idPaci(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -429,6 +491,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -456,6 +519,7 @@ public String idMed(String ced){
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -487,6 +551,7 @@ public String idMed(String ced){
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -507,6 +572,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -524,6 +590,7 @@ public String idMed(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -553,7 +620,7 @@ public String idMed(String ced){
                     milistapac.add(pac);
 
                 }
-
+                 rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

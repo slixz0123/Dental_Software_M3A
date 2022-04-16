@@ -4,22 +4,13 @@
  */
 package Model;
 
-import java.awt.Image;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
 
 /**
  *
@@ -54,6 +45,8 @@ public class Model_ListadoPacientes extends Paciente {
                 
 
             }
+            rs.close();
+            con.desconectar();
             return pac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -89,6 +82,8 @@ public class Model_ListadoPacientes extends Paciente {
                 milistapac.add(pac);
 
             }
+            rs.close();
+            con.desconectar();
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -129,7 +124,8 @@ public class Model_ListadoPacientes extends Paciente {
                     milistapac.add(pac);
 
                 }
-
+                rs.close();
+                con.desconectar();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

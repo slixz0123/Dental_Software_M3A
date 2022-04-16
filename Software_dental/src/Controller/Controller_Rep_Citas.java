@@ -44,16 +44,17 @@ public class Controller_Rep_Citas {
         this.vista = vista;
          this.vistamenu = vistamenu;
         vista.setVisible(true);
-        
+        cargarcitastot();
         iniciaControl ();
         
         
     }
-    public void iniciaControl () {
+   public void iniciaControl () {
         
          vista.getBtnconsultar().addActionListener( l->cargardatoconcedula());
          
          vista.getBtnrepgeneral().addActionListener( l->imprimirlistacitas());
+         
          vista.getBtnimprimir().addActionListener( l->imprimirlistacitasespe());
          
          KeyListener kl = new KeyListener() {
@@ -68,10 +69,11 @@ public class Controller_Rep_Citas {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                cargarPersonasbusqueda(vista.getTxtbuscar().getText());
+               // cargarPersonasbusqueda(vista.getTxtbuscar().getText());
                 cargarcitasbusqueda(vista.getTxtbuscar().getText());
             }
         };
+         vista.getTxtbuscar().addKeyListener(kl);
        // setEventoKeytyped(vista.getTxtbuscar());
         // radiobuttons();
     }
@@ -106,7 +108,7 @@ public class Controller_Rep_Citas {
               //Map<String,Object>parametros = new HashMap<String,Object>();
              //parametros.put("numcedula",vista.getTxtbuscar() );
              Map parametros = new HashMap();
-             parametros.put("numcedula", vista.getTxtbuscar());
+             parametros.put("numcedula", vista.getTxtbuscar().getText());
               JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.Con());//cargando el reporte con los datos de la base
           
               JasperViewer jv = new JasperViewer(jp,false);
@@ -154,7 +156,7 @@ public class Controller_Rep_Citas {
      
      
      
-       private void  cargarPersonasbusqueda (String busqueda){
+      /* private void  cargarPersonasbusqueda (String busqueda){
         
         vista.getJtbllistadopac().setDefaultRenderer(Object.class, new  ImagenTabla()); 
         vista.getJtbllistadopac().setRowHeight(100);
@@ -181,8 +183,11 @@ public class Controller_Rep_Citas {
         });
         
         
+        
+        
+        
                 
-    }
+    }*/
          private void  cargarcitasbusqueda (String busqueda){
         
         vista.getJtbllistadopac().setDefaultRenderer(Object.class, new  ImagenTabla()); 
@@ -200,16 +205,56 @@ public class Controller_Rep_Citas {
         Holder<Integer> i = new Holder<>(0);
         milistaci.stream().forEach( ci -> {
 
-      tbmodel.addRow( new Object[3]);// creo una fila vacia
+      tbmodel.addRow( new Object[7]);// creo una fila vacia
        //dibujar elementos de la tabla 
+       vista.getJtbllistadocitas().setValueAt(ci.getCedula(), i.value, 0);
+       vista.getJtbllistadocitas().setValueAt(ci.getNombres(), i.value, 1);
+       vista.getJtbllistadocitas().setValueAt(ci.getApellidos(), i.value, 2);
        vista.getJtbllistadocitas().setValueAt(ci.getFecha_cita(), i.value, 3);
        vista.getJtbllistadocitas().setValueAt(ci.getHora_cita(), i.value, 4);
-        vista.getJtbllistadocitas().setValueAt(ci.getMotivo(), i.value, 5);
+       vista.getJtbllistadocitas().setValueAt(ci.getMotivo(), i.value, 5);
+        vista.getJtbllistadocitas().setValueAt(ci.getNombresdoc(), i.value, 6);
         
         i.value++;
 
       
         });
+        
+                
+    }
+         
+          private void  cargarcitastot(){
+        
+        vista.getJtbllistadopac().setDefaultRenderer(Object.class, new  ImagenTabla()); 
+        vista.getJtbllistadopac().setRowHeight(100);
+      
+        DefaultTableModel tbmodel ; 
+
+        tbmodel = (DefaultTableModel) vista.getJtbllistadopac().getModel() ; 
+  
+        tbmodel.setNumRows(0);
+
+        
+        List<Citas> milistaci = modelo.listarCitas();
+     
+        Holder<Integer> i = new Holder<>(0);
+        milistaci.stream().forEach( ci -> {
+
+      tbmodel.addRow( new Object[7]);// creo una fila vacia
+       //dibujar elementos de la tabla 
+       vista.getJtbllistadocitas().setValueAt(ci.getCedula(), i.value, 0);
+       vista.getJtbllistadocitas().setValueAt(ci.getNombres(), i.value, 1);
+       vista.getJtbllistadocitas().setValueAt(ci.getApellidos(), i.value, 2);
+       vista.getJtbllistadocitas().setValueAt(ci.getFecha_cita(), i.value, 3);
+       vista.getJtbllistadocitas().setValueAt(ci.getHora_cita(), i.value, 4);
+       vista.getJtbllistadocitas().setValueAt(ci.getMotivo(), i.value, 5);
+        vista.getJtbllistadocitas().setValueAt(ci.getNombresdoc(), i.value, 6);
+        
+        i.value++;
+
+      
+        });
+        
                 
     }
         

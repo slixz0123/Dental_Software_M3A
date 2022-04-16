@@ -28,6 +28,7 @@ public class Model_Factura extends Factura {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -43,6 +44,7 @@ public class Model_Factura extends Factura {
             while (rs.next()) {
                 idf = rs.getInt(1) + 1;
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Error idfactura " + e);
 
@@ -75,6 +77,7 @@ public class Model_Factura extends Factura {
             ps.setString(4, fac.getFecha());
             ps.setDouble(5, fac.getTotal());
             ps.executeUpdate();
+            conVentas.desconectar();
             System.out.println("EJECUTA GUARDAR FACTURA");
             return true;
 
@@ -97,6 +100,7 @@ public class Model_Factura extends Factura {
             ps.setDouble(5, fac.getPreciounit());
             ps.setDouble(6, fac.getTotalprod());
             ps.executeUpdate();
+            conVentas.desconectar();
             System.out.println("EJECUTA GUARDAR DETALLEFACTURA");
             return true;
 
@@ -112,20 +116,21 @@ public class Model_Factura extends Factura {
         String sql3;
 
         try {
-            sql3 = "select p.nombres , p.apellidos, p.direccion , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
+            sql3 = "select p.nombres , p.apellidos, p.direccion , p.celular, pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '" + cedula + "'  ";
             ResultSet rs = conVentas.consulta(sql3);
 
             // barremos el resulset
             while (rs.next()) {
                 Paciente pac = new Paciente();
-
                 pac.setNombres(rs.getString("nombres"));
                 pac.setApellidos(rs.getString("apellidos"));
                 pac.setDireccion(rs.getString("direccion"));
                 pac.setId_paciente(rs.getString("id_paciente"));
+                pac.setCelular(rs.getString("celular"));
                 milistapaci.add(pac);
 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);

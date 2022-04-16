@@ -37,7 +37,6 @@ public class Model_Anamnesis extends Anamnesis{
         ResultSet rs = null;
          ps = con.Con().prepareStatement(sql);
          rs = ps.executeQuery();
-  //      ResultSet rs=con.consulta(sql);
         while(rs.next()){
           Anamnesis anam=new Anamnesis();
           anam.setId_anamnesis(rs.getString(1));
@@ -47,21 +46,9 @@ public class Model_Anamnesis extends Anamnesis{
           mostrar.add(anam);
          }
         rs.close();
+       ps.close();
         return mostrar;
-//        String sql="Select id_paciente from paciente where cedula_pac ='"+ced+"'";
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        try{    
-//                ps = con.Con().prepareStatement(sql);
-//                rs = ps.executeQuery();
-//                while(rs.next()){
-//                    id = rs.getString(1);
-//                }
-//        }catch(SQLException ex){
-//            id = "";
-//        }
-//    return id;
-//            }
+           
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -90,6 +77,7 @@ public class Model_Anamnesis extends Anamnesis{
           mostrar.add(anam);
          }
         rs.close();
+        
         return mostrar;
       } catch (SQLException ex) {
         Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,6 +107,7 @@ public List<Paciente> listarPersonas(String busc){
         lista.add(p);
     }
     rs.close();
+    
     return lista;
     } catch (SQLException ex) {
       Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,6 +126,8 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                 rs.close();
+                 
         }catch(SQLException ex){
             id = "";
         }
@@ -154,6 +145,8 @@ public String idPac(String ced){
             while(rs.next()){
              cedula = rs.getString(1);
            }
+             rs.close();
+             ps.close();
         }catch(SQLException ex){
             cedula = "";
         }
@@ -171,6 +164,8 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                 rs.close();
+                 ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -187,10 +182,12 @@ public String idPac(String ced){
                 rs = ps.executeQuery();
                 while(rs.next()){
                     cedmed = rs.getString(1);
-                }
+                } rs.close();
+                ps.close();
         }catch(SQLException ex){
             cedmed = "";
         }
+       
     return cedmed;
  }   
      //Listar medico
@@ -215,6 +212,7 @@ public String idPac(String ced){
             lista.add(p);
             }
             rs.close();
+
             return lista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -232,99 +230,14 @@ public String idPac(String ced){
             rs = ps.executeQuery();
             while(rs.next()){
               espec = rs.getString(1);
-            }
+            } rs.close();
+            ps.close();
         }catch(SQLException ex){
             espec = "";
         }
     return espec;
  }
-     //Cargar doctores tabla
-//     public void cargar_doctorestabla(JTable tbl1, String valor){
-//   
-//        String[] columnas ={"Cedula","Nombre","Apellido","Especialidad","Telefono"};
-//        
-//       DefaultTableModel tabla = new DefaultTableModel(null,columnas){
-//        @Override
-//        public boolean isCellEditable(int filas, int columnas){
-//        if(columnas==5){
-//        return true;
-//        } else{
-//            return false;
-//        }
-//        };
-//        };
-//        String sql;
-//        tbl1.setModel(tabla);
-//        String [] datos = new String [5];
-//        if(valor.equals("")){
-//       
-//    sql="SELECT p.cedula, p.nombres, p.apellidos, d.especialidad, p.telefono from persona p join doctor d on p.cedula=cedula_doc";
-//        } else {
-//        sql="SELECT p.cedula, p.nombres, p.apellidos, d.especialidad, p.telefono from persona p join doctor d on p.cedula=cedula_doc"
-//                + "WHERE p.cedula  LIKE '%"+valor+"%' or p.nombres LIKE '%"+valor+"%' or p.apellidos like '%"+valor+"%'";
-//
-//        }
-//        try {
-//           ResultSet rs=con.consulta(sql);
-//           while(rs.next()){
-//           datos[0]=rs.getString(1);
-//           datos[1]=rs.getString(2);
-//           datos[2]=rs.getString(3);
-//           datos[3]=rs.getString(4);
-//           datos[4]=rs.getString(5);
-//           tabla.addRow(datos);
-//           }
-//           tbl1.setModel(tabla);
-//        } catch (SQLException e) {
-//               JOptionPane.showMessageDialog(null, "Error: SQLException ","Error", JOptionPane.PLAIN_MESSAGE);
-//            System.out.println(e);
-//            
-//        }
-//    }
-////Cargar doctores tabla
-//     public void cargar_pacientestabla(JTable tbl1, String busc){
-//   
-//        String[] columnas ={"Cedula","Nombres","Apellidos","Direccion","Telefono","Correo"};
-//        
-//       DefaultTableModel tabla = new DefaultTableModel(null,columnas){
-//        @Override
-//        public boolean isCellEditable(int filas, int columnas){
-//        if(columnas==6){
-//        return true;
-//        } else{
-//            return false;
-//        }
-//        };
-//        };
-//        String sql;
-//        tbl1.setModel(tabla);
-//        String [] datos = new String [6];
-//        if(busc.equals("")){
-//       
-//    sql="SELECT p.cedula, p.nombres, p.apellidos, p.direccion, p.telefono, p.correo from persona p join paciente pac on p.cedula=cedula_pac";
-//        } else {
-//        sql="SELECT p.cedula, p.nombres, p.apellidos, p.direccion, p.telefono, p.correo from persona p join paciente pac on p.cedula=cedula_pac"
-//                + "WHERE p.cedula  LIKE '%"+busc+"%' or p.nombre LIKE '%"+busc+"%' or p.apellido like '%"+busc+"%'";
-//
-//        }
-//        try {
-//           ResultSet rs=con.consulta(sql);
-//           while(rs.next()){
-//           datos[0]=rs.getString(1);
-//           datos[1]=rs.getString(2);
-//           datos[2]=rs.getString(3);
-//           datos[3]=rs.getString(4);
-//           datos[4]=rs.getString(5);
-//           datos[5]=rs.getString(6);
-//           tabla.addRow(datos);
-//           }
-//           tbl1.setModel(tabla);
-//        } catch (SQLException e) {
-//               JOptionPane.showMessageDialog(null, "Error: SQLException ","Error", JOptionPane.PLAIN_MESSAGE);
-//            System.out.println(e);
-//            
-//        }
-//    }
+  
 //generar id anamnesis
      public String id_anam(){
         String sql = "SELECT MAX (CAST (id_anamnesis AS INTEGER)) FROM anamnesis ";
@@ -333,7 +246,8 @@ public String idPac(String ced){
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
             serie = rs.getString(1);
-            }
+            } rs.close();
+            
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -348,7 +262,8 @@ public String idPac(String ced){
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
             id = rs.getString(1);
-            }
+            } rs.close();
+
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -369,8 +284,12 @@ public String idPac(String ced){
         ps.setString(5, getProble_act());
         ps.setString(6, getId_doctor());
         ps.executeUpdate();
+        ps.close();
+        con.desconectar();
     return true;
-        } catch (SQLException ex) {
+        }
+    
+    catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
         }
     return false;
@@ -388,6 +307,8 @@ public String idPac(String ced){
     act_an.setString(5, getId_doctor());
     act_an.setString(6, getId_anamnesis());
     act_an.executeUpdate();
+    act_an.close();
+    con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);

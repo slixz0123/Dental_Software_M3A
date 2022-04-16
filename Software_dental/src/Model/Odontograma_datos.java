@@ -5,31 +5,35 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Saul
  */
 public class Odontograma_datos {
-    private String id_odontograma;
+    private int id_odontograma;
     private String id_pacien_odont;
     private String od_descri;
-    private byte[] odontograma;
+    private Date fecha;
+    private byte[] imagenodontograma;
 
     public Odontograma_datos() {
     }
 
-    public Odontograma_datos(String id_odontograma, String id_pacien_odont, String od_descri, byte[] odontograma) {
+    public Odontograma_datos(int id_odontograma, String id_pacien_odont, String od_descri, Date fecha, byte[] imagenodontograma) {
         this.id_odontograma = id_odontograma;
         this.id_pacien_odont = id_pacien_odont;
         this.od_descri = od_descri;
-        this.odontograma = odontograma;
+        this.fecha = fecha;
+        this.imagenodontograma = imagenodontograma;
     }
 
-    public String getId_odontograma() {
+    public int getId_odontograma() {
         return id_odontograma;
     }
 
-    public void setId_odontograma(String id_odontograma) {
+    public void setId_odontograma(int id_odontograma) {
         this.id_odontograma = id_odontograma;
     }
 
@@ -49,12 +53,20 @@ public class Odontograma_datos {
         this.od_descri = od_descri;
     }
 
-    public byte[] getOdontograma() {
-        return odontograma;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setOdontograma(byte[] odontograma) {
-        this.odontograma = odontograma;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public byte[] getImagenodontograma() {
+        return imagenodontograma;
+    }
+
+    public void setImagenodontograma(byte[] imagenodontograma) {
+        this.imagenodontograma = imagenodontograma;
     }
     
 }

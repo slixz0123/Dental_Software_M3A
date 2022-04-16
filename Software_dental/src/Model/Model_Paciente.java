@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static sun.jvm.hotspot.HelloWorld.e;
 
 /**
  *
@@ -34,6 +36,8 @@ public class Model_Paciente extends Paciente {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
+
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -46,7 +50,7 @@ public class Model_Paciente extends Paciente {
             String sql;
             sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
             sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = con.Con().prepareStatement(sql);
+            PreparedStatement ps = con.getConnection().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
             ps.setString(3, getApellidos());
@@ -63,7 +67,7 @@ public class Model_Paciente extends Paciente {
             String sql2;
             sql2 = "INSERT INTO paciente (id_paciente,cedula_pac,fecha_nac,tipo_sang)";
             sql2 += "VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?)";
-            PreparedStatement ps2 = con.Con().prepareStatement(sql2);
+            PreparedStatement ps2 = con.getConnection().prepareStatement(sql2);
             ps2.setString(1, getId_paciente());
             ps2.setString(2, getCedula_pac());
             ps2.setDate(3, getFecha_nac());
@@ -71,7 +75,7 @@ public class Model_Paciente extends Paciente {
 
             ps2.executeUpdate();
             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
-
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -105,10 +109,10 @@ public class Model_Paciente extends Paciente {
                     pac.setFecha_nac(rs.getDate(9));
                     pac.setTipo_sang(rs.getString(10));
                     milista.add(pac);
-                    rs.close();
                     return milista;
 
                 }
+                rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,6 +148,8 @@ public class Model_Paciente extends Paciente {
                 milistapac.add(pac);
 
             }
+            rs.close();
+  
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -184,6 +190,8 @@ public class Model_Paciente extends Paciente {
                     milistapac.add(pac);
 
                 }
+                rs.close();
+   
 
             } catch (SQLException ex) {
                 System.out.println(ex);
@@ -200,7 +208,7 @@ public class Model_Paciente extends Paciente {
         try {
             String sql;
             sql = "Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
-            PreparedStatement actp = con.Con().prepareStatement(sql);
+            PreparedStatement actp = con.getConnection().prepareStatement(sql);
             actp.setString(1, getNombres());
             actp.setString(2, getApellidos());
             actp.setString(3, getCelular());
@@ -213,7 +221,7 @@ public class Model_Paciente extends Paciente {
             actp.setBytes(10, getFoto());
             actp.setString(11, getCedula());
             actp.executeUpdate();
-
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -228,11 +236,12 @@ public class Model_Paciente extends Paciente {
             String sql2;
             sql2 = "Update paciente SET fecha_nac=?, tipo_sang=? where cedula_pac=?";
 
-            PreparedStatement ps2 = con.Con().prepareStatement(sql2);
+            PreparedStatement ps2 = con.getConnection().prepareStatement(sql2);
             ps2.setDate(1, getFecha_nac());
             ps2.setString(2, getTipo_sang());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -245,7 +254,7 @@ public class Model_Paciente extends Paciente {
         try {
             String sql;
             sql = "Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=? WHERE cedula=?";
-            PreparedStatement actp = con.Con().prepareStatement(sql);
+            PreparedStatement actp = con.getConnection().prepareStatement(sql);
             actp.setString(1, getNombres());
             actp.setString(2, getApellidos());
             actp.setString(3, getCelular());
@@ -257,6 +266,7 @@ public class Model_Paciente extends Paciente {
             actp.setString(9, getGenero());
             actp.setString(10, getCedula());
             actp.executeUpdate();
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -290,6 +300,8 @@ public class Model_Paciente extends Paciente {
                 milistapaci.add(pac);
 
             }
+            rs.close();
+
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -298,5 +310,4 @@ public class Model_Paciente extends Paciente {
         }
 
     }
-
 }

@@ -32,6 +32,7 @@ public class Model_Tratamiento extends Tratamiento {
                 lt.setMaterial(rs.getString("tipo_materia"));
             }
             rs.close();
+            con.desconectar();
             return lt;
         } catch (SQLException e) {
             System.out.println("Error listar tratamiento " + e);
@@ -59,6 +60,7 @@ public class Model_Tratamiento extends Tratamiento {
 
             }
             rs.close();
+            con.desconectar();
             return lt;
         } catch (SQLException e) {
             System.out.println("Error listar tratamiento " + e);
@@ -80,6 +82,7 @@ public class Model_Tratamiento extends Tratamiento {
             ps.setString(5, getMaterial());
 
             ps.executeUpdate();
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println("ERROR AL GRABAR" + ex);
@@ -102,6 +105,7 @@ public class Model_Tratamiento extends Tratamiento {
             psm.executeUpdate();
 
             System.out.println("Se modifico correctamente");
+            con.desconectar();
             return true;
 
         } catch (SQLException ex) {
@@ -123,6 +127,8 @@ public class Model_Tratamiento extends Tratamiento {
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
+            con.desconectar();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR ID");
 

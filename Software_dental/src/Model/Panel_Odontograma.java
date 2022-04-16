@@ -28,6 +28,8 @@ import static View.Odontograma.btnXrojo;
 import static View.Odontograma.selecOpcion;
 import static View.Odontograma.btnCirculoRojo;
 import static View.Odontograma.btnnuevo;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -43,6 +45,10 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
     ArrayList <Asterisco> Listaast=null;
     ArrayList <X_clase> Listax=null;
     ArrayList <S_clase> Listas=null;
+    ArrayList <Fractura> Listafrac=null;
+    ArrayList <Res_Def> Listares=null;
+    ArrayList <Dientes_erup> Listadier=null;
+    ArrayList <Extraccion> Listaex=null;
     String opcion="caries";
     Color micol=Color.RED;
     public static Color selec= Color.GRAY;
@@ -56,6 +62,10 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
         setListatri(new ArrayList<>());
         setListax(new ArrayList<>());
         setListas(new ArrayList<>());
+        setListafrac(new ArrayList<>());
+        setListares(new ArrayList<>());
+        setListadier(new ArrayList<>());
+        setListaex(new ArrayList<>());
         addMouseListener(this);
         this.setBackground(Color.white);
         this.setBounds(0, 0, 1000, 600);
@@ -71,13 +81,14 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
          eventoXazul(btnXazul);
          eventoXrojo(btnXrojo);
          eventoS(btnS);
+         eventonuevo(btnnuevo);
     }
     
  @Override
     public void paint (Graphics g){
         super.paint(g);
         Dimension height = getSize();
-        ImageIcon Img = new ImageIcon(getClass().getResource("/View/icons/iconos_odonto/dientes numerados.jpg"));
+        ImageIcon Img = new ImageIcon(getClass().getResource("/View/icons/iconos_odonto/dientes_numerados.jpg"));
         g.drawImage(Img.getImage(), 0, 0, height.width, 498, null);
         setOpaque(false);
         
@@ -116,6 +127,54 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
         getListas().forEach((ese) -> {
             ese.pintarS(g);
         });
+        
+        getListafrac().forEach((frac) -> {
+            frac.pintarFractura(g);
+        });
+        
+        getListadier().forEach((dier) -> {
+            dier.pintardientes_erup(g);
+        });
+        
+        getListaex().forEach((ext) -> {
+            ext.pintar_extrac(g);
+        });
+        
+        getListares().forEach((resf) -> {
+            resf.pintarresstauracion(g);
+        });
+    }
+
+    public ArrayList<Extraccion> getListaex() {
+        return Listaex;
+    }
+
+    public void setListaex(ArrayList<Extraccion> Listaex) {
+        this.Listaex = Listaex;
+    }
+
+    public ArrayList<Dientes_erup> getListadier() {
+        return Listadier;
+    }
+
+    public void setListadier(ArrayList<Dientes_erup> Listadier) {
+        this.Listadier = Listadier;
+    }
+
+    public ArrayList<Res_Def> getListares() {
+        return Listares;
+    }
+
+    public void setListares(ArrayList<Res_Def> Listares) {
+        this.Listares = Listares;
+    }
+
+    public ArrayList<Fractura> getListafrac() {
+        return Listafrac;
+    }
+
+    public void setListafrac(ArrayList<Fractura> Listafrac) {
+        this.Listafrac = Listafrac;
     }
 
     public ArrayList<S_clase> getListas() {
@@ -211,7 +270,7 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
      //circulo Triangulo
     else if(e.getButton()==1 && opcion.equals("triangulo")){
          
-        getListatri().add(new Triangulo(Color.GREEN,e.getX()+13, e.getY()-13));
+        getListatri().add(new Triangulo(new Color(0,123,12),e.getX()+13, e.getY()-13));
             repaint();
     }
      // Triangulo
@@ -242,6 +301,30 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
     else if(e.getButton()==1 && opcion.equals("s")){
          
         getListas().add(new S_clase(Color.BLUE,e.getX()-10, e.getY()+12));
+            repaint();
+    }
+    // Fractura
+    else if(e.getButton()==1 && opcion.equals("fractura")){
+         
+        getListafrac().add(new Fractura(color_elegido(),e.getX()-18, e.getY()-16));
+            repaint();}
+    
+    // Extraccion
+    else if(e.getButton()==1 && opcion.equals("extraccion")){
+         
+        getListaex().add(new Extraccion(e.getX()-25, e.getY()-25));
+            repaint();
+    }
+    // Restauracion Deficiente
+    else if(e.getButton()==1 && opcion.equals("res_def")){
+         
+        getListares().add(new Res_Def(color_elegido(),e.getX()-16, e.getY()-10));
+            repaint();
+    }
+    // Erupcion dientes
+    else if(e.getButton()==1 && opcion.equals("die_erup")){
+         
+        getListadier().add(new Dientes_erup(e.getX()-10, e.getY()-10));
             repaint();
     }
     //Borrar
@@ -308,7 +391,41 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
          } else{    
             getListas().remove(getListas().size()-1);
             repaint();} }
+    // 
+    else if(e.getButton()==3 && opcion.equals("extraccion")){
+        if(getListaex().size()-1<0){
+         repaint();
+         } else{    
+            getListaex().remove(getListaex().size()-1);
+            repaint();} }
     //
+    else if(e.getButton()==3 && opcion.equals("fractura")){
+        if(getListafrac().size()-1<0){
+         repaint();
+         } else{    
+            getListafrac().remove(getListafrac().size()-1);
+            repaint();} }
+    //
+    else if(e.getButton()==3 && opcion.equals("res_def")){
+        if(getListares().size()-1<0){
+         repaint();
+         } else{    
+            getListares().remove(getListares().size()-1);
+            repaint();} }
+    //
+    else if(e.getButton()==3 && opcion.equals("die_erup")){
+        if(getListadier().size()-1<0){
+         repaint();
+         } else{    
+            getListadier().remove(getListadier().size()-1);
+            repaint();} }
+     //
+    else if(e.getButton()==3 && opcion.equals("extracion")){
+        if(getListaex().size()-1<0){
+         repaint();
+         } else{    
+            getListaex().remove(getListaex().size()-1);
+            repaint();} }
  }
     //
     
@@ -339,14 +456,7 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
     });
     }
     //
-    private void eventobtn(JButton btn){
-    btn.addMouseListener(new java.awt.event.MouseAdapter() {
-    @Override
-    public void mouseClicked(MouseEvent e){
-     opcion="odon";
-    }
-    });
-    }
+    
     private void eventocirculorojo(JButton btn){
     btn.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
@@ -449,6 +559,16 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
     }
     });
     }
+    //
+    private void eventonuevo(JButton btn){
+    btn.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(MouseEvent e){
+     nuevo();
+    }
+    });
+    }
+    //
     public Color color_elegido() {                                             
         int indiceC=selecOpcion.getSelectedIndex();
         selec=AsignaColor(indiceC,selec);
@@ -463,29 +583,47 @@ public class Panel_Odontograma extends JPanel implements MouseListener{
         else if(indice==1)
             selec = Color.BLUE;
 
-        else if(indice==2)
+        else if(indice==2){
             selec = Color.BLUE;
-        else if(indice==3)
-            selec = Color.CYAN;
-        else if(indice==4)
+            opcion="fractura";
+        }
+        else if(indice==3){
+            selec = Color.orange;
+            opcion="extraccion";
+        }
+        else if(indice==4){
             selec = Color.WHITE;
-        else if(indice==5)
+            opcion="res_def";
+        }
+        else if(indice==5){
             selec = Color.LIGHT_GRAY;
-        else if(indice==6)
-            selec = Color.GRAY;
-        else if(indice==7)
-            selec = Color.DARK_GRAY;
-        else if(indice==8)
-            selec = Color.MAGENTA;
-        else if(indice==9)
-            selec = Color.BLACK;
-        else if(indice==10)
-            selec = Color.RED;
-        else if(indice==11)
-            selec = Color.PINK;
-        else if(indice==12)
-            selec = Color.GREEN;
+            opcion="die_erup";
+        }
         return selec;
     }
-
+    public void nuevo(){
+    getListaCuadrados().removeAll(getListaCuadrados());
+    getListaod().removeAll(getListaod());
+    getListacir().removeAll(getListacir());
+    getListatri().removeAll(getListatri());
+    getListaast().removeAll(getListaast());
+    getListalinea().removeAll(getListalinea());
+    getLinea_ent().removeAll(getLinea_ent());
+    getListas().removeAll(getListas());
+    getListax().removeAll(getListax());
+    getListafrac().removeAll(getListafrac());
+    getListares().removeAll(getListares());
+    getListadier().removeAll(getListadier());
+    getListaex().removeAll(getListaex());
+    repaint();
+    }
+    
+    public BufferedImage createImage(JPanel panel) {
+    int w = panel.getWidth();
+    int h = 498;
+    BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+    Graphics2D g = bi.createGraphics();
+    panel.paint(g);
+    return bi;
+    }
 }

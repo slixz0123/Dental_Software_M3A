@@ -52,6 +52,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
             }
             rs.close();
+            
             return mostrar;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Hist_clinico.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,6 +69,7 @@ public class Model_Hist_clinico extends Hist_clinico{
             while (rs.next()) {
                 serie = rs.getString(1);
             }
+            rs.close();
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -100,6 +102,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     ps.setString(8, getMedicacion());
     ps.setString(9, getId_odonto());
     ps.executeUpdate();
+    con.desconectar();
     JOptionPane.showMessageDialog(null,"guardado con exito");
     return true;
     
@@ -125,6 +128,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     his_cli.setString(8, getId_odonto());
     his_cli.setString(9, getId_historia());
     his_cli.executeUpdate();
+    con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Hist_clinico.class.getName()).log(Level.SEVERE, null, ex);
@@ -163,6 +167,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -213,6 +218,7 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistaHis;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -248,7 +254,9 @@ public class Model_Hist_clinico extends Hist_clinico{
                 
                 
             }
+            rs.close();
             return milistado;
+
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

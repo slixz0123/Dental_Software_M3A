@@ -143,9 +143,13 @@ public class ConexionPg {
   
 
 
- //   String contrasena = "159753";
+    String contrasena = "159753";
 
-    String contrasena = "1234";
+
+  // String contrasena = "17112002Diana";
+
+   // String contrasena = "1234";
+
 
 
 
@@ -155,8 +159,14 @@ public class ConexionPg {
 
 
 
+
+    public Connection getConnection() {
+
+   return con;
+    }
    
     public Connection Con() {
+
 
         return con;
     }
@@ -192,6 +202,9 @@ public class ConexionPg {
              
              return null ; 
          }
+         finally{
+             
+         }
       
     }
 
@@ -221,21 +234,29 @@ public class ConexionPg {
     
 
     
-
- 
     
     
     
-    public void cerrar(){
+    public void desconectar(){
          try {
+//             con.commit();
              con.close();
              System.out.println("conexion cerrada");
          } catch (SQLException ex) {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
          
          }
+         
        
     }
+    protected void finalize() throws Throwable  
+{  
+    try { con.close(); } 
+    catch (SQLException e) { 
+        e.printStackTrace();
+    }
+    super.finalize();  
+}  
  
     
     
