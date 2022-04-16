@@ -1,7 +1,6 @@
 
 package Model;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -84,6 +83,8 @@ public class Model_Cie10 extends Cie_10{
     ps.setString(2, getCategoria());
     ps.setString(3, getTitulo());
     ps.executeUpdate();
+    //con.desconectar();
+    ps.close();
         System.out.println("CIE 10 GUARDADO");
     return true;
         } catch (SQLException ex) {
@@ -108,6 +109,9 @@ public class Model_Cie10 extends Cie_10{
     ps.setString(3, getId_cie());
     ps.executeUpdate();
         System.out.println("CIE 10 GUARDADO");
+        
+        ps.close();
+       // con.desconectar();
     return true;
         } catch (SQLException ex) {
             System.out.println(ex);

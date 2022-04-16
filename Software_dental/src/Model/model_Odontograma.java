@@ -46,6 +46,7 @@ public class model_Odontograma extends Odontograma_datos {
           mostrar.add(odon);
          }
         rs.close();
+        ps.close();
         return mostrar;
         } catch (SQLException e) {
             System.out.println(e);
@@ -73,6 +74,7 @@ public class model_Odontograma extends Odontograma_datos {
           mostrar.add(odon);
          }
         rs.close();
+        ps.close();
         return mostrar;
         } catch (SQLException e) {
             System.out.println(e);
@@ -92,6 +94,8 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getString(1);
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -108,6 +112,8 @@ public String idPac(String ced){
                 while(rs.next()){
                     id = rs.getInt(1)+1;
                 }
+                rs.close();
+                ps.close();
         }catch(SQLException ex){
             System.out.println("idmaximo"+ex.getMessage());
             id = 1;
@@ -129,6 +135,7 @@ public String idPac(String ced){
         ps.setBytes(5, getImagenodontograma());
  
         ps.executeUpdate();
+      //  con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(model_Odontograma.class.getName()).log(Level.SEVERE, null, ex);

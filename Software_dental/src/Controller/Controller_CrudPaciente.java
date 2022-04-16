@@ -718,9 +718,7 @@ public void llenartxtsobrantes () {
             vista.getTxttelefono().setText(milistapaci.get(i).getTelefono()) ;
             vista.getTxtcorreo().setText(milistapaci.get(i).getCorreo()) ;
             vista.getTxtprovincia().setText(milistapaci.get(i).getProvincia()) ;
-            System.out.println(pac.getTelefono());
-            System.out.println(pac.getCorreo());
-            System.out.println(pac.getProvincia());
+           
             }       
     } 
 

@@ -61,7 +61,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
-        btncerrar = new org.edisoncor.gui.button.ButtonRound();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -122,7 +121,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         id_rec_cie = new javax.swing.JLabel();
         id_rec_far = new javax.swing.JLabel();
         btnCrearRec = new javax.swing.JButton();
-        btnEditarrec = new javax.swing.JButton();
         btnEliminarrec = new javax.swing.JButton();
         lblfecha = new javax.swing.JLabel();
 
@@ -250,10 +248,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btncerrar.setBackground(new java.awt.Color(166, 104, 216));
-        btncerrar.setText("Cerrar");
-        panelNice1.add(btncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/imgReceta.jpg"))); // NOI18N
         panelNice1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 250, 100));
@@ -481,20 +475,17 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         panelNice1.add(txtmiligramos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 150, 21));
 
         btncargardatos.setText("Cargar Datos");
-        panelNice1.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        panelNice1.add(btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         panelNice1.add(id_rec_cie, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 30, 20));
         panelNice1.add(id_rec_far, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 30, 20));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 600));
 
         btnCrearRec.setText("Crear");
-        jPanel1.add(btnCrearRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, 160, 40));
-
-        btnEditarrec.setText("Editar");
-        jPanel1.add(btnEditarrec, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 620, 160, 40));
+        jPanel1.add(btnCrearRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 620, 160, 40));
 
         btnEliminarrec.setText("Eliminar");
-        jPanel1.add(btnEliminarrec, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 160, 40));
+        jPanel1.add(btnEliminarrec, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 160, 40));
 
         lblfecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(lblfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 620, 100, 20));
@@ -552,14 +543,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         this.btnCrearRec = btnCrearRec;
     }
 
-    public JButton getBtnEditarrec() {
-        return btnEditarrec;
-    }
-
-    public void setBtnEditarrec(JButton btnEditarrec) {
-        this.btnEditarrec = btnEditarrec;
-    }
-
     public JButton getBtnEliminarrec() {
         return btnEliminarrec;
     }
@@ -598,14 +581,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
     public void setBtnbuscarfarmaco(JButton btnbuscarfarmaco) {
         this.btnbuscarfarmaco = btnbuscarfarmaco;
-    }
-
-    public ButtonRound getBtncerrar() {
-        return btncerrar;
-    }
-
-    public void setBtncerrar(ButtonRound btncerrar) {
-        this.btncerrar = btncerrar;
     }
 
     public JDialog getDialogCIE() {
@@ -896,13 +871,11 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarcie;
     private javax.swing.JButton btnCrearRec;
-    private javax.swing.JButton btnEditarrec;
     private javax.swing.JButton btnEliminarrec;
     private javax.swing.JButton btnagregarcie;
     private javax.swing.JButton btnagregardatos;
     private javax.swing.JButton btnbuscarfarmaco;
     private javax.swing.JButton btncargardatos;
-    private org.edisoncor.gui.button.ButtonRound btncerrar;
     private javax.swing.JDialog dialogCIE;
     private javax.swing.JDialog dialogFarmaco;
     private javax.swing.JLabel id_rec_cie;

@@ -46,6 +46,7 @@ public class Model_Anamnesis extends Anamnesis{
           mostrar.add(anam);
          }
         rs.close();
+       ps.close();
         return mostrar;
            
         } catch (SQLException e) {
@@ -76,6 +77,7 @@ public class Model_Anamnesis extends Anamnesis{
           mostrar.add(anam);
          }
         rs.close();
+        
         return mostrar;
       } catch (SQLException ex) {
         Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,6 +107,7 @@ public List<Paciente> listarPersonas(String busc){
         lista.add(p);
     }
     rs.close();
+    
     return lista;
     } catch (SQLException ex) {
       Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,6 +127,7 @@ public String idPac(String ced){
                     id = rs.getString(1);
                 }
                  rs.close();
+                 
         }catch(SQLException ex){
             id = "";
         }
@@ -142,6 +146,7 @@ public String idPac(String ced){
              cedula = rs.getString(1);
            }
              rs.close();
+             ps.close();
         }catch(SQLException ex){
             cedula = "";
         }
@@ -160,6 +165,7 @@ public String idPac(String ced){
                     id = rs.getString(1);
                 }
                  rs.close();
+                 ps.close();
         }catch(SQLException ex){
             id = "";
         }
@@ -177,6 +183,7 @@ public String idPac(String ced){
                 while(rs.next()){
                     cedmed = rs.getString(1);
                 } rs.close();
+                ps.close();
         }catch(SQLException ex){
             cedmed = "";
         }
@@ -205,6 +212,7 @@ public String idPac(String ced){
             lista.add(p);
             }
             rs.close();
+
             return lista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,6 +231,7 @@ public String idPac(String ced){
             while(rs.next()){
               espec = rs.getString(1);
             } rs.close();
+            ps.close();
         }catch(SQLException ex){
             espec = "";
         }
@@ -238,6 +247,7 @@ public String idPac(String ced){
             while (rs.next()) {
             serie = rs.getString(1);
             } rs.close();
+            
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -253,6 +263,7 @@ public String idPac(String ced){
             while (rs.next()) {
             id = rs.getString(1);
             } rs.close();
+
         } catch (SQLException e) {
             System.out.println(e);
 
@@ -273,7 +284,8 @@ public String idPac(String ced){
         ps.setString(5, getProble_act());
         ps.setString(6, getId_doctor());
         ps.executeUpdate();
-        
+        ps.close();
+       // con.desconectar();
     return true;
         }
     
@@ -295,6 +307,8 @@ public String idPac(String ced){
     act_an.setString(5, getId_doctor());
     act_an.setString(6, getId_anamnesis());
     act_an.executeUpdate();
+    act_an.close();
+   // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Anamnesis.class.getName()).log(Level.SEVERE, null, ex);

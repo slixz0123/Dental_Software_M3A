@@ -34,7 +34,9 @@ public class Model_Paciente extends Paciente {
             ResultSet rs = con.consulta(sql);
             while (rs.next()) {
                 serie = rs.getString(1);
-            }rs.close();
+            }
+            rs.close();
+
         } catch (SQLException e) {
             System.out.println("ERROR GENERAR SERIE");
 
@@ -72,7 +74,7 @@ public class Model_Paciente extends Paciente {
 
             ps2.executeUpdate();
             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
-
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -106,10 +108,10 @@ public class Model_Paciente extends Paciente {
                     pac.setFecha_nac(rs.getDate(9));
                     pac.setTipo_sang(rs.getString(10));
                     milista.add(pac);
-                    rs.close();
                     return milista;
 
                 }
+                rs.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,6 +148,7 @@ public class Model_Paciente extends Paciente {
 
             }
             rs.close();
+  
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -187,6 +190,7 @@ public class Model_Paciente extends Paciente {
 
                 }
                 rs.close();
+   
 
             } catch (SQLException ex) {
                 System.out.println(ex);
@@ -216,7 +220,7 @@ public class Model_Paciente extends Paciente {
             actp.setBytes(10, getFoto());
             actp.setString(11, getCedula());
             actp.executeUpdate();
-
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -236,6 +240,7 @@ public class Model_Paciente extends Paciente {
             ps2.setString(2, getTipo_sang());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -260,6 +265,7 @@ public class Model_Paciente extends Paciente {
             actp.setString(9, getGenero());
             actp.setString(10, getCedula());
             actp.executeUpdate();
+         //   con.desconectar();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -294,6 +300,7 @@ public class Model_Paciente extends Paciente {
 
             }
             rs.close();
+
             return milistapaci;
         } catch (SQLException ex) {
             System.out.println(ex);
