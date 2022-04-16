@@ -91,7 +91,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
         vista.getBtnOdontograma().addActionListener(l->Odontograma());
         setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
-        setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
+    
         
         
         vista.getJbtnListPac().addActionListener(l-> ListadoPacbtn());
