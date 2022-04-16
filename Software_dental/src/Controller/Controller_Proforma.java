@@ -103,6 +103,7 @@ public final class Controller_Proforma {
                 }
             }
         });
+
         vista.getTblDialog().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -115,6 +116,8 @@ public final class Controller_Proforma {
                     } else if (vista.getjDialog1().getName().equals("Paciente")) {
                         SetDatosPac();
                         vista.getjDialog1().dispose();
+                        guardarProforma();
+
                     } else {
                     }
                 }
@@ -169,8 +172,9 @@ public final class Controller_Proforma {
         vista.getTblProforma().setModel(modelotbl);
         calcularTotal();
         calcularCuota();
-        guardarProforma();
+//        guardarProforma();
         guardarDetalleProforma();
+
         nuevo();
 
     }
@@ -238,6 +242,8 @@ public final class Controller_Proforma {
         double cuotaini = 0;
         double saldo = 0;
         double cuotamensual = 0;
+        double totalpr = 0;
+
         String idpacien = vista.getTxtPaciente().getText();
         if (vista.getTxtPaciente().equals("")) {
             JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
@@ -245,7 +251,7 @@ public final class Controller_Proforma {
             Paciente pacien = modellistpac.listarpaciente(idpacien);
             String serie = vista.getTxtNumSerie().getText();
             String paciente = vista.getTxtPaciente().getText();
-            double total = Double.parseDouble(vista.getTxtValorTotal().getText());
+            totalpr = Double.parseDouble(vista.getTxtValorTotal().getText());
             String fecha = vista.getTxtFecha().getText();
             String obs = vista.getTxtObservaciones().getText();
             String formap = vista.getCbFormaPago().getSelectedItem().toString();
@@ -269,7 +275,7 @@ public final class Controller_Proforma {
             }
             pro.setSerieProf(serie);
             pro.setCedula(paciente);
-            pro.setTotal(total);
+            pro.setTotal(totalpr);
             pro.setFecha(fecha);
             pro.setObservaciones(obs);
             pro.setFormaPago(formap);
@@ -292,6 +298,7 @@ public final class Controller_Proforma {
             if (confirmacion == 0) {
 
                 System.out.println("PROCESANDO PROFORMA....");
+
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
                 modelo.Actualizarprecio(precio, idfact);
@@ -303,11 +310,12 @@ public final class Controller_Proforma {
                 vista.getTxtPaciente().setText("");
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtValorTotal().setText("");
+                vista.getTxtValorTotal().setText("0.0");
                 vista.getTxtCuotaInicial().setText("");
                 vista.getTxtSaldo().setText("");
                 vista.getTxtValorCouotaM().setText("");
                 vista.getTxtObservaciones().setText("");
+
             } else {
                 double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
                 String idfact = vista.getTxtNumSerie().getText();
@@ -319,7 +327,7 @@ public final class Controller_Proforma {
                 vista.getTxtPaciente().setText("");
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
-                vista.getTxtValorTotal().setText("");
+                vista.getTxtValorTotal().setText("0.0");
                 vista.getTxtCuotaInicial().setText("");
                 vista.getTxtSaldo().setText("");
                 vista.getTxtValorCouotaM().setText("");
@@ -595,6 +603,7 @@ public final class Controller_Proforma {
     }
 
     public void calcularTotal() {
+
         tpagar = 0;
         for (int i = 0; i < vista.getTblProforma().getRowCount(); i++) {
             cant = Integer.parseInt(vista.getTblProforma().getValueAt(i, 0).toString());
