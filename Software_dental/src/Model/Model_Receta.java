@@ -478,16 +478,15 @@ public class Model_Receta extends receta{
    
     }
     
-    
-    public boolean removerFarmacos( String borrarf)  {
+    public boolean removerFarmacos( String det, String dosis, String frec)  {
         String Sql ;
-        Sql="DELETE FROM receta_far WHERE id_receta ='" +borrarf+ "'";
+        Sql="DELETE FROM receta_far WHERE detalle_far ='" +det+ "' AND dosis_far='" +dosis+ "' AND frecuencia='" +frec+ "'";
         return con.accion(Sql);
   }
     
-    public boolean removerCie( String borrarc)  {
+    public boolean removerCie( String cod, String cat)  {
         String Sql ;
-        Sql="DELETE FROM receta_cie WHERE id_receta ='" +borrarc+ "'";
+        Sql="DELETE FROM receta_cie WHERE titulo_cie ='" +cod+ "' AND categoria_cie='" +cat+ "'";
         return con.accion(Sql);
-  }
+  }    
 }

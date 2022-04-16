@@ -84,18 +84,19 @@ public class Controller_Receta {
     
     
     public void iniciarcontrol (){
+        vista.getTxtIDreceta().setEnabled(false);
          generarSerie();
          Fechaactual();
          generarIdFar();
          generarIdCie();
-        vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
+        vista.getBtncargardatos().addActionListener(l-> cargardesdeMenu());
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
         
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
-        vista.getBtnagregardatos().addActionListener(l->crearRecFar());
+        vista.getBtnagregardatos().addActionListener(l->Validarfarmacos());
 //        vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
       
-        vista.getBtnagregarcie().addActionListener(l->crearRecCie());
+        vista.getBtnagregarcie().addActionListener(l->Validarcie10());
 //        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
         vista.getBtnCrearRec().addActionListener(l->generaRecetaImprimir());
         
@@ -125,7 +126,6 @@ public class Controller_Receta {
             cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
             cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());  
         
-        vista.getBtncerrar().addActionListener(l->imprimirReceta());
        
     }
     
@@ -153,7 +153,17 @@ public class Controller_Receta {
     vista.getTxtalergias().setText("");
     
     }
-
+    
+    private void cargardesdeMenu(){
+     String cedu=vistamenu.getLblCedulapac().getText();
+     if(cedu.equals("...")){
+         JOptionPane.showMessageDialog(vistamenu, "Debe tener cargado un paciente en la parte superior ");
+     }else{
+//     vista.getTxtcedula_pac().setText(cedu);
+     cargardatosexternosconcedula();
+     }
+     }
+             
     public void cargardatosexternosconcedula(){
        
         
@@ -359,7 +369,7 @@ public class Controller_Receta {
         }
         });
     }
-         
+            
          private void cargardatosTxtFarmaco (MouseEvent evt) throws IOException{
 
         List<farmaco> lp = modelo.mostrarFarmaco();
@@ -574,25 +584,50 @@ public class Controller_Receta {
         });
         
          }
+
+         void Validarfarmacos(){
+    //validaciones
+    String far=vista.getTxtIdfamaco().getText();
+    String dosis=vista.getTxtmiligramos().getText();
+    String cantidad=vista.getSpcantidad().getValue().toString();
+    String frecuencia=vista.getTxtfrecuencia().getText();
+    
+        if (far.equals("")|| dosis.equals("")|| cantidad.equals("0")|| frecuencia.equals("")) {
+            JOptionPane.showMessageDialog(vista, "Seleccione un farmaco o complete los campos");
+        } else{
+            crearRecFar();
+        }
+    }
          
-         Icon advert;
+         void Validarcie10(){
+    //validaciones
+    String cie=vista.getTxtCie().getText();
+    String titulo=vista.getTxtCie1().getText();
+    String categoria=vista.getTxttitulo().getText();
+    
+        if (cie.equals("")|| titulo.equals("")|| categoria.equals("0")) {
+            JOptionPane.showMessageDialog(vista, "Seleccione el CIE-10 correspondiente");
+        } else{
+            crearRecCie();
+        }
+    }
+         
           void Validarreceta(){
     //validaciones
-        if (vista.getTxtnombre().equals("")&& vista.getTxtApellido().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtcedula().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la cedula del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtsexo().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese el genero del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtedad().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la edad del Paciente","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtIDreceta().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese el id de Receta","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        }else if (vista.getLblfecha().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la fecha actual","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else{crearRecetas();}
-
-         }
+    String nombre=vista.getTxtnombre().getText();
+    String apellido=vista.getTxtApellido().getText();
+    String cedula=vista.getTxtcedula().getText();
+    String sexo=vista.getTxtsexo().getText();
+    String edad=vista.getTxtedad().getText();
+    String id=vista.getTxtIDreceta().getText();
+    String fecha=vista.getLblfecha().getText();
+    
+        if (nombre.equals("")|| apellido.equals("")|| cedula.equals("")|| sexo.equals("")|| edad.equals("")|| id.equals("")|| fecha.equals("")) {
+            JOptionPane.showMessageDialog(vista, "Seleccione los datos del Paciente");
+        } else{
+            crearRecetas();
+        }
+    }
           
           public void eliminarFarmaco(){
         int seleccion = vista.getTblreceta().getSelectedRow();
@@ -600,14 +635,16 @@ public class Controller_Receta {
         Component rootPane = null;
         Model_Receta  eliminado = new Model_Receta();
         if(seleccion != -1){
-            String id = vista.getTblreceta().getValueAt(seleccion, 0).toString();
+            String det = vista.getTblreceta().getValueAt(seleccion, 0).toString();
+            String dosis = vista.getTblreceta().getValueAt(seleccion, 1).toString();
+            String frec = vista.getTblreceta().getValueAt(seleccion, 3).toString();
             JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
             if(resp==0){
-                if(eliminado.removerFarmacos(id)){
+                if(eliminado.removerFarmacos(det,dosis,frec)){
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
                     System.out.println("farmaco eliminado");
                     
-                    cargarCIE10Rec(vista.getTxtIDreceta().getText());
+//                    cargarCIE10Rec(vista.getTxtIDreceta().getText());
                     cargarFARRec(vista.getTxtIDreceta().getText());
                     
                 }else{
@@ -624,15 +661,15 @@ public class Controller_Receta {
         Component rootPane = null;
         Model_Receta  eliminado = new Model_Receta();
         if(seleccion != -1){
-            String id = vista.getTblcie10().getValueAt(seleccion, 0).toString();
+            String cod = vista.getTblcie10().getValueAt(seleccion, 0).toString();
+            String cat = vista.getTblcie10().getValueAt(seleccion, 1).toString();
             JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
             if(resp==0){
-                if(eliminado.removerCie(id)){
+                if(eliminado.removerCie(cod,cat)){
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
                     System.out.println("cie eliminado");
                     
                     cargarCIE10Rec(vista.getTxtIDreceta().getText());
-                    cargarFARRec(vista.getTxtIDreceta().getText());
 
                 }else{
                     JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
@@ -644,19 +681,42 @@ public class Controller_Receta {
           private void imprimirReceta(){
         ConexionPg con =new ConexionPg();
           try {
+//              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"+"/Reportes/Rec_Enca.jasper"+"/Reportes/Rep_Receta_Far.jasper"+"/Reportes/Rep_Receta_Cie.jasper"));
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"));
+              
+              //-
+              JasperReport encabezado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rec_Enca.jasper"));
+              JasperReport farmaco = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Receta_Far.jasper"));
+              JasperReport cie = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Receta_Cie.jasper"));
+              //-
+              
               Map<String,Object> parametros =new HashMap<String,Object>();
               System.out.println("impresion");
               System.out.println(vista.getTxtIDreceta().getText());
-            parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
-            
-              JasperPrint jp = JasperFillManager.fillReport(listado, null, con.Con());
+              
+              //-
+              parametros.put("idreceta", vista.getTxtIDreceta().getText());
+              parametros.put("idFar", vista.getTxtIDreceta().getText()); 
+                      
+                      
+                      
+              parametros.put("idRec", vista.getTxtIDreceta().getText());
+              //-
+              
+              parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
+              
+              //-
+              parametros.put("idreceta", encabezado);
+              parametros.put("idFar", farmaco);
+              parametros.put("idRec", cie);
+              //-
+              JasperPrint jp = JasperFillManager.fillReport(listado, parametros, con.Con());
           
               JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);
               
           } catch (JRException ex) {
-              Logger.getLogger(Controller_Rep_Citas.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
           }
     }
           
@@ -676,5 +736,5 @@ public class Controller_Receta {
                 cargarCIE10Rec(vista.getTxtIDreceta().getText());
                 cargarFARRec(vista.getTxtIDreceta().getText());
         }
-    }
+    }     
 }
