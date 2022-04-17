@@ -48,7 +48,7 @@ public class Model_Citas extends Citas{
                 milista.add(micita); 
            }
             rs.close();
-            con.desconectar();
+          //  con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,7 +79,7 @@ public class Model_Citas extends Citas{
                    
            }
             rs.close();
-            con.desconectar();
+           // con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,7 +127,7 @@ public class Model_Citas extends Citas{
                 milista.add(micita); 
            }
             rs.close();
-            con.desconectar();
+         //   con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,7 +173,7 @@ public class Model_Citas extends Citas{
                 milista.add(micita); 
            }
             rs.close();
-            con.desconectar();
+           // con.desconectar();
             return milista;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Cie10.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,7 +223,7 @@ public class Model_Citas extends Citas{
                 mostrar.add(micita);
             }
             rs.close();
-            con.desconectar();
+           // con.desconectar();
             return mostrar;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -246,7 +246,7 @@ public class Model_Citas extends Citas{
     ps.setString(6, getId_doctor() );
     ps.executeUpdate();
     ps.close();
-    con.desconectar();
+   // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Citas.class.getName()).log(Level.SEVERE, null, ex);
@@ -273,7 +273,7 @@ public boolean actualizarCitas(){
     ps.executeUpdate();
  
     ps.close();
-    con.desconectar();
+    //con.desconectar();
         System.out.println("CITAS  GUARDADO");
     return true;
         } catch (SQLException ex) {

@@ -225,7 +225,7 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("FORMA DE PAGO");
-        panelNice3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 60, -1, -1));
+        panelNice3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, -1, -1));
         panelNice3.add(txtPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 120, -1));
 
         btnBuscarPac.setText("Buscar");
@@ -242,18 +242,18 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("CANTIDAD:");
-        panelNice3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, 10));
+        panelNice3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, 10));
 
         jLabel21.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("PRECIO:");
-        panelNice3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 60, 20));
+        panelNice3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 60, 20));
 
         txtPrecio.setEditable(false);
-        panelNice3.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, 20));
+        panelNice3.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 230, 20));
 
         spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
-        panelNice3.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 230, 20));
+        panelNice3.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 230, 20));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,12 +264,12 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         panelNice3.add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 112, -1));
 
         spiDesc.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 5));
-        panelNice3.add(spiDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 100, -1));
+        panelNice3.add(spiDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DESCUENTO:");
-        panelNice3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, 80, 20));
+        panelNice3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 80, 20));
 
         tblProforma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,19 +302,20 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
 
         panelNice3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 920, 70));
 
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAgregar.setText("Agregar");
-        panelNice3.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 80, -1));
+        panelNice3.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 373, 140, 30));
 
         cbFormaPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--SELECCIONE--", "T. Credito", "T. Debito", "Transferencia ", "Deposito", "Efectivo" }));
-        panelNice3.add(cbFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 80, 110, -1));
+        panelNice3.add(cbFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 110, -1));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Meses de credito:");
-        panelNice3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, 140, 20));
+        panelNice3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, 140, 20));
 
-        spiMesesCred.setModel(new javax.swing.SpinnerNumberModel(0, 0, 36, 3));
-        panelNice3.add(spiMesesCred, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 340, 130, -1));
+        spiMesesCred.setModel(new javax.swing.SpinnerListModel(new String[] {"0", "3", "4", "5", "6", "9", "12", "15", "18", "24", "36"}));
+        panelNice3.add(spiMesesCred, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 80, 130, -1));
 
         jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 650));
 

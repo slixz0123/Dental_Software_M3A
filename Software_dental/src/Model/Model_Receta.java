@@ -315,7 +315,7 @@ public class Model_Receta extends receta{
             
         System.out.println("GUARDADO CON EXITO");
         JOptionPane.showMessageDialog(null, "Receta creada con exito"); 
-        con.desconectar();
+        //con.desconectar();
         return true;
             
         } catch (SQLException ex) {
@@ -394,7 +394,7 @@ public class Model_Receta extends receta{
         ps.setString(3, getId_titulo());
         ps.setString(4, getCategoria());
             ps.executeUpdate();
-            con.desconectar();
+          //  con.desconectar();
         System.out.println("GUARDADO CON EXITO");
         return true;
             
@@ -490,16 +490,15 @@ public class Model_Receta extends receta{
    
     }
     
-    
-    public boolean removerFarmacos( String borrarf)  {
+    public boolean removerFarmacos( String det, String dosis, String frec)  {
         String Sql ;
-        Sql="DELETE FROM receta_far WHERE id_receta ='" +borrarf+ "'";
+        Sql="DELETE FROM receta_far WHERE detalle_far ='" +det+ "' AND dosis_far='" +dosis+ "' AND frecuencia='" +frec+ "'";
         return con.accion(Sql);
   }
     
-    public boolean removerCie( String borrarc)  {
+    public boolean removerCie( String cod, String cat)  {
         String Sql ;
-        Sql="DELETE FROM receta_cie WHERE id_receta ='" +borrarc+ "'";
+        Sql="DELETE FROM receta_cie WHERE titulo_cie ='" +cod+ "' AND categoria_cie='" +cat+ "'";
         return con.accion(Sql);
-  }
+  }    
 }

@@ -83,7 +83,7 @@ public class Model_ListadoPacientes extends Paciente {
 
             }
             rs.close();
-            
+
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -125,7 +125,7 @@ public class Model_ListadoPacientes extends Paciente {
 
                 }
                 rs.close();
-   
+
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

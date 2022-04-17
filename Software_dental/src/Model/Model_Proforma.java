@@ -79,7 +79,7 @@ public class Model_Proforma extends Proforma {
             ps.setDouble(10, pro.getValorcuotamen());
             ps.executeUpdate();
             System.out.println("EJECUTA GUARDAR PROFORMA");
-            conProf.desconectar();
+           // conProf.desconectar();
             return true;
 
         } catch (SQLException e) {
@@ -101,7 +101,7 @@ public class Model_Proforma extends Proforma {
             ps.setDouble(5, pro.getPreciounit());
             ps.setDouble(6, pro.getTotalprod());
             ps.executeUpdate();
-            conProf.desconectar();
+         //   conProf.desconectar();
             System.out.println("EJECUTA GUARDAR DETALLEFACTURA");
             return true;
 

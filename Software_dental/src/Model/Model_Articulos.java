@@ -69,7 +69,7 @@ public class Model_Articulos extends Articulos {
     ps.setDouble(6, getPrecio());
     ps.executeUpdate();
     ps.close();
-    con.desconectar();
+   // con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Articulos.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,7 +90,7 @@ public class Model_Articulos extends Articulos {
     arti.setString(6, getId_articulo());
     arti.executeUpdate();
     arti.close();
-    con.desconectar();
+    //con.desconectar();
     return true;
         } catch (SQLException ex) {
             Logger.getLogger(Model_Articulos.class.getName()).log(Level.SEVERE, null, ex);

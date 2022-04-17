@@ -56,9 +56,6 @@ public class Controller_CrudEspecialista {
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->ValidarDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
-        vista.getBtneditar().addActionListener(l-> limpiartxt());
-//        setKeyReleased(vista.getTxtBuscarEsp());
-//        vista.getTxtBuscarEsp().addKeyListener(kl);
         cargarPersonas();
         KeyListener kl = new KeyListener() {
             @Override
@@ -305,33 +302,23 @@ public class Controller_CrudEspecialista {
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
      mEsp.setCedula_doc(cedula);
-    
-    
-     
-     
-//     if(mEsp.crearPersonasByte()){
-//
-//           cargarPersonas();
-//           generarSerie();
-//           accion="editar";
-//           vista.getBtnguardarEsp().setText("Editar");
-//           limpiartxt();} else {
-//     JOptionPane.showMessageDialog(vista, "No se pudo crear");
-//     }
+
 
         if(ValidarCedula.validarcedula(cedula)){
              if(vista.getCboxGeneroEsp().getSelectedIndex()!=0){
              mEsp.crearPersonasByte();
              generarSerie();
              cargarPersonas();
+             limpiartxt();
              accion="editar";
              vista.getBtnguardarEsp().setText("Editar");
-             limpiartxt();}  
-             else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");
+             }  
+             else {JOptionPane.showMessageDialog(null, "Debe llenar los campos");
              }
              }
              } else if(accion.equals("editar")){
              editarDoctor2();
+             limpiartxt();
              }
         }
     
@@ -348,7 +335,7 @@ public class Controller_CrudEspecialista {
      String ciudad=vista.getTxtciudadesp().getText();
      String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
      String id_doctor=vista.getTxtIdDoctor().getText();
-     String id_usuario=vista.getTxtIdUsuario().getText();
+     
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
      
@@ -389,22 +376,9 @@ public class Controller_CrudEspecialista {
            mEsp.setFoto(null);
         }
      mEsp.setId_doctor(id_doctor);
-     mEsp.setId_usuario("2");
+     mEsp.setId_usuario("1");
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
-    
-    
-     
-     
-//     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
-//
-//            cargarPersonas();
-//            generarSerie();
-//            accion="guardar";
-//            vista.getBtnguardarEsp().setText("Guardar");
-//            limpiartxt();} else {
-//     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
-//     }
 
         if(vista.getTxtruta().getText().trim().length()!=0){ 
             if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
@@ -414,9 +388,9 @@ public class Controller_CrudEspecialista {
             vista.getBtnguardarEsp().setText("Guardar");
             generarSerie();
             cargarPersonas();
-            limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
+            } else {JOptionPane.showMessageDialog(null, "Debe elegir el genero");}
             } else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
-             } else {
+            } else {
             
             if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
             if(vista.getCboxGeneroEsp().getSelectedIndex()!=0){
@@ -425,135 +399,12 @@ public class Controller_CrudEspecialista {
             vista.getBtnguardarEsp().setText("Guardar");
             generarSerie();
             cargarPersonas();
-            limpiartxt();} else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
+            } else {JOptionPane.showMessageDialog(null, "Debe elegir el genero");}
             }else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
             }
 
     }
     
-//    public void editarDoctor(){
-//        File ruta = new File(vista.getTxtruta().getText());
-//
-//     String nombres=vista.getTxtnombreesp().getText();
-//     String apellido=vista.getTxtapellidoesp().getText();
-//     String celular=vista.getTxtCelularesp().getText();
-//     String telefono=vista.getTxttelfesp().getText();
-//     String direccion=vista.getTxtdirecesp().getText();
-//     String correo=vista.getTxtcorreoesp().getText();
-//     String provincia=vista.getTxtprovinciaesp().getText();
-//     String ciudad=vista.getTxtciudadesp().getText();
-//     String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
-//     String id_doctor=vista.getTxtIdDoctor().getText();
-//     String id_usuario=vista.getTxtIdUsuario().getText();
-//     String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
-//     String cargo=vista.getTxtCargoesp().getText();
-//     Model_Especialista mEsp= new Model_Especialista();
-//     
-//     mEsp.setNombres(nombres);
-//     mEsp.setApellidos(apellido);
-//     mEsp.setCelular(celular);
-//     mEsp.setTelefono(telefono);
-//     mEsp.setDireccion(direccion);
-//     mEsp.setCorreo(correo);
-//     mEsp.setProvincia(provincia);
-//     mEsp.setCiudad(ciudad);
-//     if(genero.equals("Masculino")){
-//           mEsp.setGenero("M");
-//           } else if(genero.equals("Femenino")){
-//           mEsp.setGenero("F");
-//           }
-//     try{
-//          if(vista.getTxtruta().getText().trim().length()!=0){ 
-//            byte[] icono = new byte[(int) ruta.length()];
-//            InputStream input = new FileInputStream(ruta);
-//            input.read(icono);
-//           mEsp.setFoto(icono);}
-//
-//            }catch(Exception ex){
-// 
-//           mEsp.setFoto(null);
-//        }
-//     mEsp.setId_doctor(id_doctor);
-//     mEsp.setId_usuario("2");
-//     mEsp.setEspecialidad(especialidad);
-//     mEsp.setCargo(cargo);
-//    
-//    
-//     
-//     
-//     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
-//
-//            cargarPersonas();
-//            generarSerie();
-//            accion="guardar";
-//            vista.getBtnguardarEsp().setText("Guardar");
-//            limpiartxt();} else {
-//     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
-//     }
-//
-//    }
-    
-//    public void editarDoctor(){
-//        File ruta = new File(vista.getTxtruta().getText());
-//
-//     String nombres=vista.getTxtnombreesp().getText();
-//     String apellido=vista.getTxtapellidoesp().getText();
-//     String celular=vista.getTxtCelularesp().getText();
-//     String telefono=vista.getTxttelfesp().getText();
-//     String direccion=vista.getTxtdirecesp().getText();
-//     String correo=vista.getTxtcorreoesp().getText();
-//     String provincia=vista.getTxtprovinciaesp().getText();
-//     String ciudad=vista.getTxtciudadesp().getText();
-//     String genero=vista.getCboxGeneroEsp().getModel().getSelectedItem().toString();
-//     String id_doctor=vista.getTxtIdDoctor().getText();
-//     String id_usuario=vista.getTxtIdUsuario().getText();
-//     String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
-//     String cargo=vista.getTxtCargoesp().getText();
-//     Model_Especialista mEsp= new Model_Especialista();
-//     
-//     mEsp.setNombres(nombres);
-//     mEsp.setApellidos(apellido);
-//     mEsp.setCelular(celular);
-//     mEsp.setTelefono(telefono);
-//     mEsp.setDireccion(direccion);
-//     mEsp.setCorreo(correo);
-//     mEsp.setProvincia(provincia);
-//     mEsp.setCiudad(ciudad);
-//     if(genero.equals("Masculino")){
-//           mEsp.setGenero("M");
-//           } else if(genero.equals("Femenino")){
-//           mEsp.setGenero("F");
-//           }
-//     try{
-//          if(vista.getTxtruta().getText().trim().length()!=0){ 
-//            byte[] icono = new byte[(int) ruta.length()];
-//            InputStream input = new FileInputStream(ruta);
-//            input.read(icono);
-//           mEsp.setFoto(icono);}
-//
-//            }catch(Exception ex){
-// 
-//           mEsp.setFoto(null);
-//        }
-//     mEsp.setId_doctor(id_doctor);
-//     mEsp.setId_usuario("2");
-//     mEsp.setEspecialidad(especialidad);
-//     mEsp.setCargo(cargo);
-//    
-//    
-//     
-//     
-//     if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
-//
-//            cargarPersonas();
-//            generarSerie();
-//            accion="guardar";
-//            vista.getBtnguardarEsp().setText("Guardar");
-//            limpiartxt();} else {
-//     JOptionPane.showMessageDialog(vista, "No se pudo modificar");
-//     }
-//
-//    }
     public void cargarPersonas(){
         
         vista.getTblEspecialista().setDefaultRenderer(Object.class, new ImagenTabla());
@@ -566,17 +417,12 @@ public class Controller_CrudEspecialista {
         List<Doctor> listadoc=modelo.listarDoctores();//Enlazo al Modelo y obtengo los datos
         Holder<Integer> i = new Holder<>(0);//contador para el no. fila
         listadoc.stream().forEach(pe->{
-//           LocalDateTime fechaactual = LocalDateTime.now();
-//           Period periodo = Period.between(pe.getFecha().toLocalDate(), fechaactual.toLocalDate());
            tblModel.addRow(new Object[16]);//Creo una fila vacia
                 vista.getTblEspecialista().setValueAt(pe.getCedula(), i.value, 0);
                 vista.getTblEspecialista().setValueAt(pe.getNombres(), i.value, 1);
                 vista.getTblEspecialista().setValueAt(pe.getApellidos(), i.value, 2);
                 vista.getTblEspecialista().setValueAt(pe.getCelular(), i.value, 3);
-//                vista.getTblEspecialista().setValueAt(pe.getTelefono(), i.value, 4);
                 vista.getTblEspecialista().setValueAt(pe.getDireccion(), i.value, 4);
-//                vista.getTblEspecialista().setValueAt(pe.getCorreo(), i.value, 6);
-//                vista.getTblEspecialista().setValueAt(pe.getProvincia(), i.value, 7);
                 vista.getTblEspecialista().setValueAt(pe.getCiudad(), i.value, 5);
                 vista.getTblEspecialista().setValueAt(pe.getGenero(), i.value, 6);
 
@@ -595,14 +441,9 @@ public class Controller_CrudEspecialista {
   
                 }
                 vista.getTblEspecialista().setValueAt(pe.getId_doctor(), i.value, 8);
-//                vista.getTblEspecialista().setValueAt(pe.getId_usuario(), i.value, 12);
                 vista.getTblEspecialista().setValueAt(pe.getEspecialidad(), i.value, 9);
-//                vista.getTblEspecialista().setValueAt(pe.getCargo(), i.value, 10);
-//                vista.getTblEspecialista().setValueAt(pe.getCedula_doc(), i.value, 15);
 
                 i.value++;
-//           String[] filap = {pe.getIdPersona(),pe.getNombre(),pe.getApellido(),String.valueOf(periodo.getYears()),pe.getTelefono(),pe.getSexo(),String.valueOf(pe.getSueldo()),String.valueOf(pe.getCupo())};
-//           tblModel.addRow(filap);
         });
         
         
@@ -620,17 +461,12 @@ public class Controller_CrudEspecialista {
         List<Doctor> listadoc=modelo.tablamostrarbusqueda(busqueda);//Enlazo al Modelo y obtengo los datos
         Holder<Integer> i = new Holder<>(0);//contador para el no. fila
         listadoc.stream().forEach(pe->{
-//           LocalDateTime fechaactual = LocalDateTime.now();
-//           Period periodo = Period.between(pe.getFecha().toLocalDate(), fechaactual.toLocalDate());
            tblModel.addRow(new Object[16]);//Creo una fila vacia
                 vista.getTblEspecialista().setValueAt(pe.getCedula(), i.value, 0);
                 vista.getTblEspecialista().setValueAt(pe.getNombres(), i.value, 1);
                 vista.getTblEspecialista().setValueAt(pe.getApellidos(), i.value, 2);
                 vista.getTblEspecialista().setValueAt(pe.getCelular(), i.value, 3);
-//                vista.getTblEspecialista().setValueAt(pe.getTelefono(), i.value, 4);
                 vista.getTblEspecialista().setValueAt(pe.getDireccion(), i.value, 4);
-//                vista.getTblEspecialista().setValueAt(pe.getCorreo(), i.value, 6);
-//                vista.getTblEspecialista().setValueAt(pe.getProvincia(), i.value, 7);
                 vista.getTblEspecialista().setValueAt(pe.getCiudad(), i.value, 5);
                 vista.getTblEspecialista().setValueAt(pe.getGenero(), i.value, 6);
 
@@ -649,14 +485,10 @@ public class Controller_CrudEspecialista {
   
                 }
                 vista.getTblEspecialista().setValueAt(pe.getId_doctor(), i.value, 8);
-//                vista.getTblEspecialista().setValueAt(pe.getId_usuario(), i.value, 12);
                 vista.getTblEspecialista().setValueAt(pe.getEspecialidad(), i.value, 9);
-//                vista.getTblEspecialista().setValueAt(pe.getCargo(), i.value, 10);
-//                vista.getTblEspecialista().setValueAt(pe.getCedula_doc(), i.value, 15);
 
                 i.value++;
-//           String[] filap = {pe.getIdPersona(),pe.getNombre(),pe.getApellido(),String.valueOf(periodo.getYears()),pe.getTelefono(),pe.getSexo(),String.valueOf(pe.getSueldo()),String.valueOf(pe.getCupo())};
-//           tblModel.addRow(filap);
+                
         });
         
         
@@ -669,7 +501,6 @@ public class Controller_CrudEspecialista {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
-                cargardatosTxt(e);
                 cargardatosTxt(e);
                 accion="editar";
                 vista.getBtnguardarEsp().setText("Editar");
@@ -755,11 +586,6 @@ public class Controller_CrudEspecialista {
             vista.getTxtprovinciaesp().setText(milistapaci.get(i).getProvincia()) ;
             vista.getTxtIdUsuario().setText(milistapaci.get(i).getId_usuario()) ;
             vista.getTxtCargoesp().setText(milistapaci.get(i).getCargo()) ;
-            System.out.println(esp.getTelefono());
-            System.out.println(esp.getCorreo());
-            System.out.println(esp.getProvincia());
-            System.out.println(esp.getId_usuario());
-            System.out.println(esp.getCargo());
             }          
     } 
     
@@ -839,7 +665,7 @@ public class Controller_CrudEspecialista {
     vista.getCboxGeneroEsp().setSelectedIndex(0);
    
     vista.getLblFotoEsp().setText("");
-    vista.getLblFotoEsp().setText("");
+    vista.getLblFotoEsp().setIcon(null);
     vista.getcBoxespecialidad().setSelectedIndex(0);
     vista.getTxtCargoesp().setText("");
     vista.getTxtruta().setText("");
@@ -849,22 +675,19 @@ public class Controller_CrudEspecialista {
     Icon advert;
           void ValidarDoctor(){
     //validaciones
-        if (vista.getTxtnombreesp().equals("")&& vista.getTxtapellidoesp().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese el nombre y apellido del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtcedulaesp().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la cedula del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtdirecesp().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la direccion del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtprovinciaesp().equals("")&& vista.getTxtciudadesp().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese la provincia y ciudad del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        }  else if (vista.getCboxGeneroEsp().getSelectedItem().toString().equals("Seleccione genero")) {
-            JOptionPane.showMessageDialog(null, "Seleccione el genero valida","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getcBoxespecialidad().getSelectedItem().toString().equals("Seleccione la especialidad")) {
-            JOptionPane.showMessageDialog(null, "Seleccione la especialidad","error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtIdDoctor().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese el id del Especialista","Error", JOptionPane.PLAIN_MESSAGE, advert);
-        } else if (vista.getTxtIdUsuario().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese id del Usuario","Error", JOptionPane.PLAIN_MESSAGE, advert);
+    
+    String cedula=vista.getTxtcedulaesp().getText();
+    String nombre=vista.getTxtnombreesp().getText();
+    String apellido=vista.getTxtapellidoesp().getText();
+    String direccion=vista.getTxtdirecesp().getText();
+    String provincia=vista.getTxtprovinciaesp().getText();
+    String genero=vista.getCboxGeneroEsp().getSelectedItem().toString();
+    String espe=vista.getcBoxespecialidad().getSelectedItem().toString();
+    String id=vista.getTxtIdDoctor().getText();
+    
+        if (cedula.equals("")||nombre.equals("")|| apellido.equals("")|| direccion.equals("")|| provincia.equals("")|| genero.equals("Seleccione genero")|| espe.equals("Seleccione la especialidad")|| id.equals("")) {
+            JOptionPane.showMessageDialog(vista, "               Porfavor llene los campos necesarios del Especialista "
+                    + "\n(Cedula, Nombres, Apellidos, Direccion, Provincia, Genero, Especialidad)");
         } else{crearDoctor();}
          }
     
