@@ -132,7 +132,6 @@ public class Controller_Receta {
     private void generarSerie() {
       String   serie = modelo.id_receta();
         if (serie == null) {
-            System.out.println("nunmero serie" + serie);
             vista.getTxtIDreceta().setText("01");
         } else {
             int inc = Integer.parseInt(serie);
@@ -169,7 +168,6 @@ public class Controller_Receta {
         
          String id2 = vistamenu.getLblCedulapac().getText();
            
-           System.out.println(id2+"-----");
  
             List<Paciente> milistapa =  modelo.cargartxtsobrantes(id2);
             
@@ -201,7 +199,6 @@ public class Controller_Receta {
         java.util.Date dato=vista.getJdcFechanaciento().getDate();
         String fechael=dateFormat.format(dato);  
         LocalDate hoy = LocalDate.now();
-        System.out.println(fechael);
         LocalDate fechanac = LocalDate.parse(fechael);
       Period p = Period.between(fechanac, hoy);   
       int Anio = p.getYears();
@@ -404,7 +401,6 @@ public class Controller_Receta {
         int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        System.out.println("Fecha Actual: " + dia + "/" + (mes+1) + "/" + año);
         vista.getLblfecha().setText(+ dia + "-" + (mes+1) + "-" + año);
 
         }
@@ -452,7 +448,6 @@ public class Controller_Receta {
     }
          
          public void crearRecetas(){
-        System.out.println("creando receta");
      
      String id_rec=vista.getTxtIDreceta().getText();
      String cedula=vista.getTxtcedula().getText();
@@ -463,7 +458,6 @@ public class Controller_Receta {
      String fechaac=vista.getLblfecha().getText();
      String obs=vista.getTxtobservaciones().getText();
      String alergias=vista.getTxtalergias().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
      
      mEsp.setId_receta(id_rec);
@@ -477,7 +471,6 @@ public class Controller_Receta {
      
      mEsp.crearReceta();
 //     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
                 limpiartxt();
 
     }
@@ -490,7 +483,6 @@ public class Controller_Receta {
      String mg=vista.getTxtmiligramos().getText();
      String cantidad=String.valueOf(vista.getSpcantidad().getValue());
      String frecuencia=vista.getTxtfrecuencia().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
      
      mEsp.setId_rec_far(id_rec_far);
@@ -502,7 +494,6 @@ public class Controller_Receta {
      
      mEsp.crearRecFar();
 //     mEsp.crearPersonas2();
-        System.out.println("despues del metodo");
                 generarIdFar();
                 limpiartxtReceta();
                 cargarFARRec(vista.getTxtIDreceta().getText());
@@ -516,7 +507,6 @@ public class Controller_Receta {
      String id_cie=vista.getTxtCie().getText();
      String titulo=vista.getTxtCie1().getText();
      String categoria=vista.getTxttitulo().getText();
-        System.out.println("antes del metodo");
      Model_Receta mEsp= new Model_Receta();
      
      mEsp.setId_rec_cie(id_rec_cie);
@@ -526,7 +516,6 @@ public class Controller_Receta {
      
      mEsp.crearRecCie();
 
-        System.out.println("despues del metodo");
                 generarIdCie();
                 limpiartxtcie10();
                 cargarCIE10Rec(vista.getTxtIDreceta().getText());
@@ -642,7 +631,6 @@ public class Controller_Receta {
             if(resp==0){
                 if(eliminado.removerFarmacos(det,dosis,frec)){
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
-                    System.out.println("farmaco eliminado");
                     
 //                    cargarCIE10Rec(vista.getTxtIDreceta().getText());
                     cargarFARRec(vista.getTxtIDreceta().getText());
@@ -667,7 +655,6 @@ public class Controller_Receta {
             if(resp==0){
                 if(eliminado.removerCie(cod,cat)){
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
-                    System.out.println("cie eliminado");
                     
                     cargarCIE10Rec(vista.getTxtIDreceta().getText());
 
@@ -678,38 +665,15 @@ public class Controller_Receta {
             }
         }
     }
-          private void imprimirReceta(){
+          private void imprimirReceta2(){
         ConexionPg con =new ConexionPg();
           try {
 //              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"+"/Reportes/Rec_Enca.jasper"+"/Reportes/Rep_Receta_Far.jasper"+"/Reportes/Rep_Receta_Cie.jasper"));
-              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"));
+              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas3.jasper"));
               
-              //-
-              JasperReport encabezado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rec_Enca.jasper"));
-              JasperReport farmaco = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Receta_Far.jasper"));
-              JasperReport cie = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Rep_Receta_Cie.jasper"));
-              //-
-              
-              Map<String,Object> parametros =new HashMap<String,Object>();
-              System.out.println("impresion");
+              Map<String,Object> parametros =new HashMap<>();
               System.out.println(vista.getTxtIDreceta().getText());
-              
-              //-
-              parametros.put("idreceta", vista.getTxtIDreceta().getText());
-              parametros.put("idFar", vista.getTxtIDreceta().getText()); 
-                      
-                      
-                      
-              parametros.put("idRec", vista.getTxtIDreceta().getText());
-              //-
-              
               parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
-              
-              //-
-              parametros.put("idreceta", encabezado);
-              parametros.put("idFar", farmaco);
-              parametros.put("idRec", cie);
-              //-
               JasperPrint jp = JasperFillManager.fillReport(listado, parametros, con.Con());
           
               JasperViewer jv = new JasperViewer(jp,false);
@@ -720,6 +684,24 @@ public class Controller_Receta {
           }
     }
           
+         private void imprimirReceta(){
+        ConexionPg con =new ConexionPg();
+          try {
+              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"));
+              
+              Map<String,Object> parametros =new HashMap<>();
+              System.out.println(vista.getTxtIDreceta().getText());
+              parametros.put("idRec2", vista.getTxtIDreceta().getText());//txtIDreceta
+              JasperPrint jp = JasperFillManager.fillReport(listado, parametros, con.Con());
+          
+              JasperViewer jv = new JasperViewer(jp,false);
+              jv.setVisible(true);
+              
+          } catch (JRException ex) {
+              Logger.getLogger(Controller_Receta.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    } 
+         
           public void generaRecetaImprimir() {
         
             int confirmacion = JOptionPane.showConfirmDialog(vista, "¿Desea imprimir?");

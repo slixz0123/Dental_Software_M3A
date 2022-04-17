@@ -78,7 +78,7 @@ public class Model_ListadoEspecialistas extends Doctor {
         String sql3;
 
         try {
-            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , doc.especialidad , doc.cargo , p.fotos  from  persona p , doctor doc  WHERE p.cedula = doc.cedula_doc  ";
+            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , doc.especialidad , doc.cargo , p.fotos  from  persona p , doctor doc  WHERE p.cedula = doc.cedula_doc AND p.estado='1' ";
             ResultSet rs = con.consulta(sql3);
 
             // barremos el resulset
@@ -103,52 +103,56 @@ public class Model_ListadoEspecialistas extends Doctor {
             return milistaesp;
         } catch (SQLException ex) {
             System.out.println(ex);
-            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Model_ListadoEspecialistas.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
 
     }
 
-    public List<Doctor> listarEspbuscar(String buscar) {
-        List<Doctor> milistaesp = new ArrayList<Doctor>();
-        String sql3;
-        if (buscar.equals(null)) {
-            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , doc.especialidad , doc.cargo ,p.fotos  from  persona p , doctor doc  WHERE p.cedula = doc.cedula_doc  ";
-        } else {
-            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , doc.especialidad , doc.cargo ,p.fotos  from  persona p , doctor doc "
-                    + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = doc.cedula_doc OR ";
+    public List<Doctor> listarEspbuscar ( String buscar){
+    List<Doctor> milistadoc = new ArrayList<Doctor>();
+    String sql3;
+     if(buscar.equals(null)){
+   sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , d.especialidad , d.cargo, p.fotos   from  persona p , doctor d  WHERE p.cedula = d.cedula_doc AND p.estado='1' " ;
+    } else {
+     sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , d.especialidad , d.cargo, p.fotos  from  persona p , doctor d"
+
+            + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc AND p.estado='1' OR ";
+            sql3+="UPPER(p.apellidos) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc AND p.estado='1' OR ";
             sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
-            sql3 += " p.cedula = doc.cedula_doc";
-            try {
-                ResultSet rs = con.consulta(sql3);
+            sql3 += " p.cedula = d.cedula_doc AND p.estado='1'";    
+     try {
+            ResultSet rs = con.consulta(sql3) ;
+            
+            // barremos el resulset
+            while(rs.next()){
+                Doctor esp = new Doctor();
+                esp.setCedula(rs.getString(1));
+                esp.setNombres(rs.getString(2));
+                esp.setApellidos(rs.getString(3));
+                esp.setCelular(rs.getString(4));
+                esp.setDireccion(rs.getString(5));
+                esp.setCiudad(rs.getString(6));
+                esp.setGenero(rs.getString(7));
+                esp.setEspecialidad(rs.getString(8));
+                esp.setCargo(rs.getString(9));
+                esp.setFoto(rs.getBytes(10));                
+                
+                milistadoc.add(esp);
 
-                // barremos el resulset
-                while (rs.next()) {
-                    Doctor esp = new Doctor();
-                    esp.setCedula(rs.getString(1));
-                    esp.setNombres(rs.getString(2));
-                    esp.setApellidos(rs.getString(3));
-                    esp.setCelular(rs.getString(4));
-                    esp.setDireccion(rs.getString(5));
-                    esp.setCiudad(rs.getString(6));
-                    esp.setGenero(rs.getString(7));
-                    esp.setEspecialidad(rs.getString(8));
-                    esp.setCargo(rs.getString(9));
-                    esp.setFoto(rs.getBytes(10));
-
-                    milistaesp.add(esp);
-
-                }
-                rs.close();
-             //   con.desconectar();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-                Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
-                return null;
             }
-
+           rs.close();
+          // cpg.desconectar();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
         }
-        return milistaesp;
+ 
+   
     }
-
+     return milistadoc;
+    }
+    
+    
 }
