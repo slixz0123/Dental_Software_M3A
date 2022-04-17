@@ -501,7 +501,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="jtextfieldround.JTextFieldRound" name="txtcedulapac1">
+            <Component class="jtextfieldround.JTextFieldRound" name="txtapellidosdoc">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>

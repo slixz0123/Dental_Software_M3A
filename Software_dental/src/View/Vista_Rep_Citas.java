@@ -50,17 +50,17 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("BUSCAR POR NOMBRE O CEDULA:");
+        jLabel2.setText("BUSCAR POR  CÉDULA:");
         panelNice2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Reporte de citas");
-        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 290, -1));
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 290, -1));
         panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 830, 30));
 
-        btnimprimir.setText("Imprimir");
-        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));
+        btnimprimir.setText("Imprimir Reporte Específico");
+        panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 400, 40));
 
         jtbllistadocitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,10 +83,10 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
 
         btnconsultar.setText("Consultar");
-        panelNice2.add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
+        panelNice2.add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 150, 30));
 
-        btnrepgeneral.setText("Reporte General");
-        panelNice2.add(btnrepgeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, -1));
+        btnrepgeneral.setText("Imprimir Reporte General");
+        panelNice2.add(btnrepgeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 400, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
