@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +40,7 @@ public class Controller_His_Cli {
       
         // cargardatosexternosconcedula();
         
-       vista.getBtncargardatos().addActionListener(l-> cargardatosexternosconcedula());
+       vista.getBtncargardatos().addActionListener(l-> comprobar());
       //vista.getBtncargardatos().addActionListener(l-> cargardatosexternosIdmed());
       generarSerie();
       vista.getBtnguardar().addActionListener(l-> registrarHistorialMedico());
@@ -123,7 +124,13 @@ public class Controller_His_Cli {
         }
     }
       
-    
+     private void comprobar(){
+    if(vistamenu.getLblCedulapac().getText().equals("")||vistamenu.getLblCedulapac().getText().equals("...")){
+       JOptionPane.showMessageDialog(null, "Debe elegir un paciente");
+       } else {
+        cargardatosexternosconcedula();
+        }
+    }
     
     
     

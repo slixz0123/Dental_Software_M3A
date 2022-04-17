@@ -9,7 +9,10 @@ import Model.Paciente;
 import Model.Tratamiento;
 import View.MenuPrincipal;
 import View.Vista_crud_Factura;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -113,16 +116,36 @@ public class Controller_Factura {
             }
         }
         );
+        KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                cargarTratamiento(vista.getTxtDlgTratamiento().getText());
+            }
+        };
+        vista.getTxtDlgTratamiento().addKeyListener(kl);
     }
 
     private void abrir_dialog() {
         vista.getDlTratamiento().setVisible(true);
-        vista.getDlTratamiento().setTitle("Buscar Tratamiento");
         vista.getDlTratamiento().setSize(550, 420);
-        cargarTratamiento();
+        final Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = toolkit.getScreenSize();
+        final int x = (screenSize.width - vista.getDlTratamiento().getWidth()) / 2;
+        final int y = (screenSize.height - vista.getDlTratamiento().getHeight()) / 2;
+        vista.getDlTratamiento().setLocation(x, y);
+        vista.getDlTratamiento().setTitle("Buscar Tratamiento");
+        cargarTratamiento("");
     }
 
-    private void cargarTratamiento() {
+    private void cargarTratamiento(String buscar) {
         DefaultTableModel tblTrat = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
         fila = vista.getTblDialTratamiento().getSelectedRow();
 
@@ -132,7 +155,7 @@ public class Controller_Factura {
 
         tbmodel.setNumRows(0);
 
-        List<Tratamiento> milista = modeltrat.listaTratamiento("");
+        List<Tratamiento> milista = modeltrat.listaTratamiento(buscar);
 
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(pe -> {
@@ -166,17 +189,6 @@ public class Controller_Factura {
         }
     }
 
-//    public void generarVentas() {
-//        if (vista.getTxtTotal().getText().equals("")) {
-//            JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
-//        } else {
-//            JOptionPane.showMessageDialog(vista, "Se realizo con exito");
-//            guardarFactura();
-//            limpiarTabla();
-//            nuevo();
-//            generarSerie();
-//        }
-//    }
     public void generarVentas() {
         if (vista.getTxtTotal().getText().equals("")) {
             JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
@@ -192,7 +204,7 @@ public class Controller_Factura {
                 limpiarTabla();
                 nuevo();
                 generarSerie();
-                
+
                 vista.getTxtSubtotal().setText("");
                 vista.getTxtDescuento().setText("");
                 vista.getTxtTotal().setText("");
@@ -362,13 +374,12 @@ public class Controller_Factura {
         nuevo();
 
     }
-    
-       
-    public void imprimirFactura(){
+
+    public void imprimirFactura() {
         ConexionPg connection = new ConexionPg();
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/factura.jasper"));
-            Map<String, Object> parametros = new HashMap<String, Object>(); 
+            Map<String, Object> parametros = new HashMap<String, Object>();
             parametros.put("CEDULA_PACIENTE", vista.getLblid().getText());
             parametros.put("NOMBRE_PACIENTE", vista.getLblNombre().getText());
             parametros.put("APELLIDO_PACIENTE", vista.getLblApellido().getText());
@@ -378,14 +389,14 @@ public class Controller_Factura {
             parametros.put("FACTURA_SERIE", vista.getTxtNumSerie().getText());
 //            parametros.put("LogoImagen1",Controller_Factura.class.getResource("/icons/logo salud.png"));
 //            parametros.put("LogoImagen2", Controller_Factura.class.getResource("/icons/imgReceta.jpg"));
-            JasperPrint jp = JasperFillManager.fillReport(jr, parametros,connection.Con());
-            JasperViewer jv = new  JasperViewer(jp,false);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, connection.Con());
+            JasperViewer jv = new JasperViewer(jp, false);
             jv.setVisible(true);
-            
+
         } catch (JRException ex) {
             Logger.getLogger(Controller_Factura.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void fecha() {

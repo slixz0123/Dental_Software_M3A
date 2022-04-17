@@ -158,34 +158,31 @@ public class Contoller_ListadoEspecialista {
     
 }
      
-      private void  cargarEspecialistasbusqueda (String busqueda){
-        
-        vista.getJtbllistadoesp().setDefaultRenderer(Object.class, new  ImagenTabla()); 
-        vista.getJtbllistadoesp().setRowHeight(30);
       
-        DefaultTableModel tbmodel ; 
+      public void cargarEspecialistasbusqueda(String busqueda){
+        
+        vista.getJtbllistadoesp().setDefaultRenderer(Object.class, new ImagenTabla());
+        vista.getJtbllistadoesp().setRowHeight(100);
+        //enlazar el modelo de tabla con mi controlador
+        DefaultTableModel tblModel;
+        tblModel=(DefaultTableModel)vista.getJtbllistadoesp().getModel();
+        tblModel.setNumRows(0);//limpio filas de la tabla
 
-        tbmodel = (DefaultTableModel) vista.getJtbllistadoesp().getModel() ; 
-  
-        tbmodel.setNumRows(0);
+        List<Doctor> listadoc=modelo.listarEspbuscar(busqueda);//Enlazo al Modelo y obtengo los datos
+        Holder<Integer> i = new Holder<>(0);//contador para el no. fila
+        listadoc.stream().forEach(pe->{
+           tblModel.addRow(new Object[16]);//Creo una fila vacia
+                vista.getJtbllistadoesp().setValueAt(pe.getCedula(), i.value, 0);
+                vista.getJtbllistadoesp().setValueAt(pe.getNombres(), i.value, 1);
+                vista.getJtbllistadoesp().setValueAt(pe.getApellidos(), i.value, 2);
+                vista.getJtbllistadoesp().setValueAt(pe.getCelular(), i.value, 3);
+                vista.getJtbllistadoesp().setValueAt(pe.getDireccion(), i.value, 4);
+                vista.getJtbllistadoesp().setValueAt(pe.getCiudad(), i.value, 5);
+                vista.getJtbllistadoesp().setValueAt(pe.getGenero(), i.value, 6);
+                vista.getJtbllistadoesp().setValueAt(pe.getEspecialidad(), i.value, 7);
+                vista.getJtbllistadoesp().setValueAt(pe.getCargo(), i.value, 8);
 
-        List<Doctor> milista = modelo.listarEspbuscar(busqueda);
-     
-        Holder<Integer> i = new Holder<>(0);
-        milista.stream().forEach(pe -> {
-
-      tbmodel.addRow( new Object[10]);// creo una fila vacia
-       //dibujar elementos de la tabla 
-       vista.getJtbllistadoesp().setValueAt(pe.getCedula(), i.value, 0);
-       vista.getJtbllistadoesp().setValueAt(pe.getNombres(), i.value, 1);
-       vista.getJtbllistadoesp().setValueAt(pe.getApellidos(), i.value, 2);
-       vista.getJtbllistadoesp().setValueAt(pe.getCelular(), i.value, 3);
-       vista.getJtbllistadoesp().setValueAt(pe.getDireccion(), i.value, 4);
-       vista.getJtbllistadoesp().setValueAt(pe.getCiudad(), i.value, 5);
-       vista.getJtbllistadoesp().setValueAt(pe.getGenero(), i.value, 6);
-       vista.getJtbllistadoesp().setValueAt(pe.getEspecialidad(), i.value, 7);
-       vista.getJtbllistadoesp().setValueAt(pe.getCargo(), i.value, 8);
-       try{
+                try{
                     byte[] bi = pe.getFoto();
                     BufferedImage image = null;
                     InputStream in = new ByteArrayInputStream(bi);
@@ -199,12 +196,12 @@ public class Contoller_ListadoEspecialista {
                       vista.getJtbllistadoesp().setValueAt(new JLabel("No imagen"),i.value, 9);
   
                 }
-        i.value++;
 
-      
+                i.value++;
+                
         });
         
-                
+        
     }
       
       private void cargardatosTxt () throws IOException{

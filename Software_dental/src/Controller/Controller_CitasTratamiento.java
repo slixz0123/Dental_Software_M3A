@@ -63,16 +63,20 @@ public class Controller_CitasTratamiento {
         
     }
      public void cargardatosexternosIdmed(){
-       
-        //String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-       
-            vista.getTxtceduladoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10).toString());
-            vista.getTxtNombredoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(11, 16).toString());
-             vista.getTxtapellidosdoc().setText(vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(17, 24).toString());
-            
-         
-              
-            }
+        
+         String cadced=vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10).toString();
+        vista.getTxtceduladoc().setText(cadced);
+        List<Doctor> listadoc=modelo.cargardatosdoctores(cadced);   
+        for (int a = 0; a < listadoc.size(); a++) {   
+        vista.getTxtNombredoc().setText(listadoc.get(a).getNombres());
+        vista.getTxtapellidosdoc().setText(listadoc.get(a).getApellidos());
+          
+      }
+          
+     }
+     
+     
+     
     
     private void generarSerie() {
       String   serie = modelo.NumSerie();

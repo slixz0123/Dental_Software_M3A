@@ -89,7 +89,7 @@ public class Controller_CrudCie10 {
          cargarcie();
          
          JOptionPane.showMessageDialog(vista, "CIE10 creado correctamente ");
-         
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
           
@@ -120,6 +120,7 @@ public class Controller_CrudCie10 {
          cargarcie();
          
          JOptionPane.showMessageDialog(vista, "CIE10 editado correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
           
@@ -147,6 +148,7 @@ public class Controller_CrudCie10 {
          cargarcie();
          
          JOptionPane.showMessageDialog(vista, "CIE10 eliminado correctamente ");
+         limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo Eliminar  ");
           
@@ -255,7 +257,11 @@ private void setEventoKeytyped(JTextField txt)
         }
         });
     }
-
+ private void limpiar(){
+       vista.getTxtcodigocie().setText("");
+       vista.getCbcate().setSelectedIndex(0);
+       vista.getTxtitulo().setText("");
+   }
 
 
 }

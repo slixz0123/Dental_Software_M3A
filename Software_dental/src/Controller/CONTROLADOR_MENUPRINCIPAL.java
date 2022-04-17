@@ -47,22 +47,14 @@ import View.Vista_crud_Tratamiento;
 import View.Vista_crud_especalista;
 //import View.vista_Odontograma;
 import desplazable.Desface;
-import java.awt.Image;
 import java.awt.Frame;
 //import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 
 /**
@@ -73,6 +65,17 @@ public class CONTROLADOR_MENUPRINCIPAL {
 
     MenuPrincipal vista;
     Desface desplace;
+    Vista_InicioProceso vistaProceso; 
+    Vista_Reportes reportes ;
+    Crud_Paciente crudpaciente ;
+    Vista_crud_especalista vistaesp ;
+    Vista_crud_Tratamiento vistatrat ;
+    Vista_Crud_Cie10 vistacie10 ;
+    Vista_Farmacos vistafarma ;
+    VISTA_PROFORMA vistaProforma ;
+    Vista_AgendaCitas vistaAgendarcitas ;
+    Vista_ListadoPacientes vistaListPac ;
+    Odontograma vistaod ;
 
     public CONTROLADOR_MENUPRINCIPAL(MenuPrincipal vista) {
         this.vista = vista;
@@ -80,253 +83,50 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.setExtendedState(Frame.MAXIMIZED_BOTH);
         desplace = new Desface();
         iniciarControlMenu();
-        vista.setIconImage(new ImageIcon(getClass().getResource("/View/icons/iconlogo (1).png")).getImage() );
+        vista.setIconImage(new ImageIcon(getClass().getResource("/View/icons/odontologia.png")).getImage() );
         
     }
 
     public void iniciarControlMenu() {
-        setEventoMouseClicked2(vista.getLblCrud_Paciente());
-        setEventoMouseClickeda(vista.getLblNuevoEsp());
-        setEventoMouseClickede(vista.getLbl_CrudTratamiento());
-        setEventoMouseClickeCie10(vista.getLbl_CrudCie());
-
-        setEventoMouseClickCitasTrat(vista.getLbl_CitasTratamientos());
-
-        setEventoMouseClickProgreso(vista.getLabelini());
-        setEventoMouseClickProforma(vista.getLbl_Cotizacion());
+        //labels
+        procesos(vista.getLabelini()); // proceso
+        crudpaciente(vista.getLblCrud_Paciente());
+        crudEspe(vista.getLblNuevoEsp());
+        crudTratamiento(vista.getLbl_CrudTratamiento());
+        crudFamr(vista.getLbl_CrudFarmacos());
+        crudCie10(vista.getLbl_CrudCie());
+        proforma(vista.getLbl_Cotizacion());
+        reportes(vista.getLbl_CitasTratamientos());
+        // botones
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
         vista.getBtnOdontograma().addActionListener(l -> Odontograma());
-        setEventoMouseClickFarmacos(vista.getLbl_CrudFarmacos());
-
         vista.getJbtnListPac().addActionListener(l -> ListadoPacbtn());
-        // vista.getBtnOdontograma().addActionListener(l-> odontogramabtn());
+       
         cargarcboxMedico();
+        vista.getBtnrefrescar().addActionListener(l-> cargarcboxMedico());
         fecha();
-
+      
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
-    private void Odontograma() {
-        model_Odontograma model = new model_Odontograma();
-        Odontograma vistaod = new Odontograma();
-        vista.getDkpPrincipal().add(vistaod);
-        Controller_odonto cont = new Controller_odonto(model, vistaod, vista);
-    }
-
-//    private void setIcon(JFrame vist) {
-//        vist.add(new java.awt.Frame() {
-//            @Override
-//            public Image getIconImage() {
-//                Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/View/icons/iconlogo (1).png"));
-//                return retValue;
-//            }
-//        });
-//    }
-
-    private void setEventoMouseClicked2(JLabel lab) {
-        lab.addMouseListener(new java.awt.event.MouseAdapter() {
+    
+    private void procesos(JLabel laba4) {
+        laba4.addMouseListener(new java.awt.event.MouseAdapter() {
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-
-                CrudProducto(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickeda(JLabel lab) {
-        lab.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                CrudEspecialista(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickede(JLabel lab) {
-        lab.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                CrudTratamiento(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickeCie10(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                CrudCie10(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickCitasTrat(JLabel laba) {
-
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                Reportes(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickFarmacos(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                CrudFarmacos(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickProgreso(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                Proceso(e);
-
-            }
-        });
-    }
-
-    private void setEventoMouseClickProforma(JLabel laba) {
-        laba.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                proforma(e);
-
-            }
-        });
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
-    private void CrudProducto(java.awt.event.MouseEvent evt) {
-        Model_Paciente modelpaciente = new Model_Paciente();
-        Crud_Paciente crudpaciente = new Crud_Paciente();
-        // agremgamos nuestra jdialog al deskopt pane 
-        vista.getDkpPrincipal().add(crudpaciente);
-        crudpaciente.setBorder(null);
-        Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
-
-    }
-
-    private void CrudEspecialista(java.awt.event.MouseEvent evt) {
-        Model_Especialista modelesp = new Model_Especialista();
-        Vista_crud_especalista vistaesp = new Vista_crud_especalista();
-        vista.getDkpPrincipal().add(vistaesp);
-        //vistaesp.setBorder(null);
-        Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
-
-    }
-
-    private void CrudTratamiento(java.awt.event.MouseEvent evt) {
-        Model_Tratamiento modeltrat = new Model_Tratamiento();
-        Vista_crud_Tratamiento vistatrat = new Vista_crud_Tratamiento();
-        vista.getDkpPrincipal().add(vistatrat);
-        vistatrat.setBorder(null);
-        Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
-//        contTrat.iniciaControl();
-    }
-
-    private void CrudCie10(java.awt.event.MouseEvent evt) {
-        Model_Cie10 modelcie = new Model_Cie10();
-        Vista_Crud_Cie10 vistacie10 = new Vista_Crud_Cie10();
-        vista.getDkpPrincipal().add(vistacie10);
-        vistacie10.setBorder(null);
-        Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
-    }
-
-    private void agendacitas() {
-        Model_AgendaCitas modelagendacitas = new Model_AgendaCitas();
-        Vista_AgendaCitas vistaAgendarcitas = new Vista_AgendaCitas();
-        vista.getDkpPrincipal().add(vistaAgendarcitas);
-        vistaAgendarcitas.setBorder(null);
-        Controller.Controller_AgendaCitas controlerAgendaCitas = new Controller_AgendaCitas(modelagendacitas, vistaAgendarcitas);
-    }
-
-    private void proforma(java.awt.event.MouseEvent evt) {
-        Model_Proforma modelProforma = new Model_Proforma();
-        VISTA_PROFORMA vistaProforma = new VISTA_PROFORMA();
-        vista.getDkpPrincipal().add(vistaProforma);
-        vistaProforma.setBorder(null);
-        Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
-    }
-
-    private void HistorialReporteOdontologico(java.awt.event.MouseEvent evt) {
-        //Controller historial medico
-        Model_HistorialMedico modHistor = new Model_HistorialMedico();
-        Vista_Rep_HistorialOdontologico vistaHistorialod = new Vista_Rep_HistorialOdontologico();
-        vista.getDkpPrincipal().add(vistaHistorialod);
-        vistaHistorialod.setBorder(null);
-        Controller.Controller_Rep_His_Med controllerHist_od = new Controller_Rep_His_Med(modHistor, vistaHistorialod, vista);
-    }
-//        Model_Rep_HistorialOdontologico modHistoRep = new Model_Rep_HistorialOdontologico();
-//        Vista_Rep_HistorialOdontologico vistaHistorialrepmed = new Vista_Rep_HistorialOdontologico();
-//        vista.getDkpPrincipal().add(vistaHistorialrepmed);
-//        vistaHistorialrepmed.setBorder(null);
-//
-//          Controller.Controller_Rep_HistorialOdontologico controllerRep = new Controller_Rep_HistorialOdontologico (modHistoRep, vistaHistorialrepmed, vista);
-
-    private void ListadoPacbtn() {
-
-        Model_ListadoPacientes modellisttPac = new Model_ListadoPacientes();
-        Vista_ListadoPacientes vistaListPac = new Vista_ListadoPacientes();
-        vista.getDkpPrincipal().add(vistaListPac);
-        vistaListPac.setBorder(null);
-        Controller.Contoller_ListadoPaciente controlListpac = new Contoller_ListadoPaciente(modellisttPac, vistaListPac, vista);
-
-    }
-
-    private void CitasTratamiento(java.awt.event.MouseEvent evt) {
-        Model_Citas modelRepCitas = new Model_Citas();
-        Vista_Rep_Citas vistaRepCits = new Vista_Rep_Citas();
-        vista.getDkpPrincipal().add(vistaRepCits);
-        vistaRepCits.setBorder(null);
-        Controller.Controller_Rep_Citas controlRepCitas = new Controller_Rep_Citas(modelRepCitas, vistaRepCits, vista);
-    }
-
-    private void CrudFarmacos(java.awt.event.MouseEvent evt) {
-        Model_Farmacos modelfarma = new Model_Farmacos();
-        Vista_Farmacos vistafarma = new Vista_Farmacos();
-        vista.getDkpPrincipal().add(vistafarma);
-        vistafarma.setBorder(null);
-        Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
-//        controlfarma.iniciaControl();
-    }
-
-    private void Proceso(java.awt.event.MouseEvent evt) {
-
-        Vista_InicioProceso vista_InicioProceso = new Vista_InicioProceso();
-
-        vista.getDkpPrincipal().add(vista_InicioProceso);
-        vista_InicioProceso.setVisible(true);
-        vista_InicioProceso.setBorder(null);
-
-        //historial medico
+            public void mousePressed(MouseEvent ex2) {
+ 
+        if(estacerrado(vistaProceso)) {
+            
+        vistaProceso = new Vista_InicioProceso();
+        vista.getDkpPrincipal().add(vistaProceso);
+            
+        vistaProceso.setVisible(true);
+        vistaProceso.setBorder(null);
+         //historial medico
         Model_HistorialMedico modHisto = new Model_HistorialMedico();
         Vista_Crud_HistorialMedico vistaHistorialMedico = new Vista_Crud_HistorialMedico();
-        vista_InicioProceso.getPnHistorial().add(vistaHistorialMedico);
+        vistaProceso.getPnHistorial().add(vistaHistorialMedico);
         vistaHistorialMedico.setBorder(null);
 
         Controller.Controller_HistorialMedico controllerHisto = new Controller_HistorialMedico(modHisto, vistaHistorialMedico, vista);
@@ -334,7 +134,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         //listado de pacientes
         Model_ListadoPacientes modlistado = new Model_ListadoPacientes();
         Vista_ListadoPacientes vistaLista = new Vista_ListadoPacientes();
-        vista_InicioProceso.getPnListadoPac().add(vistaLista);
+        vistaProceso.getPnListadoPac().add(vistaLista);
         vistaLista.setBorder(null);
 
         Controller.Contoller_ListadoPaciente controllerlistado = new Contoller_ListadoPaciente(modlistado, vistaLista, vista);
@@ -342,7 +142,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         //anamesis
         Model_Anamnesis modAne = new Model_Anamnesis();
         Vista_Anamesis vistaana = new Vista_Anamesis();
-        vista_InicioProceso.getPnAnamesis().add(vistaana);
+        vistaProceso.getPnAnamesis().add(vistaana);
         vistaana.setBorder(null);
 
         Controller.Controller_Anamnesis controllerAnamesis = new Controller_Anamnesis(modAne, vistaana, vista);
@@ -351,7 +151,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         Model_Hist_clinico modeldiag = new Model_Hist_clinico();
 
         Vista_HistorialClinico vistadiag = new Vista_HistorialClinico();
-        vista_InicioProceso.getPnHistorialClinico().add(vistadiag);
+        vistaProceso.getPnHistorialClinico().add(vistadiag);
         vistadiag.setBorder(null);
         Controller.Controller_His_Cli controllerdiag = new Controller_His_Cli(modeldiag, vistadiag, vista);
         // CITAS
@@ -359,64 +159,173 @@ public class CONTROLADOR_MENUPRINCIPAL {
         // CITAS
         Model_Citas modelcitastrat = new Model_Citas();
         Vista_Citas_Tratamiento vistacitastrat = new Vista_Citas_Tratamiento();
-        vista_InicioProceso.getPnCitas().add(vistacitastrat);
+        vistaProceso.getPnCitas().add(vistacitastrat);
         vistacitastrat.setBorder(null);
         Controller.Controller_CitasTratamiento controlcitastrat = new Controller_CitasTratamiento(modelcitastrat, vistacitastrat, vista);
-//recetas
+        //recetas
         Model_Receta modelrec = new Model_Receta();
         Vista_Receta vistarec = new Vista_Receta();
-        vista_InicioProceso.getPnreceta().add(vistarec);
+        vistaProceso.getPnreceta().add(vistarec);
         vistarec.setBorder(null);
         Controller.Controller_Receta controlrece = new Controller_Receta(modelrec, vistarec, vista);
 
         //Facturacion 
         Model_Factura modelfac = new Model_Factura();
         Vista_crud_Factura vistafac = new Vista_crud_Factura();
-        vista_InicioProceso.getPnFacturacion().add(vistafac);
+        vistaProceso.getPnFacturacion().add(vistafac);
         vistafac.setBorder(null);
         Controller.Controller_Factura controlfac = new Controller_Factura(modelfac, vistafac, vista);
-//        controlfac.iniciarControl();
 
+            }
+            else
+            {
+            //JOptionPane.showMessageDialog(null,"LA VENTANA MOVILIDADES YA ESTA ABIERTA");
+            }
+            }
+        });
     }
+    
+   
+  //-------------------------------------------------------------------------------------------------------------------------------------------------  
+    private void crudpaciente(JLabel lab) {
+        lab.addMouseListener(new java.awt.event.MouseAdapter() {
 
-    private void cargarcboxMedico() {
+            @Override
+            public void mouseClicked(MouseEvent ex8) {
 
-        Model_Especialista modelesp = new Model_Especialista();
-        ArrayList<Doctor> listadocs = modelesp.cargardocscombo();
-        vista.getJcbDocs().removeAllItems();
-        for (int i = 0; i < listadocs.size(); i++) {
+            if(estacerradoCrudPac(crudpaciente)) {
+            
+            crudpaciente = new Crud_Paciente();
+            Model_Paciente modelpaciente = new Model_Paciente();
+        
+            // agremgamos nuestra jdialog al deskopt pane 
+            vista.getDkpPrincipal().add(crudpaciente);
+            crudpaciente.setBorder(null);
+            Controller.Controller_CrudPaciente controlador = new Controller_CrudPaciente(modelpaciente, crudpaciente);
+            } else{
+              
+            }
 
-            vista.getJcbDocs().addItem(new Doctor(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres(), listadocs.get(i).getApellidos()));
-            //   String ced=    vista.getJcbDocs().getItemAt(vista.getJcbDocs().getSelectedIndex()).getCedula();
-
-        }
-
-        // lblMsj.setText(comboBox.getSelectedItem().toString());
+            }
+        });
     }
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    private void crudEspe(JLabel l) {
+        l.addMouseListener(new java.awt.event.MouseAdapter() {
 
-    private void fecha() {
-        Calendar calendar = new GregorianCalendar();
-        int año, mes, dia;
-        año = calendar.get(Calendar.YEAR);
-        mes = calendar.get(Calendar.MONTH) + 1;
-        dia = calendar.get(Calendar.DATE);
-        if (mes < 10) {
-            vista.getLblfecha().setText(año + "/0" + mes + "/" + dia);
-        }
-        if (dia < 10) {
-            vista.getLblfecha().setText(año + "/" + mes + "/0" + dia);
-        }
-        if (dia > 10 && mes > 10) {
-            vista.getLblfecha().setText(año + "/" + mes + "/" + dia);
-        } else if (dia < 10 && mes < 10) {
-            vista.getLblfecha().setText(año + "/0" + mes + "/0" + dia);
-        }
+            @Override
+            public void mouseClicked(MouseEvent ex7) {
 
+            if(estacerradoCrudEspe(vistaesp)) {
+            
+            vistaesp = new Vista_crud_especalista();
+            Model_Especialista modelesp = new Model_Especialista();
+            vista.getDkpPrincipal().add(vistaesp);
+            vistaesp.setBorder(null);
+            Controller.Controller_CrudEspecialista contEsp = new Controller_CrudEspecialista(modelesp, vistaesp);
+            }else{
+            
+            }
+
+            }
+        });
     }
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    private void crudTratamiento(JLabel le) {
+        le.addMouseListener(new java.awt.event.MouseAdapter() {
 
-    private void Reportes(java.awt.event.MouseEvent evt) {
+            @Override
+            public void mouseClicked(MouseEvent ex6) {
 
-        Vista_Reportes reportes = new Vista_Reportes();
+            if(estacerradoCrudTrat(vistatrat)) {
+            
+            vistatrat = new Vista_crud_Tratamiento();
+            Model_Tratamiento modeltrat = new Model_Tratamiento();
+            vista.getDkpPrincipal().add(vistatrat);
+            vistatrat.setBorder(null);
+            Controller.Controller_CrudTratamiento contTrat = new Controller_CrudTratamiento(modeltrat, vistatrat);
+            }else{
+              
+            }
+
+            }
+        });
+    }
+  //-------------------------------------------------------------------------------------------------------------------------------------------------
+ private void crudFamr(JLabel laba3) {
+        laba3.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent ex3) {
+
+            if(estacerradoFarmacos(vistafarma)) {
+            
+            vistafarma = new Vista_Farmacos ();
+            Model_Farmacos modelfarma = new Model_Farmacos();
+            vista.getDkpPrincipal().add(vistafarma);
+            vistafarma.setBorder(null);
+            Controller.Controller_Farmacos controlfarma = new Controller_Farmacos(modelfarma, vistafarma);
+            }else{
+     
+            }
+
+            }
+        });
+    }
+ //-------------------------------------------------------------------------------------------------------------------------------------------------
+    private void crudCie10(JLabel laba1) {
+        laba1.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent ex5) {
+
+            if(estacerradoCrudCie10(vistacie10)) {
+            
+            vistacie10 = new Vista_Crud_Cie10 ();
+            Model_Cie10 modelcie = new Model_Cie10();
+            vista.getDkpPrincipal().add(vistacie10);
+            vistacie10.setBorder(null);
+            Controller.Controller_CrudCie10 controlcie = new Controller_CrudCie10(modelcie, vistacie10);
+            }else{
+           
+            }
+
+            }
+        });
+    }
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+     private void proforma(JLabel laba5) {
+        laba5.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent ex) {
+
+            if(estacerradoProforma(vistaProforma)) {
+            vistaProforma = new VISTA_PROFORMA ();
+            Model_Proforma modelProforma = new Model_Proforma();
+            vista.getDkpPrincipal().add(vistaProforma);
+            vistaProforma.setBorder(null);
+            Controller.Controller_Proforma controlerproforma = new Controller_Proforma(modelProforma, vistaProforma);
+            }else{
+             
+            }
+
+            }
+        });
+    }
+ //-------------------------------------------------------------------------------------------------------------------------------------------------   
+ 
+    private void reportes(JLabel laba2) {
+
+        laba2.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent ex4) {
+
+                // mitIngresarCompraActionPerformed(ex2);
+            if(estacerradorep(reportes)) {
+            
+            reportes = new Vista_Reportes();
 
         vista.getDkpPrincipal().add(reportes);
         reportes.setVisible(true);
@@ -464,6 +373,259 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vistaReporteHistoClinica.setBorder(null);
         Controller.Controller_Rep_HistoriaClinica controllerRepHistCli = new Controller_Rep_HistoriaClinica(modelreporteHistClinica, vistaReporteHistoClinica, vista);
 
+
+            }
+            else
+            {
+            //JOptionPane.showMessageDialog(null,"LA VENTANA MOVILIDADES YA ESTA ABIERTA");
+            }
+
+            }
+        });
+    }
+  
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
+
+
+
+
+    private void agendacitas() {
+        
+        if(estacerradoAgenda(vistaAgendarcitas)) {
+            
+        vistaAgendarcitas = new Vista_AgendaCitas();
+        Model_AgendaCitas modelagendacitas = new Model_AgendaCitas();
+        vista.getDkpPrincipal().add(vistaAgendarcitas);
+        vistaAgendarcitas.setBorder(null);
+        Controller.Controller_AgendaCitas controlerAgendaCitas = new Controller_AgendaCitas(modelagendacitas, vistaAgendarcitas);
+        }else {
+          
+         }
+
+    }
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
+
+    private void ListadoPacbtn() {
+
+         if(estacerradoListadobtn(vistaListPac)) {
+            
+        vistaListPac = new Vista_ListadoPacientes();
+        Model_ListadoPacientes modellisttPac = new Model_ListadoPacientes();
+        vista.getDkpPrincipal().add(vistaListPac);
+        vistaListPac.setBorder(null);
+        Controller.Contoller_ListadoPaciente controlListpac = new Contoller_ListadoPaciente(modellisttPac, vistaListPac, vista);
+        }else{
+               
+         }
+
+    }
+ //------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
+
+    private void Odontograma() {
+       
+        
+         if(estacerradoOdontogramaBtn(vistaod)) {
+            
+        vistaod= new Odontograma();
+        model_Odontograma model = new model_Odontograma();
+        vista.getDkpPrincipal().add(vistaod);
+        vistaod.setBorder(null);
+        Controller_odonto cont = new Controller_odonto(model, vistaod, vista);
+        }else {
+           
+        }
+ 
     }
 
+    //-------------------------------------------------------------------------------------------------------------------------------------
+
+    private void cargarcboxMedico() {
+
+        Model_Especialista modelesp = new Model_Especialista();
+        ArrayList<Doctor> listadocs = modelesp.cargardocscombo();
+        vista.getJcbDocs().removeAllItems();
+        for (int i = 0; i < listadocs.size(); i++) {
+        vista.getJcbDocs().addItem(new Doctor(listadocs.get(i).getCedula_doc(), listadocs.get(i).getNombres(), listadocs.get(i).getApellidos()));
+        }
+
+       
+    }
+
+    private void fecha() {
+        Calendar calendar = new GregorianCalendar();
+        int año, mes, dia;
+        año = calendar.get(Calendar.YEAR);
+        mes = calendar.get(Calendar.MONTH) + 1;
+        dia = calendar.get(Calendar.DATE);
+        if (mes < 10) {
+            vista.getLblfecha().setText(año + "/0" + mes + "/" + dia);
+        }
+        if (dia < 10) {
+            vista.getLblfecha().setText(año + "/" + mes + "/0" + dia);
+        }
+        if (dia > 10 && mes > 10) {
+            vista.getLblfecha().setText(año + "/" + mes + "/" + dia);
+        } else if (dia < 10 && mes < 10) {
+            vista.getLblfecha().setText(año + "/0" + mes + "/0" + dia);
+        }
+
+    }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------
+    // metodo para no dupllicar las ventanas
+    
+       public  boolean estacerrado( Vista_InicioProceso vistaProceso){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaProceso){
+     cerrado=false;
+     vistaProceso.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+       public  boolean estacerradorep( Vista_Reportes reportes ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==reportes){
+     cerrado=false;
+     reportes.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+     public  boolean estacerradoCrudPac( Crud_Paciente crudpaciente ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==crudpaciente){
+     cerrado=false;
+     crudpaciente.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+      public  boolean estacerradoCrudEspe(Vista_crud_especalista vistaesp  ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaesp){
+     cerrado=false;
+     vistaesp.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+    
+   // Vista_crud_Tratamiento vistatrat
+     public  boolean estacerradoCrudTrat(Vista_crud_Tratamiento vistatrat  ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistatrat){
+     cerrado=false;
+     vistatrat.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+     // Vista_Crud_Cie10 vistacie10
+     public  boolean estacerradoCrudCie10(Vista_Crud_Cie10 vistacie10  ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistacie10){
+     cerrado=false;
+     vistacie10.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+     //Vista_Farmacos vistafarma
+      public  boolean estacerradoFarmacos(Vista_Farmacos vistafarma  ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistafarma){
+     cerrado=false;
+     vistafarma.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+     //  VISTA_PROFORMA vistaProforma
+      public  boolean estacerradoProforma(VISTA_PROFORMA vistaProforma  ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaProforma){
+     cerrado=false;
+     vistaProforma.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+      
+       //  VISTA_PROFORMA vistaProforma
+      public  boolean estacerradoAgenda(Vista_AgendaCitas vistaAgendarcitas ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaAgendarcitas){
+     cerrado=false;
+     vistaAgendarcitas.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+      
+      //Vista_ListadoPacientes vistaListPac  
+      public  boolean estacerradoListadobtn(Vista_ListadoPacientes vistaListPac ){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaListPac){
+     cerrado=false;
+     vistaListPac.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+      
+    // Odontograma vistaod
+    public  boolean estacerradoOdontogramaBtn(Odontograma vistaod){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaod){
+     cerrado=false;
+     vistaod.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
 }

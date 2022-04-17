@@ -139,7 +139,7 @@ public class Controller_CrudTratamiento {
         trat.setPrecio_trat(precio);
         trat.setMaterial(material);
         if (trat.modificar()) {
-            JOptionPane.showMessageDialog(vista, "Tratamiento mosdificado satisfactoriamente");
+            JOptionPane.showMessageDialog(vista, "Tratamiento modificado satisfactoriamente");
             limpiarCampos();
             llenarTabla("");
             vista.getBtnGuardar().setEnabled(true);
