@@ -226,6 +226,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbl_Certificado = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        btnrefrescar = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
@@ -235,7 +236,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblfecha = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
-        btnrefrescar = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         dkpPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -331,6 +331,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelCurves1.add(lbl_Certificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 380, 180, 40));
         panelCurves1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, -1));
         panelCurves1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 170, -1));
+
+        btnrefrescar.setText("Refrescar ");
+        panelCurves1.add(btnrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 150, -1));
         panelCurves1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 170, -1));
         panelCurves1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 170, -1));
         panelCurves1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 170, -1));
@@ -347,9 +350,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel7.setText("Fecha Actual");
         panelCurves1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 90, -1));
         panelCurves1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 170, -1));
-
-        btnrefrescar.setText("Refrescar ");
-        panelCurves1.add(btnrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 150, -1));
 
         MenuDesplegable.add(panelCurves1);
         panelCurves1.setBounds(0, 0, 170, 810);
