@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -46,7 +47,7 @@ public class Controller_Rep_HistoriaClinica {
         
     }
     public void inicioControl(){
-        vista.getBtncargardts().addActionListener(l-> cargardatosexternosconcedula());
+        vista.getBtncargardts().addActionListener(l-> comprobar());
         vista.getBtnimprimir().addActionListener(l-> imprimirHistoriaClinica());
     }
        public void cargardatosexternosconcedula(){
@@ -70,6 +71,13 @@ public class Controller_Rep_HistoriaClinica {
      
         
         
+    }
+        private void comprobar(){
+    if(vistamenu.getLblCedulapac().getText().equals("")||vistamenu.getLblCedulapac().getText().equals("...")){
+       JOptionPane.showMessageDialog(null, "Debe elegir un paciente");
+       } else {
+        cargardatosexternosconcedula();
+        }
     }
     private void calcu_edad(){
         SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");

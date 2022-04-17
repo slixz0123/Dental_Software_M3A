@@ -341,7 +341,7 @@ public class Model_Especialista extends Doctor{
     String sql3;
     
         try {
-            sql3 = "select p.cedula , p.nombres, p.apellidos , d.id_doctor  from  persona p , doctor d  WHERE cedula= cedula_doc   " ;
+            sql3 = "select p.cedula , p.nombres, p.apellidos , d.id_doctor  from  persona p , doctor d  WHERE cedula= cedula_doc AND p.estado = '1'   " ;
             ResultSet rs = cpg.consulta(sql3) ;
             
             // barremos el resulset

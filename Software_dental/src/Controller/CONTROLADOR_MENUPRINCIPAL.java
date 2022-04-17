@@ -26,6 +26,7 @@ import View.MenuPrincipal;
 import View.Odontograma;
 import View.VISTA_PROFORMA;
 import View.View_Rep_HistoriaClinica;
+import View.View_certificado;
 import View.Vista_AgendaCitas;
 import View.Vista_Anamesis;
 import View.Vista_Citas_Tratamiento;
@@ -76,6 +77,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
     Vista_AgendaCitas vistaAgendarcitas ;
     Vista_ListadoPacientes vistaListPac ;
     Odontograma vistaod ;
+      View_certificado vist_cert ;
 
     public CONTROLADOR_MENUPRINCIPAL(MenuPrincipal vista) {
         this.vista = vista;
@@ -97,6 +99,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         crudCie10(vista.getLbl_CrudCie());
         proforma(vista.getLbl_Cotizacion());
         reportes(vista.getLbl_CitasTratamientos());
+        EventoCertificado(vista.getLbl_Certificado());
         // botones
         vista.getBtnagendaCitas().addActionListener(l -> agendacitas());
         vista.getBtnOdontograma().addActionListener(l -> Odontograma());
@@ -313,6 +316,46 @@ public class CONTROLADOR_MENUPRINCIPAL {
             }
         });
     }
+     
+     
+     private void EventoCertificado(JLabel lbl) {
+
+        lbl.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+         
+                
+         if(estacerradoCertificadp(vist_cert)) {
+        vist_cert = new View_certificado ();
+        Model_Paciente model_cert = new Model_Paciente();
+        View_certificado vist_cert = new View_certificado();
+        vista.getDkpPrincipal().add(vist_cert);
+        vist_cert.setBorder(null);
+        Controller.Controller_Certificado controlRepCitas = new Controller_Certificado(model_cert, vist_cert, vista);
+            } else{
+             
+            }
+
+            }
+             
+        });
+            
+        }
+
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
  //-------------------------------------------------------------------------------------------------------------------------------------------------   
  
     private void reportes(JLabel laba2) {
@@ -474,7 +517,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
   //------------------------------------------------------------------------------------------------------------------------------------------------
     // metodo para no dupllicar las ventanas
     
-       public  boolean estacerrado( Vista_InicioProceso vistaProceso){
+       public  boolean estacerrado( Vista_InicioProceso vistaProceso) {
      JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
      boolean cerrado=true;
      int i=0;
@@ -628,4 +671,20 @@ public class CONTROLADOR_MENUPRINCIPAL {
      }
      return cerrado;
      }
+
+//  View_certificado vist_cert
+public  boolean estacerradoCertificadp(View_certificado vist_cert){
+     JInternalFrame[] activos= vista.getDkpPrincipal().getAllFrames();
+     boolean cerrado=true;
+     int i=0;
+     while (i<activos.length && cerrado){
+     if(activos[i]==vistaod){
+     cerrado=false;
+     vistaod.toFront();
+     }
+     i++;
+     }
+     return cerrado;
+     }
+
 }

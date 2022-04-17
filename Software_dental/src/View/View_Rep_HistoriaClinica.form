@@ -46,7 +46,7 @@
     <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="89" green="3a" red="67" type="rgb"/>
+          <Color blue="a6" green="a6" red="5a" type="rgb"/>
         </Property>
       </Properties>
 
