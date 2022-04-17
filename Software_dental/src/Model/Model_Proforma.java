@@ -49,8 +49,8 @@ public class Model_Proforma extends Proforma {
 
     }
 
-    public boolean Actualizarprecio(double precio, String id) {
-        String sql = "UPDATE proforma SET total ='" + precio + "' WHERE id ='" + id + "'";
+    public boolean Actualizarprecio(double precio, String id, String obs, String fp,double cuotaini, double saldo, int mesescred, double valorcuota) {
+        String sql = "UPDATE proforma SET total ='" + precio + "', observaciones='" + obs + "',formapago='" + fp + "',cuotainicial='" + cuotaini + "',saldo='" + saldo+ "',mesescred='" + mesescred + "',valorcuotamensual='" +valorcuota + "' WHERE id ='" + id + "'";
         return conProf.accion(sql);
 
     }
