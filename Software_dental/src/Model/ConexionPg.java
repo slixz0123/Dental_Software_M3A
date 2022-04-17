@@ -166,8 +166,7 @@ public class ConexionPg {
     }
    
     public Connection Con() {
-
-
+        
         return con;
     }
     
@@ -202,10 +201,7 @@ public class ConexionPg {
              
              return null ; 
          }
-         finally{
-             
-         }
-      
+         
     }
 
 
@@ -239,8 +235,9 @@ public class ConexionPg {
     
     public void desconectar(){
          try {
-//             con.commit();
-             con.close();
+        //if(con!=null){
+        con.close();
+    //}
              System.out.println("conexion cerrada");
          } catch (SQLException ex) {
              Logger.getLogger(ConexionPg.class.getName()).log(Level.SEVERE, null, ex);
@@ -251,7 +248,9 @@ public class ConexionPg {
     }
     protected void finalize() throws Throwable  
 {  
-    try { con.close(); } 
+    try { 
+        con.close(); 
+    } 
     catch (SQLException e) { 
         e.printStackTrace();
     }

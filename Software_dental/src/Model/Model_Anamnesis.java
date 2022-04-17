@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  * @author Saul
  */
 public class Model_Anamnesis extends Anamnesis{
+    //private ConexionPg con;
     ConexionPg con= new ConexionPg();
 
     public Model_Anamnesis() {
@@ -46,7 +47,7 @@ public class Model_Anamnesis extends Anamnesis{
           mostrar.add(anam);
          }
         rs.close();
-       ps.close();
+      
         return mostrar;
            
         } catch (SQLException e) {
@@ -146,7 +147,7 @@ public String idPac(String ced){
              cedula = rs.getString(1);
            }
              rs.close();
-             ps.close();
+         
         }catch(SQLException ex){
             cedula = "";
         }
@@ -165,7 +166,7 @@ public String idPac(String ced){
                     id = rs.getString(1);
                 }
                  rs.close();
-                 ps.close();
+                 
         }catch(SQLException ex){
             id = "";
         }
@@ -183,7 +184,7 @@ public String idPac(String ced){
                 while(rs.next()){
                     cedmed = rs.getString(1);
                 } rs.close();
-                ps.close();
+                
         }catch(SQLException ex){
             cedmed = "";
         }
