@@ -118,10 +118,23 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
             new String [] {
                 "Cedula", "Nombres", "Apellidos", "Direccion", "Especialidad", "Telefono"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tbldoctor);
 
         txtbuscardoc.setToolTipText("Ingrese la cedula o el nombre para buscar");
+        txtbuscardoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbuscardocActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,7 +193,15 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
             new String [] {
                 "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(tblpac);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -503,6 +524,10 @@ public class Vista_Anamesis extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtbuscardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscardocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbuscardocActionPerformed
 
     public ButtonRound getBtncargardesdmen() {
         return btncargardesdmen;
