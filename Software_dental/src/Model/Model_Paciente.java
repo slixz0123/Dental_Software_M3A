@@ -47,8 +47,8 @@ public class Model_Paciente extends Paciente {
     public boolean crearPersonaByte() {
         try {
             String sql;
-            sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
-            sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos , estado)";
+            sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,1)";
             PreparedStatement ps = con.getConnection().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
@@ -165,8 +165,8 @@ public class Model_Paciente extends Paciente {
             sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac and estado = '1'  ";
         } else {
             sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac "
-                    + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac OR ";
-            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
+                    + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac AND p.estado = '1' OR ";
+            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND p.estado = '1'AND ";
             sql3 += " p.cedula = pac.cedula_pac AND p.estado = '1' ";
             try {
                 ResultSet rs = con.consulta(sql3);

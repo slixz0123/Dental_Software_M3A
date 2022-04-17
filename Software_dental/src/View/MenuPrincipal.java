@@ -189,6 +189,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setLblfecha(JLabel lblfecha) {
         this.lblfecha = lblfecha;
     }
+
+    public JButton getBtnrefrescar() {
+        return btnrefrescar;
+    }
+
+    public void setBtnrefrescar(JButton btnrefrescar) {
+        this.btnrefrescar = btnrefrescar;
+    }
     
 
    
@@ -227,6 +235,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblfecha = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
+        btnrefrescar = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         dkpPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -338,6 +347,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel7.setText("Fecha Actual");
         panelCurves1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 90, -1));
         panelCurves1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 170, -1));
+
+        btnrefrescar.setText("Refrescar ");
+        panelCurves1.add(btnrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 150, -1));
 
         MenuDesplegable.add(panelCurves1);
         panelCurves1.setBounds(0, 0, 170, 810);
@@ -509,6 +521,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private org.edisoncor.gui.panel.Panel MenuDesplegable;
     private javax.swing.JButton btnOdontograma;
     private javax.swing.JButton btnagendaCitas;
+    private javax.swing.JButton btnrefrescar;
     private javax.swing.JDesktopPane dkpPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
