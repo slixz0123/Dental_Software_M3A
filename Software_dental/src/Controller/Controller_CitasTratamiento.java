@@ -2,30 +2,22 @@
 package Controller;
 
 import Model.Citas;
-import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Citas;
 
 import Model.Paciente;
-import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Citas_Tratamiento;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 

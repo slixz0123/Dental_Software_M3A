@@ -401,7 +401,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(cbSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 260, -1));
 
         txtruta.setBackground(new java.awt.Color(166, 104, 216));
-        txtruta.setForeground(new java.awt.Color(255, 255, 255));
+        txtruta.setForeground(new java.awt.Color(166, 104, 216));
         txtruta.setBorder(null);
         panelNice1.add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 220, -1));
 

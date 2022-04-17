@@ -4,7 +4,6 @@
  */
 package Model;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,7 +61,7 @@ public class Model_Paciente extends Paciente {
             ps.setString(10, getGenero());
             ps.setBytes(11, getFoto());
             ps.executeUpdate();
-
+            ps.close();
             String sql2;
             sql2 = "INSERT INTO paciente (id_paciente,cedula_pac,fecha_nac,tipo_sang)";
             sql2 += "VALUES(?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?),?,?)";
@@ -73,8 +72,9 @@ public class Model_Paciente extends Paciente {
             ps2.setString(4, getTipo_sang());
 
             ps2.executeUpdate();
+            ps2.close();
             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
-         //   con.desconectar();
+            con.desconectar();
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);

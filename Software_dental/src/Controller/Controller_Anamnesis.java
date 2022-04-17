@@ -368,7 +368,7 @@ public class Controller_Anamnesis {
     Holder<Integer> i = new Holder<>(0);
 
     listaan.stream().forEach(an->{
-    tblModel.addRow(new Object[3]);   
+    tblModel.addRow(new Object[4]);   
     vista.getTabla_anam().setValueAt(an.getId_anamnesis(), i.value, 0);//Fila 1 para que inicie despues de los titulos
     vista.getTabla_anam().setValueAt(an.getId_doctor(), i.value, 1);
     vista.getTabla_anam().setValueAt(an.getId_paciente(), i.value, 2);

@@ -314,7 +314,7 @@ public class Controller_odonto {
     bt.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
     public void mouseEntered(MouseEvent e){
-     vista.getBtnguardar().setBackground(new Color (90, 10, 160));
+     vista.getBtnguardar().setBackground(new Color (3, 100, 80));
      vista.getBtnguardar().setForeground(Color.WHITE);
     }
     @Override
@@ -329,7 +329,7 @@ public class Controller_odonto {
     bt.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
     public void mouseEntered(MouseEvent e){
-     btnnuevo.setBackground(new Color (90, 10, 160));
+     btnnuevo.setBackground(new Color (3, 100, 80));
      btnnuevo.setForeground(Color.WHITE);
     }
     @Override

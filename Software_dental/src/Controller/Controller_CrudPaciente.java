@@ -501,7 +501,7 @@ public class Controller_CrudPaciente {
             accion="editar";
             vista.getBtnguardarpac().setText("Editar");
             limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
-             }} else if(accion.equals("editar")){
+             } else{JOptionPane.showMessageDialog(null, "No se ha podido registrar la cedula"); }} else if(accion.equals("editar")){
              editarpaciente();
              }
       }
