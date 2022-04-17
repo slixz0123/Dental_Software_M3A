@@ -47,8 +47,8 @@ public class Model_Paciente extends Paciente {
     public boolean crearPersonaByte() {
         try {
             String sql;
-            sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
-            sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos , estado)";
+            sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,1)";
             PreparedStatement ps = con.getConnection().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
