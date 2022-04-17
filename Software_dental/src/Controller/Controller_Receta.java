@@ -118,13 +118,14 @@ public class Controller_Receta {
 
             @Override
             public void keyReleased(KeyEvent e) {
-               
+                cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
+                cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());
             }
             
         };
-            
-            cargarFarmacosbusqueda(vista.getTxtbuscarfar().getText());
-            cargarCIE10busqueda(vista.getTxtbuscarcie10().getText());  
+            vista.getTxtbuscarfar().addKeyListener(kl);
+            vista.getTxtbuscarcie10().addKeyListener(kl);
+              
         
        
     }
