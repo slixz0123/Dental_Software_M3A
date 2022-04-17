@@ -56,6 +56,8 @@ public class Controller_CrudEspecialista {
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->ValidarDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
+        vista.getBtnNuevo().addActionListener(l->Nuevo());
+        vista.getBtnAnteriorEsp().addActionListener(l->Cerrar());
         cargarPersonas();
         KeyListener kl = new KeyListener() {
             @Override
@@ -74,6 +76,8 @@ public class Controller_CrudEspecialista {
         };
         vista.getTxtBuscarEsp().addKeyListener(kl);
         setEventoMouseClicked(vista.getTblEspecialista());
+        vista.getTxtIdDoctor().setVisible(false);
+        vista.getTxtIdUsuario().setVisible(false);
     }
     
     private void generarSerie() {
@@ -207,7 +211,7 @@ public class Controller_CrudEspecialista {
       vista.getTxtciudadesp().setText(match.appendTail(mayciu).toString()); 
         }
     };
-    KeyListener telcel = new KeyListener() {
+    KeyListener telefono = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();   
@@ -222,18 +226,31 @@ public class Controller_CrudEspecialista {
         @Override
         public void keyReleased(KeyEvent e) {}
     };
-  
+    
+    KeyListener celular=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtCelularesp().getText().length()>9) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    
     vista.getTxtcedulaesp().addKeyListener(cedula);
     vista.getTxtnombreesp().addKeyListener(nombre);
     vista.getTxtapellidoesp().addKeyListener(apellido);
-    vista.getTxttelfesp().addKeyListener(telcel);
-    vista.getTxtCelularesp().addKeyListener(telcel);
+    vista.getTxttelfesp().addKeyListener(telefono);
+    vista.getTxtCelularesp().addKeyListener(celular);
     vista.getTxtdirecesp().addKeyListener(direccion);
     vista.getTxtprovinciaesp().addKeyListener(provincia);
     vista.getTxtciudadesp().addKeyListener(ciudad);
     vista.getTxtCargoesp().addKeyListener(ciudad);
     }
- 
+    
     private boolean validarCorreo(String email){
       if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
           || email.endsWith(".edu.ec")|| email.endsWith(".net"))){
@@ -584,6 +601,15 @@ public class Controller_CrudEspecialista {
             }
     }
 
+    public void Nuevo(){
+        limpiartxt();
+        cargarPersonas();
+    }
+    
+    public void Cerrar(){
+        
+        vista.dispose();
+    }
     public void llenartxtsobrantes () {
            Model_Especialista esp = new Model_Especialista();
        
