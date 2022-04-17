@@ -11,6 +11,7 @@ import View.Vista_InicioSesion;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import jtextfieldround.JPasswordFieldRound;
@@ -30,6 +31,7 @@ public class Controller_InicioSesion {
         this.vista = vista;
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
+        vista.setIconImage(new ImageIcon(getClass().getResource("/View/icons/odontologia.png")).getImage() );
 
     }
 

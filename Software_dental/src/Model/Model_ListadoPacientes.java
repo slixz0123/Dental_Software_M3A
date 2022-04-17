@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author slix0
  */
 public class Model_ListadoPacientes extends Paciente {
-
+//private ConexionPg con;
     ConexionPg con = new ConexionPg();
 
     public Model_ListadoPacientes() {
@@ -46,7 +46,7 @@ public class Model_ListadoPacientes extends Paciente {
 
             }
             rs.close();
-           // con.desconectar();
+
             return pac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -83,7 +83,7 @@ public class Model_ListadoPacientes extends Paciente {
 
             }
             rs.close();
-          //  con.desconectar();
+
             return milistapac;
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -125,7 +125,7 @@ public class Model_ListadoPacientes extends Paciente {
 
                 }
                 rs.close();
-             //   con.desconectar();
+
             } catch (SQLException ex) {
                 System.out.println(ex);
                 Logger.getLogger(Model_Paciente.class.getName()).log(Level.SEVERE, null, ex);

@@ -922,7 +922,9 @@ public class Controller_HistorialMedico {
      vista.getTxtenfermedad().requestFocus();
      if(cedu.equals("...")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior");} else{
      vista.getTxtcedulapac().setText(cedu);
+     llenarmed();
      cargarpaciente();
+     
      cambio="nuevo";
      limpiar();
      }
@@ -949,6 +951,20 @@ public class Controller_HistorialMedico {
         }
       }
     }
+      
+      
+      private void llenarmed(){
+        String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+       // vista.getTxtcedulamed().setText(ced_doc); 
+    List<Doctor> listmed=modelo.listarMedico(ced_doc);
+     for (int a = 0; a < listmed.size(); a++) {
+        if (listmed.get(a).getCedula().equals(ced_doc)) {
+           vista.getTxtcedulamed().setText(listmed.get(a).getCedula());
+           vista.getTxtnombresmed().setText(listmed.get(a).getNombres());
+           vista.getTxtapellidosmed().setText(listmed.get(a).getApellidos());
+            System.out.println(ced_doc);
+        }
+      }}
      //limpiar
     private void limpiar(){
     

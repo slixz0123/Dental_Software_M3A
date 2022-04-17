@@ -70,7 +70,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         txtcedulapac = new jtextfieldround.JTextFieldRound();
         txtceduladoc = new jtextfieldround.JTextFieldRound();
         jLabel14 = new javax.swing.JLabel();
-        txtcedulapac1 = new jtextfieldround.JTextFieldRound();
+        txtapellidosdoc = new jtextfieldround.JTextFieldRound();
         btncargar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
@@ -270,8 +270,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         jLabel14.setText("NOMBRE DEL DOCTOR:");
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
 
-        txtcedulapac1.setEditable(false);
-        panelNice1.add(txtcedulapac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 220, 20));
+        txtapellidosdoc.setEditable(false);
+        panelNice1.add(txtapellidosdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 220, 20));
 
         btncargar.setText("Cargar Datos");
         panelNice1.add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -358,11 +358,11 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     private jtextfieldround.JTextFieldRound txtApellidosPac;
     private jtextfieldround.JTextFieldRound txtNombrePac;
     private jtextfieldround.JTextFieldRound txtNombredoc;
+    private jtextfieldround.JTextFieldRound txtapellidosdoc;
     private javax.swing.JTextField txtbuscardoc;
     private javax.swing.JTextField txtbuscarpac;
     private jtextfieldround.JTextFieldRound txtceduladoc;
     private jtextfieldround.JTextFieldRound txtcedulapac;
-    private jtextfieldround.JTextFieldRound txtcedulapac1;
     private jtextfieldround.JTextFieldRound txtficha;
     private jtextfieldround.JTextFieldRound txthora;
     // End of variables declaration//GEN-END:variables
@@ -537,11 +537,11 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
     }
 
     public JTextFieldRound getTxtapellidosdoc() {
-        return txtcedulapac1;
+        return txtapellidosdoc;
     }
 
     public void setTxtapellidosdoc(JTextFieldRound txtapellidosdoc) {
-        this.txtcedulapac1 = txtapellidosdoc;
+        this.txtapellidosdoc = txtapellidosdoc;
     }
 
     

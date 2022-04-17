@@ -80,7 +80,7 @@ public class CONTROLADOR_MENUPRINCIPAL {
         vista.setExtendedState(Frame.MAXIMIZED_BOTH);
         desplace = new Desface();
         iniciarControlMenu();
-        vista.setIconImage(new ImageIcon(getClass().getResource("/View/icons/iconlogo (1).png")).getImage() );
+        vista.setIconImage(new ImageIcon(getClass().getResource("/View/icons/odontologia.png")).getImage() );
         
     }
 

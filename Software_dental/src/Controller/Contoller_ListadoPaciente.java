@@ -85,7 +85,7 @@ public class Contoller_ListadoPaciente {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (e.getClickCount() == 1) {
                     try {
-                        System.out.println("Se ha hecho un click");
+                       // System.out.println("Se ha hecho un click");
                         cargardatosTxt();
                     } catch (IOException ex) {
                         Logger.getLogger(Contoller_ListadoPaciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +93,7 @@ public class Contoller_ListadoPaciente {
                 }
                 if (e.getClickCount() == 2) {
                     try {
-                        System.out.println("Se ha hecho doble click");
+                      //  System.out.println("Se ha hecho doble click");
                         cargardatosTxt();
                     } catch (IOException ex) {
                         Logger.getLogger(Contoller_ListadoPaciente.class.getName()).log(Level.SEVERE, null, ex);
@@ -228,7 +228,7 @@ public class Contoller_ListadoPaciente {
        vistaMenu.getLblnombrescomp().setText(nom);
        vistaMenu.getLabelapellido().setText(apellido);
             
-            System.out.println(id+""+nom+apellido);
+          //  System.out.println(id+""+nom+apellido);
                     
                 }
             }

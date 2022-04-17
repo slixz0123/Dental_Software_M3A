@@ -61,7 +61,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="BUSCAR POR NOMBRE O CEDULA:"/>
+            <Property name="text" type="java.lang.String" value="BUSCAR POR  C&#xc9;DULA:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -81,7 +81,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="10" width="290" height="-1"/>
+              <AbsoluteConstraints x="670" y="10" width="290" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -94,11 +94,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnimprimir">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imprimir"/>
+            <Property name="text" type="java.lang.String" value="Imprimir Reporte Espec&#xed;fico"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="580" width="570" height="50"/>
+              <AbsoluteConstraints x="90" y="590" width="400" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -179,17 +179,17 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="80" y="30" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btnrepgeneral">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reporte General"/>
+            <Property name="text" type="java.lang.String" value="Imprimir Reporte General"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="680" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="600" y="590" width="400" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
