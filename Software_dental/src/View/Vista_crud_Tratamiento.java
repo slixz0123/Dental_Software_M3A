@@ -132,26 +132,28 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.setBackground(new java.awt.Color(166, 104, 216));
         panelNice1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE DEL TRATAMIENTO:");
         panelNice1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PRECIO:");
         panelNice1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("TIPO DE MATERIAL:");
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
-        panelNice1.add(txtNomTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 310, -1));
-        panelNice1.add(txtPrecioTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 310, -1));
-        panelNice1.add(txtTipMatTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 310, -1));
+        panelNice1.add(txtNomTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 310, -1));
+        panelNice1.add(txtPrecioTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 310, -1));
+        panelNice1.add(txtTipMatTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 310, -1));
 
         txtADescripTrat.setColumns(20);
+        txtADescripTrat.setLineWrap(true);
         txtADescripTrat.setRows(5);
+        txtADescripTrat.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtADescripTrat);
 
         panelNice1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 330, 110));
