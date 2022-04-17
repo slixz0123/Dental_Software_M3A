@@ -25,13 +25,7 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public JButton getBtnRefrescarFarma() {
-        return btnRefrescarFarma;
-    }
 
-    public void setBtnRefrescarFarma(JButton btnRefrescarFarma) {
-        this.btnRefrescarFarma = btnRefrescarFarma;
-    }
     
     public JComboBox<String> getCbxMaterial() {
         return CbxMaterial;
@@ -39,14 +33,6 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
 
     public void setCbxMaterial(JComboBox<String> CbxMaterial) {
         this.CbxMaterial = CbxMaterial;
-    }
-
-    public JButton getBtnBuscarFarma() {
-        return btnRefrescarFarma;
-    }
-
-    public void setBtnBuscarFarma(JButton btnBuscarFarma) {
-        this.btnRefrescarFarma = btnBuscarFarma;
     }
 
     public JButton getBtnElimFarma() {
@@ -138,7 +124,6 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         txtNombreFar = new jtextfieldround.JTextFieldRound();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         txtBuscarFarma = new javax.swing.JTextField();
-        btnRefrescarFarma = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaFarma = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -201,9 +186,6 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelNice2.add(txtBuscarFarma, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 310, -1));
 
-        btnRefrescarFarma.setText("Refrescar");
-        panelNice2.add(btnRefrescarFarma, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
-
         tblListaFarma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -232,7 +214,7 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
             tblListaFarma.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 650, 470));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 540, 470));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Buscar:");
@@ -245,17 +227,15 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 680, Short.MAX_VALUE)))
+                        .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -278,7 +258,7 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +274,6 @@ public class Vista_Farmacos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnElimFarma;
     private javax.swing.JButton btnGuardarFarma;
     private javax.swing.JButton btnModifFarma;
-    private javax.swing.JButton btnRefrescarFarma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
