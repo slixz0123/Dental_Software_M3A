@@ -12,6 +12,7 @@ import View.Vista_crud_Factura;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -115,6 +116,21 @@ public class Controller_Factura {
             }
         }
         );
+        KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                cargarTratamiento(vista.getTxtDlgTratamiento().getText());
+            }
+        };
+        vista.getTxtDlgTratamiento().addKeyListener(kl);
     }
 
     private void abrir_dialog() {
@@ -126,10 +142,10 @@ public class Controller_Factura {
         final int y = (screenSize.height - vista.getDlTratamiento().getHeight()) / 2;
         vista.getDlTratamiento().setLocation(x, y);
         vista.getDlTratamiento().setTitle("Buscar Tratamiento");
-        cargarTratamiento();
+        cargarTratamiento("");
     }
 
-    private void cargarTratamiento() {
+    private void cargarTratamiento(String buscar) {
         DefaultTableModel tblTrat = (DefaultTableModel) vista.getTblDialTratamiento().getModel();
         fila = vista.getTblDialTratamiento().getSelectedRow();
 
@@ -139,7 +155,7 @@ public class Controller_Factura {
 
         tbmodel.setNumRows(0);
 
-        List<Tratamiento> milista = modeltrat.listaTratamiento("");
+        List<Tratamiento> milista = modeltrat.listaTratamiento(buscar);
 
         Holder<Integer> i = new Holder<>(0);
         milista.stream().forEach(pe -> {
@@ -173,17 +189,6 @@ public class Controller_Factura {
         }
     }
 
-//    public void generarVentas() {
-//        if (vista.getTxtTotal().getText().equals("")) {
-//            JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
-//        } else {
-//            JOptionPane.showMessageDialog(vista, "Se realizo con exito");
-//            guardarFactura();
-//            limpiarTabla();
-//            nuevo();
-//            generarSerie();
-//        }
-//    }
     public void generarVentas() {
         if (vista.getTxtTotal().getText().equals("")) {
             JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
