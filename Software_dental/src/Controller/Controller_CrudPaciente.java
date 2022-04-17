@@ -386,7 +386,7 @@ public class Controller_CrudPaciente {
                  } else if (lp.get(i).getFoto() == null) {
                    
                     Icon icmuj = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
-                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
+//                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
                          vista.getLablefoto().setIcon(icmuj);
                  //   vista.getLablefoto().setIcon(null);
                     

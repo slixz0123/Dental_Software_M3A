@@ -122,7 +122,6 @@ public class Model_Receta extends receta{
                 
                 alergia.add(hc);
        
-                System.out.println(rs.getString("alergias_his")+"");
                 
             }
             rs.close();
@@ -273,7 +272,7 @@ public class Model_Receta extends receta{
             }
             rs.close();
         } catch (SQLException e) {
-            System.out.println("ERROR GENERAR ID");
+            System.out.println(e);
 
         }
         return serie;
@@ -313,7 +312,6 @@ public class Model_Receta extends receta{
         ps.setString(8, getAlergias());
             ps.executeUpdate();
             
-        System.out.println("GUARDADO CON EXITO");
         JOptionPane.showMessageDialog(null, "Receta creada con exito"); 
         //con.desconectar();
         return true;
@@ -326,62 +324,7 @@ public class Model_Receta extends receta{
         }
        
     }
-    
-    
-    
-//    public boolean crearRecetaCie(){
-//    try {
-//        String sql2;
-//sql2="INSERT INTO receta_cie (id_receta_cie,id_recetaFK,titulo_cie,categoria_cie)";
-//    sql2+="VALUES(?,?,?,?)";
-//    
-//        PreparedStatement ps= con.Con().prepareStatement(sql2);
-//            
-//        for (int i = 0; i < tblcie10.getRowCount(); i++) {
-//            
-//            
-//            ps.setString(1, (String) tblcie10.getValueAt(i, 0));
-//            ps.setString(2, (String) tblcie10.getValueAt(i, 1));
-//            ps.setString(3, (String) tblcie10.getValueAt(i, 2));
-//            ps.setString(4, (String) tblcie10.getValueAt(i, 3));
-//            ps.executeUpdate();
-//        }
-//        
-//    return true;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    return false;
-//    }
-//    
-//    public boolean crearRecetaFar(){
-//    try {
-//        String sql2;
-//sql2="INSERT INTO receta_far (receta_far_id,id_recetaFK,detalle_far,dosis_far,cantidad,frecuencia)";
-//    sql2+="VALUES(?,?,?,?,?,?)";
-//    
-//        PreparedStatement ps= con.Con().prepareStatement(sql2);
-//            
-//        for (int i = 0; i < tblreceta.getRowCount(); i++) {
-//            
-//            
-//            ps.setString(1, (String) tblreceta.getValueAt(i, 0));
-//            ps.setString(2, (String) tblreceta.getValueAt(i, 1));
-//            ps.setString(3, (String) tblreceta.getValueAt(i, 2));
-//            ps.setString(4, (String) tblreceta.getValueAt(i, 3));
-//            ps.setString(5, (String) tblreceta.getValueAt(i, 4));
-//            ps.setString(6, (String) tblreceta.getValueAt(i, 5));
-//            
-//            ps.executeUpdate();
-//        }
-//        
-//    return true;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Model_Receta.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    return false;
-//    }
-    
+
     public boolean crearRecCie(){
         try{
         String sql2;
@@ -395,7 +338,6 @@ public class Model_Receta extends receta{
         ps.setString(4, getCategoria());
             ps.executeUpdate();
           //  con.desconectar();
-        System.out.println("GUARDADO CON EXITO");
         return true;
             
         } catch (SQLException ex) {
@@ -421,7 +363,6 @@ public class Model_Receta extends receta{
         ps.setString(6, getFrecuencia());
             ps.executeUpdate();
             con.desconectar();
-        System.out.println("GUARDADO CON EXITO");
         return true;
             
         } catch (SQLException ex) {
@@ -497,6 +438,7 @@ public class Model_Receta extends receta{
   }
     
     public boolean removerCie( String cod, String cat)  {
+        
         String Sql ;
         Sql="DELETE FROM receta_cie WHERE titulo_cie ='" +cod+ "' AND categoria_cie='" +cat+ "'";
         return con.accion(Sql);

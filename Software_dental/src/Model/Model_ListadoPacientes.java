@@ -30,7 +30,7 @@ public class Model_ListadoPacientes extends Paciente {
     public Paciente listarpaciente(String buscar) {
         
         Paciente pac = new Paciente();
-        String sql = "SELECT * FROM paciente WHERE id_paciente ='"+buscar+"'";
+        String sql = "SELECT * FROM paciente WHERE id_paciente ='"+buscar+"' AND estado = '1' ";
        
         try {
             
@@ -61,7 +61,7 @@ public class Model_ListadoPacientes extends Paciente {
         String sql3;
 
         try {
-            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  ";
+            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  AND estado = '1'  ";
             ResultSet rs = con.consulta(sql3);
 
             // barremos el resulset
@@ -97,12 +97,12 @@ public class Model_ListadoPacientes extends Paciente {
         List<Paciente> milistapac = new ArrayList<Paciente>();
         String sql3;
         if (buscar.equals(null)) {
-            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac  ";
+            sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac AND estado = '1' ";
         } else {
             sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac "
                     + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac OR ";
             sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
-            sql3 += " p.cedula = pac.cedula_pac";
+            sql3 += " p.cedula = pac.cedula_pac AND estado = '1' ";
             try {
                 ResultSet rs = con.consulta(sql3);
 
