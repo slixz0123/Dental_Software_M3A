@@ -57,7 +57,6 @@ public class Controller_CrudEspecialista {
         vista.getBtnguardarEsp().addActionListener(l->ValidarDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
         vista.getBtnNuevo().addActionListener(l->Nuevo());
-        vista.getBtnAnteriorEsp().addActionListener(l->Cerrar());
         cargarPersonas();
         KeyListener kl = new KeyListener() {
             @Override
@@ -605,11 +604,7 @@ public class Controller_CrudEspecialista {
         limpiartxt();
         cargarPersonas();
     }
-    
-    public void Cerrar(){
-        
-        vista.dispose();
-    }
+
     public void llenartxtsobrantes () {
            Model_Especialista esp = new Model_Especialista();
        

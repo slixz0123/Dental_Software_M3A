@@ -23,14 +23,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public ButtonRound getBtnAnteriorEsp() {
-        return btnAnteriorEsp;
-    }
-
-    public void setBtnAnteriorEsp(ButtonRound btnAnteriorEsp) {
-        this.btnAnteriorEsp = btnAnteriorEsp;
-    }
-
     public JButton getBtneliminar() {
         return btneliminar;
     }
@@ -256,7 +248,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
         tblEspecialista = new javax.swing.JTable();
         btnNuevo = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         txtIdUsuario = new jtextfieldround.JTextFieldRound();
         TxtIdDoctor = new javax.swing.JLabel();
 
@@ -437,10 +428,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 800, 590));
 
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("Cerrar");
-        jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
         txtIdUsuario.setText("2");
         jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 11, 70, 20));
         jPanel1.add(TxtIdDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 20));
@@ -462,7 +449,6 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TxtIdDoctor;
-    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btnExaminar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneliminar;
