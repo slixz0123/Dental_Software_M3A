@@ -165,8 +165,8 @@ public class Model_Paciente extends Paciente {
             sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac  WHERE p.cedula = pac.cedula_pac and estado = '1'  ";
         } else {
             sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , pac.fecha_nac , pac.tipo_sang   from  persona p , paciente pac "
-                    + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac OR ";
-            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
+                    + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = pac.cedula_pac AND p.estado = '1' OR ";
+            sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND p.estado = '1'AND ";
             sql3 += " p.cedula = pac.cedula_pac AND p.estado = '1' ";
             try {
                 ResultSet rs = con.consulta(sql3);
