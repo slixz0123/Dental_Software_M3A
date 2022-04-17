@@ -527,9 +527,11 @@ public class Controller_Anamnesis {
      if(cedu.equals("...")){JOptionPane.showMessageDialog(vistame, "Debe tener cargado un paciente en la parte superior "
              + "\nno puede elegir en la opcion buscar");} else{
      vista.getTxtcedula_pac().setText(cedu);
-     llenarpac();
-     cargarAnamnesis();
      cargardatosexternosmed();
+     llenarpac();
+     llenarmed();
+     cargarAnamnesis();
+     
      vista.getTxtembarazo().requestFocus();
      }
      }
@@ -538,7 +540,7 @@ public class Controller_Anamnesis {
      public void cargardatosexternosmed(){
         String ced_doc =(String) vistame.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
         vista.getTxtcedulamed().setText(ced_doc);  
-        llenarmed();
+        
      }
     //Imprimir
     private void imprimir(){

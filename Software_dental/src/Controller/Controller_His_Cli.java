@@ -154,7 +154,7 @@ public class Controller_His_Cli {
         String iddoc =(String) vistamenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
        // vistamenu.getLblIdpac().setText(id); 
            // pac.cargartxtsobrantes(id2);
-           System.out.println("holas"+iddoc);
+          
  
             List<Doctor> milistapaci =  model.cargaridDoc(iddoc);
          for(int i = 0 ; i < milistapaci.size() ; i++){
