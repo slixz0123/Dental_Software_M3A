@@ -32,6 +32,14 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     public void setLblCelular(JLabel lblCelular) {
         this.lblCelular = lblCelular;
     }
+
+    public JButton getBtnRefrecar() {
+        return btnRefrecar;
+    }
+
+    public void setBtnRefrecar(JButton btnRefrecar) {
+        this.btnRefrecar = btnRefrecar;
+    }
     
 
     public JButton getBtnCalculadora() {
@@ -257,6 +265,7 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         tblDialTratamiento = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         txtDlgTratamiento = new javax.swing.JTextField();
+        btnRefrecar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         jLabel1 = new javax.swing.JLabel();
@@ -339,6 +348,9 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         jLabel17.setText("Buscar:");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 20));
         jPanel2.add(txtDlgTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 280, -1));
+
+        btnRefrecar.setText("Refrescar");
+        jPanel2.add(btnRefrecar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         javax.swing.GroupLayout dlTratamientoLayout = new javax.swing.GroupLayout(dlTratamiento.getContentPane());
         dlTratamiento.getContentPane().setLayout(dlTratamientoLayout);
@@ -466,9 +478,8 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
         spiCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 208, 1));
         panelNice1.add(spiCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 230, -1));
 
-        lblCelular.setBackground(new java.awt.Color(166, 104, 216));
         lblCelular.setForeground(new java.awt.Color(166, 104, 216));
-        panelNice1.add(lblCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 10, 10));
+        panelNice1.add(lblCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 70, 10));
 
         jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 980, 180));
 
@@ -561,6 +572,7 @@ public class Vista_crud_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCargarDatos;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnRefrecar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JDialog dlTratamiento;

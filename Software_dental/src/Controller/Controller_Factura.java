@@ -72,6 +72,7 @@ public class Controller_Factura {
         vista.getBtnCalculadora().addActionListener(l -> iniciarCalculadora());
         vista.getBtnBuscarTrat().addActionListener(l -> abrir_dialog());
         vista.getBtnEliminar().addActionListener(l -> eliminarFila());
+         vista.getBtnRefrecar().addActionListener(l->cargarTratamiento(""));
         vista.getTblFactura().addKeyListener(new java.awt.event.KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -311,6 +312,7 @@ public class Controller_Factura {
             vista.getLblApellido().setText(milistapa.get(i).getApellidos());
             vista.getLblDireccion().setText(milistapa.get(i).getDireccion());
             vista.getLblCelular().setText(milistapa.get(i).getCelular());
+           
             vista.getLblid().setText(id12);
             guardarFactura();
 //            generarSerie();
