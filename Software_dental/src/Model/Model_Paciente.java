@@ -44,7 +44,20 @@ public class Model_Paciente extends Paciente {
     }
 
     public boolean crearPersonaByte() {
-        try {
+        
+         try {
+             String sql1="Select nombres, apellidos from persona where cedula ='"+getCedula()+"'";
+        PreparedStatement ps1 = null;
+        ResultSet rs = null;
+        ps1 = con.Con().prepareStatement(sql1);
+        rs = ps1.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "El Nro de C.I ingresado ya está registrado para: "+
+                     rs.getString(1)+" "+rs.getString(2));
+                rs.close();
+            }
+            else{
+       
             String sql;
             sql = "INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos , estado)";
             sql += "VALUES(?,?,?,?,?,?,?,?,?,?,?,1)";
@@ -74,7 +87,7 @@ public class Model_Paciente extends Paciente {
             ps2.executeUpdate();
             ps2.close();
             JOptionPane.showMessageDialog(null, "Paciente Guardado Con exito");
-            con.desconectar();
+            con.desconectar();}
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
