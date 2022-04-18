@@ -347,7 +347,11 @@ public class Controller_CrudPaciente {
     vista.getCbSangre().setSelectedIndex(0);
     vista.getJdcFecha().setDate(null);
     vista.getTxtruta().setText("");
-    vista.getLablefoto().setIcon(null);
+    ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/fondo_morado.jpg"));
+    Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLablefoto().getWidth(),
+    vista.getLablefoto().getHeight(), Image.SCALE_SMOOTH);
+    Icon iconoEscalado = new ImageIcon(imgEscalada);
+    vista.getLablefoto().setIcon(iconoEscalado);
     }
     
  private void cargardatosTxt (java.awt.event.MouseEvent evt) throws IOException{

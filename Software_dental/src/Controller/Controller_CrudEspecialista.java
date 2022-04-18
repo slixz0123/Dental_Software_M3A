@@ -703,7 +703,11 @@ public class Controller_CrudEspecialista {
     vista.getCboxGeneroEsp().setSelectedIndex(0);
    
     vista.getLblFotoEsp().setText("");
-    vista.getLblFotoEsp().setIcon(null);
+    ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/fondo_morado.jpg"));
+    Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLblFotoEsp().getWidth(),
+    vista.getLblFotoEsp().getHeight(), Image.SCALE_SMOOTH);
+    Icon iconoEscalado = new ImageIcon(imgEscalada);
+    vista.getLblFotoEsp().setIcon(iconoEscalado);
     vista.getcBoxespecialidad().setSelectedIndex(0);
     vista.getTxtCargoesp().setText("");
     vista.getTxtruta().setText("");
