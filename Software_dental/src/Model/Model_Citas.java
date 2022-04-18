@@ -62,7 +62,7 @@ public class Model_Citas extends Citas{
         "p.cedula,\n" +
         " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
         " where c.id_doctor_c=d.id_doctor \n" +
-        " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente " ;
+        " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente AND p.estado = '1' " ;
            ResultSet rs = con.consulta(sql) ;
           
             // barremos el resulset
@@ -147,7 +147,7 @@ public class Model_Citas extends Citas{
     "p.cedula,\n" +
     " c.fecha_cita, c.hora_cita, c.motivo from persona p, persona doc, citas c, paciente pac, doctor d \n" +
     " where c.id_doctor_c=d.id_doctor \n" +
-    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente " ;
+    " and doc.cedula = d.cedula_doc and p.cedula = pac.cedula_pac and c.id_paciente = pac.id_paciente AND p.estado = '1' " ;
      //} 
             ResultSet rs = con.consulta(sql) ;
         

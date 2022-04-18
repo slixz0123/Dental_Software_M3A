@@ -41,6 +41,7 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jtbllistadocitas = new javax.swing.JTable();
         btnconsultar = new javax.swing.JButton();
         btnrepgeneral = new javax.swing.JButton();
+        Btnrefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,8 +57,8 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Reporte de citas");
-        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 290, -1));
-        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 830, 30));
+        panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 290, -1));
+        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 830, 30));
 
         btnimprimir.setText("Imprimir Reporte Específico");
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 400, 40));
@@ -83,10 +84,13 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1080, 430));
 
         btnconsultar.setText("Consultar");
-        panelNice2.add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 150, 30));
+        panelNice2.add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 150, 30));
 
         btnrepgeneral.setText("Imprimir Reporte General");
         panelNice2.add(btnrepgeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 400, 40));
+
+        Btnrefrescar.setText("Refrescar Tabla");
+        panelNice2.add(Btnrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +114,7 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btnrefrescar;
     private javax.swing.JButton btnconsultar;
     private javax.swing.JButton btnimprimir;
     private javax.swing.JButton btnrepgeneral;
@@ -181,5 +186,16 @@ public class Vista_Rep_Citas extends javax.swing.JInternalFrame {
         this.btnconsultar = btnconsultar;
     }
 
+    public JButton getBtnrefrescar() {
+        return Btnrefrescar;
+    }
+
+    public void setBtnrefrescar(JButton Btnrefrescar) {
+        this.Btnrefrescar = Btnrefrescar;
+    }
+
+    
+    
+    
     
 }

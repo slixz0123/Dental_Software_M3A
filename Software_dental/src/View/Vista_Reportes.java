@@ -75,14 +75,6 @@ public class Vista_Reportes extends javax.swing.JInternalFrame {
         this.pnListPac = pnListPac;
     }
 
-    public JPanel getPnodontogram() {
-        return pnodontogram;
-    }
-
-    public void setPnodontogram(JPanel pnodontogram) {
-        this.pnodontogram = pnodontogram;
-    }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -98,7 +90,6 @@ public class Vista_Reportes extends javax.swing.JInternalFrame {
         onCitas = new javax.swing.JPanel();
         pnHistOdonto = new javax.swing.JPanel();
         pnHistClinica = new javax.swing.JPanel();
-        pnodontogram = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -217,21 +208,6 @@ public class Vista_Reportes extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Historia Clinica", pnHistClinica);
 
-        pnodontogram.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout pnodontogramLayout = new javax.swing.GroupLayout(pnodontogram);
-        pnodontogram.setLayout(pnodontogramLayout);
-        pnodontogramLayout.setHorizontalGroup(
-            pnodontogramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1159, Short.MAX_VALUE)
-        );
-        pnodontogramLayout.setVerticalGroup(
-            pnodontogramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Odontograma", pnodontogram);
-
         panelNice2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 1180, 710));
 
         jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1160, 710));
@@ -272,6 +248,5 @@ public class Vista_Reportes extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnHistOdonto;
     private javax.swing.JPanel pnListEsp;
     private javax.swing.JPanel pnListPac;
-    private javax.swing.JPanel pnodontogram;
     // End of variables declaration//GEN-END:variables
 }
