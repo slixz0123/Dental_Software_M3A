@@ -75,14 +75,6 @@ public class Vista_Reportes extends javax.swing.JInternalFrame {
         this.pnListPac = pnListPac;
     }
 
-    public JPanel getPnodontogram() {
-        return pnodontogram;
-    }
-
-    public void setPnodontogram(JPanel pnodontogram) {
-        this.pnodontogram = pnodontogram;
-    }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
