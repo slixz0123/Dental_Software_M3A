@@ -281,12 +281,12 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("DIRECCION:");
+        jLabel5.setText("DIRECCIÓN:");
         panelNice1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("TELEFONO:");
+        jLabel6.setText("TELÉFONO:");
         panelNice1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
@@ -382,7 +382,15 @@ public class Vista_crud_especalista extends javax.swing.JInternalFrame {
             new String [] {
                 "CEDULA", "NOMBRES", "APELLIDOS", "CELULAR", "DIRECCION", "CIUDAD", "GENERO", "FOTO", "ID DOCTOR", "ESPECIALIDAD"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblEspecialista);
 
         btnNuevo.setText("Nuevo");
