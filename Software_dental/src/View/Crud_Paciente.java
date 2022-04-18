@@ -58,14 +58,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         this.txtruta = txtruta;
     }
 
-    public ButtonRound getBtnAnteriorEsp() {
-        return btnAnteriorEsp;
-    }
-
-    public void setBtnAnteriorEsp(ButtonRound btnAnteriorEsp) {
-        this.btnAnteriorEsp = btnAnteriorEsp;
-    }
-
+ 
     public JButton getBtnguardarpac() {
         return btnguardarpac;
     }
@@ -258,7 +251,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jtbPacientes = new javax.swing.JTable();
         btneliminar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         jLabel1 = new javax.swing.JLabel();
         labelserie = new javax.swing.JLabel();
 
@@ -342,15 +334,15 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel13.setText("FECHA NACIMIENTO");
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 190, 20));
-        panelNice1.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 260, -1));
-        panelNice1.add(txtced, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 260, -1));
-        panelNice1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 260, -1));
-        panelNice1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 260, -1));
-        panelNice1.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 260, -1));
-        panelNice1.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 260, -1));
-        panelNice1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 260, -1));
-        panelNice1.add(txtprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 260, -1));
-        panelNice1.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 260, -1));
+        panelNice1.add(txtapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 230, -1));
+        panelNice1.add(txtced, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 230, -1));
+        panelNice1.add(txtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 230, -1));
+        panelNice1.add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 230, -1));
+        panelNice1.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 230, -1));
+        panelNice1.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, -1));
+        panelNice1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 230, -1));
+        panelNice1.add(txtprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 230, -1));
+        panelNice1.add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 230, -1));
 
         lablefoto.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -374,7 +366,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(panelTranslucido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 180, 80));
 
         btnexaminar.setText("ELEGIR FOTO");
-        panelNice1.add(btnexaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 130, 40));
+        panelNice1.add(btnexaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 130, 40));
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -382,10 +374,10 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel14.setText("NOMBRES :");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, 20));
-        panelNice1.add(yxynom, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 260, -1));
+        panelNice1.add(yxynom, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 230, -1));
 
         btnguardarpac.setText("Guardar");
-        panelNice1.add(btnguardarpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, 220, 40));
+        panelNice1.add(btnguardarpac, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 220, 40));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -395,17 +387,17 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 170, 30));
 
         cmgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el genero", "Masculino", "Femenino" }));
-        panelNice1.add(cmgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 130, 260, -1));
+        panelNice1.add(cmgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 130, 230, -1));
 
         cbSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
-        panelNice1.add(cbSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 260, -1));
+        panelNice1.add(cbSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 230, -1));
 
         txtruta.setBackground(new java.awt.Color(166, 104, 216));
         txtruta.setForeground(new java.awt.Color(166, 104, 216));
         txtruta.setBorder(null);
         panelNice1.add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 220, -1));
 
-        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 500, 630));
+        jPanel1.add(panelNice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 460, 660));
 
         panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -416,7 +408,7 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         jLabel3.setText("BUSCAR:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 120, 30));
-        panelNice2.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 520, -1));
+        panelNice2.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 580, -1));
 
         jtbPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -428,22 +420,21 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtbPacientes);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 630, 500));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 680, 500));
 
         btneliminar.setText("Eliminar");
-        panelNice2.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 220, 40));
+        panelNice2.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 590, 220, 40));
 
         btneditar.setText("Limpiar");
-        panelNice2.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 220, 40));
+        panelNice2.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 220, 40));
 
-        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 660, 630));
+        jPanel1.add(panelNice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 700, 660));
 
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("cerrar");
-        jPanel1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Numero Serie");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        labelserie.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(labelserie, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 230, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -470,7 +461,6 @@ public class Crud_Paciente extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnexaminar;

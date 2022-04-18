@@ -184,7 +184,7 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        panelNice2.setBackground(new java.awt.Color(103, 58, 137));
+        panelNice2.setBackground(new java.awt.Color(90, 166, 166));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N

@@ -221,7 +221,22 @@ public class Controller_CrudPaciente {
         @Override
         public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();   
-        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=15){
+        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=9){
+
+       }else{
+        e.consume();
+       }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {} 
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    KeyListener celular = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();   
+        if(c>= '0' && c<='9' && vista.getTxtcelular().getText().length()<=9){
 
        }else{
         e.consume();
@@ -237,7 +252,7 @@ public class Controller_CrudPaciente {
     vista.getYxynom().addKeyListener(nombre);
     vista.getTxtapellidos().addKeyListener(apellido);
     vista.getTxttelefono().addKeyListener(telcel);
-    vista.getTxtcelular().addKeyListener(telcel);
+    vista.getTxtcelular().addKeyListener(celular);
     vista.getTxtdireccion().addKeyListener(direccion);
     vista.getTxtprovincia().addKeyListener(provincia);
     vista.getTxtciudad().addKeyListener(ciudad);
