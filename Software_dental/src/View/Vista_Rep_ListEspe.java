@@ -34,7 +34,7 @@ public class Vista_Rep_ListEspe extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelNice2.setBackground(new java.awt.Color(166, 104, 216));
         panelNice2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

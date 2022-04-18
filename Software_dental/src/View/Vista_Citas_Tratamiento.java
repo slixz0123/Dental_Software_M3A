@@ -292,7 +292,15 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
             new String [] {
                 "ID CITA", "FECHA CITA", "HORA", "MOTIVO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jtblcitas);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, 560));

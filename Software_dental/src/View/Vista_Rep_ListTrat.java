@@ -90,15 +90,20 @@ public class Vista_Rep_ListTrat extends javax.swing.JInternalFrame {
 
         tblTratamientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Nombre", "Tipo Material", "Descripcion", "Precio"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblTratamientos);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 90, 1060, 450));

@@ -308,6 +308,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         btnBuscarcie.setText("Buscar");
         panelNice1.add(btnBuscarcie, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+
+        spcantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1000, 1));
         panelNice1.add(spcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 140, -1));
 
         txtobservaciones.setColumns(20);
@@ -457,7 +459,15 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
             new String [] {
                 "DETALLE", "DOSIS", "CANTIDAD", "FRECUENCIA"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(tblreceta);
 
         panelNice1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 700, 110));
@@ -469,7 +479,15 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
             new String [] {
                 "CIE 10", "CATEGORIA"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane8.setViewportView(tblcie10);
 
         panelNice1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 390, 110));

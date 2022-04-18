@@ -929,7 +929,7 @@ public class Controller_HistorialMedico {
      cargarpaciente();
      
      cambio="nuevo";
-     limpiar();
+     
      }
      }
       private void cargarpaciente(){
@@ -957,15 +957,13 @@ public class Controller_HistorialMedico {
       
       
       private void llenarmed(){
-        String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-       // vista.getTxtcedulamed().setText(ced_doc); 
-    List<Doctor> listmed=modelo.listarMedico(ced_doc);
-     for (int a = 0; a < listmed.size(); a++) {
+       String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+        List<Doctor> listmed=modelo.listarMedico(ced_doc);
+        for (int a = 0; a < listmed.size(); a++) {
         if (listmed.get(a).getCedula().equals(ced_doc)) {
            vista.getTxtcedulamed().setText(listmed.get(a).getCedula());
            vista.getTxtnombresmed().setText(listmed.get(a).getNombres());
            vista.getTxtapellidosmed().setText(listmed.get(a).getApellidos());
-            System.out.println(ced_doc);
         }
       }}
      //limpiar
@@ -1006,17 +1004,7 @@ public class Controller_HistorialMedico {
     vista.getTxtnombresmed().setText("");
     vista.getTxtapellidosmed().setText("");
     vista.getCalendariobuscar().setDate(null);
-//    vista.getTxtcedulapac().setText("");
-//    vista.getTxtnombrespac().setText("");
-//    vista.getTxtapellidospac().setText("");
-//    vista.getTxtgeneropac().setText("");
-//    vista.getTxtdireccionpac().setText("");
-//    vista.getTxtdireccionpac().setText("");
-//    vista.getTxttelefonopac().setText("");
-//    vista.getTxtcorreopac().setText("");
-//    vista.getTxtprovinciapac().setText("");
-//    vista.getTxtciudadpac().setText("");
-//    vista.getCalendario().setDate(null);
+//
     vista.getTxtenfermedad().setText("");
     vista.getTxtantecedentes().setText("");
     vista.getTxttratamiento().setText("");

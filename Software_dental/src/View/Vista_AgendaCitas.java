@@ -412,8 +412,8 @@ public class Vista_AgendaCitas extends javax.swing.JInternalFrame {
         jLabelEscogerDia.setFont(new java.awt.Font("SF Pro Display", 1, 36)); // NOI18N
         jLabelEscogerDia.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEscogerDia.setText("Seleccionar día: ");
-        panelNice2.add(jLabelEscogerDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 270, -1));
-        panelNice2.add(jdcSeleccionDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 210, 40));
+        panelNice2.add(jLabelEscogerDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 280, -1));
+        panelNice2.add(jdcSeleccionDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 210, 40));
 
         jLabelActividades.setFont(new java.awt.Font("SF Pro Display", 1, 36)); // NOI18N
         jLabelActividades.setForeground(new java.awt.Color(255, 255, 255));
