@@ -157,10 +157,10 @@ public class Controller_CrudPaciente {
     KeyListener direccion=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-            char car = e.getKeyChar();
-        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
-            e.consume();
-            }
+//            char car = e.getKeyChar();
+//        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE)){
+//            e.consume();
+//            }
         }
         @Override
         public void keyPressed(KeyEvent e) {}

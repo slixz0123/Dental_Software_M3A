@@ -399,7 +399,7 @@ public final class Controller_Proforma {
                 vista.getSpiCantidad().setValue(1);
                 vista.getCbFormaPago().setSelectedIndex(0);
                 vista.getSpiDesc().setValue(0);
-                vista.getSpiMesesCred().setValue(0);
+//                vista.getSpiMesesCred().setValue(0);
             }
 
         }
