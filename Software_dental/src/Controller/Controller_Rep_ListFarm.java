@@ -37,6 +37,7 @@ public class Controller_Rep_ListFarm {
         this.vistamenu = vistamenu;
         vista.setVisible(true);
         vista.getBtnImprimir().addActionListener(l->imprimirListaFarmacos());
+        vista.getBtnRefrescar().addActionListener(l->LlenarTabla(""));
         LlenarTabla("");
         KeyListener kl = new KeyListener() {
             @Override

@@ -21,6 +21,16 @@ public class Vista_Rep_ListTrat extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnRefrescar() {
+        return btnRefrescar;
+    }
+
+    public void setBtnRefrescar(JButton btnRefrescar) {
+        this.btnRefrescar = btnRefrescar;
+    }
+    
+    
+
     public JButton getBtnImprimir() {
         return btnImprimir;
     }
@@ -57,6 +67,7 @@ public class Vista_Rep_ListTrat extends javax.swing.JInternalFrame {
         btnImprimir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTratamientos = new javax.swing.JTable();
+        btnRefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,6 +103,9 @@ public class Vista_Rep_ListTrat extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 90, 1060, 450));
 
+        btnRefrescar.setText("Refrescar");
+        panelNice2.add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,6 +128,7 @@ public class Vista_Rep_ListTrat extends javax.swing.JInternalFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnRefrescar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
