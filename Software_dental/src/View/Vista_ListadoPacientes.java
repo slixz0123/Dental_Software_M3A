@@ -87,7 +87,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LISTADO DE PACIENTES");
         panelNice2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
-        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 830, 30));
+        panelNice2.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 820, 30));
 
         btnimprimir.setText("Imprimir");
         panelNice2.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 570, 50));

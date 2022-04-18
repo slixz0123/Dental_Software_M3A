@@ -10,9 +10,11 @@ import Model.Model_Paciente;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.View_certificado;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -22,9 +24,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -55,6 +60,8 @@ public class Controller_Certificado {
      vista.getBtnimprimir().addActionListener(l->imprimir());
      vista.getBtncargar().addActionListener(l->cargarDatos());
      vista.getBtnnuevo().addActionListener(l->nuevo());
+         pintarbtnimprimir(vista.getBtnimprimir());
+         pintarbtnnuevo(vista.getBtnnuevo());
      }
      private void icono(){
      ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"));
@@ -183,6 +190,9 @@ public class Controller_Certificado {
             String rec=vista.getTxtrecomendaciones().getText();
             String diarep=vista.getTxtdiasreposo().getText();
             String cel=vista.getTxtcelular().getText();
+            if(ced.isEmpty()||dia.isEmpty()||mes.isEmpty()||anio.isEmpty()||rec.isEmpty()||diarep.isEmpty()||cel.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+            }else{
             JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Certificado.jasper"));
             Map<String, Object> par= new HashMap<String, Object>();
             par.put("diain", dia);
@@ -197,7 +207,7 @@ public class Controller_Certificado {
             par.put("celin", cel);
             JasperPrint impr= JasperFillManager.fillReport(listado, par, con.Con());
             JasperViewer ver= new JasperViewer(impr, false);
-            ver.setVisible(true);
+            ver.setVisible(true);}
         } catch (JRException ex) {
             Logger.getLogger(Controller_Certificado.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -260,4 +270,33 @@ public class Controller_Certificado {
      vista.getTxtcelular().setText("");
      }
 
+    private void pintarbtnnuevo(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnnuevo().setBackground(new Color (90, 10, 160));
+     vista.getBtnnuevo().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnnuevo().setBackground(new Color (240, 240, 240));
+     vista.getBtnnuevo().setForeground(Color.BLACK);
+    }
+    });
+    }
+    
+    private void pintarbtnimprimir(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtnimprimir().setBackground(new Color (90, 10, 160));
+     vista.getBtnimprimir().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtnimprimir().setBackground(new Color (240, 240, 240));
+     vista.getBtnimprimir().setForeground(Color.BLACK);
+    }
+    });
+    }
 }
