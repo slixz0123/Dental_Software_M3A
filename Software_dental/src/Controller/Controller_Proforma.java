@@ -117,7 +117,6 @@ public final class Controller_Proforma {
                         SetDatosPac();
                         vista.getjDialog1().dispose();
                         guardarProforma();
-                          
 
                     } else {
                     }
@@ -344,6 +343,11 @@ public final class Controller_Proforma {
 //    }
 
     public void generarProforma() {
+        double precio = 0;
+        double cuotaini = 0;
+        double saldo = 0;
+        int mesescred = 0;
+        double valorcuota = 0;
         if (vista.getTxtValorTotal().getText().equals("")) {
             JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
         } else {
@@ -351,16 +355,36 @@ public final class Controller_Proforma {
             if (confirmacion == 0) {
 
                 System.out.println("PROCESANDO PROFORMA....");
+                if (vista.getTxtValorTotal().getText().length() == 0) {
+                    precio = 0;
+                } else {
+                    precio = Double.parseDouble(vista.getTxtValorTotal().getText());
 
-                double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
+                }
                 String idfact = vista.getTxtNumSerie().getText();
                 String obs = vista.getTxtObservaciones().getText();
-                String fp= vista.getCbFormaPago().getSelectedItem().toString();
-                double cuotaini = Double.parseDouble(vista.getTxtCuotaInicial().getText());
-                double saldo=Double.parseDouble(vista.getTxtSaldo().getText());
-                int mesescred = Integer.parseInt(vista.getSpiMesesCred().getValue().toString());
-                double valorcuota = Double.parseDouble(vista.getTxtValorCouotaM().getText());
-                modelo.Actualizarprecio(precio, idfact,obs,fp,cuotaini,saldo,mesescred,valorcuota);
+                String fp = vista.getCbFormaPago().getSelectedItem().toString();
+                if (vista.getTxtCuotaInicial().getText().length() == 0) {
+                    cuotaini = 0;
+                } else {
+                    cuotaini = Double.parseDouble(vista.getTxtCuotaInicial().getText());
+
+                }
+
+                if (vista.getTxtSaldo().getText().length() == 0) {
+                    saldo = 0;
+                } else {
+                    saldo = Double.parseDouble(vista.getTxtSaldo().getText());
+
+                }
+                mesescred = Integer.parseInt(vista.getSpiMesesCred().getValue().toString());
+                if (vista.getTxtValorCouotaM().getText().length() == 0) {
+                    valorcuota = 0;
+                } else {
+                    valorcuota = Double.parseDouble(vista.getTxtValorCouotaM().getText());
+
+                }
+                modelo.Actualizarprecio(precio, idfact, obs, fp, cuotaini, saldo, mesescred, valorcuota);
 //                ActguardarProforma();
                 JOptionPane.showMessageDialog(vista, "Proforma Guardada");
                 imprimirProforma();
@@ -381,9 +405,37 @@ public final class Controller_Proforma {
 //                vista.getSpiMesesCred().setValue(0);
 
             } else {
-                double precio = Double.parseDouble(vista.getTxtValorTotal().getText());
+                System.out.println("PROCESANDO PROFORMA....");
+                if (vista.getTxtValorTotal().getText().length() == 0) {
+                    precio = 0;
+                } else {
+                    precio = Double.parseDouble(vista.getTxtValorTotal().getText());
+
+                }
                 String idfact = vista.getTxtNumSerie().getText();
-//                modelo.Actualizarprecio(precio, idfact);
+                String obs = vista.getTxtObservaciones().getText();
+                String fp = vista.getCbFormaPago().getSelectedItem().toString();
+                if (vista.getTxtCuotaInicial().getText().length() == 0) {
+                    cuotaini = 0;
+                } else {
+                    cuotaini = Double.parseDouble(vista.getTxtCuotaInicial().getText());
+
+                }
+
+                if (vista.getTxtSaldo().getText().length() == 0) {
+                    saldo = 0;
+                } else {
+                    saldo = Double.parseDouble(vista.getTxtSaldo().getText());
+
+                }
+                mesescred = Integer.parseInt(vista.getSpiMesesCred().getValue().toString());
+                if (vista.getTxtValorCouotaM().getText().length() == 0) {
+                    valorcuota = 0;
+                } else {
+                    valorcuota = Double.parseDouble(vista.getTxtValorCouotaM().getText());
+
+                }
+                modelo.Actualizarprecio(precio, idfact, obs, fp, cuotaini, saldo, mesescred, valorcuota);
                 JOptionPane.showMessageDialog(vista, "Proforma Guardada");
                 limpiarTabla();
                 nuevo();
@@ -399,7 +451,7 @@ public final class Controller_Proforma {
                 vista.getSpiCantidad().setValue(1);
                 vista.getCbFormaPago().setSelectedIndex(0);
                 vista.getSpiDesc().setValue(0);
-                vista.getSpiMesesCred().setValue(0);
+//                vista.getSpiMesesCred().setValue(0);
             }
 
         }

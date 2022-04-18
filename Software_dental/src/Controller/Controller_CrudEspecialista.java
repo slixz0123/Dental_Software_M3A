@@ -150,10 +150,10 @@ public class Controller_CrudEspecialista {
     KeyListener direccion=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-            char car = e.getKeyChar();
-        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE) && (car<'0' || car>'9')){
-            e.consume();
-            }
+//            char car = e.getKeyChar();
+//        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car!=(char)KeyEvent.VK_SPACE) && (car<'0' || car>'9')){
+//            e.consume();
+//            }
         }
         @Override
         public void keyPressed(KeyEvent e) {}
@@ -328,8 +328,8 @@ public class Controller_CrudEspecialista {
              generarSerie();
              cargarPersonas();
              limpiartxt();
-             accion="editar";
-             vista.getBtnguardarEsp().setText("Editar");
+//             accion="editar";
+//             vista.getBtnguardarEsp().setText("Editar");
              }  
              else {JOptionPane.showMessageDialog(null, "Debe llenar los campos");
              }
