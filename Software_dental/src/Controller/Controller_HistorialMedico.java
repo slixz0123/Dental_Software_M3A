@@ -66,6 +66,8 @@ public class Controller_HistorialMedico {
         vista.getBtnbuscarmed().addActionListener(l->abrir_dialog(2));
         vista.getBtncargardatmenu().addActionListener(l->cargardesdeMenu());
         vista.getBtnimprimir().addActionListener(l->imprimir());
+        vista.getBtnRefrescarDoc().addActionListener(l->buscarMedico());
+        vista.getBtnRefrescarPac().addActionListener(l->buscarPaciente());
         evtcalendario(vista.getCalendariobuscar());
         buscarMedico();
         buscarPaciente();
@@ -179,6 +181,7 @@ public class Controller_HistorialMedico {
       vista.getDialog_pac().setTitle("Buscar paciente");
       vista.getDialog_pac().setLocationRelativeTo(null);
       vista.getDialog_pac().setSize(550, 350);
+      
         } else if(op==2){
         vista.getDialog_doc().setVisible(true);
         vista.getDialog_doc().setLocationRelativeTo(null);

@@ -74,7 +74,7 @@ public class Contoller_ListadoPaciente {
            toquetabla();
            
            vista.getBtnimprimir().addActionListener(l-> imprimirlistaPacientes());
-          
+          vista.getBtnrefrescar().addActionListener(l-> cargarPersonas ());
      }
      
      

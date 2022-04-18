@@ -178,8 +178,6 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jLabel24 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAobservaciones = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -254,13 +252,13 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("MOTIVO DE CONSULTA");
-        panelNice2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, -1, -1));
+        panelNice2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, -1, -1));
 
         txtAmotivoocnsul.setColumns(20);
         txtAmotivoocnsul.setRows(5);
         jScrollPane3.setViewportView(txtAmotivoocnsul);
 
-        panelNice2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 490, 90));
+        panelNice2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 490, 120));
 
         jLabel27.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,13 +284,13 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jLabel29.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("ALERGIAS");
-        panelNice2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
+        panelNice2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, -1, -1));
 
         txtAalergias.setColumns(20);
         txtAalergias.setRows(5);
         jScrollPane1.setViewportView(txtAalergias);
 
-        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 490, 80));
+        panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 490, 120));
 
         jLabel24.setFont(new java.awt.Font("SF Pro Display", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -304,21 +302,6 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(txtAobservaciones);
 
         panelNice2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 480, 90));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane6.setViewportView(jTable1);
-
-        panelNice2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 490, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -365,8 +348,6 @@ public class View_Rep_HistoriaClinica extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private com.toedter.calendar.JDateChooser jdtfechanac;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
     private javax.swing.JTextArea txtAalergias;

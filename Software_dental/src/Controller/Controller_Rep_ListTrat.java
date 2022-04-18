@@ -39,6 +39,7 @@ public class Controller_Rep_ListTrat {
         this.vistamenu = vistamenu;
         vista.setVisible(true);
         vista.getBtnImprimir().addActionListener(l->imprimirListaProductos());
+        vista.getBtnRefrescar().addActionListener(l->llenarTabla(""));
         llenarTabla("");
           KeyListener kl = new KeyListener() {
             @Override

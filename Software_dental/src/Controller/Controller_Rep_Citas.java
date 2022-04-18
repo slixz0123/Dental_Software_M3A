@@ -76,6 +76,7 @@ public class Controller_Rep_Citas {
          vista.getTxtbuscar().addKeyListener(kl);
        // setEventoKeytyped(vista.getTxtbuscar());
         // radiobuttons();
+        vista.getBtnrefrescar().addActionListener(l-> cargarcitastot());
     }
     
      public void cargardatoconcedula(){

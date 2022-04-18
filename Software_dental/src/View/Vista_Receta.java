@@ -52,12 +52,14 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblbuscarFarmacos = new javax.swing.JTable();
+        btnRefrescar = new javax.swing.JButton();
         dialogCIE = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         txtbuscarcie10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblbuscarcie10 = new javax.swing.JTable();
+        btnRefrescarCie = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -106,7 +108,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
@@ -142,6 +143,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(tblbuscarFarmacos);
 
+        btnRefrescar.setText("Refrescar");
+
         javax.swing.GroupLayout paneldialogLayout = new javax.swing.GroupLayout(paneldialog);
         paneldialog.setLayout(paneldialogLayout);
         paneldialogLayout.setHorizontalGroup(
@@ -151,7 +154,9 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRefrescar)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,13 +165,14 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         paneldialogLayout.setVerticalGroup(
             paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneldialogLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(22, 22, 22)
                 .addGroup(paneldialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscarfar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(btnRefrescar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dialogFarmacoLayout = new javax.swing.GroupLayout(dialogFarmaco.getContentPane());
@@ -198,6 +204,8 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tblbuscarcie10);
 
+        btnRefrescarCie.setText("Refrescar");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -208,20 +216,23 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
                         .addGap(91, 91, 91)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRefrescarCie))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscarcie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(38, 38, 38)
+                    .addComponent(jLabel13)
+                    .addComponent(btnRefrescarCie, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -411,38 +422,33 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Cedula");
-        panelNice1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 130, 20));
+        jLabel40.setText("Cedula:");
+        panelNice1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 130, 20));
 
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("0101010101");
-        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 140, 20));
-
-        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("Firma y sello prescriptor");
-        panelNice1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 170, 20));
+        jLabel41.setText("0101054211");
+        panelNice1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 530, 140, 20));
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Daniela");
-        panelNice1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 50, 20));
+        panelNice1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 50, 20));
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("San  Martín");
-        panelNice1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 130, 20));
+        panelNice1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 130, 20));
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel45.setText("Nombre y apellidos");
-        panelNice1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 130, 20));
+        jLabel45.setText("Nombre y apellidos:");
+        panelNice1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 130, 20));
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel46.setText("Datos  del Prescriptor");
-        panelNice1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 170, 20));
+        jLabel46.setText("DATOS DEL PRESCRIPTOR");
+        panelNice1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 170, 20));
 
         tblreceta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -865,13 +871,28 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
         this.id_rec_far = id_rec_far;
     }
 
-    
-    
+    public JButton getBtnRefrescar() {
+        return btnRefrescar;
+    }
+
+    public void setBtnRefrescar(JButton btnRefrescar) {
+        this.btnRefrescar = btnRefrescar;
+    }
+
+    public JButton getBtnRefrescarCie() {
+        return btnRefrescarCie;
+    }
+
+    public void setBtnRefrescarCie(JButton btnRefrescarCie) {
+        this.btnRefrescarCie = btnRefrescarCie;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarcie;
     private javax.swing.JButton btnCrearRec;
     private javax.swing.JButton btnEliminarrec;
+    private javax.swing.JButton btnRefrescar;
+    private javax.swing.JButton btnRefrescarCie;
     private javax.swing.JButton btnagregarcie;
     private javax.swing.JButton btnagregardatos;
     private javax.swing.JButton btnbuscarfarmaco;
@@ -899,7 +920,6 @@ public class Vista_Receta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;

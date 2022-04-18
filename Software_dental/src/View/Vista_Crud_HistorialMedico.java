@@ -41,12 +41,14 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblpaciente = new javax.swing.JTable();
+        btnRefrescarPac = new javax.swing.JButton();
         dialog_doc = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         txtbuscardoc = new jtextfieldround.JTextFieldRound();
         jLabel44 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbldoctor = new javax.swing.JTable();
+        btnRefrescarDoc = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -140,7 +142,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(166, 104, 216));
 
-        txtbuscarpac.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtbuscarpac.setHorizontalAlignment(2);
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,20 +166,25 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tblpaciente);
 
+        btnRefrescarPac.setText("Refrescar");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(26, 26, 26)
-                .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnRefrescarPac)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(15, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +192,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscarpac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabel14)
+                    .addComponent(btnRefrescarPac))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -204,7 +212,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(90, 166, 166));
 
-        txtbuscardoc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtbuscardoc.setHorizontalAlignment(2);
 
         jLabel44.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,12 +236,16 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
         });
         jScrollPane5.setViewportView(tbldoctor);
 
+        btnRefrescarDoc.setText("Refrescar");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnRefrescarDoc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel44)
                 .addGap(26, 26, 26)
                 .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,9 +260,11 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtbuscardoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel44))
+                    .addComponent(btnRefrescarDoc))
                 .addContainerGap(270, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -604,6 +618,22 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnRefrescarDoc() {
+        return btnRefrescarDoc;
+    }
+
+    public void setBtnRefrescarDoc(JButton btnRefrescarDoc) {
+        this.btnRefrescarDoc = btnRefrescarDoc;
+    }
+
+    public JButton getBtnRefrescarPac() {
+        return btnRefrescarPac;
+    }
+
+    public void setBtnRefrescarPac(JButton btnRefrescarPac) {
+        this.btnRefrescarPac = btnRefrescarPac;
+    }
 
     public ButtonRound getBtncargardatmenu() {
         return btncargardatmenu;
@@ -1015,6 +1045,8 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRefrescarDoc;
+    private javax.swing.JButton btnRefrescarPac;
     private javax.swing.JButton btnbuscarmed;
     private javax.swing.JButton btnbuscarpac;
     private org.edisoncor.gui.button.ButtonRound btncargardatmenu;

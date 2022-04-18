@@ -49,6 +49,8 @@ import View.Vista_crud_especalista;
 //import View.vista_Odontograma;
 import desplazable.Desface;
 import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
 //import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -678,9 +680,9 @@ public  boolean estacerradoCertificadp(View_certificado vist_cert){
      boolean cerrado=true;
      int i=0;
      while (i<activos.length && cerrado){
-     if(activos[i]==vistaod){
+     if(activos[i]==vist_cert){
      cerrado=false;
-     vistaod.toFront();
+     vist_cert.toFront();
      }
      i++;
      }

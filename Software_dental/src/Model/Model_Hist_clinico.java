@@ -147,7 +147,7 @@ public class Model_Hist_clinico extends Hist_clinico{
     String sql3;
     
         try {
-            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '"+cedula+"'  " ;
+            sql3 = "select p.nombres , p.apellidos ,p.ciudad , p.direccion , p.celular , pac.fecha_nac  , pac.id_paciente from  persona p , paciente pac  WHERE   pac.cedula_pac = p.cedula AND pac.cedula_pac = '"+cedula+"' and p.estado='1'  " ;
             ResultSet rs = con.consulta(sql3) ;
             
             // barremos el resulset
