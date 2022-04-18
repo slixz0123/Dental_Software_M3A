@@ -63,6 +63,8 @@ public class Controller_Anamnesis {
         vista.getBtnbuscarpac().addActionListener(l->abrir_dialog(2));
         vista.getDialogbuscar().setLocationRelativeTo(null);
         vista.getBtncargardesdmen().addActionListener(l->cargardesdeMenu());
+        vista.getBtnactualizarmed().addActionListener(l->cargarMedico());
+        vista.getBtnactualizarpac().addActionListener(l->cargarPaciente());
         setEventMouseClicked(vista.getTbldoctor());
         cargarPaciente();
         cargarMedico();

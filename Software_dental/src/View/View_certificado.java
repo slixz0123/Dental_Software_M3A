@@ -222,6 +222,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         panelNice.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 370, 20));
 
         btnimprimir.setText("Imprimir");
+        btnimprimir.setDefaultCapable(false);
         panelNice.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 150, 40));
         panelNice.add(txtdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 30, -1));
         panelNice.add(txtmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 30, -1));
@@ -333,6 +334,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         panelNice.add(txtdiasreposo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 30, -1));
 
         btncargar.setText("Cargar Datos");
+        btncargar.setDefaultCapable(false);
         panelNice.add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
@@ -343,6 +345,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         panelNice.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 120, 20));
 
         btnnuevo.setText("Nuevo");
+        btnnuevo.setDefaultCapable(false);
         panelNice.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 150, 40));
 
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"))); // NOI18N

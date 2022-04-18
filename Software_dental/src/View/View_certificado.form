@@ -148,6 +148,7 @@
         <Component class="javax.swing.JButton" name="btnimprimir">
           <Properties>
             <Property name="text" type="java.lang.String" value="Imprimir"/>
+            <Property name="defaultCapable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -476,6 +477,7 @@
         <Component class="javax.swing.JButton" name="btncargar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cargar Datos"/>
+            <Property name="defaultCapable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -504,6 +506,7 @@
         <Component class="javax.swing.JButton" name="btnnuevo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
+            <Property name="defaultCapable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

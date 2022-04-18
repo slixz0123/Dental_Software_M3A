@@ -195,7 +195,7 @@ public String idPac(String ced){
      public List<Doctor> listarMedico(String ced){
         List<Doctor> lista = new ArrayList<Doctor>();
         try {
-            String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' and p.estado='1' or upper(p.nombres) like upper('%"+ced+"%') and p.estado='1' or upper (p.apellidos) like upper('%"+ced+"%') and p.estado='1'";
+            String sql="select p.cedula, p.nombres,p.apellidos,p.celular,p.telefono, p.direccion,p.correo, p.provincia,p.ciudad,p.genero,p.fotos, d.especialidad  from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' and p.estado='1' or upper(p.nombres) like upper('%"+ced+"%') and p.estado='1' or upper (p.apellidos) like upper('%"+ced+"%') and p.estado='1'";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
             Doctor p=new Doctor();
@@ -210,6 +210,7 @@ public String idPac(String ced){
             p.setCiudad(rs.getString("ciudad"));
             p.setGenero(rs.getString("genero"));
             p.setFoto(rs.getBytes("fotos"));
+            p.setEspecialidad(rs.getString("especialidad"));
             lista.add(p);
             }
             rs.close();

@@ -24,12 +24,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.border.LineBorder;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -60,6 +58,7 @@ public class Controller_Certificado {
      vista.getBtnimprimir().addActionListener(l->imprimir());
      vista.getBtncargar().addActionListener(l->cargarDatos());
      vista.getBtnnuevo().addActionListener(l->nuevo());
+         pintarbtncargar(vista.getBtncargar());
          pintarbtnimprimir(vista.getBtnimprimir());
          pintarbtnnuevo(vista.getBtnnuevo());
      }
@@ -281,6 +280,21 @@ public class Controller_Certificado {
     public void mouseExited(MouseEvent e){
      vista.getBtnnuevo().setBackground(new Color (240, 240, 240));
      vista.getBtnnuevo().setForeground(Color.BLACK);
+    }
+    });
+    }
+    
+    private void pintarbtncargar(JButton bt){
+    bt.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseEntered(MouseEvent e){
+     vista.getBtncargar().setBackground(new Color (90, 10, 160));
+     vista.getBtncargar().setForeground(Color.WHITE);
+    }
+    @Override
+    public void mouseExited(MouseEvent e){
+     vista.getBtncargar().setBackground(new Color (240, 240, 240));
+     vista.getBtncargar().setForeground(Color.BLACK);
     }
     });
     }
