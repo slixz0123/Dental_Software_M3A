@@ -51,8 +51,10 @@ public class Controller_Certificado {
      public void iniciar(){
      fecha();
      eventos();
+     icono();
      vista.getBtnimprimir().addActionListener(l->imprimir());
      vista.getBtncargar().addActionListener(l->cargarDatos());
+     vista.getBtnnuevo().addActionListener(l->nuevo());
      }
      private void icono(){
      ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"));
@@ -62,11 +64,11 @@ public class Controller_Certificado {
                    vista.getLbllogo().setIcon(iconoEscalado);
      }
      private void eventos(){
-     KeyListener numero=new KeyListener() {
+     KeyListener dia=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
         char num = e.getKeyChar();
-        if(vista.getTxtdia().getText().length()>2) e.consume();
+        if(vista.getTxtdia().getText().length()>1) e.consume();
         if(num<'0' || num>'9') e.consume(); 
         }
         @Override
@@ -74,11 +76,38 @@ public class Controller_Certificado {
         @Override
         public void keyReleased(KeyEvent e) {}
     };
+     
+     KeyListener mes=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtmes().getText().length()>1) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+     
+     KeyListener reposo=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtdiasreposo().getText().length()>1) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+     
       KeyListener cel=new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
         char num = e.getKeyChar();
-        if(vista.getTxtdia().getText().length()>15) e.consume();
+        if(vista.getTxtdia().getText().length()>14) e.consume();
         if(num<'0' || num>'9') e.consume(); 
         }
         @Override
@@ -90,7 +119,7 @@ public class Controller_Certificado {
         @Override
         public void keyTyped(KeyEvent e) {
         char num = e.getKeyChar();
-        if(vista.getTxtdia().getText().length()>4) e.consume();
+        if(vista.getTxtanio().getText().length()>3) e.consume();
         if(num<'0' || num>'9') e.consume(); 
         }
         @Override
@@ -131,13 +160,13 @@ public class Controller_Certificado {
         public void keyPressed(KeyEvent e) {}
         @Override
         public void keyReleased(KeyEvent e) { } };
-     vista.getTxtdia().addKeyListener(numero);
-     vista.getTxtmes().addKeyListener(numero);
+     vista.getTxtdia().addKeyListener(dia);
+     vista.getTxtmes().addKeyListener(mes);
      vista.getTxtanio().addKeyListener(anio);
      vista.getTxtpersona().addKeyListener(nombre);
      vista.getTxtoperac().addKeyListener(texto);
      vista.getTxtrecomendaciones().addKeyListener(texto);
-     vista.getTxtdiasreposo().addKeyListener(numero);
+     vista.getTxtdiasreposo().addKeyListener(reposo);
      vista.getTxtcelular().addKeyListener(cel);     
      }
      
@@ -184,7 +213,7 @@ public class Controller_Certificado {
      
      private void llenarpaciente(){
     List<Paciente> listaper=modelo.listarpacbuscar(vista.getTxtcedula().getText());
-    vista.getTxtdia().requestFocus();
+    vista.getTxtpersona().requestFocus();
      for (int a = 0; a < listaper.size(); a++) {
         if (listaper.get(a).getCedula().equals(vista.getTxtcedula().getText())) {
            //vista.getTxtcedula().setText(listaper.get(a).getCedula());
@@ -220,5 +249,15 @@ public class Controller_Certificado {
         }
 
     }
+     
+     private void nuevo(){
+     vista.getTxtpersona().setText("");
+     vista.getTxtpaciente().setText("");
+     vista.getTxtcedula().setText("");
+     vista.getTxtoperac().setText("");
+     vista.getTxtrecomendaciones().setText("");
+     vista.getTxtdiasreposo().setText("");
+     vista.getTxtcelular().setText("");
+     }
 
 }
