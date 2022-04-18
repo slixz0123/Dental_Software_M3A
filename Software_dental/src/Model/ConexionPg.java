@@ -136,7 +136,7 @@ public class ConexionPg {
     
      Connection con ;
 
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/DentalSof";
+    String cadenaConexion = "jdbc:postgresql://localhost:5432/Dental_Soft";
     String usuario = "postgres";
 //    String contrasena = "159753";
 
