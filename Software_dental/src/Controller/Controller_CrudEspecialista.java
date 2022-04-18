@@ -577,9 +577,13 @@ public class Controller_CrudEspecialista {
                     vista.getLblFotoEsp().setIcon(null);
                      }
                     } else if (lp.get(i).getFoto() == null) {
-                   
-                    Icon icmuj = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
-                         vista.getLblFotoEsp().setIcon(icmuj);
+                   ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
+                   Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLblFotoEsp().getWidth(),
+                   vista.getLblFotoEsp().getHeight(), Image.SCALE_SMOOTH);
+                   Icon iconoEscalado = new ImageIcon(imgEscalada);
+                   vista.getLblFotoEsp().setIcon(iconoEscalado);
+                    
+                    }  
                     
                     
             String id_doc = vista.getTblEspecialista().getValueAt(xx, 8).toString();
@@ -587,7 +591,7 @@ public class Controller_CrudEspecialista {
             String especialidad = vista.getTblEspecialista().getValueAt(xx, 9).toString();
             vista.getcBoxespecialidad().setSelectedItem(especialidad);
                     
-                    }
+                    
                 }
             }
               llenartxtsobrantes ();

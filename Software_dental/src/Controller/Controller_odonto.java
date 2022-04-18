@@ -170,7 +170,7 @@ public class Controller_odonto {
                 File outputfile = new File("odontograma.jpg");
                 ImageIO.write(miod.createImage(miod), "jpg", outputfile);
                 
-                String directorioRaiz = System.getProperty("user.dir")+"\\odontograma.jpg";
+                String directorioRaiz = System.getProperty("user.dir")+"/odontograma.jpg";
                 File ruta = new File(directorioRaiz);
                 if(directorioRaiz.trim().length()!=0){ 
             byte[] icono = new byte[(int) ruta.length()];

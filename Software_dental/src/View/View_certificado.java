@@ -16,9 +16,18 @@ import javax.swing.JTextField;
  */
 public class View_certificado extends javax.swing.JInternalFrame {
 
+    
+    public JButton getBtnnuevo() {
+        return btnnuevo;
+    }
+
     /**
      * Creates new form View_certificado
      */
+    public void setBtnnuevo(JButton btnnuevo) {    
+        this.btnnuevo = btnnuevo;
+    }
+
     public View_certificado() {
         initComponents();
     }
@@ -137,7 +146,6 @@ public class View_certificado extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         panelNice = new org.edisoncor.gui.panel.PanelNice();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -170,8 +178,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         txtdiasreposo = new javax.swing.JTextField();
         btncargar = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        btnnuevo = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
 
         panelNice.setBackground(new java.awt.Color(166, 104, 216));
@@ -179,95 +186,88 @@ public class View_certificado extends javax.swing.JInternalFrame {
         panelNice.setAlignmentY(1.0F);
         panelNice.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("AA");
-        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 30, 20));
-
         jLabel10.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("debido a:");
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 80, 20));
+        panelNice.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 80, 20));
 
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("referidas por el/la paciente y en");
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 260, -1));
+        panelNice.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 260, -1));
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText(" beneficio del tratamiento, recomiendo ");
         jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 310, -1));
+        panelNice.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 310, -1));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Cualquier inconveniente o duda favor llamarme. ");
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 500, 390, -1));
+        panelNice.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 500, 390, -1));
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("CERTIFICADO MEDICO ODONTOLOGICO");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 370, 20));
+        panelNice.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 370, 20));
 
         btnimprimir.setText("Imprimir");
-        panelNice.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 150, 40));
-        panelNice.add(txtdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 30, -1));
-        panelNice.add(txtmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 30, -1));
-        panelNice.add(txtanio, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 60, -1));
+        panelNice.add(btnimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 150, 40));
+        panelNice.add(txtdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 30, -1));
+        panelNice.add(txtmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 30, -1));
+        panelNice.add(txtanio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 60, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText(",");
-        panelNice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 65, 10, -1));
+        panelNice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 10, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText(", ");
-        panelNice.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 65, -1, -1));
+        panelNice.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Dra. Daniela San Martin");
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 210, 20));
+        panelNice.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 210, 20));
 
         jLabel16.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Certifico Certifico que el/la Sr./a. ");
         jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 280, 20));
+        panelNice.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 280, 20));
 
         jLabel17.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("No. De identificación :");
         jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 255, 210, 20));
+        panelNice.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 210, 20));
 
         jLabel18.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText(", con");
         jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 60, 20));
+        panelNice.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, 60, 20));
 
         txtcedula.setEditable(false);
-        panelNice.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 255, 200, -1));
-        panelNice.add(txtpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 200, -1));
+        panelNice.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 200, -1));
+        panelNice.add(txtpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 200, -1));
 
         txtrecomendaciones.setColumns(20);
         txtrecomendaciones.setLineWrap(true);
@@ -275,7 +275,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         txtrecomendaciones.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtrecomendaciones);
 
-        panelNice.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 290, 50));
+        panelNice.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 290, 50));
 
         txtoperac.setColumns(20);
         txtoperac.setLineWrap(true);
@@ -283,78 +283,67 @@ public class View_certificado extends javax.swing.JInternalFrame {
         txtoperac.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtoperac);
 
-        panelNice.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 290, 50));
+        panelNice.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 460, 50));
 
         jLabel20.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("días de reposo, medicación");
         jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 220, -1));
+        panelNice.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 220, -1));
 
         jLabel21.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("y observación con la finalidad de que pueda reintegrarse de manera  ");
         jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 415, -1, -1));
+        panelNice.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("optima a sus actividades cotidianas y laborales reduciendo de este modo");
         jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 435, 600, -1));
+        panelNice.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 600, -1));
 
         jLabel23.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("las complicaciones e inconvenientes que pueda  presentar el paciente,");
         jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 455, 620, -1));
+        panelNice.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 620, -1));
 
         jLabel24.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("espero su comprension.");
         jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 475, 200, -1));
+        panelNice.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 480, 200, -1));
 
         txtpaciente.setEditable(false);
-        panelNice.add(txtpaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 240, -1));
+        panelNice.add(txtpaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 240, -1));
 
         jLabel25.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText(", le fue practicado");
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 150, 20));
-        panelNice.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 180, -1));
-        panelNice.add(txtdiasreposo, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 390, 30, -1));
+        panelNice.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 150, 20));
+        panelNice.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, 180, -1));
+        panelNice.add(txtdiasreposo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 30, -1));
 
         btncargar.setText("Cargar Datos");
-        panelNice.add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        panelNice.add(btncargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Dirigido Dirigido A:");
+        jLabel19.setText("Dirigido A:");
         jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 190, 20));
+        panelNice.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 120, 20));
 
-        jLabel26.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("DD");
-        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 30, 20));
-
-        jLabel27.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("MM");
-        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelNice.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 30, 20));
+        btnnuevo.setText("Nuevo");
+        panelNice.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 150, 40));
 
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"))); // NOI18N
 
@@ -363,23 +352,19 @@ public class View_certificado extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 796, Short.MAX_VALUE)
-                .addComponent(lbllogo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 287, Short.MAX_VALUE)))
+                .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbllogo, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbllogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 174, Short.MAX_VALUE)
-                    .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbllogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -389,6 +374,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncargar;
     private javax.swing.JButton btnimprimir;
+    private javax.swing.JButton btnnuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -407,9 +393,6 @@ public class View_certificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbllogo;

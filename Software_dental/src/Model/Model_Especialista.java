@@ -143,6 +143,18 @@ public class Model_Especialista extends Doctor{
     
     public boolean crearPersonasByte(){
         try{
+            
+        String sql1="Select nombres, apellidos from persona where cedula ='"+getCedula()+"'";
+        PreparedStatement ps1 = null;
+        ResultSet rs = null;
+        ps1 = cpg.Con().prepareStatement(sql1);
+        rs = ps1.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "El Nro de C.I ingresado ya está registrado para: "+
+                     rs.getString(1)+" "+rs.getString(2));
+                rs.close();
+            }
+            else{
         String sql;
         
         sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos,estado)";
@@ -173,7 +185,7 @@ public class Model_Especialista extends Doctor{
                
         ps2.executeUpdate();
         //cpg.desconectar();
-        JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
+        JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); }
         return true;
             
         }
