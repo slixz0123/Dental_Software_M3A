@@ -28,6 +28,7 @@ Los requisitos recomendados son similares a los requisitos mínimos pero,     po
 
 INSTALACION 
 
+Una vez tenido en cuenta los requisitos anteriores, se procederá a instalar el sistema Software Dental.
 Debes tener instalado el programa ejectable DentalSoftware.exe, una vez ejecutado el programa debes seguir los siguientes pasos: 
 - Permitir que la aplicaion haga cambios en el dispositivo 
 - Seleccionar el idioma que desee usar en el programa 
