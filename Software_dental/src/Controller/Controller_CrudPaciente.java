@@ -221,7 +221,22 @@ public class Controller_CrudPaciente {
         @Override
         public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();   
-        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=15){
+        if(c>= '0' && c<='9' && vista.getTxttelefono().getText().length()<=9){
+
+       }else{
+        e.consume();
+       }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {} 
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    KeyListener celular = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char c = e.getKeyChar();   
+        if(c>= '0' && c<='9' && vista.getTxtcelular().getText().length()<=9){
 
        }else{
         e.consume();
@@ -237,7 +252,7 @@ public class Controller_CrudPaciente {
     vista.getYxynom().addKeyListener(nombre);
     vista.getTxtapellidos().addKeyListener(apellido);
     vista.getTxttelefono().addKeyListener(telcel);
-    vista.getTxtcelular().addKeyListener(telcel);
+    vista.getTxtcelular().addKeyListener(celular);
     vista.getTxtdireccion().addKeyListener(direccion);
     vista.getTxtprovincia().addKeyListener(provincia);
     vista.getTxtciudad().addKeyListener(ciudad);
@@ -384,16 +399,11 @@ public class Controller_CrudPaciente {
                     vista.getLablefoto().setIcon(null);}
                   
                  } else if (lp.get(i).getFoto() == null) {
-                   
-                    Icon icmuj = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
-//                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
-                         vista.getLablefoto().setIcon(icmuj);
-                 //   vista.getLablefoto().setIcon(null);
-                    
-//                    Icon icho = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
-//                    vista.getLablefoto().setIcon(icho);
-//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
-//
+                   ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
+                   Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLablefoto().getWidth(),
+                   vista.getLablefoto().getHeight(), Image.SCALE_SMOOTH);
+                   Icon iconoEscalado = new ImageIcon(imgEscalada);
+                   vista.getLablefoto().setIcon(iconoEscalado);
                     
                     }  
                 }
@@ -501,7 +511,7 @@ public class Controller_CrudPaciente {
             accion="editar";
             vista.getBtnguardarpac().setText("Editar");
             limpiartxt();}  else {JOptionPane.showMessageDialog(null, "Debe elegir el genero y el tipo de sangre");}
-             }} else if(accion.equals("editar")){
+             } else{JOptionPane.showMessageDialog(null, "No se ha podido registrar la cedula"); }} else if(accion.equals("editar")){
              editarpaciente();
              }
       }

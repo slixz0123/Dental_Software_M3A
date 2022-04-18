@@ -56,6 +56,7 @@ public class Controller_CrudEspecialista {
         vista.getBtnExaminar().addActionListener(l-> btnexaminar());
         vista.getBtnguardarEsp().addActionListener(l->ValidarDoctor());
         vista.getBtneliminar().addActionListener(l->eliminarPersonas());
+        vista.getBtnNuevo().addActionListener(l->Nuevo());
         cargarPersonas();
         KeyListener kl = new KeyListener() {
             @Override
@@ -74,6 +75,8 @@ public class Controller_CrudEspecialista {
         };
         vista.getTxtBuscarEsp().addKeyListener(kl);
         setEventoMouseClicked(vista.getTblEspecialista());
+        vista.getTxtIdDoctor().setVisible(false);
+        vista.getTxtIdUsuario().setVisible(false);
     }
     
     private void generarSerie() {
@@ -207,7 +210,7 @@ public class Controller_CrudEspecialista {
       vista.getTxtciudadesp().setText(match.appendTail(mayciu).toString()); 
         }
     };
-    KeyListener telcel = new KeyListener() {
+    KeyListener telefono = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();   
@@ -222,18 +225,31 @@ public class Controller_CrudEspecialista {
         @Override
         public void keyReleased(KeyEvent e) {}
     };
-  
+    
+    KeyListener celular=new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        char num = e.getKeyChar();
+        if(vista.getTxtCelularesp().getText().length()>9) e.consume();
+        if(num<'0' || num>'9') e.consume(); 
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {}
+        @Override
+        public void keyReleased(KeyEvent e) {}
+    };
+    
     vista.getTxtcedulaesp().addKeyListener(cedula);
     vista.getTxtnombreesp().addKeyListener(nombre);
     vista.getTxtapellidoesp().addKeyListener(apellido);
-    vista.getTxttelfesp().addKeyListener(telcel);
-    vista.getTxtCelularesp().addKeyListener(telcel);
+    vista.getTxttelfesp().addKeyListener(telefono);
+    vista.getTxtCelularesp().addKeyListener(celular);
     vista.getTxtdirecesp().addKeyListener(direccion);
     vista.getTxtprovinciaesp().addKeyListener(provincia);
     vista.getTxtciudadesp().addKeyListener(ciudad);
     vista.getTxtCargoesp().addKeyListener(ciudad);
     }
- 
+    
     private boolean validarCorreo(String email){
       if (email.contains("@") && (email.endsWith(".com") || email.endsWith(".es")
           || email.endsWith(".edu.ec")|| email.endsWith(".net"))){
@@ -262,6 +278,7 @@ public class Controller_CrudEspecialista {
      String especialidad=vista.getcBoxespecialidad().getModel().getSelectedItem().toString();
      String cargo=vista.getTxtCargoesp().getText();
      
+     
      Model_Especialista mEsp= new Model_Especialista();
      
      mEsp.setCedula(cedula);
@@ -288,15 +305,16 @@ public class Controller_CrudEspecialista {
            mEsp.setGenero("F");
            }
      try{
+            if(vista.getTxtruta().getText().trim().length()!=0){
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
-           mEsp.setFoto(icono);
+           mEsp.setFoto(icono);}
 
-            }catch(Exception ex){
-                 System.out.println(ex);
+            }catch(IOException ex){
            mEsp.setFoto(null);
         }
+//     mEsp.
      mEsp.setId_doctor(id_doctor);
      mEsp.setId_usuario("2");
      mEsp.setEspecialidad(especialidad);
@@ -371,8 +389,8 @@ public class Controller_CrudEspecialista {
             input.read(icono);
            mEsp.setFoto(icono);}
 
-            }catch(Exception ex){
- 
+            }catch(IOException ex){
+         System.out.println("no imagen");
            mEsp.setFoto(null);
         }
      mEsp.setId_doctor(id_doctor);
@@ -380,7 +398,7 @@ public class Controller_CrudEspecialista {
      mEsp.setEspecialidad(especialidad);
      mEsp.setCargo(cargo);
 
-        if(vista.getTxtruta().getText().trim().length()!=0){ 
+            if(vista.getTxtruta().getText().trim().length()!=0){ 
             if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
             if(vista.getCboxGeneroEsp().getSelectedIndex()!=0){
             JOptionPane.showMessageDialog(null, "Se modifico con exito");
@@ -392,7 +410,7 @@ public class Controller_CrudEspecialista {
             } else{JOptionPane.showMessageDialog(null, "No se pudo modificar");}
             } else {
             
-            if(mEsp.modificarPersonasbyte() && mEsp.modificarEspecialista()){
+            if(mEsp.modificarPersonasSinfoto() && mEsp.modificarEspecialista()){
             if(vista.getCboxGeneroEsp().getSelectedIndex()!=0){
             JOptionPane.showMessageDialog(null, "Se modifico con exito");
             accion="guardar";
@@ -542,6 +560,7 @@ public class Controller_CrudEspecialista {
            } else if(genero.equals("F")){
            vista.getCboxGeneroEsp().setSelectedItem("Femenino");
            }
+            llenartxtsobrantes ();
               for (int i = 0; i < lp.size(); i++) {
                 if (lp.get(i).getCedula().equals(esp)) {
                     if(lp.get(i).getFoto()!=null){
@@ -550,21 +569,28 @@ public class Controller_CrudEspecialista {
                    
                      InputStream in = new ByteArrayInputStream(ft);
                      img = ImageIO.read(in);
-          
+                     if(img!=null){
                     Image j = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                     Icon ic = new ImageIcon(j);
                     vista.getLblFotoEsp().setIcon(ic);
                     } else {
                     vista.getLblFotoEsp().setIcon(null);
-                    }
+                     }
+                    } else if (lp.get(i).getFoto() == null) {
+                   
+                    Icon icmuj = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
+                         vista.getLblFotoEsp().setIcon(icmuj);
+                    
+                    
             String id_doc = vista.getTblEspecialista().getValueAt(xx, 8).toString();
             vista.getTxtIdDoctor().setText(id_doc);      
             String especialidad = vista.getTblEspecialista().getValueAt(xx, 9).toString();
             vista.getcBoxespecialidad().setSelectedItem(especialidad);
                     
+                    }
                 }
             }
-            llenartxtsobrantes ();
+              llenartxtsobrantes ();
             }
          
         
@@ -572,6 +598,11 @@ public class Controller_CrudEspecialista {
             JOptionPane.showMessageDialog(vista, "error seleccione una fila");
             
             }
+    }
+
+    public void Nuevo(){
+        limpiartxt();
+        cargarPersonas();
     }
 
     public void llenartxtsobrantes () {
@@ -599,6 +630,8 @@ public class Controller_CrudEspecialista {
             JOptionPane.showMessageDialog(rootPane,( "¿Quieres eliminar este registro?"));
             if(resp==0){
                 if(eliminado.removerPersonas(id)){
+                    cargarPersonas();
+                    limpiartxt();
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
                 }else{
                     JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
@@ -620,6 +653,7 @@ public class Controller_CrudEspecialista {
                 if(eliminado.removerPersonas(ced)){
                     JOptionPane.showMessageDialog(null, "El registro ha sido eliminado");
                     cargarPersonas();
+                    limpiartxt();
                 }else{
                     JOptionPane.showMessageDialog(null, "No se ha podido eliminar el registro");
                 }

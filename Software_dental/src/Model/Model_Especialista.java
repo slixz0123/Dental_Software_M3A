@@ -47,7 +47,7 @@ public class Model_Especialista extends Doctor{
     public  List<Doctor> listarDoctores (){
         List<Doctor> milista = new ArrayList<Doctor>();
         try {
-            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.fotos,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc" ;
+            String sql = "select p.cedula,p.nombres,p.apellidos,p.celular,p.telefono,p.direccion,p.correo,p.provincia,p.ciudad,p.genero,p.fotos,d.id_doctor,d.id_usuario,d.especialidad,d.cargo from persona p,doctor d where p.cedula=d.cedula_doc AND estado='1'" ;
             ResultSet rs = cpg.consulta(sql) ;
             // barremos el resulset
             byte[]bytea;
@@ -99,14 +99,14 @@ public class Model_Especialista extends Doctor{
     List<Doctor> milistadoc = new ArrayList<Doctor>();
     String sql3;
      if(buscar.equals(null)){
-   sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , d.id_doctor , d.especialidad   from  persona p , doctor d  WHERE p.cedula = d.cedula_doc  " ;
+   sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , d.id_doctor , d.especialidad   from  persona p , doctor d  WHERE p.cedula = d.cedula_doc AND p.estado='1' " ;
     } else {
      sql3 = "select p.cedula , p.nombres ,p. apellidos , p.celular, p.direccion , p.ciudad ,p.genero , p.fotos , d.id_doctor , d.especialidad   from  persona p , doctor d"
 
-            + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc OR ";
-            sql3+="UPPER(p.apellidos) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc OR ";
+            + " WHERE UPPER(p.nombres) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc AND p.estado='1' OR ";
+            sql3+="UPPER(p.apellidos) LIKE UPPER('%" + buscar + "%') AND p.cedula = d.cedula_doc AND p.estado='1' OR ";
             sql3 += " UPPER(p.cedula) LIKE UPPER('%" + buscar + "%') AND ";
-            sql3 += " p.cedula = d.cedula_doc";    
+            sql3 += " p.cedula = d.cedula_doc AND p.estado='1'";    
      try {
             ResultSet rs = cpg.consulta(sql3) ;
             
@@ -145,8 +145,8 @@ public class Model_Especialista extends Doctor{
         try{
         String sql;
         
-        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos)";
-            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        sql="INSERT INTO persona (cedula,nombres,apellidos,celular,telefono,direccion,correo,provincia,ciudad,genero,fotos,estado)";
+            sql+="VALUES(?,?,?,?,?,?,?,?,?,?,?,1)";
             PreparedStatement ps=cpg.Con().prepareStatement(sql);
             ps.setString(1, getCedula());
             ps.setString(2, getNombres());
@@ -161,7 +161,6 @@ public class Model_Especialista extends Doctor{
             ps.setBytes(11,getFoto());
             ps.executeUpdate();
             
-            System.out.println("persona creada");
         String sql2;    
         sql2="INSERT INTO public.doctor (id_doctor,id_usuario,especialidad,cargo,cedula_doc)";
         sql2+="VALUES(?,?,?,?,(SELECT cedula FROM public.PERSONA WHERE cedula = ?  ))";
@@ -173,7 +172,6 @@ public class Model_Especialista extends Doctor{
         ps2.setString(5,getCedula_doc());
                
         ps2.executeUpdate();
-        System.out.println("GUARDADO CON EXITO");
         //cpg.desconectar();
         JOptionPane.showMessageDialog(null, "Especialista creadoado con exito"); 
         return true;
@@ -204,50 +202,25 @@ public class Model_Especialista extends Doctor{
         }
         return serie;
     }
-    
-//    public boolean modificarPersonasbyte(){
-//        String sql2 = "UPDATE persona SET\n"
-//                +"nombres='"+getNombres()+"', apellidos= '"+getApellidos()+"', celular= '"+getCelular()+"', telefono= '"+getTelefono()+"', direccion= '"+getDireccion()+"', correo= '"+getCorreo()+"', provincia= '"+getProvincia()+"', ciudad= '"+getCiudad()+"', genero= '"+getGenero()+"'"+"WHERE cedula= '"+getCedula()+"'";
-//        JOptionPane.showMessageDialog(null, "Especialista modificado correctamente");        
-//        return cpg.accion(sql2);
-//    }
-//    
-//
-//    public boolean modificarEspecialista(){
-//        String sql2 = "UPDATE doctor SET\n"
-//                +"especialidad='"+getEspecialidad()+"', cargo= '"+getCargo()+"' WHERE cedula_doc= '"+getCedula()+"'";  
-//        JOptionPane.showMessageDialog(null, "Especialista modificado especialidad"); 
-//        return cpg.accion(sql2);
-//    }
 
     public boolean modificarPersonasbyte(){
         try {
     String sql;
-    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=? WHERE cedula=?";
-    PreparedStatement actp= cpg.Con().prepareStatement(sql);
-    actp.setString(1, getNombres());
-    actp.setString(2, getApellidos());
-    actp.setString(3, getCelular());
-    actp.setString(4, getTelefono());
-    actp.setString(5, getDireccion());
-    actp.setString(6, getCorreo());
-    actp.setString(7, getProvincia());
-    actp.setString(8, getCiudad());
-    actp.setString(9, getGenero());
-    actp.setBytes(10, getFoto());
-    actp.setString(11, getCedula());
-    actp.executeUpdate();
-    actp.close();
-    String sql2;
-            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, fotos=?, estado=1 WHERE cedula=?";
+    PreparedStatement actesp= cpg.Con().prepareStatement(sql);
+    actesp.setString(1, getNombres());
+    actesp.setString(2, getApellidos());
+    actesp.setString(3, getCelular());
+    actesp.setString(4, getTelefono());
+    actesp.setString(5, getDireccion());
+    actesp.setString(6, getCorreo());
+    actesp.setString(7, getProvincia());
+    actesp.setString(8, getCiudad());
+    actesp.setString(9, getGenero());
+    actesp.setBytes(10, getFoto());
+    actesp.setString(11, getCedula());
+    actesp.executeUpdate();
 
-            PreparedStatement ps2=cpg.Con().prepareStatement(sql2);
-            
-            ps2.setString(1, getEspecialidad());
-            ps2.setString(2, getCargo());
-            ps2.setString(3, getCedula());
-            ps2.executeUpdate();
-            ps2.close();
            // cpg.desconectar();
     return true;
         } catch (SQLException ex) {
@@ -256,6 +229,30 @@ public class Model_Especialista extends Doctor{
     return false;
     }
     
+    public boolean modificarPersonasSinfoto(){
+        try {
+    String sql;
+    sql="Update persona SET nombres=?, apellidos=?, celular=?,telefono=?, direccion=?, correo=?, provincia=?, ciudad=?, genero=?, estado=1 WHERE cedula=?";
+    PreparedStatement actesp= cpg.Con().prepareStatement(sql);
+    actesp.setString(1, getNombres());
+    actesp.setString(2, getApellidos());
+    actesp.setString(3, getCelular());
+    actesp.setString(4, getTelefono());
+    actesp.setString(5, getDireccion());
+    actesp.setString(6, getCorreo());
+    actesp.setString(7, getProvincia());
+    actesp.setString(8, getCiudad());
+    actesp.setString(9, getGenero());
+    actesp.setString(10, getCedula());
+    actesp.executeUpdate();
+
+           // cpg.desconectar();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
+    }
 
     public boolean modificarEspecialista(){
         try {
@@ -268,7 +265,7 @@ public class Model_Especialista extends Doctor{
             ps2.setString(2, getCargo());
             ps2.setString(3, getCedula());
             ps2.executeUpdate();
-            ps2.close();
+//            ps2.close();
            // cpg.desconectar();
     return true;
         } catch (SQLException ex) {
@@ -280,9 +277,29 @@ public class Model_Especialista extends Doctor{
     
     
     public boolean removerPersonas(String ced){
-        String sql3 = "DELETE FROM doctor WHERE cedula_doc= '"+ced+"'";
-        
-        return cpg.accion(sql3);
+        try {
+    String sql;
+    sql="Update persona SET estado=? WHERE cedula='"+ced+"' AND estado='1'";
+    PreparedStatement actesp= cpg.Con().prepareStatement(sql);
+    
+    actesp.setString(1, "2");
+    actesp.executeUpdate();
+    
+    String sql2;
+            sql2="Update doctor SET especialidad=?, cargo=? where cedula_doc=?";
+
+            PreparedStatement ps2=cpg.Con().prepareStatement(sql2);
+            
+            ps2.setString(1, getEspecialidad());
+            ps2.setString(2, getCargo());
+            ps2.setString(3, getCedula());
+            ps2.executeUpdate();
+           // cpg.desconectar();
+    return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Model_Especialista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return false;
     }
     
     public List<Doctor> cargartxtsobrantes ( String cedula){
@@ -324,7 +341,7 @@ public class Model_Especialista extends Doctor{
     String sql3;
     
         try {
-            sql3 = "select p.cedula , p.nombres, p.apellidos , d.id_doctor  from  persona p , doctor d  WHERE cedula= cedula_doc   " ;
+            sql3 = "select p.cedula , p.nombres, p.apellidos , d.id_doctor  from  persona p , doctor d  WHERE cedula= cedula_doc AND p.estado = '1'   " ;
             ResultSet rs = cpg.consulta(sql3) ;
             
             // barremos el resulset
