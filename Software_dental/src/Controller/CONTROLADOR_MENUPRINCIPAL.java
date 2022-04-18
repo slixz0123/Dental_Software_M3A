@@ -678,9 +678,9 @@ public  boolean estacerradoCertificadp(View_certificado vist_cert){
      boolean cerrado=true;
      int i=0;
      while (i<activos.length && cerrado){
-     if(activos[i]==vistaod){
+     if(activos[i]==vist_cert){
      cerrado=false;
-     vistaod.toFront();
+     vist_cert.toFront();
      }
      i++;
      }

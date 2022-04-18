@@ -118,8 +118,6 @@ public class Controller_AgendaCitas {
         else{
             JOptionPane.showMessageDialog(null, "ERROR!\nLa agenda esta personalizada para eventos futuros!");
         }
-        
-       
         cargarcitas7am();
         cargarcitas8am();
         cargarcitas9am();
