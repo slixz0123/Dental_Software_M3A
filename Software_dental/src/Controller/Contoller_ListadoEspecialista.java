@@ -54,6 +54,7 @@ public class Contoller_ListadoEspecialista {
     
      public void iniciarcontrol (){
          cargarPersonas ();
+         vista.getTxtRefrescarT().addActionListener(l-> cargarPersonas ());
            KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {

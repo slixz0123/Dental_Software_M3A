@@ -98,6 +98,8 @@ public class Controller_Receta {
         setEventoMouseClicked2(vista.getTblbuscarcie10());
         vista.getBtnEliminarrec().addActionListener(l->eliminarFarmaco());
         vista.getBtnEliminarrec().addActionListener(l->eliminarCie());
+        vista.getBtnRefrescar().addActionListener(l->cargarFarmacos());
+        vista.getBtnRefrescarCie().addActionListener(l->cargarCIE10());
         KeyListener kl = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {

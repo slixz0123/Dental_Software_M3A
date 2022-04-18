@@ -73,6 +73,14 @@ public class Vista_ListadoEspecialista extends javax.swing.JInternalFrame {
         this.txtbuscaresp = txtbuscaresp;
     }
 
+    public JButton getTxtRefrescarT() {
+        return txtRefrescarT;
+    }
+
+    public void setTxtRefrescarT(JButton txtRefrescarT) {
+        this.txtRefrescarT = txtRefrescarT;
+    }
+
     
 
     
@@ -97,6 +105,7 @@ public class Vista_ListadoEspecialista extends javax.swing.JInternalFrame {
         btnimprimiresp = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadoesp = new javax.swing.JTable();
+        txtRefrescarT = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -141,6 +150,9 @@ public class Vista_ListadoEspecialista extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, 480));
 
+        txtRefrescarT.setText("Refrescar Tabla");
+        panelNice2.add(txtRefrescarT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,7 +160,7 @@ public class Vista_ListadoEspecialista extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelNice2, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +184,7 @@ public class Vista_ListadoEspecialista extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtbllistadoesp;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
+    private javax.swing.JButton txtRefrescarT;
     private jtextfieldround.JTextFieldRound txtbuscaresp;
     // End of variables declaration//GEN-END:variables
 }
