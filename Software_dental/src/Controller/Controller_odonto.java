@@ -72,7 +72,6 @@ public class Controller_odonto {
         agregarimagen();
         eventocombo(vista.getSelecOpcion());
         vista.getBtnguardar().addActionListener(l->guardarImagen());
-       // vista.getBtnimprimir().addActionListener(l->imprimir());
         btnnuevo.addActionListener(l->nuevo());
        comprobar();
        popuptabla();
@@ -157,16 +156,8 @@ public class Controller_odonto {
            odon.setId_pacien_odont(modelo.idPac(vistaMenu.getLblCedulapac().getText()));
            odon.setOd_descri(vista.getTxtobservaciones().getText());
            odon.setFecha(fecha());
-           
-  // String format = "jpg";
-    //    File saveFile = new File("savedimage."+format);
-//        JFileChooser chooser = new JFileChooser();
-//        chooser.setSelectedFile(saveFile);
-//        int rval = chooser.showSaveDialog(miod);
-//        if (rval == JFileChooser.APPROVE_OPTION) {
-//            saveFile = chooser.getSelectedFile();
+ 
             try {
-//                ImageIO.write(miod.createImage(miod), format, saveFile);
                 File outputfile = new File("odontograma.jpg");
                 ImageIO.write(miod.createImage(miod), "jpg", outputfile);
                 

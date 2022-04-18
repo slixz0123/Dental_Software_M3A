@@ -192,7 +192,7 @@ public class Model_HistorialMedico extends Hist_Medico {
      public List<Doctor> listarMedico(String ced){
         List<Doctor> lista = new ArrayList<Doctor>();
         try {
-            String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' or upper(p.nombres) like upper('%"+ced+"%') or upper (p.apellidos) like upper('%"+ced+"%')";
+            String sql="select p.cedula, p.nombres,p.apellidos,p.celular,p.telefono, p.direccion,p.correo, p.provincia,p.ciudad,p.genero,p.fotos, d.especialidad  from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' or upper(p.nombres) like upper('%"+ced+"%') or upper (p.apellidos) like upper('%"+ced+"%')";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
             Doctor p=new Doctor();
@@ -207,6 +207,7 @@ public class Model_HistorialMedico extends Hist_Medico {
             p.setCiudad(rs.getString("ciudad"));
             p.setGenero(rs.getString("genero"));
             p.setFoto(rs.getBytes("fotos"));
+            p.setEspecialidad(rs.getString("especialidad"));
             lista.add(p);
             }
             rs.close();

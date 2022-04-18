@@ -215,9 +215,17 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cedula", "Nombres", "Apellidos", "Direccion", "Correo", "Telefono"
+                "Cedula", "Nombres", "Apellidos", "Direccion", "Especialidad", "Telefono"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(tbldoctor);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
