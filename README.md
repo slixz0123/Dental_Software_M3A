@@ -1,18 +1,19 @@
-## Bienvenido al repositorio oficial de Dental_Software_M3A :tw-1f4c2: 
+## Bienvenido al repositorio oficial de Dental_Software_M3A 
 
 ### Introducción
 
 Dental_Software_M3A es realizado con el objetivo de colaborar a un consultorio odontologico para una mejor, rápida y eficaz atención al cliente, sin mucha demora a la hora de recetar o facturar, también ayudar a la hora de revisar facturas o recetas anteriores con nuestro sistema y que no tenga que estar revisando de manera manual.
 
 ## Manual de instalación
-#####Requisitos equipo cliente 
+REQUISITOS EQUIPO CLIENTE 
+
 
 
 Para poder utilizar *SOFTWARE DENTAL* es necesario saber que el sistema manejara un registro maestro de clientes, entonces solo los usuarios autorizados podrán ingresar nuevos clientes, modificarlos o eliminarlos.
 
 Los requisitos del cliente para poder utilizar el sistema, es necesario que lea detenidamente nuestro manual de instalación para que que realice el máximo funcionamiento a nuestro *SOFTWARE DENTAL*, también es muy necesario que el usuario tenga conocimientos sobre computadoras, caso contrario el usuario encargado a utilizar el sistema se demorara para entender el funcionamiento de el software 
 
-#####Requisitos equipo servidor 
+REQUISITOS EQUIPO SERVIDOR 
 
 Los requerimientos mínimos para instalar nuestro Software Dental son una serie de componentes o valores de estos, para los que está diseñado el software en cuestión y que son, los que debemos disponer en nuestro equipo para un funcionamiento adecuado. Algunos de estos requisitos pueden ser: 
 - Velocidad y tipo de procesador. (Procesador a 1 GHz o más rápido o sistema en un chip (SoC))
@@ -25,7 +26,7 @@ Los requerimientos mínimos para instalar nuestro Software Dental son una serie 
 Los requisitos recomendados son similares a los requisitos mínimos pero,     por norma general, son unos valores algo mayores, de este modo, garantizarán un funcionamiento más fluido del software en nuestro equipo.
 
 
-#####Instalación 
+INSTALACION 
 
 Debes tener instalado el programa ejectable DentalSoftware.exe, una vez ejecutado el programa debes seguir los siguientes pasos: 
 - Permitir que la aplicaion haga cambios en el dispositivo 
@@ -36,7 +37,7 @@ Debes tener instalado el programa ejectable DentalSoftware.exe, una vez ejecutad
 
 En caso de haber seguido todos los pasos el programa se ha instalado satisfactoriamente 
 
-#####Desinstalar el programa 
+DESINSTALAR EL PROGRAMA 
 
 En caso de que desees desinstalar el programa tienes que seguir los siguientes pasos:
 
