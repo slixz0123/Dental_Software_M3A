@@ -925,13 +925,11 @@ public class Controller_HistorialMedico {
      vista.getTxtenfermedad().requestFocus();
      if(cedu.equals("...")){JOptionPane.showMessageDialog(vistaMenu, "Debe tener cargado un paciente en la parte superior");} else{
      vista.getTxtcedulapac().setText(cedu);
-     //String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-     //vista.getTxtcedulamed().setText(ced_doc); 
      llenarmed();
      cargarpaciente();
      
      cambio="nuevo";
-     limpiar();
+     
      }
      }
       private void cargarpaciente(){
@@ -959,17 +957,13 @@ public class Controller_HistorialMedico {
       
       
       private void llenarmed(){
-          String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
-      // String doc= vista.getTxtcedulamed().getText();
-    List<Doctor> listmed=modelo.listarMedico(ced_doc);
-     for (int a = 0; a < listmed.size(); a++) {
+       String ced_doc =(String) vistaMenu.getJcbDocs().getSelectedItem().toString().subSequence(0, 10);
+        List<Doctor> listmed=modelo.listarMedico(ced_doc);
+        for (int a = 0; a < listmed.size(); a++) {
         if (listmed.get(a).getCedula().equals(ced_doc)) {
            vista.getTxtcedulamed().setText(listmed.get(a).getCedula());
            vista.getTxtnombresmed().setText(listmed.get(a).getNombres());
            vista.getTxtapellidosmed().setText(listmed.get(a).getApellidos());
-            System.out.println(listmed.get(a).getCedula());
-            System.out.println(listmed.get(a).getNombres());
-            System.out.println(listmed.get(a).getApellidos());
         }
       }}
      //limpiar
