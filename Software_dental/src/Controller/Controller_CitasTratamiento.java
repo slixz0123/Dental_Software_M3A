@@ -8,6 +8,8 @@ import Model.Model_Citas;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.Vista_Citas_Tratamiento;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.Date;
@@ -20,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import jtextfieldround.JTextFieldRound;
 
 
 public class Controller_CitasTratamiento {
@@ -41,14 +44,40 @@ public class Controller_CitasTratamiento {
     
     public void iniciar(){
         generarSerie();
-        cargarcitas();
+       // cargarcitas();
         vista.getBtnAgendar1().addActionListener(l->crearcitas());
         vista.getBtnACTU().addActionListener(l->limpiar());
         vista.getBtnELIM().addActionListener(l->eliminarcita());
         setEventoMouseClicked(vista.getJtblcitas());
         vista.getBtncargar().addActionListener(l->cargardatosexternosconcedula());
+        eventodolcab(vista.getTxthora());
     }
-   
+    private void eventodolcab(JTextFieldRound txt){
+    txt.addKeyListener(new KeyAdapter() {
+        public void keyPressed(KeyEvent e) {
+           
+        }
+         @Override
+        public void keyTyped(KeyEvent e) {
+            char c = e.getKeyChar();   
+       if(c>= '0' && c<='9' && vista.getTxthora().getText().length()<=4 && (c!=(char)KeyEvent.VK_BACK_SPACE)){
+         if(vista.getTxthora().getText().length() == 2  ){
+           vista.getTxthora().setText(vista.getTxthora().getText() + ":");
+         }
+       }else{
+        e.consume();
+       }
+        
+       
+       
+       
+       
+       if( vista.getTxthora().getText().length() == 0 && c !='0' && c !='1' && c !='2' && (c!=(char)KeyEvent.VK_BACK_SPACE) ){
+         JOptionPane.showMessageDialog(null, "El numero ingresado no pertenece a una hora correcta");
+           e.consume();
+       }
+        }
+    });}
     
      public void cargardatosexternosconcedula(){
        
