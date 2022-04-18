@@ -30,7 +30,7 @@ public class Model_ListadoPacientes extends Paciente {
     public Paciente listarpaciente(String buscar) {
         
         Paciente pac = new Paciente();
-        String sql = "SELECT * FROM paciente WHERE id_paciente ='"+buscar+"' AND estado = '1' ";
+        String sql = "SELECT * FROM paciente WHERE id_paciente ='"+buscar+"'";
        
         try {
             

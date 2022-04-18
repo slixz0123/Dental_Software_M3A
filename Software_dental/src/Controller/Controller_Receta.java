@@ -91,15 +91,10 @@ public class Controller_Receta {
          generarIdCie();
         vista.getBtncargardatos().addActionListener(l-> cargardesdeMenu());
         vista.getBtnbuscarfarmaco().addActionListener(l->abrir_Dialogfarmaco());
-        
         vista.getBtnBuscarcie().addActionListener(l->abrir_Dialogcie());
         vista.getBtnagregardatos().addActionListener(l->Validarfarmacos());
-//        vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
-      
         vista.getBtnagregarcie().addActionListener(l->Validarcie10());
-//        vista.getBtnagregarcie().addActionListener(l-> cargarCIE10Rec(vista.getTxtIDreceta().getText()));
         vista.getBtnCrearRec().addActionListener(l->generaRecetaImprimir());
-        
         setEventoMouseClicked(vista.getTblbuscarFarmacos());
         setEventoMouseClicked2(vista.getTblbuscarcie10());
         vista.getBtnEliminarrec().addActionListener(l->eliminarFarmaco());
@@ -112,8 +107,7 @@ public class Controller_Receta {
 
             @Override
             public void keyPressed(KeyEvent e) {
-//                vista.getBtnagregarcie().addActionListener(l->cargarCIE10Rec(vista.getTxtIDreceta().getText()));
-//                vista.getBtnagregardatos().addActionListener(l-> cargarFARRec(vista.getTxtIDreceta().getText()));
+
             }
 
             @Override
@@ -125,7 +119,8 @@ public class Controller_Receta {
         };
             vista.getTxtbuscarfar().addKeyListener(kl);
             vista.getTxtbuscarcie10().addKeyListener(kl);
-              
+            vista.getId_rec_far().setVisible(false);
+            vista.getId_rec_cie().setVisible(false);
         
        
     }
@@ -666,7 +661,7 @@ public class Controller_Receta {
             }
         }
     }
-          private void imprimirReceta2(){
+          private void imprimirReceta(){
         ConexionPg con =new ConexionPg();
           try {
 //              JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"+"/Reportes/Rec_Enca.jasper"+"/Reportes/Rep_Receta_Far.jasper"+"/Reportes/Rep_Receta_Cie.jasper"));
@@ -685,7 +680,7 @@ public class Controller_Receta {
           }
     }
           
-         private void imprimirReceta(){
+         private void imprimirReceta2(){
         ConexionPg con =new ConexionPg();
           try {
               JasperReport listado = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/Recetas2.jasper"));

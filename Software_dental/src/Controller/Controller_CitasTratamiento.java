@@ -41,12 +41,12 @@ public class Controller_CitasTratamiento {
     
     public void iniciar(){
         generarSerie();
+        cargarcitas();
         vista.getBtnAgendar1().addActionListener(l->crearcitas());
         vista.getBtnACTU().addActionListener(l->limpiar());
         vista.getBtnELIM().addActionListener(l->eliminarcita());
         setEventoMouseClicked(vista.getJtblcitas());
         vista.getBtncargar().addActionListener(l->cargardatosexternosconcedula());
-    
     }
    
     

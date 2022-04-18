@@ -131,7 +131,7 @@ public class Model_HistorialMedico extends Hist_Medico {
     public List<Paciente> listarPacientes(String busc){
     List<Paciente> lista = new ArrayList<Paciente>();
     try {
-       String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%' or upper(p.nombres) like upper('%"+busc+"%') or upper(p.apellidos) like upper('%"+busc+"%')";
+       String sql="select * from persona p join paciente pa on p.cedula=pa.cedula_pac where p.cedula like '%"+busc+"%' and p.estado='1' or upper(p.nombres) like upper('%"+busc+"%') and p.estado='1' or upper(p.apellidos) like upper('%"+busc+"%') and p.estado='1'";
        ResultSet rs=con.consulta(sql);
        while(rs.next()){
         Paciente p=new Paciente();
@@ -192,7 +192,7 @@ public class Model_HistorialMedico extends Hist_Medico {
      public List<Doctor> listarMedico(String ced){
         List<Doctor> lista = new ArrayList<Doctor>();
         try {
-            String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' or upper(p.nombres) like upper('%"+ced+"%') or upper (p.apellidos) like upper('%"+ced+"%')";
+            String sql="select * from persona p join doctor d on d.cedula_doc=p.cedula where p.cedula like '%"+ced+"%' and p.estado='1' or upper(p.nombres) like upper('%"+ced+"%') and p.estado='1' or upper (p.apellidos) like upper('%"+ced+"%')and p.estado='1'";
              ResultSet rs=con.consulta(sql);
        while(rs.next()){
             Doctor p=new Doctor();
