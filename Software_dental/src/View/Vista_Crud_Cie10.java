@@ -41,7 +41,6 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         btneliminar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
-        btnAnteriorEsp = new org.edisoncor.gui.button.ButtonRound();
         cbcate = new javax.swing.JComboBox<>();
         btnimprimircie = new javax.swing.JButton();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
@@ -77,17 +76,13 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         panelNice1.add(txtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 410, 40));
 
         btneliminar.setText("ELIMINAR");
-        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 160, 40));
+        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 160, 40));
 
         btnguardar.setText("GUARDAR");
         panelNice1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 160, 40));
 
-        btneditar.setText("EDITAR");
-        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 160, 40));
-
-        btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
-        btnAnteriorEsp.setText("cerrar");
-        panelNice1.add(btnAnteriorEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        btneditar.setText("LIMPIAR");
+        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 160, 40));
 
         cbcate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbcate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Prevención", "Operativo", "Endodoncia", "Periodoncia", "Cirugía" }));
@@ -145,7 +140,6 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonRound btnAnteriorEsp;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;

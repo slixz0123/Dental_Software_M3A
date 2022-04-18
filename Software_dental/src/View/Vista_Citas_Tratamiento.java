@@ -212,7 +212,7 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         panelNice1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, 20));
 
         btnELIM.setText("ELIMINAR");
-        panelNice1.add(btnELIM, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 130, 40));
+        panelNice1.add(btnELIM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 130, 40));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("APELLIDOS DEL DOCTOR:");
@@ -249,8 +249,8 @@ public class Vista_Citas_Tratamiento extends javax.swing.JInternalFrame {
         btnAgendar1.setText("AGENDAR");
         panelNice1.add(btnAgendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 120, 40));
 
-        btnACTU.setText("ACTUALIZAR");
-        panelNice1.add(btnACTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, 40));
+        btnACTU.setText("NUEVO");
+        panelNice1.add(btnACTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 130, 40));
         panelNice1.add(txthora, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 220, 20));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
