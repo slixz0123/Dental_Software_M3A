@@ -8,12 +8,9 @@ import Model.Cie_10;
 import Model.ConexionPg;
 import Model.Model_Cie10;
 import View.Vista_Crud_Cie10;
-import static View.Vista_Crud_Cie10.tblListacie;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +30,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author slix0
  */
 public class Controller_CrudCie10 {
-    
+    private String cambio="guardar";
     private Model_Cie10  modelo;
     private Vista_Crud_Cie10 vista ;
 
@@ -46,7 +43,7 @@ public class Controller_CrudCie10 {
     }
     public void iniciar(){
         vista.getBtnguardar().addActionListener(l->crearcrudcie10());
-        vista.getBtneditar().addActionListener(l->editarcrudcie10());
+        vista.getBtneditar().addActionListener(l->limpiar());
         vista.getBtneliminar().addActionListener(l->eliminarcrudcie10());
         vista.getBtnimprimircie().addActionListener(l->imprimirlistacie());
         setEventoMouseClicked(vista.getTblListacie());
@@ -69,31 +66,37 @@ public class Controller_CrudCie10 {
     } 
     
     public void crearcrudcie10(){
-    System.out.println("creando crud");
-     String id_cie;
-     String categoria;
-     String titulo;
-     
-     
-     id_cie=vista.getTxtcodigocie().getText();
-     categoria=vista.getCbcate().getModel().getSelectedItem().toString();
-     titulo=vista.getTxtitulo().getText();
-     
-     Model_Cie10 mcie= new Model_Cie10();
-     
-     mcie.setId_cie(id_cie);
-     
-     mcie.setTitulo(titulo);
-     mcie.setCategoria(categoria);
-     if (mcie.crearCie())    {
-         cargarcie();
-         
-         JOptionPane.showMessageDialog(vista, "CIE10 creado correctamente ");
-         limpiar();
-     }else {
-         JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
-          
-     }
+        if(cambio.equals("guardar"))
+        {
+            System.out.println("creando crud");
+             String id_cie;
+             String categoria;
+             String titulo;
+
+
+             id_cie=vista.getTxtcodigocie().getText();
+             categoria=vista.getCbcate().getModel().getSelectedItem().toString();
+             titulo=vista.getTxtitulo().getText();
+
+             Model_Cie10 mcie= new Model_Cie10();
+
+             mcie.setId_cie(id_cie);
+
+             mcie.setTitulo(titulo);
+             mcie.setCategoria(categoria);
+             if (mcie.crearCie())    {
+                 cargarcie();
+                 cambio="editar";
+                 JOptionPane.showMessageDialog(vista, "CIE10 creado correctamente ");
+                 limpiar();
+             }else {
+                 JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
+
+             }
+        }else if(cambio.equals("editar")){
+            editarcrudcie10();
+        }
+        
     }
     
     public void editarcrudcie10(){
@@ -118,7 +121,7 @@ public class Controller_CrudCie10 {
      
      if (mcie.actualizarCie10())    {
          cargarcie();
-         
+         cambio="guardar";
          JOptionPane.showMessageDialog(vista, "CIE10 editado correctamente ");
          limpiar();
      }else {
@@ -237,6 +240,8 @@ private void setEventoMouseClicked(JTable tbl)
         public void mouseClicked(MouseEvent e) {
             try {
                 cargardatosTxtcie(e);
+                cambio="editar";
+                vista.getBtnguardar().setText("EDITAR");
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudPaciente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -261,6 +266,8 @@ private void setEventoKeytyped(JTextField txt)
        vista.getTxtcodigocie().setText("");
        vista.getCbcate().setSelectedIndex(0);
        vista.getTxtitulo().setText("");
+       cambio="guardar";
+       vista.getBtnguardar().setText("GUARDAR");
    }
 
 

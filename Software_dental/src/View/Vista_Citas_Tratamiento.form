@@ -305,7 +305,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="330" y="440" width="130" height="40"/>
+                  <AbsoluteConstraints x="170" y="440" width="130" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -430,11 +430,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnACTU">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+                <Property name="text" type="java.lang.String" value="NUEVO"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="180" y="440" width="-1" height="40"/>
+                  <AbsoluteConstraints x="330" y="440" width="130" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>

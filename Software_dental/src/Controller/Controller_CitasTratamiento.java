@@ -2,35 +2,29 @@
 package Controller;
 
 import Model.Citas;
-import Model.ConexionPg;
 import Model.Doctor;
 import Model.Model_Citas;
 
 import Model.Paciente;
-import Model.Persona;
 import View.MenuPrincipal;
 import View.Vista_Citas_Tratamiento;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 
 
 public class Controller_CitasTratamiento {
+    private String cambio="agendar";
+    
     private Model_Citas modelo;
     private Vista_Citas_Tratamiento vista;
  private MenuPrincipal vistamenu ;
@@ -48,7 +42,7 @@ public class Controller_CitasTratamiento {
     public void iniciar(){
         generarSerie();
         vista.getBtnAgendar1().addActionListener(l->crearcitas());
-        vista.getBtnACTU().addActionListener(l->editarcita());
+        vista.getBtnACTU().addActionListener(l->limpiar());
         vista.getBtnELIM().addActionListener(l->eliminarcita());
         setEventoMouseClicked(vista.getJtblcitas());
         vista.getBtncargar().addActionListener(l->cargardatosexternosconcedula());
@@ -98,6 +92,7 @@ public class Controller_CitasTratamiento {
         }
     }
     public void crearcitas(){
+        if(cambio.equals("agendar")){
     System.out.println("creando crud");
     String id_cita;
     String id_paciente;
@@ -137,12 +132,17 @@ public class Controller_CitasTratamiento {
      { 
          cargarcitas();
          generarSerie();
+         cambio="actualizar";
          JOptionPane.showMessageDialog(vista, "Cita creada correctamente ");
          limpiar();
      }else {
          JOptionPane.showMessageDialog(vista, "No se pudo crear  ");
           
      }
+        }
+        else if(cambio.equals("actualizar")){
+            editarcita();
+        }
     }
     
     public void editarcita(){
@@ -182,7 +182,9 @@ public class Controller_CitasTratamiento {
      if (mci.actualizarCitas()) 
      {
          cargarcitas();
+         
          generarSerie();
+         cambio="agendar";
          JOptionPane.showMessageDialog(vista, "Cita editada correctamente ");
          limpiar();
      }else {
@@ -328,6 +330,8 @@ private void setEventoMouseClicked(JTable tbl)
             System.out.println("CLICK EN TABLA");
             try {
                 cargardatosTxtcie(e);
+                cambio="actualizar";
+                vista.getBtnAgendar1().setText("ACTUALIZAR");
             } catch (IOException ex) {
                 Logger.getLogger(Controller_CrudTratamiento.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -337,6 +341,7 @@ private void setEventoMouseClicked(JTable tbl)
    
    
    private void limpiar(){
+       generarSerie();
        vista.getTxtceduladoc().setText("");
        vista.getTxtNombredoc().setText("");
        vista.getTxtapellidosdoc().setText("");
@@ -346,6 +351,8 @@ private void setEventoMouseClicked(JTable tbl)
        vista.getJdateFecha().setDate(null);
        vista.getTxthora().setText("");
        vista.getJareades().setText("");
+       vista.getBtnAgendar1().setText("AGENDAR");
+       cambio="agendar";
    }
    
    private void Inhabiltar(){

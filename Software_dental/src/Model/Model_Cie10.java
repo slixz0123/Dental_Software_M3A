@@ -53,8 +53,11 @@ public class Model_Cie10 extends Cie_10{
     if(busc.equals("")){
     sql="select * from cie_10";
     } else {
-        sql="select * from cie_10 where id_cie like'%"+busc+"%' or categoria like '%"+busc+"%'";}
+         sql="select * from cie_10 where id_cie LIKE UPPER('%" + busc + "%')  OR UPPER (categoria)  LIKE UPPER ('%" + busc + "%') ";
+    }
         try {
+   
+        
             
             ResultSet rs=con.consulta(sql);
             while(rs.next()){
@@ -71,6 +74,8 @@ public class Model_Cie10 extends Cie_10{
         return null;
         }
     }
+
+    
     //Crear
     public boolean crearCie(){
     try {

@@ -77,13 +77,13 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
         panelNice1.add(txtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 410, 40));
 
         btneliminar.setText("ELIMINAR");
-        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 160, 40));
+        panelNice1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 160, 40));
 
         btnguardar.setText("GUARDAR");
         panelNice1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 160, 40));
 
-        btneditar.setText("EDITAR");
-        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 160, 40));
+        btneditar.setText("LIMPIAR");
+        panelNice1.add(btneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 160, 40));
 
         btnAnteriorEsp.setBackground(new java.awt.Color(166, 104, 216));
         btnAnteriorEsp.setText("cerrar");
