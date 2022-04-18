@@ -46,6 +46,14 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         this.btnimprimir = btnimprimir;
     }
 
+    public JButton getBtnrefrescar() {
+        return btnrefrescar;
+    }
+
+    public void setBtnrefrescar(JButton btnrefrescar) {
+        this.btnrefrescar = btnrefrescar;
+    }
+
     
     
     
@@ -68,6 +76,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
         btnimprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbllistadopac = new javax.swing.JTable();
+        btnrefrescar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -112,6 +121,9 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1080, 480));
 
+        btnrefrescar.setText("Refrescar Tabla");
+        panelNice2.add(btnrefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,6 +149,7 @@ public class Vista_ListadoPacientes extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnimprimir;
+    private javax.swing.JButton btnrefrescar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

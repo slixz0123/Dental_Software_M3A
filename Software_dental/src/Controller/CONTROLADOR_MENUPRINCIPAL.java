@@ -49,6 +49,8 @@ import View.Vista_crud_especalista;
 //import View.vista_Odontograma;
 import desplazable.Desface;
 import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
 //import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
