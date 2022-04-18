@@ -10,6 +10,7 @@ import Model.Model_Paciente;
 import Model.Paciente;
 import View.MenuPrincipal;
 import View.View_certificado;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Calendar;
@@ -21,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -50,6 +53,13 @@ public class Controller_Certificado {
      eventos();
      vista.getBtnimprimir().addActionListener(l->imprimir());
      vista.getBtncargar().addActionListener(l->cargarDatos());
+     }
+     private void icono(){
+     ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"));
+                   Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLbllogo().getWidth(),
+                   vista.getLbllogo().getHeight(), Image.SCALE_SMOOTH);
+                   Icon iconoEscalado = new ImageIcon(imgEscalada);
+                   vista.getLbllogo().setIcon(iconoEscalado);
      }
      private void eventos(){
      KeyListener numero=new KeyListener() {

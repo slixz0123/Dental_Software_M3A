@@ -384,16 +384,11 @@ public class Controller_CrudPaciente {
                     vista.getLablefoto().setIcon(null);}
                   
                  } else if (lp.get(i).getFoto() == null) {
-                   
-                    Icon icmuj = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
-//                        System.out.println(vista.getCmgenero().getSelectedItem().toString());
-                         vista.getLablefoto().setIcon(icmuj);
-                 //   vista.getLablefoto().setIcon(null);
-                    
-//                    Icon icho = new ImageIcon("/Users/slix0/Documents/GitHub/Dental_Software_M3A/Software_dental/src/View/icons/icono_mujer.png");
-//                    vista.getLablefoto().setIcon(icho);
-//                    System.out.println(vista.getCmgenero().getSelectedItem().toString());
-//
+                   ImageIcon imgIcon = new ImageIcon(getClass().getResource("/View/icons/icono_hombre.png"));
+                   Image imgEscalada = imgIcon.getImage().getScaledInstance(vista.getLablefoto().getWidth(),
+                   vista.getLablefoto().getHeight(), Image.SCALE_SMOOTH);
+                   Icon iconoEscalado = new ImageIcon(imgEscalada);
+                   vista.getLablefoto().setIcon(iconoEscalado);
                     
                     }  
                 }

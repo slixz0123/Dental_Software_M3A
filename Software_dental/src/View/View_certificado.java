@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -20,6 +21,14 @@ public class View_certificado extends javax.swing.JInternalFrame {
      */
     public View_certificado() {
         initComponents();
+    }
+
+    public JLabel getLbllogo() {
+        return lbllogo;
+    }
+
+    public void setLbllogo(JLabel lbllogo) {
+        this.lbllogo = lbllogo;
     }
 
     public JButton getBtncargar() {
@@ -163,6 +172,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        lbllogo = new javax.swing.JLabel();
 
         panelNice.setBackground(new java.awt.Color(166, 104, 216));
         panelNice.setAlignmentX(1.0F);
@@ -346,24 +356,30 @@ public class View_certificado extends javax.swing.JInternalFrame {
         jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelNice.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 30, 20));
 
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons/17367208-E431-476A-9D1D-31B94C22615A-PhotoRoom.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 796, Short.MAX_VALUE)
+                .addComponent(lbllogo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 287, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbllogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(13, Short.MAX_VALUE)
-                    .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(13, Short.MAX_VALUE)))
+                    .addGap(0, 174, Short.MAX_VALUE)
+                    .addComponent(panelNice, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -396,6 +412,7 @@ public class View_certificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbllogo;
     private org.edisoncor.gui.panel.PanelNice panelNice;
     private javax.swing.JTextField txtanio;
     private javax.swing.JTextField txtcedula;
