@@ -31,7 +31,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jDialog1 = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtBuscarDl = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDialog = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -117,25 +116,21 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(txtBuscarDl, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtBuscarDl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -314,7 +309,7 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
         jLabel15.setText("Meses de credito:");
         panelNice3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, 140, 20));
 
-        spiMesesCred.setModel(new javax.swing.SpinnerListModel(new String[] {"0", "3", "4", "5", "6", "9", "12", "15", "18", "24", "36"}));
+        spiMesesCred.setModel(new javax.swing.SpinnerListModel(new String[] {"3", "4", "5", "6", "9", "12", "15", "18", "24", "36"}));
         panelNice3.add(spiMesesCred, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 80, 130, -1));
 
         jPanel1.add(panelNice3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1150, 650));
@@ -357,14 +352,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
 
     public void setTblDialog(JTable tblDialog) {
         this.tblDialog = tblDialog;
-    }
-
-    public JTextField getTxtBuscarDl() {
-        return txtBuscarDl;
-    }
-
-    public void setTxtBuscarDl(JTextField txtBuscarDl) {
-        this.txtBuscarDl = txtBuscarDl;
     }
 
     public JButton getBtnBuscarPac() {
@@ -567,7 +554,6 @@ public class VISTA_PROFORMA extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner spiMesesCred;
     private javax.swing.JTable tblDialog;
     private javax.swing.JTable tblProforma;
-    private javax.swing.JTextField txtBuscarDl;
     private jtextfieldround.JTextFieldRound txtCuotaInicial;
     private jtextfieldround.JTextFieldRound txtDescuento;
     private javax.swing.JTextField txtFecha;
