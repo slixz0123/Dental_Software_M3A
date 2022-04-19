@@ -65,13 +65,17 @@ public final class Controller_Proforma {
         fecha();
         generarSerie();
         iniciarControl();
+        vista.getSpiMesesCred().setEnabled(false);
+
     }
 
     public void iniciarControl() {
+
         vista.getBtnBuscarTrat().addActionListener(l -> cargarDialogo(1));
         vista.getBtnBuscarPac().addActionListener(l -> cargarDialogo(2));
         vista.getBtnAgregar().addActionListener(l -> agregarTratamiento());
         vista.getBtnValidProforma().addActionListener(l -> generarProforma());
+        vista.getCbFormaPago().addActionListener(l -> verificarTarjeta());
         vista.getTblProforma().addKeyListener(new java.awt.event.KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -124,6 +128,15 @@ public final class Controller_Proforma {
             }
         }
         );
+    }
+
+    public void verificarTarjeta() {
+        if (vista.getCbFormaPago().getSelectedItem().toString().equals("T. Credito")) {
+            vista.getSpiMesesCred().setEnabled(true);
+        } else {
+            vista.getSpiMesesCred().setEnabled(false);
+
+        }
     }
 
     private void cargarDialogo(int origen) {//Ponemos como parametro un entero para saber de que boton es pulsado(CREAR - EDITAR)
@@ -289,58 +302,6 @@ public final class Controller_Proforma {
         }
 
     }
-//    
-//        public void ActguardarProforma() {
-//        double cuotaini = 0;
-//        double saldo = 0;
-//        double cuotamensual = 0;
-//        double totalpr = 0;
-//
-//        String idpacien = vista.getTxtPaciente().getText();
-//        if (vista.getTxtPaciente().equals("")) {
-//            JOptionPane.showInputDialog(vista, "Debe ingresar el codigo del cliente");
-//        } else {
-//            Paciente pacien = modellistpac.listarpaciente(idpacien);
-//            String serie = vista.getTxtNumSerie().getText();
-//            String paciente = vista.getTxtPaciente().getText();
-//            totalpr = Double.parseDouble(vista.getTxtValorTotal().getText());
-//            String fecha = vista.getTxtFecha().getText();
-//            String obs = vista.getTxtObservaciones().getText();
-//            String formap = vista.getCbFormaPago().getSelectedItem().toString();
-//            if (vista.getTxtCuotaInicial().getText().length() == 0) {
-//                cuotaini = 0;
-//            } else {
-//                cuotaini = Double.parseDouble(vista.getTxtCuotaInicial().getText());
-//            }
-//            if (vista.getTxtSaldo().getText().length() == 0) {
-//                saldo = 0;
-//            } else {
-//                saldo = Double.parseDouble(vista.getTxtSaldo().getText());
-//
-//            }
-//            int mesescredit = Integer.parseInt(vista.getSpiMesesCred().getValue().toString());
-//            if (vista.getTxtValorCouotaM().getText().length() == 0) {
-//                cuotamensual = 0;
-//            } else {
-//                cuotamensual = Double.parseDouble(vista.getTxtValorCouotaM().getText());
-//
-//            }
-//            pro.setSerieProf(serie);
-//            pro.setCedula(paciente);
-//            pro.setTotal(totalpr);
-//            pro.setFecha(fecha);
-//            pro.setObservaciones(obs);
-//            pro.setFormaPago(formap);
-//            pro.setCuotaini(cuotaini);
-//            pro.setSaldo(saldo);
-//            pro.setMesecredit(mesescredit);
-//            pro.setValorcuotamen(cuotamensual);
-//            modelo.Actualizarprecio(totalpr,serie);
-//            System.out.println("GUARDAR PROFORMA OK");
-//
-//        }
-//
-//    }
 
     public void generarProforma() {
         double precio = 0;
@@ -348,7 +309,7 @@ public final class Controller_Proforma {
         double saldo = 0;
         int mesescred = 0;
         double valorcuota = 0;
-        if (vista.getTxtValorTotal().getText().equals("")) {
+        if (vista.getTxtValorTotal().getText().equals("0.0")) {
             JOptionPane.showMessageDialog(vista, "Debe ingresar datos ");
         } else {
             int confirmacion = JOptionPane.showConfirmDialog(vista, "Desea imprimir?");
@@ -483,6 +444,7 @@ public final class Controller_Proforma {
         double saldo = 0;
         double cuotamensual = 0;
         if (vista.getCbFormaPago().getSelectedItem().toString().equals("T. Credito")) {
+//            vista.getSpiMesesCred().setEnabled(true);
             if (vista.getSpiMesesCred().getValue().toString().equals("0")) {
                 vista.getTxtCuotaInicial().setText(String.valueOf(cuotaini));
                 vista.getTxtSaldo().setText(String.valueOf(saldo));
@@ -586,6 +548,7 @@ public final class Controller_Proforma {
             }
         } else {
 
+//            vista.getSpiMesesCred().setEnabled(true);
         }
     }
 
