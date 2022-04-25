@@ -90,15 +90,20 @@ public class Vista_Rep_ListFarm extends javax.swing.JInternalFrame {
 
         tblFarmacos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Nombre", "Material", "Mg", "Descripcion"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblFarmacos);
 
         panelNice2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 90, 1060, 450));

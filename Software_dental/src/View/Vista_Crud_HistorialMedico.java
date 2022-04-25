@@ -142,7 +142,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(166, 104, 216));
 
-        txtbuscarpac.setHorizontalAlignment(2);
+        txtbuscarpac.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +212,7 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(90, 166, 166));
 
-        txtbuscardoc.setHorizontalAlignment(2);
+        txtbuscardoc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel44.setFont(new java.awt.Font("SF Pro Display", 0, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
@@ -591,7 +591,15 @@ public class Vista_Crud_HistorialMedico extends javax.swing.JInternalFrame {
             new String [] {
                 "#", "Fecha", "Hora"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tablahistorial);
         if (tablahistorial.getColumnModel().getColumnCount() > 0) {
             tablahistorial.getColumnModel().getColumn(0).setMinWidth(30);

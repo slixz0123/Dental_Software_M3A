@@ -122,9 +122,9 @@
                     <Column editable="false" title="Nombres" type="java.lang.Object"/>
                     <Column editable="false" title="Apellidos" type="java.lang.Object"/>
                     <Column editable="false" title="Fecha" type="java.lang.Object"/>
-                    <Column editable="true" title="Hora" type="java.lang.Object"/>
-                    <Column editable="true" title="Motivo" type="java.lang.Object"/>
-                    <Column editable="true" title="Medico Tratante" type="java.lang.Object"/>
+                    <Column editable="false" title="Hora" type="java.lang.Object"/>
+                    <Column editable="false" title="Motivo" type="java.lang.Object"/>
+                    <Column editable="false" title="Medico Tratante" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

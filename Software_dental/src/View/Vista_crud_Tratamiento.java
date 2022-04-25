@@ -160,7 +160,7 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("DESCRIPCION:");
+        jLabel8.setText("DESCRIPCIÓN:");
         panelNice1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, -1, 20));
 
         btnGuardar.setText("GUARDAR");
@@ -184,13 +184,10 @@ public class Vista_crud_Tratamiento extends javax.swing.JInternalFrame {
 
         tblListaTrat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Id", "Nombre", "Material", "Descripcion", "Precio"
+                "Id", "Nombre", "Material", "Descripción", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {

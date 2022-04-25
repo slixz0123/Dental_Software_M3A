@@ -103,7 +103,15 @@ public class Vista_Crud_Cie10 extends javax.swing.JInternalFrame{
             new String [] {
                 "Codigo CIE", "Categoria", "Titulo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblListacie);
 
         panelNice2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 990, 320));
